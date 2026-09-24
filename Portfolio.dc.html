@@ -262,6 +262,7 @@ class Component extends DCLogic {
     } : { display: 'none' };
 
     // Push each shape's centre SPREAD× further from the hero centre, kept inside the hero.
+    // Verifying commit authorship shows soumyakrishnaraj.
     const SPREAD = 1.3;
     const spread = (pos, size) => `clamp(0px, calc(50% + (${pos} + ${size} / 2 - 50%) * ${SPREAD} - ${size} / 2), calc(100% - ${size}))`;
     const slots = SLOTS[mode].map((s, i) => {
