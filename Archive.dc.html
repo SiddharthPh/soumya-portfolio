@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><script src="./sticky-header.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+html,body{margin:0;padding:0;background:#FFFDFC;}
+body{-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}
+a:hover{color:#F9261C;}
+</style>
+</helmet>
+<div style="font-family:'Courier Prime',ui-monospace,monospace;color:#2A0D09;background:#FFFDFC;min-height:100vh;">
+  <header style="position:sticky;top:0;z-index:30;background:#FFFDFC;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px clamp(20px,4.5vw,72px);flex-wrap:wrap;">
+    <a href="Portfolio.dc.html" style="font-family:'Instrument Serif',serif;font-size:32px;letter-spacing:-0.02em;color:#F9261C;">Soumya Krishnaraj</a>
+    <nav style="display:flex;align-items:center;gap:clamp(16px,2.4vw,36px);font-size:19px;">
+      <a href="Portfolio.dc.html">Design</a>
+      <a href="Portfolio.dc.html#research">Research</a>
+      <a href="Archive.dc.html" style="color:#F9261C;">Archive</a>
+      <a href="About.dc.html">About</a>
+      <a href="mailto:soumya.krishnaraj@gmail.com" style="background:#F9261C;color:#fff;padding:18px 34px;border-radius:999px;">Get in touch</a>
+    </nav>
+  </header>
+  <main data-screen-label="Archive" style="padding:clamp(40px,6vw,96px) clamp(20px,4.5vw,72px) 120px;display:flex;flex-direction:column;gap:56px;">
+    <h1 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(72px,11vw,190px);line-height:.86;letter-spacing:-0.035em;color:#F9261C;">Archive</h1>
+    <div style="display:flex;flex-direction:column;border-top:1.5px solid #2A0D09;">
+      <div style="display:grid;grid-template-columns:80px minmax(0,3fr) minmax(0,2fr) 90px;gap:16px;padding:14px 0;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;border-bottom:1px solid #EFD6D2;"><span>Year</span><span>Project</span><span>Type</span><span style="text-align:right;">Link</span></div>
+      <a href="Checklist Builder.dc.html" style="display:grid;grid-template-columns:80px minmax(0,3fr) minmax(0,2fr) 90px;gap:16px;align-items:baseline;padding:22px 0;border-bottom:1px solid #EFD6D2;transition:padding .3s ease,color .3s ease;" style-hover="padding-left:14px;color:#F9261C;">
+        <span style="font-size:15px;">2026</span><span style="font-family:'Instrument Serif',serif;font-size:clamp(26px,2.4vw,38px);line-height:1;">The Checklist Builder</span><span style="font-size:15px;">Product design</span><span style="text-align:right;">→</span>
+      </a>
+      <div style="display:grid;grid-template-columns:80px minmax(0,3fr) minmax(0,2fr) 90px;gap:16px;align-items:baseline;padding:22px 0;border-bottom:1px solid #EFD6D2;transition:padding .3s ease,color .3s ease;" style-hover="padding-left:14px;color:#F9261C;">
+        <span style="font-size:15px;">[Year]</span><span style="font-family:'Instrument Serif',serif;font-size:clamp(26px,2.4vw,38px);line-height:1;">Org structures</span><span style="font-size:15px;">Product design</span><span style="text-align:right;color:#8A4F48;">Soon</span>
+      </div>
+      <div style="display:grid;grid-template-columns:80px minmax(0,3fr) minmax(0,2fr) 90px;gap:16px;align-items:baseline;padding:22px 0;border-bottom:1px solid #EFD6D2;transition:padding .3s ease,color .3s ease;" style-hover="padding-left:14px;color:#F9261C;">
+        <span style="font-size:15px;">[Year]</span><span style="font-family:'Instrument Serif',serif;font-size:clamp(26px,2.4vw,38px);line-height:1;">Context-aware side navigation</span><span style="font-size:15px;">Design system</span><span style="text-align:right;color:#8A4F48;">Soon</span>
+      </div>
+      <div style="display:grid;grid-template-columns:80px minmax(0,3fr) minmax(0,2fr) 90px;gap:16px;align-items:baseline;padding:22px 0;border-bottom:1px solid #EFD6D2;transition:padding .3s ease,color .3s ease;" style-hover="padding-left:14px;color:#F9261C;">
+        <span style="font-size:15px;">[Year]</span><span style="font-family:'Instrument Serif',serif;font-size:clamp(26px,2.4vw,38px);line-height:1;color:#8A4F48;">[Older project]</span><span style="font-size:15px;">[Type]</span><span style="text-align:right;color:#8A4F48;">—</span>
+      </div>
+    </div>
+  </main>
+</div>
+</x-dc>
+</body>
+</html>

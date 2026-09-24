@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><script src="./sticky-header.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Courier+Prime:ital,wght@0,400;0,700;1,400&amp;family=Instrument+Sans:ital,wght@0,400..700;1,400..700&amp;display=swap">
+<script src="./image-slot.js"></script>
+<style>
+html,body{margin:0;padding:0;background:#FFFDFC;}
+body{-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}
+a:hover{color:#F9261C;}
+</style>
+</helmet>
+<div style="font-family:'Courier Prime',ui-monospace,monospace;color:#2A0D09;background:#FFFDFC;min-height:100vh;display:flex;flex-direction:column;">
+  <header style="position:sticky;top:0;z-index:30;background:#FFFDFC;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px clamp(20px,4.5vw,72px);flex-wrap:wrap;">
+    <a href="Portfolio.dc.html" style="font-family:'Instrument Serif',serif;font-size:32px;letter-spacing:-0.02em;color:#F9261C;">Soumya Krishnaraj</a>
+    <nav style="display:flex;align-items:center;gap:clamp(16px,2.4vw,36px);font-size:19px;">
+      <a href="Portfolio.dc.html">Design</a>
+      <a href="Portfolio.dc.html#research">Research</a>
+      <a href="Archive.dc.html">Archive</a>
+      <a href="About.dc.html" style="color:#F9261C;">About</a>
+      <a href="mailto:soumya.krishnaraj@gmail.com" style="background:#F9261C;color:#fff;padding:18px 34px;border-radius:999px;">Get in touch</a>
+    </nav>
+  </header>
+  <main data-screen-label="About" style="flex:1;padding:clamp(40px,6vw,96px) clamp(20px,4.5vw,72px);display:flex;flex-wrap:wrap;gap:clamp(40px,6vw,112px);align-items:flex-start;">
+    <div style="flex:4 1 280px;position:relative;aspect-ratio:4/5;max-width:460px;">
+      <image-slot id="about-portrait" mask="polygon(0 0,100% 0,100% 82%,82% 100%,0 100%)" placeholder="Drop portrait" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+    </div>
+    <div style="flex:6 1 420px;display:flex;flex-direction:column;gap:32px;max-width:62ch;">
+      <h1 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(39px,4.9vw,84px);line-height:.9;letter-spacing:-0.03em;color:#F9261C;text-wrap:balance;">Curious about how things work and why they matter.</h1>
+      <p style="margin:0;font-family:'Instrument Serif',serif;font-size:clamp(26px,2.4vw,38px);line-height:1.12;text-wrap:pretty;">I’m a product designer and researcher who likes getting into the messy parts of how products work. I design tools and systems that help people get things done, from admin builders and organizational structures to navigation and complex workflows.</p>
+      
+      
+      <p style="margin:0;font-size:18px;line-height:1.65;text-wrap:pretty;">If you want to talk about design, research, building things, or just have an interesting problem to untangle, <a href="mailto:soumya.krishnaraj@gmail.com" style="color:#F9261C;text-decoration:underline;text-underline-offset:3px;">say hi</a>.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;border-top:1.5px solid #2A0D09;padding-top:20px;font-size:17px;">
+        <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Email</span><a href="mailto:soumya.krishnaraj@gmail.com">soumya.krishnaraj@gmail.com</a></div>
+        <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Phone</span><a href="tel:+19293468337">+1 (929) 346 8337</a></div>
+        <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Elsewhere</span><span><u>[<a href="https://www.linkedin.com/in/soumya-krishnaraj/" style="text-decoration-line: underline;">LinkedIn</a>]</u></span></div>
+      </div>
+    </div>
+  </main>
+  <section data-screen-label="Working with me" style="background:#FBEAE7;padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:clamp(48px,5vw,80px);">
+    <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(52px,6.5vw,112px);line-height:.92;letter-spacing:-0.03em;color:#F9261C;">What <em>working with me</em> is like</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));column-gap:clamp(40px,6vw,112px);row-gap:clamp(56px,6vw,96px);">
+      <article style="display:flex;flex-direction:column;gap:20px;border-top:1.5px solid #2A0D09;padding-top:24px;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;">
+          <div style="position:relative;width:140px;height:110px;flex:none;transition:transform .5s cubic-bezier(.22,1,.36,1);" style-hover="transform:rotate(-4deg) scale(1.04);">
+            <image-slot id="about-doodle-1" shape="rect" fit="contain" placeholder="Doodle: open book with flowers" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+          </div>
+          <span style="font-size:15px;letter-spacing:.12em;color:#F9261C;">01</span>
+        </div>
+        <h3 style="margin:0;font-family:'Instrument Sans',system-ui,sans-serif;font-weight:600;font-size:clamp(21px,1.7vw,26px);line-height:1.22;letter-spacing:-0.01em;text-wrap:pretty;">Working with me means collaborating with an insatiable learner.</h3>
+        <p style="margin:0;font-family:'Instrument Sans',system-ui,sans-serif;font-size:18px;line-height:1.6;color:#4A1E18;text-wrap:pretty;">I have a deep-rooted curiosity that drives me to explore, question, and dig deep to uncover answers. I bring this curiosity to every project, ensuring that we leave no stone unturned in pursuit of innovative solutions.</p>
+      </article>
+      <article style="display:flex;flex-direction:column;gap:20px;border-top:1.5px solid #2A0D09;padding-top:24px;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;">
+          <div style="position:relative;width:140px;height:110px;flex:none;transition:transform .5s cubic-bezier(.22,1,.36,1);" style-hover="transform:rotate(-4deg) scale(1.04);">
+            <image-slot id="about-doodle-2" shape="rect" fit="contain" placeholder="Doodle: paper plane" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+          </div>
+          <span style="font-size:15px;letter-spacing:.12em;color:#F9261C;">02</span>
+        </div>
+        <h3 style="margin:0;font-family:'Instrument Sans',system-ui,sans-serif;font-weight:600;font-size:clamp(21px,1.7vw,26px);line-height:1.22;letter-spacing:-0.01em;text-wrap:pretty;">I thrive in the realm of uncertainty, turning complex problems into opportunities for innovation</h3>
+        <p style="margin:0;font-family:'Instrument Sans',system-ui,sans-serif;font-size:18px;line-height:1.6;color:#4A1E18;text-wrap:pretty;">Instead of shying away from ambiguity, I embrace it as an opportunity for creative thinking. When we encounter the unknown, I see it as a chance to experiment, adapt, and discover new perspectives, leading to unique and effective solutions.</p>
+      </article>
+      <article style="display:flex;flex-direction:column;gap:20px;border-top:1.5px solid #2A0D09;padding-top:24px;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;">
+          <div style="position:relative;width:140px;height:110px;flex:none;transition:transform .5s cubic-bezier(.22,1,.36,1);" style-hover="transform:rotate(-4deg) scale(1.04);">
+            <image-slot id="about-doodle-3" shape="rect" fit="contain" placeholder="Doodle: coffee cup" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+          </div>
+          <span style="font-size:15px;letter-spacing:.12em;color:#F9261C;">03</span>
+        </div>
+        <h3 style="margin:0;font-family:'Instrument Sans',system-ui,sans-serif;font-weight:600;font-size:clamp(21px,1.7vw,26px);line-height:1.22;letter-spacing:-0.01em;text-wrap:pretty;">My practice is human-centric, research-driven, and purpose-fueled<em style="font-weight:400;font-size:.78em;color:#8A4F48;"> (and may or may not involve me consuming copious amounts of coffee)</em></h3>
+        <p style="margin:0;font-family:'Instrument Sans',system-ui,sans-serif;font-size:18px;line-height:1.6;color:#4A1E18;text-wrap:pretty;">I believe that crafting exceptional experiences goes beyond the surface; it's about understanding the human narrative, using data as our compass, and creating designs that tell a meaningful story.</p>
+      </article>
+      <article style="display:flex;flex-direction:column;gap:20px;border-top:1.5px solid #2A0D09;padding-top:24px;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;">
+          <div style="position:relative;width:140px;height:110px;flex:none;transition:transform .5s cubic-bezier(.22,1,.36,1);" style-hover="transform:rotate(-4deg) scale(1.04);">
+            <image-slot id="about-doodle-4" shape="rect" fit="contain" placeholder="Doodle: person reading" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+          </div>
+          <span style="font-size:15px;letter-spacing:.12em;color:#F9261C;">04</span>
+        </div>
+        <h3 style="margin:0;font-family:'Instrument Sans',system-ui,sans-serif;font-weight:600;font-size:clamp(21px,1.7vw,26px);line-height:1.22;letter-spacing:-0.01em;text-wrap:pretty;">Nerding out over anything and everything that sparks curiosity and creativity</h3>
+        <p style="margin:0;font-family:'Instrument Sans',system-ui,sans-serif;font-size:18px;line-height:1.6;color:#4A1E18;text-wrap:pretty;">I'm your go-to partner for enthusiastic discussions about diverse topics, ranging from the hilariously awesome Slack version history updates to the weekly excitement of Figma's "Lil Big Updates." Be it tech quirks, design innovations, or the freshest internet memes, count me in!</p>
+      </article>
+    </div>
+    <p style="margin:0;max-width:34ch;font-family:'Instrument Serif',serif;font-size:clamp(28px,2.6vw,40px);line-height:1.12;text-wrap:pretty;">That's all about me (for now!). If you wish to discuss my work, collaborate, or have an interesting story to tell, feel free to <a href="mailto:soumya.krishnaraj@gmail.com" style="color:#F9261C;border-bottom:2px solid #F9261C;" style-hover="color:#2A0D09;border-color:#2A0D09;">reach out!</a></p>
+  </section>
+  <footer style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding:24px clamp(20px,4.5vw,72px) 40px;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#8A4F48;">
+    <span>© 2026 Soumya Krishnaraj</span>
+    <a href="mailto:soumya.krishnaraj@gmail.com">soumya.krishnaraj@gmail.com</a>
+  </footer>
+</div>
+</x-dc>
+</body>
+</html>

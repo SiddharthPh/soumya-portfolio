@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Courier+Prime:ital,wght@0,400;0,700;1,400&amp;family=Instrument+Sans:ital,wght@0,400..700;1,400..700&amp;display=swap">
+<script src="./image-slot.js"></script>
+<style>
+html,body{margin:0;padding:0;background:#FFFDFC;}
+body{-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}
+a:hover{color:#F9261C;}
+::selection{background:#F9261C;color:#fff;}
+</style>
+</helmet>
+
+<div style="font-family:'Instrument Sans',system-ui,sans-serif;color:#2A0D09;background:#FFFDFC;min-height:100vh;">
+  <div style="position:fixed;top:0;left:0;height:3px;background:#F9261C;z-index:20;width:{{ progress }};"></div>
+
+  <header style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px clamp(20px,4.5vw,72px);flex-wrap:wrap;">
+    <a href="Portfolio.dc.html" style="font-family:'Instrument Serif',serif;font-size:32px;letter-spacing:-0.02em;color:#F9261C;">Soumya Krishnaraj</a>
+    <nav style="display:flex;align-items:center;gap:clamp(16px,2.4vw,36px);font-size:19px;">
+      <a href="Portfolio.dc.html#research" style="display:flex;align-items:center;gap:10px;"><span style="width:10px;height:10px;border-radius:50%;background:#F9261C;"></span><span>Research</span></a>
+      <a href="Archive.dc.html">Archive</a>
+      <a href="About.dc.html">About</a>
+      <a href="mailto:soumya.krishnaraj@gmail.com" style="background:#F9261C;color:#fff;padding:18px 34px;border-radius:999px;transition:transform .25s ease;" style-hover="transform:translateY(-2px) rotate(-2deg);color:#fff;">Get in touch</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  
+
+  <!-- CONTEXT -->
+  <section data-screen-label="Case hero" style="padding:clamp(40px,6vw,96px) clamp(20px,4.5vw,72px) 0;display:flex;flex-direction:column;gap:40px;">
+    <a href="Portfolio.dc.html#work" style="align-self:flex-start;display:flex;gap:10px;font-size:15px;letter-spacing:.12em;font-family:'Courier Prime',monospace;text-transform:uppercase;color:#8A4F48;" style-hover="color:#F9261C;"></a>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;font-size:15px;letter-spacing:.12em;font-family:'Courier Prime',monospace;text-transform:uppercase;">
+      
+    </div>
+    
+    <h1 style="margin: 0; font-family: 'Instrument Serif',serif; font-weight: 400; font-size: clamp(64px,12vw,210px); line-height: .86; letter-spacing: -0.035em; color: #F9261C; max-width: 100%; text-wrap: balance; overflow-wrap: break-word">Question <i>repo + builder</i></h1><p style="margin:0;max-width:30ch;font-family:'Instrument Serif',serif;font-size:clamp(28px,2.8vw,44px);line-height:1.08;color:#2A0D09;text-wrap:pretty;">Making compliance-driven question building easier for admins</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px;border-top:1.5px solid #2A0D09;padding-top:20px;">
+      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-size:13px;letter-spacing:.12em;font-family:'Courier Prime',monospace;text-transform:uppercase;color:#8A4F48;">Role</span><span style="font-size:17px;">Design owner</span></div>
+      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-size:13px;letter-spacing:.12em;font-family:'Courier Prime',monospace;text-transform:uppercase;color:#8A4F48;">Timeline</span><span style="font-size:17px;">3 weeks</span></div>
+      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-size:13px;letter-spacing:.12em;font-family:'Courier Prime',monospace;text-transform:uppercase;color:#8A4F48;">Team</span><span style="font-size:17px;">Product, Engineering, Design</span></div>
+      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-size:13px;letter-spacing:.12em;font-family:'Courier Prime',monospace;text-transform:uppercase;color:#8A4F48;">Shipped</span><span style="font-size:17px;">Q4 2025</span></div>
+    </div>
+    <div style="position: relative; aspect-ratio: 16/9; border-radius: 6px; overflow: hidden; background-color: #FFFFFF00">
+      <image-slot id="cl-hero" shape="rect" placeholder="Drop hero mockup: checklist builder, tree view" style="position: absolute; inset: 0; width: 100%; height: 100%; left: 1px; top: -3px"></image-slot>
+    </div>
+  </section><section style="padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;justify-content:flex-end;">
+    
+  <p style="margin:0;max-width:60ch;font-size:clamp(18px,1.4vw,21px);line-height:1.65;text-wrap:pretty;">Back of house, checklists are how a restaurant proves food was stored right, equipment was checked, and safety steps weren't skipped. That happens several times a shift, at every location a brand runs. At that scale a checklist is less a paper trail and more the thing standing between a brand and a health violation.</p></section>
+
+  <!-- CHAPTERS -->
+  <div style="display:flex;flex-direction:column;">
+
+    <section data-screen-label="Problem" style="display:flex;flex-wrap:wrap;gap:clamp(32px,5vw,96px);padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);background:#43160F;color:#F8DEDB;">
+      <div style="flex:4 1 300px;"><div style="position:sticky;top:32px;display:flex;flex-direction:column;gap:16px;"><span style="font-size:15px;letter-spacing:.12em;font-family:'Courier Prime',monospace;color:#FF6A5E;">01 / THE GAP</span><h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(40px,4vw,64px);line-height:1;letter-spacing:-0.015em;">A non-compliant answer used to just sit there</h2></div></div>
+      <div style="flex:6 1 420px;display:flex;flex-direction:column;gap:24px;font-size:18px;line-height:1.65;max-width:62ch;">
+        <p style="margin:0;">A checklist had no memory of a bad answer. If someone flagged a temperature reading out of range or missed a step, the checklist still closed out as if it had passed. Nothing triggered. No follow-up, no notification.</p>
+        <blockquote style="margin:16px 0;padding:0;font-family:'Instrument Serif',serif;font-size:clamp(32px,3vw,48px);line-height:1.05;color:#FF6A5E;text-wrap:balance;">“The gap wasn't in the checklist. It was in the time between a failure and a manager finding out.”</blockquote>
+        <p style="margin:0;">Product had already flagged this. My job was to validate it was worth solving, and scope what “solving it” meant.</p>
+      </div>
+    </section>
+
+    <section data-screen-label="Validation" style="display:flex;flex-wrap:wrap;gap:clamp(32px,5vw,96px);padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);background:#FFFDFC;">
+      <div style="flex:4 1 300px;"><div style="position:sticky;top:32px;display:flex;flex-direction:column;gap:16px;"><span style="font-size:15px;letter-spacing:.12em;font-family:'Courier Prime',monospace;color:#F9261C;">02 / VALIDATION</span><h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(40px,4vw,64px);line-height:1;letter-spacing:-0.015em;">Validating the gap</h2></div></div>
+      <div style="flex:6 1 420px;display:flex;flex-direction:column;max-width:62ch;">
+        <sc-for list="{{ methods }}" as="m" hint-placeholder-count="5">
+          <div style="display:grid;grid-template-columns:48px 1fr;gap:16px;padding:20px 0;border-bottom:1px solid #EFD6D2;font-size:18px;line-height:1.5;">
+            <span style="color:#F9261C;">{{ m.n }}</span><span style="display:flex;flex-direction:column;gap:10px;"><span>{{ m.t }}</span><span style="display:flex;gap:10px;font-size:16px;line-height:1.55;color:#5A2A24;"><span style="flex:none;font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;padding-top:3px;">Insight</span><span>{{ m.i }}</span></span></span>
+          </div>
+        </sc-for>
+        
+      </div>
+    </section>
+
+    <section data-screen-label="Question types" style="display:flex;flex-wrap:wrap;gap:clamp(32px,5vw,96px);padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);background:#FBEAE7;">
+      <div style="flex:4 1 300px;"><div style="position:sticky;top:32px;display:flex;flex-direction:column;gap:16px;"><span style="font-size:15px;letter-spacing:.12em;font-family:'Courier Prime',monospace;color:#F9261C;">03 / TYPOLOGY</span><h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(40px,4vw,64px);line-height:1;letter-spacing:-0.015em;">Defining what a “question” even was</h2></div></div>
+      <div style="flex:6 1 420px;display:flex;flex-direction:column;gap:24px;font-size:18px;line-height:1.65;max-width:62ch;">
+        <p style="margin:0;">Conditional logic sounds simple until you're building an authoring tool for it. The real question: what's the finite set of ways a checklist question can behave, so that a non-technical admin can set up any of them without thinking in if/then logic?</p>
+        <div style="display:flex;align-items:flex-end;gap:24px;padding:24px 0;border-top:1.5px solid #2A0D09;border-bottom:1.5px solid #2A0D09;">
+          <span style="font-family:'Instrument Serif',serif;font-size:clamp(96px,10vw,160px);line-height:.8;color:#F9261C;">7</span>
+          <span style="font-size:17px;line-height:1.4;padding-bottom:8px;">question types, each rendering differently on the completion side.</span>
+        </div>
+        <p style="margin:0;font-size:14px;font-style:italic;color:#8A4F48;">[Name two or three, with what makes them structurally different. Solo call, or scoped with product/eng?]</p>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE -->
+    <section data-screen-label="Corrective action" style="display:flex;flex-wrap:wrap;gap:clamp(32px,5vw,96px);padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);background:#FFFDFC;">
+      <div style="flex:4 1 300px;"><div style="position:sticky;top:32px;display:flex;flex-direction:column;gap:16px;"><span style="font-size:15px;letter-spacing:.12em;font-family:'Courier Prime',monospace;color:#F9261C;">04 / CORRECTIVE ACTION</span><h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(40px,4vw,64px);line-height:1;letter-spacing:-0.015em;">Configured per question, not as a fixed rule</h2></div></div>
+      <div style="flex:6 1 420px;display:flex;flex-direction:column;gap:32px;font-size:18px;line-height:1.65;max-width:68ch;">
+        <p style="margin:0;">For each question, an admin picks the trigger that decides when a follow-up question shows: on completion, on any compliant response, on any non-compliant response, or on one specific response. One fixed rule would have been easy. This needed an authoring interface flexible enough for many different compliance flows, without asking the admin to think procedurally.</p>
+
+        <div style="background:#F8DEDB;border-radius:6px;padding:clamp(20px,3vw,36px);display:flex;flex-direction:column;gap:24px;">
+          <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px;letter-spacing:.12em;font-family:'Courier Prime',monospace;text-transform:uppercase;color:#8A4F48;"><span>Try it: configure a question</span><span>Illustrative</span></div>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <span style="font-size:14px;color:#8A4F48;">Admin: show a follow-up question when…</span>
+            <div style="display:flex;flex-wrap:wrap;gap:10px;">
+              <sc-for list="{{ triggers }}" as="t" hint-placeholder-count="4">
+                <button onClick="{{ t.onToggle }}" style="{{ t.style }}">{{ t.mark }} {{ t.label }}</button>
+              </sc-for>
+            </div>
+            <span style="font-size:15px;color:#2A0D09;">{{ trigRule }}</span>
+            <sc-if value="{{ isSpecific }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+                <span style="font-size:14px;color:#8A4F48;">Response:</span>
+                <sc-for list="{{ specOpts }}" as="o" hint-placeholder-count="3">
+                  <button onClick="{{ o.onPick }}" style="{{ o.style }}">{{ o.label }}</button>
+                </sc-for>
+              </div>
+            </sc-if>
+          </div>
+          <div style="background:#FFFDFC;border-radius:4px;padding:20px;display:flex;flex-direction:column;gap:16px;">
+            <span style="font-size:14px;color:#8A4F48;">Associate: Were all the ice cream machines cleaned?</span>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+              <sc-for list="{{ answers }}" as="a" hint-placeholder-count="3">
+                <button onClick="{{ a.onPick }}" style="{{ a.style }}">{{ a.label }}</button>
+              </sc-for>
+            </div>
+            <sc-for list="{{ fired }}" as="f" hint-placeholder-count="0">
+              <div style="display:flex;gap:12px;align-items:baseline;padding-top:12px;border-top:1px dashed #EFD6D2;font-size:16px;line-height:1.45;">
+                <span style="color:#F9261C;">↳</span><span><strong>{{ f.k }}</strong> {{ f.v }}</span>
+              </div>
+            </sc-for>
+            <sc-if value="{{ showPassNote }}" hint-placeholder-val="{{ true }}">
+              <span style="font-size:15px;color:#8A4F48;">{{ passNote }}</span>
+            </sc-if>
+          </div>
+        </div>
+        <p style="margin:0;font-size:14px;font-style:italic;color:#8A4F48;">[Swap in one real example end to end: a question, its config, what fires.]</p>
+      </div>
+    </section>
+
+    <section data-screen-label="Tree" style="display:flex;flex-wrap:wrap;gap:clamp(32px,5vw,96px);padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);background:#FBEAE7;">
+      <div style="flex:4 1 300px;"><div style="position:sticky;top:32px;display:flex;flex-direction:column;gap:16px;"><span style="font-size:15px;letter-spacing:.12em;font-family:'Courier Prime',monospace;color:#F9261C;">05 / STRUCTURE</span><h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(40px,4vw,64px);line-height:1;letter-spacing:-0.015em;">Keeping the tree from becoming a mess</h2></div></div>
+      <div style="flex:6 1 420px;display:flex;flex-direction:column;gap:28px;font-size:18px;line-height:1.65;max-width:68ch;">
+        <p style="margin:0;">The more branching logic a checklist has, the more it looks like a tree: nested and conditional instead of linear. Left unconstrained, that gets unreadable fast.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;">
+          <div style="border:1.5px solid #2A0D09;border-radius:6px;padding:24px;display:flex;flex-direction:column;gap:12px;transition:background .3s ease,transform .3s ease;" style-hover="background:#FFFDFC;transform:translateY(-4px);">
+            <span style="font-size:13px;letter-spacing:.12em;font-family:'Courier Prime',monospace;text-transform:uppercase;color:#8A4F48;">Interaction model</span>
+            <span style="font-family:'Instrument Serif',serif;font-size:34px;line-height:1;">Made it <em>navigable</em></span>
+            <span style="font-size:16px;line-height:1.55;">Modeled on a design tool's layers panel. Expand/collapse, hover and nesting behave in ways admins already half-know.</span>
+          </div>
+          <div style="background:#F9261C;color:#fff;border-radius:6px;padding:24px;display:flex;flex-direction:column;gap:12px;transition:transform .3s ease;" style-hover="transform:translateY(-4px) rotate(-1deg);">
+            <span style="font-size:13px;letter-spacing:.12em;font-family:'Courier Prime',monospace;text-transform:uppercase;">The real fix</span>
+            <span style="font-family:'Instrument Serif',serif;font-size:34px;line-height:1;">Kept it <em>usable at scale</em></span>
+            <span style="font-size:16px;line-height:1.55;">Branching capped at four trigger types per question. These were two different problems, and this one mattered more.</span>
+          </div>
+        </div>
+        <p style="margin:0;font-size:14px;font-style:italic;color:#8A4F48;">[Why four? A testing finding, a technical ceiling, or a judgment call. This is the strongest “how I think” beat.]</p>
+      </div>
+    </section>
+
+    <section data-screen-label="Associate" style="display:flex;flex-wrap:wrap;gap:clamp(32px,5vw,96px);padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);background:#FFFDFC;">
+      <div style="flex:4 1 300px;"><div style="position:sticky;top:32px;display:flex;flex-direction:column;gap:16px;"><span style="font-size:15px;letter-spacing:.12em;font-family:'Courier Prime',monospace;color:#F9261C;">06 / THE FIELD</span><h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(40px,4vw,64px);line-height:1;letter-spacing:-0.015em;">Where this leaves the associate</h2></div></div>
+      <div style="flex:6 1 420px;display:flex;flex-direction:column;gap:24px;font-size:18px;line-height:1.65;max-width:68ch;">
+        <p style="margin:0;">A teammate designed the completion experience, but it follows directly from the typology. Every question type had to render as something an associate could complete in the field, and that limited how abstract the admin side could get.</p>
+        <div style="position:relative;aspect-ratio:4/3;border-radius:6px;overflow:hidden;background:#F8DEDB;">
+          <image-slot id="cl-associate" shape="rect" placeholder="Drop associate-facing render" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE WORK -->
+    <section data-screen-label="The work" style="display:flex;flex-direction:column;gap:32px;padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);background:#2A0D09;color:#F8DEDB;">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:16px;"><h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,5vw,80px);line-height:1;letter-spacing:-0.02em;color:#F9261C;">The work</h2><span style="font-size:15px;letter-spacing:.12em;font-family:'Courier Prime',monospace;color:#C9A09A;">07 / SCREENS</span></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(20px,2.5vw,40px);">
+        <sc-for list="{{ screens }}" as="s" hint-placeholder-count="3">
+          <figure style="margin:0;display:flex;flex-direction:column;gap:16px;">
+            <div style="position:relative;aspect-ratio:4/3;border-radius:6px;overflow:hidden;background:#3A120D;transition:transform .5s cubic-bezier(.2,.7,.2,1);" style-hover="transform:translateY(-6px);">
+              <image-slot id="{{ s.id }}" shape="rect" placeholder="{{ s.ph }}" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+            </div>
+            <figcaption style="display:grid;grid-template-columns:auto 1fr;gap:12px;font-size:16px;line-height:1.5;"><span style="color:#FF6A5E;">Why</span><span>{{ s.why }}</span></figcaption>
+          </figure>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- OUTCOME -->
+    <section data-screen-label="Outcome" style="display:flex;flex-direction:column;gap:40px;padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);background:#FBEAE7;">
+      <span style="font-size:15px;letter-spacing:.12em;font-family:'Courier Prime',monospace;color:#F9261C;">08 / OUTCOME</span>
+      <h2 style="margin:0;max-width:16ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.92;letter-spacing:-0.025em;">Shipped ahead of the Circle K rollout in September.</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;">
+        <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #2A0D09;padding-top:16px;"><span style="font-family:'Instrument Serif',serif;font-size:64px;line-height:.9;color:#F9261C;">7</span><span style="font-size:15px;">question types</span></div>
+        <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #2A0D09;padding-top:16px;"><span style="font-family:'Instrument Serif',serif;font-size:64px;line-height:.9;color:#F9261C;">4</span><span style="font-size:15px;">trigger types per question</span></div>
+        <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #2A0D09;padding-top:16px;"><span style="font-family:'Instrument Serif',serif;font-size:64px;line-height:.9;color:#F9261C;">3</span><span style="font-size:15px;">corrective actions, combinable</span></div>
+        <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #2A0D09;padding-top:16px;"><span style="font-family:'Instrument Serif',serif;font-size:64px;line-height:.9;color:#F9261C;">00</span><span style="font-size:15px;">[admin build time, adoption, or say plainly if unmeasured]</span></div>
+      </div>
+      <p style="margin:0;max-width:60ch;font-size:14px;font-style:italic;color:#8A4F48;">[Optional closing line: one reflection on designing for admins vs. end users, or what you'd do differently.]</p>
+    </section>
+  </div>
+
+  <!-- NEXT -->
+  <a href="Portfolio.dc.html#work" data-screen-label="Next" style="display:flex;flex-direction:column;gap:20px;margin-top:0;padding:clamp(56px,7vw,112px) clamp(20px,4.5vw,72px);background:#43160F;color:#F8DEDB;transition:background .4s ease;" style-hover="background:#F9261C;color:#fff;">
+    <span style="font-size:15px;letter-spacing:.12em;font-family:'Courier Prime',monospace;text-transform:uppercase;">Next project · 02</span>
+    <span style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;font-family:'Instrument Serif',serif;font-size:clamp(56px,8vw,140px);line-height:.9;letter-spacing:-0.03em;"><span>Org structures</span><span>→</span></span>
+  </a>
+  <footer style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding:24px clamp(20px,4.5vw,72px) 40px;font-size:14px;letter-spacing:.1em;font-family:'Courier Prime',monospace;text-transform:uppercase;color:#8A4F48;">
+    <span>© 2026 Soumya Krishnaraj</span>
+    <a href="mailto:soumya.krishnaraj@gmail.com">soumya.krishnaraj@gmail.com</a>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const TRIG = [
+  { k: 'completed', label: 'Completed', rule: 'Fires on any response except N/A.', fq: 'Who completed the cleaning?', hits: r => r !== 'na' },
+  { k: 'compliant', label: 'All compliant', rule: 'Fires on any response marked compliant.', fq: 'Upload a photo of the cleaned machines.', hits: r => r === 'yes' },
+  { k: 'noncompliant', label: 'All non-compliant', rule: 'Fires on any response marked non-compliant.', fq: 'Which machines weren’t cleaned, and why?', hits: r => r === 'no' },
+  { k: 'specific', label: 'Specific response', rule: 'Pick one response that fires the follow-up.', fq: 'Tell us more about this response.', hits: (r, s) => r === s },
+];
+const RESP = [{ v: 'yes', label: 'Yes', tag: 'compliant' }, { v: 'no', label: 'No', tag: 'non-compliant' }, { v: 'na', label: 'N/A', tag: '' }];
+class Component extends DCLogic {
+  state = { trig: 'noncompliant', spec: 'no', answer: null, progress: 0 };
+  componentDidMount() {
+    this.onScroll = () => {
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      this.setState({ progress: h > 0 ? Math.min(1, window.scrollY / h) : 0 });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this.onScroll); }
+  renderVals() {
+    const { trig, spec, answer, progress } = this.state;
+    const chip = (active) => ({
+      all: 'unset', cursor: 'pointer', padding: '12px 18px', borderRadius: '999px', fontFamily: "'Instrument Sans',system-ui,sans-serif", fontSize: '15px',
+      border: '1.5px solid ' + (active ? '#F9261C' : '#2A0D09'), background: active ? '#F9261C' : 'transparent',
+      color: active ? '#fff' : '#2A0D09', transition: 'all .25s ease',
+    });
+    const T = TRIG.find(t => t.k === trig);
+    const triggers = TRIG.map(t => ({
+      label: t.label, mark: trig === t.k ? '●' : '○', style: chip(trig === t.k),
+      onToggle: () => this.setState({ trig: t.k }),
+    }));
+    const specOpts = RESP.map(r => ({ label: r.label, style: chip(spec === r.v), onPick: () => this.setState({ spec: r.v }) }));
+    const answers = RESP.map(r => ({
+      label: r.tag ? `${r.label} · ${r.tag}` : r.label, style: chip(answer === r.v), onPick: () => this.setState({ answer: r.v }),
+    }));
+    const hit = answer && T.hits(answer, spec);
+    const fired = hit ? [{ k: 'Follow-up question:', v: `“${T.fq}”` }] : [];
+    let passNote = '';
+    if (!answer) passNote = 'Pick a response to see if the follow-up shows.';
+    else if (!hit) passNote = 'No follow-up. The checklist moves on.';
+    return {
+      triggers, answers, fired, passNote, showPassNote: !!passNote,
+      specOpts, isSpecific: trig === 'specific', trigRule: T.rule,
+      progress: (progress * 100).toFixed(1) + '%',
+      methods: [
+        { t: 'Manager interviews on how they catch and act on non-compliant answers today',
+          i: 'Managers usually found out about a failed check hours later, at end-of-shift review, long after they could have fixed it.' },
+        { t: 'Support ticket review for issues traced to a flag left unaddressed too long',
+          i: 'The data was there, but nothing acted on it. Every ticket traced back to a failure nobody was told about.' },
+        { t: 'Admin interviews on what they had tried before this',
+          i: 'Admins had built workarounds like separate follow-up checklists and manual reminders. They needed the logic in the checklist itself.' },
+      ].map((m, i) => ({ n: '0' + (i + 1), t: m.t, i: m.i })),
+      screens: [
+        { id: 'cl-tree-1', ph: 'Tree / layers view', why: '[Why this screen matters, not a caption.]' },
+        { id: 'cl-tree-2', ph: 'Tree / layers view, nested', why: '[Why this screen matters, not a caption.]' },
+        { id: 'cl-trigger', ph: 'Trigger config for one question', why: '[Why this screen matters, not a caption.]' },
+        { id: 'cl-trigger-2', ph: 'Trigger config, combined actions', why: '[Why this screen matters, not a caption.]' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

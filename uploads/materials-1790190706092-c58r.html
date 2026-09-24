@@ -1,0 +1,45 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}</style><style>:root{color-scheme:light dark;--md-bg:#fff;--md-text:rgba(0,0,0,.8);--md-muted:rgba(0,0,0,.6);--md-fill:rgba(0,0,0,.04);--md-fill-strong:rgba(0,0,0,.06);--md-rule:rgba(0,0,0,.1);--md-rule-strong:rgba(0,0,0,.16);--md-link:hsl(210 100% 45%)}@media (prefers-color-scheme:dark){:root:where(:not([data-theme="light"])){--md-bg:#0d0d0d;--md-text:rgba(255,255,255,.85);--md-muted:rgba(255,255,255,.6);--md-fill:rgba(255,255,255,.06);--md-fill-strong:rgba(255,255,255,.09);--md-rule:rgba(255,255,255,.14);--md-rule-strong:rgba(255,255,255,.22);--md-link:hsl(210 100% 72%)}}:root[data-theme="dark"]{color-scheme:dark;--md-bg:#0d0d0d;--md-text:rgba(255,255,255,.85);--md-muted:rgba(255,255,255,.6);--md-fill:rgba(255,255,255,.06);--md-fill-strong:rgba(255,255,255,.09);--md-rule:rgba(255,255,255,.14);--md-rule-strong:rgba(255,255,255,.22);--md-link:hsl(210 100% 72%)}:root[data-theme="light"]{color-scheme:light}@media print{:root,:root[data-theme="dark"]{color-scheme:light;--md-bg:#fff;--md-text:rgba(0,0,0,.8);--md-muted:rgba(0,0,0,.6);--md-fill:rgba(0,0,0,.04);--md-fill-strong:rgba(0,0,0,.06);--md-rule:rgba(0,0,0,.1);--md-rule-strong:rgba(0,0,0,.16);--md-link:hsl(210 100% 45%)}}body{background:var(--md-bg);color:var(--md-text);max-width:720px;margin:0 auto;padding:32px;display:flex;flex-direction:column;gap:10px;font:14px/1.55 -apple-system,BlinkMacSystemFont,'SF Pro','Segoe UI',sans-serif;overflow-wrap:break-word}body>:first-child{margin-top:0}h1,h2,h3,h4,h5,h6{margin:6px 0 0;line-height:1.25;font-weight:600;text-wrap:balance}h1{font-size:1.35em}h2{font-size:1.15em;color:var(--md-muted)}h3,h4,h5,h6{font-size:1em}p,ul,ol,blockquote,table,pre,hr{margin:0}strong{font-weight:600}a{color:var(--md-link);text-decoration:none}a:hover{text-decoration:underline}ul,ol{display:flex;flex-direction:column;gap:6px;padding-left:22px}ul{list-style:disc}ol{list-style:decimal}:is(li,td,th)>*+:is(p,ul,ol,blockquote){margin-top:6px}blockquote{display:flex;flex-direction:column;gap:10px;border-left:2px solid var(--md-rule);padding-left:10px;color:var(--md-muted)}:not(pre)>code{background:var(--md-fill);padding:1px 3px;border-radius:4px;font:.92em 'SF Mono',ui-monospace,Menlo,Consolas,monospace}a>code{background:none;color:inherit}pre{background:var(--md-fill);padding:10px 12px;border-radius:6px;overflow-x:auto;font:12px/1.5 'SF Mono',ui-monospace,Menlo,Consolas,monospace;margin-block:4px}pre code{background:none;padding:0;font:inherit}table{width:100%;border-collapse:separate;border-spacing:2px;font:inherit}th,td{padding:6px 8px;border-radius:3px;text-align:left;vertical-align:top}th{background:var(--md-fill-strong);font-weight:600}td{background:var(--md-fill)}:is(th,td) :not(pre)>code{background:transparent}hr{border:0;border-top:1px solid var(--md-rule-strong);margin-block:10px}img{max-width:100%;height:auto;border-radius:4px}</style>
+</head><body>
+<h1>The Checklist Builder</h1>
+<p>KitchenIQ · Checklists · Corporate Admin Tools</p>
+<p><em>[One line: role, timeframe, tie to Circle K rollout.]</em></p>
+<p>Back of house, checklists are how a restaurant proves food was stored right, equipment was checked, and safety steps weren't skipped, often several times a shift, across every location a brand operates. At scale, they're less a paper trail than the thing standing between a brand and a health violation.</p>
+<hr>
+<h2>A non-compliant answer used to just sit there</h2>
+<p>A checklist had no memory of a bad answer. Flag a temperature reading out of range, miss a step, whatever the check was for, and the checklist closed out exactly the same as if it had passed. Nothing triggered. No follow-up. No notification.</p>
+<p>The gap wasn't in the checklist. It was in the time between a failure and a manager finding out.</p>
+<p>Product had already flagged this. My job was to validate it was worth solving, and scope what &quot;solving it&quot; meant.</p>
+<h2>Validating the gap</h2>
+<p><em>[Keep what actually happened, cut the rest:]</em></p>
+<ul>
+<li>Manager interviews on how they currently catch and act on non-compliant answers</li>
+<li>Support ticket review for issues traced to a flag going unaddressed too long</li>
+<li>Shadowing a manager's review process</li>
+<li>Audit of existing checklist data: how often, how long before action</li>
+<li>Admin interviews on what they'd tried before this</li>
+</ul>
+<h2>Defining what a &quot;question&quot; even was</h2>
+<p>Conditional logic sounds simple until you're building an authoring tool for it. The real question: what's the finite set of ways a checklist question can behave, such that a non-technical admin can configure any of them without thinking in if/then logic?</p>
+<p>Seven question types, each rendering differently on the completion side. <em>[Name two or three, with what makes them structurally different.]</em></p>
+<p><em>[Solo call, or scoped with product/eng?]</em></p>
+<h2>Corrective action, configured per question</h2>
+<p>Not a fixed system rule. Per question, an admin can trigger a follow-up question, trigger a task, notify the manager, or combine the three.</p>
+<p>That's the harder build. One fixed flow would've been easy. This meant an authoring interface flexible enough for many different compliance flows, without asking the admin to think procedurally to use it.</p>
+<p><em>[One real example, end to end: a question, its config, what fires.]</em></p>
+<h2>Keeping the tree from becoming a mess</h2>
+<p>More branching logic, more the checklist starts looking like a tree: nested, conditional, not linear. Unconstrained, that's unreadable fast.</p>
+<p><strong>Interaction model:</strong> borrowed from the Figma layers panel. Expand/collapse, hover, nesting behavior admins have some intuition for even without Figma.</p>
+<p><strong>The real fix:</strong> branching capped at four trigger types per question. The layers panel made nesting <em>navigable</em>. The cap is what kept it <em>usable at scale</em>. Different problems, and the second one mattered more.</p>
+<p><em>[Why four? Testing finding, technical ceiling, or judgment call. Best &quot;how I think&quot; beat in the case study.]</em></p>
+<h2>Where this leaves the associate</h2>
+<p>The completion experience wasn't mine, a teammate designed it. But it's a direct output of the typology: every question type had to render into something completable in the field, which constrained how abstract the admin side was allowed to get.</p>
+<p><em>[SCREEN: associate-facing render]</em></p>
+<h2>The work</h2>
+<p><em>[2-3 screens: tree/layers view. 1-2: trigger config for one question. Plus the render above. Each with a &quot;why,&quot; not a caption.]</em></p>
+<h2>What it added up to</h2>
+<p>Shipped ahead of the Circle K rollout in September.</p>
+<p><em>[Any signal beyond that: admin time to build a checklist, adoption once available, early usage. If nothing's measured, say so plainly rather than speculate.]</em></p>
+<hr>
+<p><em>[Optional closing line: one reflection on designing for admins vs. end users, or what you'd do differently.]</em></p>
+
+</body></html>

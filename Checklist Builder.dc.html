@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><script src="./sticky-header.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Courier+Prime:ital,wght@0,400;0,700;1,400&amp;family=Instrument+Sans:ital,wght@0,400..700;1,400..700&amp;display=swap">
+<script src="./image-slot.js"></script>
+<style>
+html,body{margin:0;padding:0;background:#FFFDFC;}
+body{-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}
+a:hover{color:#F9261C;}
+::selection{background:#F9261C;color:#fff;}
+</style>
+</helmet>
+
+<div style="font-family:'Instrument Sans',system-ui,sans-serif;color:#2A0D09;background:#FFFDFC;min-height:100vh;">
+  <div style="position:fixed;top:0;left:0;height:3px;background:#F9261C;z-index:40;width:{{ progress }};"></div>
+
+  <header style="position:sticky;top:0;z-index:30;background:#FFFDFC;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px clamp(20px,4.5vw,72px);flex-wrap:wrap;">
+    <a href="Portfolio.dc.html" style="font-family:'Instrument Serif',serif;font-size:32px;letter-spacing:-0.02em;color:#F9261C;">Soumya Krishnaraj</a>
+    <nav style="display:flex;align-items:center;gap:clamp(16px,2.4vw,36px);font-size:19px;">
+      <a href="Portfolio.dc.html#research" style="display:flex;align-items:center;gap:10px;"><span style="width:10px;height:10px;border-radius:50%;background:#F9261C;"></span><span>Research</span></a>
+      <a href="Archive.dc.html">Archive</a>
+      <a href="About.dc.html">About</a>
+      <a href="mailto:soumya.krishnaraj@gmail.com" style="background:#F9261C;color:#fff;padding:18px 34px;border-radius:999px;transition:transform .25s ease;" style-hover="transform:translateY(-2px) rotate(-2deg);color:#fff;">Get in touch</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section data-screen-label="Case hero" style="padding:clamp(40px,6vw,96px) clamp(20px,4.5vw,72px) clamp(64px,7vw,112px);display:flex;flex-direction:column;gap:40px;">
+    <h1 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(64px,12vw,210px);line-height:.86;letter-spacing:-0.035em;color:#F9261C;max-width:100%;text-wrap:balance;overflow-wrap:break-word;">Question <i>repo + builder</i></h1>
+    <p style="margin:0;max-width:30ch;font-family:'Instrument Serif',serif;font-size:clamp(28px,2.8vw,44px);line-height:1.08;text-wrap:pretty;">Making compliance-driven question building easier for admins</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;border-top:1.5px solid #2A0D09;padding-top:20px;">
+      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Role</span><span style="font-size:17px;">Design owner</span></div>
+      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Timeline</span><span style="font-size:17px;">3 weeks</span></div>
+      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Team</span><span style="font-size:17px;">Product, Engineering, Design</span></div>
+      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Shipped</span><span style="font-size:17px;">Q4 2025</span></div>
+    </div>
+    <div data-screen-label="Outcome" style="display:flex;flex-direction:column;gap:24px;margin-top:clamp(16px,3vw,40px);">
+      <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">OUTCOME</span>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:24px;">
+        <sc-for list="{{ outcomes }}" as="o" hint-placeholder-count="3">
+          <div style="display:flex;flex-direction:column;gap:12px;border-top:1.5px solid #2A0D09;padding-top:16px;">
+            <span style="font-family:'Instrument Serif',serif;font-size:clamp(72px,8vw,128px);line-height:.85;letter-spacing:-0.03em;color:#F9261C;">{{ o.v }}</span>
+            <span style="font-size:17px;line-height:1.4;max-width:28ch;">{{ o.l }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    
+  </section>
+
+  <!-- 01 GAP -->
+  <section data-screen-label="Gap" style="background:#43160F;color:#F8DEDB;padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:40px;">
+    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#FF6A5E;">01 / THE GAP</span>
+    <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">A failed check closed out <em style="color:#FF6A5E;">exactly like a passed one.</em></h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:24px;">
+      <sc-for list="{{ gapPoints }}" as="g" hint-placeholder-count="4">
+        <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #F8DEDB;padding-top:16px;">
+          <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#FF6A5E;">{{ g.k }}</span>
+          <span style="font-size:19px;line-height:1.45;">{{ g.v }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- 02 RESEARCH -->
+  <section data-screen-label="Research" style="padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:40px;">
+    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">02 / RESEARCH</span>
+    <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Managers found out <em style="color:#F9261C;">hours too late.</em></h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:24px;">
+      <sc-for list="{{ methods }}" as="m" hint-placeholder-count="3">
+        <div style="display:flex;flex-direction:column;gap:14px;border-top:1.5px solid #2A0D09;padding-top:16px;">
+          <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">{{ m.n }} · {{ m.t }}</span>
+          <span style="font-size:19px;line-height:1.45;font-weight:500;">{{ m.i }}</span>
+        </div>
+      </sc-for>
+    </div>
+    <div data-screen-label="Reframe" style="display:flex;flex-direction:column;gap:28px;margin-top:clamp(32px,5vw,72px);padding:clamp(28px,4vw,56px);background:#FBEAE7;border-radius:6px;">
+      <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">What reframed the problem</span>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(24px,4vw,56px);align-items:start;">
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">We assumed</span>
+          <span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.8vw,40px);line-height:1.08;color:#8A4F48;text-decoration:line-through;text-decoration-thickness:1.5px;">Failures weren’t being caught.</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">FINDING #1</span>
+          <span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.8vw,40px);line-height:1.08;">They were caught. <em style="color:#F9261C;">Nobody was told.</em></span>
+        </div>
+      </div>
+      <span style="font-size:18px;line-height:1.55;max-width:62ch;text-wrap:pretty;">The system put the onus on people. Associates had to notify managers outside the app, or managers had to keep checking every submission themselves. Either way, food safety depended on someone remembering. So the fix had to live inside the question, at the moment it fails.</span>
+    </div>
+    <div data-screen-label="No repository" style="display:flex;flex-direction:column;gap:28px;margin-top:clamp(24px,3vw,40px);padding:clamp(28px,4vw,56px);border:1.5px solid #2A0D09;border-radius:6px;">
+      <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">FINDING #2 · NO QUESTION REPOSITORY</span>
+      <span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.8vw,40px);line-height:1.08;max-width:24ch;text-wrap:balance;">Every checklist was built <em style="color:#F9261C;">from scratch.</em></span>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(20px,3vw,40px);">
+        <div style="display:flex;flex-direction:column;gap:8px;border-top:1.5px solid #2A0D09;padding-top:14px;">
+          <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Before</span>
+          <span style="font-size:17px;line-height:1.5;">Admins typed in each question by hand, even if it already existed in another checklist.</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;border-top:1.5px solid #2A0D09;padding-top:14px;">
+          <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Cost</span>
+          <span style="font-size:17px;line-height:1.5;">Slow to build, and the same check was worded differently from one location to the next.</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;border-top:1.5px solid #2A0D09;padding-top:14px;">
+          <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">What I designed</span>
+          <span style="font-size:17px;line-height:1.5;">A questions repository. Every saved question goes into it, and admins pull from it while building a checklist.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 PROCESS -->
+  <section data-screen-label="Process" style="padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:clamp(56px,7vw,112px);">
+    <div style="display:flex;flex-direction:column;gap:40px;">
+      <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">03 / PROCESS</span>
+      <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Defining what a question <em style="color:#F9261C;">can do.</em></h2>
+    </div>
+
+    <div data-screen-label="Typology" style="display:flex;flex-direction:column;gap:clamp(32px,4vw,56px);">
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;border-top:1.5px solid #2A0D09;padding-top:16px;"><span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">Mapping the question types</span></div>
+      <div style="display:flex;flex-wrap:wrap;gap:clamp(32px,5vw,96px);align-items:center;">
+        <div style="flex:3 1 420px;min-width:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,1.5vw,20px);">
+          <img src="case-study/cl-whiteboard-types.png" alt="Whiteboard: question types and how each is answered" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:6px;">
+          <img src="case-study/cl-whiteboard-matrix.png" alt="Whiteboard: settings matrix for each question type" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:6px;">
+        </div>
+        <div style="flex:2 1 280px;min-width:0;display:flex;flex-direction:column;gap:14px;max-width:40ch;">
+          <span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.6vw,40px);line-height:1.05;">Every type, every setting.</span>
+          <span style="font-size:17px;line-height:1.55;text-wrap:pretty;">I mapped each answer type to how it’s completed in the field, then to which settings it supports: compliance, comments, photos, N/A. The gaps on the board became the rules in the builder.</span>
+          <span style="font-size:17px;line-height:1.55;text-wrap:pretty;">Triggers were capped at four after interviews with 3 expert admins who’d built checklists for 5+ years.</span>
+        </div>
+      </div>
+    </div>
+
+    <div data-screen-label="Explorations" style="display:flex;flex-direction:column;gap:clamp(32px,4vw,56px);">
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;border-top:1.5px solid #2A0D09;padding-top:16px;"><span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">Directions we tried</span></div>
+      <div style="display:flex;flex-wrap:wrap;gap:clamp(32px,5vw,72px);align-items:flex-start;">
+        <figure style="margin:0;flex:1 1 340px;min-width:0;display:flex;flex-direction:column;gap:24px;">
+          <div style="aspect-ratio:4/3;border-radius:6px;overflow:hidden;background:#F4F4F4;">
+            <img src="case-study/cl-explore-stack.png" alt="Exploration A: stacked follow-up cards" style="display:block;width:100%;height:100%;object-fit:cover;object-position:top;">
+          </div>
+          <figcaption style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">A</span><span style="font-family:'Instrument Serif',serif;font-size:clamp(26px,2.4vw,34px);line-height:1;">Stacked cards</span><span style="font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#43160F;border:1px solid #43160F;border-radius:999px;padding:3px 10px;">Tested · dropped</span></div>
+            <span style="font-size:16px;line-height:1.5;max-width:48ch;text-wrap:pretty;">Everything on one long page. In testing there was no focused space to work in, and too much happening at once raised cognitive load.</span>
+          </figcaption>
+        </figure>
+        <figure style="margin:0;flex:1 1 340px;min-width:0;display:flex;flex-direction:column;gap:24px;">
+          <div style="aspect-ratio:4/3;border-radius:6px;overflow:hidden;background:#F4F4F4;">
+            <img src="case-study/cl-explore-flowchart.png" alt="Exploration B: flowchart tree" style="display:block;width:100%;height:100%;object-fit:cover;object-position:top;">
+          </div>
+          <figcaption style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">B</span><span style="font-family:'Instrument Serif',serif;font-size:clamp(26px,2.4vw,34px);line-height:1;">Flowchart</span><span style="font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#43160F;border:1px solid #43160F;border-radius:999px;padding:3px 10px;">Cut before testing</span></div>
+            <span style="font-size:16px;line-height:1.5;max-width:48ch;text-wrap:pretty;">Intuitive, but our Angular stack couldn’t support a full-structure view. Building it would have delayed the release by months.</span>
+          </figcaption>
+        </figure>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- 04 SOLUTION -->
+  <section data-screen-label="Solution" style="background:#FBEAE7;padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:48px;">
+    <div style="display:flex;flex-direction:column;gap:40px;">
+      <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">04 / SOLUTION</span>
+      <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Configure the corrective action&nbsp;<em style="color: rgb(249, 38, 28);">with the question.</em></h2>
+      <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.06em;line-height:1.5;color:#43160F;max-width:60ch;">* Screens are lightly recreated. The originals are under NDA, but the structure and interactions are true to what shipped.</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px;">
+      <sc-for list="{{ decisions }}" as="d" hint-placeholder-count="3">
+        <div style="background:#FFFDFC;border-radius:6px;padding:24px;display:flex;flex-direction:column;gap:12px;">
+          <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">{{ d.n }}</span>
+          <span style="font-family:'Instrument Serif',serif;font-size:32px;line-height:1;">{{ d.t }}</span>
+          <span style="font-size:16px;line-height:1.5;">{{ d.v }}</span>
+        </div>
+      </sc-for>
+    </div>
+
+    <figure style="margin:0;display:flex;flex-direction:column;gap:16px;">
+      <div style="background:#FFFDFC;border-radius:6px;padding:clamp(12px,2vw,28px);">
+        <img src="case-study/cl-overview.png" alt="Question builder: tree, configuration and live preview" style="display:block;width:100%;height:auto;border-radius:4px;">
+      </div>
+      <figcaption style="display:flex;gap:16px;flex-wrap:wrap;align-items:baseline;">
+        <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">The builder</span>
+        <span style="font-size:16px;line-height:1.5;max-width:60ch;text-wrap:pretty;"><b>Structure, configuration and outcome</b> in one view. Admins see what the associate will see while they build it.</span>
+      </figcaption>
+    </figure>
+
+    <div style="display:flex;flex-direction:column;gap:clamp(96px,11vw,176px);margin-top:clamp(48px,6vw,96px);">
+    <div data-screen-label="Admin features" style="display:flex;flex-direction:column;gap:clamp(64px,8vw,128px);">
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;border-top:1.5px solid #2A0D09;padding-top:16px;">
+        <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">Admin · building a question</span>
+      </div>
+      <figure style="margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:clamp(32px,5vw,96px);">
+        <div style="flex:2 1 360px;min-width:0;display:flex;justify-content:center;">
+          <img src="case-study/cl-repository.png" alt="Questions repository" style="display:block;width:100%;max-width:82%;height:auto;border-radius:6px;">
+        </div>
+        <figcaption style="flex:2 1 280px;min-width:0;display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;color:#F9261C;">01</span><span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.6vw,40px);line-height:1;">Questions repository</span></div>
+          <span style="font-size:17px;line-height:1.55;max-width:40ch;text-wrap:pretty;">Every saved question lands here. Admins pull from it while building a checklist, instead of retyping it.</span>
+        </figcaption>
+      </figure>
+      <figure style="margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:clamp(32px,5vw,96px);">
+        <div style="flex:2 1 360px;min-width:0;display:flex;justify-content:center;">
+          <img src="case-study/cl-tree-crop.png" alt="Questions tree" style="display:block;width:100%;max-width:260px;height:auto;border-radius:6px;">
+        </div>
+        <figcaption style="flex:2 1 280px;min-width:0;display:flex;flex-direction:column;gap:12px;order:-1;">
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;color:#F9261C;">02</span><span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.6vw,40px);line-height:1;">Questions tree</span></div>
+          <span style="font-size:17px;line-height:1.55;max-width:40ch;text-wrap:pretty;">Follow-ups nest under their parent, labelled with the condition that fires them.</span>
+        </figcaption>
+      </figure>
+      <figure style="margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:clamp(32px,5vw,96px);">
+        <div style="flex:2 1 360px;min-width:0;display:flex;justify-content:center;">
+          <img src="case-study/cl-trigger.png" alt="Trigger conditions" style="display:block;width:100%;max-width:82%;height:auto;border-radius:6px;">
+        </div>
+        <figcaption style="flex:2 1 280px;min-width:0;display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;color:#F9261C;">03</span><span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.6vw,40px);line-height:1;">Trigger conditions</span></div>
+          <span style="font-size:17px;line-height:1.55;max-width:40ch;text-wrap:pretty;">Choose when a follow-up shows: completed, compliant, non-compliant, or a specific answer.</span>
+        </figcaption>
+      </figure>
+      <figure style="margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:clamp(32px,5vw,96px);">
+        <div style="flex:2 1 360px;min-width:0;display:flex;justify-content:center;">
+          <img src="case-study/cl-ai-suggestions.png" alt="Smart suggestions" style="display:block;width:100%;max-width:82%;height:auto;border-radius:6px;">
+        </div>
+        <figcaption style="flex:2 1 280px;min-width:0;display:flex;flex-direction:column;gap:12px;order:-1;">
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;color:#F9261C;">04</span><span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.6vw,40px);line-height:1;">Smart suggestions</span><span style="font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#43160F;border:1px solid #43160F;border-radius:999px;padding:3px 10px;">Concept</span></div>
+          <span style="font-size:17px;line-height:1.55;max-width:40ch;text-wrap:pretty;">Prompts admins to add what’s missing, like an “Other” option or instructions.</span>
+        </figcaption>
+      </figure>
+    </div>
+    <div data-screen-label="Associate features" style="display:flex;flex-direction:column;gap:clamp(64px,8vw,128px);">
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;border-top:1.5px solid #2A0D09;padding-top:16px;">
+        <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">Associate · completing a checklist</span><span style="font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#43160F;border:1px solid #43160F;border-radius:999px;padding:3px 10px;">DESIGNED BY A COLLEAGUE, INFORMED BY MY WORK</span>
+      </div>
+      <figure style="margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:clamp(32px,5vw,96px);">
+        <div style="flex:2 1 360px;min-width:0;display:flex;justify-content:center;">
+          <img src="case-study/cl-noncompliant.png" alt="Non-compliance flag" style="display:block;width:100%;max-width:220px;height:auto;border-radius:6px;">
+        </div>
+        <figcaption style="flex:2 1 280px;min-width:0;display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;color:#F9261C;">05</span><span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.6vw,40px);line-height:1;">Non-compliance flag</span></div>
+          <span style="font-size:17px;line-height:1.55;max-width:40ch;text-wrap:pretty;">A failing answer is flagged, and its follow-ups appear right away.</span>
+        </figcaption>
+      </figure>
+      <figure style="margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:clamp(32px,5vw,96px);">
+        <div style="flex:2 1 360px;min-width:0;display:flex;justify-content:center;">
+          <img src="case-study/cl-corrective.png" alt="Corrective action" style="display:block;width:100%;max-width:220px;height:auto;border-radius:6px;">
+        </div>
+        <figcaption style="flex:2 1 280px;min-width:0;display:flex;flex-direction:column;gap:12px;order:-1;">
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;color:#F9261C;">06</span><span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.6vw,40px);line-height:1;">Corrective action</span></div>
+          <span style="font-size:17px;line-height:1.55;max-width:40ch;text-wrap:pretty;">Associates log what they fixed. A photo follow-up adds proof.</span>
+        </figcaption>
+      </figure>
+    </div>
+    </div>
+    
+  </section>
+
+  <a href="Side Navigation.dc.html" data-screen-label="Next" style="display:flex;flex-direction:column;gap:20px;padding:clamp(56px,7vw,112px) clamp(20px,4.5vw,72px);background:#43160F;color:#F8DEDB;transition:background .4s ease;" style-hover="background:#F9261C;color:#fff;">
+    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">Next project · 02</span>
+    <span style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;font-family:'Instrument Serif',serif;font-size:clamp(56px,8vw,140px);line-height:.9;letter-spacing:-0.03em;"><span>Side navigation</span><span>→</span></span>
+  </a>
+  <footer style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding:24px clamp(20px,4.5vw,72px) 40px;font-family:'Courier Prime',monospace;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#8A4F48;">
+    <span>© 2026 Soumya Krishnaraj</span>
+    <a href="mailto:soumya.krishnaraj@gmail.com">soumya.krishnaraj@gmail.com</a>
+  </footer>
+  <button onClick="{{ jump }}" aria-label="{{ jumpAria }}" style="position:fixed;right:clamp(16px,3vw,40px);bottom:clamp(16px,3vw,40px);z-index:40;display:flex;align-items:center;gap:10px;height:52px;padding:0 20px 0 16px;border:none;border-radius:999px;background:#2A0D09;color:#FFFDFC;font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;box-shadow:0 8px 24px rgba(42,13,9,.18);transition:background-color .3s ease;" style-hover="background:#F9261C;">
+    <span style="display:inline-flex;font-size:18px;line-height:1;transition:transform .45s cubic-bezier(.22,1,.36,1);transform:{{ jumpRot }};">↓</span>
+    <span>{{ jumpLabel }}</span>
+  </button>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const TRIG = [
+  { k: 'completed', label: 'Completed', rule: 'Fires on any response except N/A.', fq: 'Who completed the cleaning?', hits: r => r !== 'na' },
+  { k: 'compliant', label: 'All compliant', rule: 'Fires on any response marked compliant.', fq: 'Upload a photo of the cleaned machines.', hits: r => r === 'yes' },
+  { k: 'noncompliant', label: 'All non-compliant', rule: 'Fires on any response marked non-compliant.', fq: 'Which machines weren’t cleaned, and why?', hits: r => r === 'no' },
+  { k: 'specific', label: 'Specific response', rule: 'Pick one response that fires the follow-up.', fq: 'Tell us more about this response.', hits: (r, s) => r === s },
+];
+const RESP = [{ v: 'yes', label: 'Yes', tag: 'compliant' }, { v: 'no', label: 'No', tag: 'non-compliant' }, { v: 'na', label: 'N/A', tag: '' }];
+class Component extends DCLogic {
+  state = { trig: 'noncompliant', spec: 'no', answer: null, progress: 0, wide: window.innerWidth >= 1000 };
+  componentDidMount() {
+    this.__jumpInit();
+    this.onResize = () => { const wide = window.innerWidth >= 1000; if (wide !== this.state.wide) this.setState({ wide }); };
+    window.addEventListener('resize', this.onResize);
+    this.onScroll = () => {
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      this.setState({ progress: h > 0 ? Math.min(1, window.scrollY / h) : 0 });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+  }
+  componentWillUnmount() { removeEventListener('scroll', this.onJumpScroll); removeEventListener('resize', this.onJumpScroll); window.removeEventListener('scroll', this.onScroll); window.removeEventListener('resize', this.onResize); }
+
+  __jumpTarget() { return document.querySelector('[data-screen-label="Solution"]'); }
+  __jumpInit() {
+    this.onJumpScroll = () => {
+      const h = document.documentElement.scrollHeight - innerHeight, p = h > 0 ? scrollY / h : 0;
+      const s = this.__jumpTarget(), hd = document.querySelector('header');
+      const past = s ? s.getBoundingClientRect().top <= (hd ? hd.offsetHeight : 0) + 24 : false;
+      const up = p > 0.3 || past;
+      if (up !== !!this.state.jumpUp) this.setState({ jumpUp: up });
+    };
+    addEventListener('scroll', this.onJumpScroll, { passive: true });
+    addEventListener('resize', this.onJumpScroll);
+    this.onJumpScroll();
+  }
+  jump = () => {
+    if (this.state.jumpUp) { scrollTo({ top: 0, behavior: 'smooth' }); return; }
+    const s = this.__jumpTarget(), hd = document.querySelector('header');
+    if (s) scrollTo({ top: s.getBoundingClientRect().top + scrollY - (hd ? hd.offsetHeight : 0), behavior: 'smooth' });
+  };
+  renderVals() {
+    const up = !!this.state.jumpUp;
+    return { ...this.__rv(), jump: this.jump, jumpLabel: up ? 'Top' : 'Solution', jumpAria: up ? 'Back to top' : 'Jump to the solution', jumpRot: up ? 'rotate(180deg)' : 'rotate(0deg)' };
+  }
+  __rv() {
+    const { trig, spec, answer, progress } = this.state;
+    const chip = (active) => ({
+      all: 'unset', cursor: 'pointer', padding: '12px 18px', borderRadius: '999px', fontFamily: "'Instrument Sans',system-ui,sans-serif", fontSize: '15px',
+      border: '1.5px solid ' + (active ? '#F9261C' : '#2A0D09'), background: active ? '#F9261C' : 'transparent',
+      color: active ? '#fff' : '#2A0D09', transition: 'all .25s ease',
+    });
+    const T = TRIG.find(t => t.k === trig);
+    const triggers = TRIG.map(t => ({ label: t.label, mark: trig === t.k ? '●' : '○', style: chip(trig === t.k), onToggle: () => this.setState({ trig: t.k }) }));
+    const specOpts = RESP.map(r => ({ label: r.label, style: chip(spec === r.v), onPick: () => this.setState({ spec: r.v }) }));
+    const answers = RESP.map(r => ({ label: r.tag ? `${r.label} · ${r.tag}` : r.label, style: chip(answer === r.v), onPick: () => this.setState({ answer: r.v }) }));
+    const hit = answer && T.hits(answer, spec);
+    const fired = hit ? [{ k: 'Follow-up question:', v: `“${T.fq}”` }] : [];
+    let passNote = '';
+    if (!answer) passNote = 'Pick a response to see if the follow-up shows.';
+    else if (!hit) passNote = 'No follow-up. The checklist moves on.';
+    return {
+      triggers, answers, fired, passNote, showPassNote: !!passNote,
+      specOpts, isSpecific: trig === 'specific', trigRule: T.rule,
+      protoWide: this.state.wide, protoNarrow: !this.state.wide,
+      progress: (progress * 100).toFixed(1) + '%',
+      gapPoints: [
+        { k: 'What happened', v: 'A bad temperature or skipped step was recorded, and nothing fired.' },
+        { k: 'No reuse', v: 'Each question had to be added to checklists by hand. There was no central repository for questions that get reused.' },
+        { k: 'Why it mattered', v: 'Checklists are what stand between a brand and a health violation.' },
+        { k: 'My job', v: 'Validate it was worth solving, and scope what solving it meant.' },
+      ],
+      methods: [
+        { t: 'Manager interviews', i: 'Failures surfaced at end-of-shift review, long after they could be fixed.' },
+        { t: 'Support tickets', i: 'Every ticket traced back to a failure nobody was told about.' },
+        { t: 'Admin interviews', i: 'Admins had built workarounds. They needed the logic in the checklist itself.' },
+        { t: 'Admin interviews', i: 'The same questions were rebuilt by hand on every checklist, with no central place to reuse them.' },
+      ].map((m, i) => ({ n: '0' + (i + 1), t: m.t, i: m.i })),
+      decisions: [
+        { n: 'Triggers', t: '4 ways to fire a follow-up', v: 'Completed, all compliant, all non-compliant, or one specific response. Capped at four after interviews with 3 expert admins who’d built checklists for 5+ years.' },
+        { n: 'Structure', t: 'A tree admins can navigate', v: 'Nested follow-ups live in a layers-style tree with expand and collapse.' },
+        { n: 'Reuse', t: 'A questions repository', v: 'Every saved question goes to one repository. Admins pull from it instead of re-entering questions for each checklist.' },
+      ],
+      outcomes: [
+        { v: '80%', l: 'faster to create checklists with the questions repository' },
+        { v: '98%', l: 'less time from a non-compliant answer to corrective action' },
+        { v: '16,000', l: 'locations in North America and EU adopted this way of building checklists' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

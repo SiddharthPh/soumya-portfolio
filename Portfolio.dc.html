@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<meta name="ext-resource-dependency" content="./case-study/thumb-builder-v2.png" data-resource-id="thumbBuilder" />
+<meta name="ext-resource-dependency" content="./case-study/thumb-sidenav.png" data-resource-id="thumbSidenav" />
+<meta name="ext-resource-dependency" content="./case-study/thumb-org-v2.png" data-resource-id="thumbOrg" />
+</head>
+<body>
+<template id="__bundler_thumbnail" data-bg-color="#FFFDFC"><svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg"><circle cx="520" cy="380" r="190" fill="#F9261C"/><rect x="620" y="420" width="300" height="170" rx="20" fill="#43160F" transform="skewX(-14)"/><circle cx="360" cy="520" r="90" fill="#F8DEDB"/></svg></template>
+<x-dc>
+<helmet><script src="./sticky-header.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Courier+Prime:wght@400;700&amp;display=swap">
+<script src="./image-slot.js"></script>
+<style>
+html,body{margin:0;padding:0;}
+body{-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}
+a:hover{color:#F9261C;}
+::selection{background:#F9261C;color:#fff;}
+</style>
+</helmet>
+
+<div style="{{ rootStyle }}">
+  <div style="{{ wipeStyle }}"></div>
+
+  <div style="position:relative;z-index:1;font-family:'Courier Prime',ui-monospace,monospace;color:var(--fg,#2A0D09);transition:color .7s ease;">
+
+    <!-- NAV -->
+    <header style="position:sticky;top:0;z-index:30;background:var(--bg,#FFFDFC);transition:background-color .7s ease;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px clamp(20px,4.5vw,72px);flex-wrap:wrap;">
+      <a href="Portfolio.dc.html" style="font-family:'Instrument Serif',serif;font-size:32px;letter-spacing:-0.02em;color:var(--head,#F9261C);transition:color .7s ease;">Soumya Krishnaraj</a>
+      <nav style="display:flex;align-items:center;gap:clamp(16px,2.4vw,36px);font-size:19px;">
+        <button onClick="{{ toggle }}" style="all:unset;cursor:pointer;display:flex;align-items:center;gap:10px;color:var(--fg,#2A0D09);transition:color .7s ease;" style-hover="color:#F9261C;">
+          <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--accent,#F9261C);"></span>
+          <span>{{ toggleLabel }}</span>
+        </button>
+        
+        <a href="About.dc.html" style="color:var(--fg,#2A0D09);transition:color .7s ease;">About</a>
+        <a href="mailto:soumya.krishnaraj@gmail.com" style="background:#F9261C;color:#fff;padding:18px 34px;border-radius:999px;transition:transform .25s ease,background .25s ease;" style-hover="transform:translateY(-2px) rotate(-2deg);background:#E01810;color:#fff;">Get in touch</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section data-screen-label="Hero" onMouseMove="{{ onHeroMove }}" style="position:relative;height:calc(100vh - 112px);min-height:620px;max-height:980px;overflow:hidden;">
+      <sc-for list="{{ slots }}" as="s" hint-placeholder-count="0">
+        <div style="{{ s.box }}">
+          <div data-par="{{ s.depth }}" style="position:absolute;inset:0;transition:translate .8s cubic-bezier(.2,.7,.2,1),scale .4s ease;" style-hover="scale:1.05;">
+            <div style="{{ s.shape }}"></div>
+            <div style="{{ s.labelStyle }}">{{ s.label }}</div>
+          </div>
+        </div>
+      </sc-for>
+
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;padding:0 24px;pointer-events:none;z-index:2;">
+        <div style="font-size:15px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted,#8A4F48);transition:color .7s ease;">{{ eyebrow }}</div>
+        <h1 style="{{ headStyle }}">{{ headline }}</h1>
+      </div>
+
+      <a href="#work" style="position:absolute;left:50%;bottom:28px;translate:-50% 0;z-index:3;display:flex;align-items:center;gap:12px;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg,#2A0D09);transition:color .7s ease;">
+        <span>Selected work ({{ workCount }})</span><span style="font-size:18px;">↓</span>
+      </a>
+    </section>
+
+    <!-- WORK -->
+    <main id="work" style="padding:clamp(64px,8vw,128px) clamp(20px,4.5vw,72px) 0;display:flex;flex-direction:column;gap:clamp(80px,10vw,160px);">
+      <sc-if value="{{ isResearch }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;align-items:flex-start;gap:14px;font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg,#F8DEDB);margin-bottom:calc(-1 * clamp(40px,6vw,112px));">
+          <span style="width:10px;height:10px;margin-top:.45em;border-radius:50%;background:var(--accent,#FF3B2E);flex-shrink:0;"></span>
+          <span style="flex:1;min-width:0;text-wrap:pretty;">This half of my portfolio is a work in progress. I’m working hard to have it updated soon.</span>
+        </div>
+      </sc-if>
+      <sc-for list="{{ projects }}" as="p" hint-placeholder-count="3">
+        <article data-reveal="1" data-screen-label="{{ p.screen }}" style="display: flex; flex-wrap: wrap; gap: clamp(32px,4.5vw,80px); align-items: stretch; border-top: 1px solid var(--line,#EFD6D2); padding-top: 32px; transition: border-color .7s ease; position: relative">
+          <div style="flex:5 1 340px;min-width:0;display:flex;flex-direction:column;justify-content:space-between;gap:48px;">
+            <div style="display:flex;flex-direction:column;gap:28px;">
+              <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">
+                <span style="color:var(--accent,#F9261C);">{{ p.num }}</span>
+                <sc-if value="{{ p.isShipped }}" hint-placeholder-val="{{ true }}">
+                <span style="display: inline-flex; align-items: center; gap: 8px; color: #107003; transition: color .7s ease; background-color: #B6F1A795; border-width: 1px; border-style: solid; border-color: #489D47; border-radius: 999px; padding: 4px 12px 4px 10px;"><span style="width: 8px; height: 8px; border-radius: 50%; background: #1FA20F; box-shadow: 0 0 0 3px #1FA20F33;"></span>Shipped</span>
+                </sc-if>
+                <sc-if value="{{ p.isDev }}" hint-placeholder-val="{{ false }}">
+                <span style="display:inline-flex;align-items:center;gap:8px;color:#7A4B00;background:#FFE7B8;border:1px solid #D99A2B;border-radius:999px;padding:4px 12px 4px 10px;"><span style="width:8px;height:8px;border-radius:50%;background:#E08A00;box-shadow:0 0 0 3px #E08A0033;"></span>In development</span>
+                </sc-if>
+                <span style="color:var(--muted,#8A4F48);transition:color .7s ease;">{{ p.tag }}</span>
+              </div>
+              <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(36px,3.6vw,60px);line-height:1.02;letter-spacing:-0.015em;text-wrap:pretty;color:var(--head,#F9261C);transition:color .7s ease;">{{ p.statement }}</h2>
+              <sc-if value="{{ p.hasLink }}" hint-placeholder-val="{{ false }}">
+                <a href="{{ p.href }}" style="align-self:flex-start;display:flex;align-items:center;gap:12px;font-size:17px;padding-bottom:4px;border-bottom:1.5px solid currentColor;color:var(--fg,#2A0D09);transition:gap .3s ease,color .3s ease;" style-hover="gap:22px;color:#F9261C;">
+                  <span>Read the case study</span><span>→</span>
+                </a>
+              </sc-if>
+              <sc-if value="{{ p.noLink }}" hint-placeholder-val="{{ false }}">
+                <span style="align-self:flex-start;font-size:15px;color:var(--muted,#8A4F48);">Case study in progress</span>
+              </sc-if>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;">
+              <sc-for list="{{ p.metrics }}" as="m" hint-placeholder-count="3">
+                <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid var(--fg,#2A0D09);padding-top:16px;transition:border-color .7s ease;">
+                  <span style="font-family:'Instrument Serif',serif;font-size:clamp(40px,3.4vw,56px);line-height:.9;color:var(--accent,#F9261C);">{{ m.v }}</span>
+                  <span style="font-size:14px;line-height:1.35;color:var(--fg,#2A0D09);transition:color .7s ease;text-wrap:pretty;">{{ m.l }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+          <div style="flex:7 1 460px;min-width:0;">
+            <div onMouseEnter="{{ p.onEnter }}" onMouseLeave="{{ p.onLeave }}" style="position:relative;aspect-ratio:4/3;border-radius:6px;overflow:hidden;background:transparent;transition:transform .9s cubic-bezier(.22,1,.36,1),background-color .7s ease;will-change:transform;cursor:default;box-shadow:none;" style-hover="transform:translateY(-6px) scale(1.01);">
+              <sc-if value="{{ p.hasThumb }}" hint-placeholder-val="{{ false }}">
+                <div role="img" aria-label="{{ p.name }}" style="position:absolute;inset:0;background-image:{{ p.thumbBg }};background-size:cover;background-position:center;"></div>
+                <div style="{{ p.hoverLayer }}">
+                  <div role="img" aria-label="{{ p.name }}" style="position:absolute;inset:0;background-image:{{ p.thumbHoverBg }};background-size:cover;background-position:center;"></div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ p.noThumb }}" hint-placeholder-val="{{ true }}">
+                <image-slot id="{{ p.slot }}" shape="rect" placeholder="{{ p.slotLabel }}" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+                <div style="{{ p.hoverLayer }}">
+                  <image-slot id="{{ p.slotHover }}" shape="rect" placeholder="{{ p.slotHoverLabel }}" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+                </div>
+              </sc-if>
+            </div>
+          </div>
+        </article>
+      </sc-for>
+    </main>
+
+    <!-- FOOTER -->
+    <footer data-screen-label="Contact" style="padding:clamp(120px,14vw,220px) clamp(20px,4.5vw,72px) 40px;display:flex;flex-direction:column;gap:64px;">
+      <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:40px;">
+        <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(45px,7vw,118px);line-height:.88;letter-spacing:-0.03em;color:var(--head,#F9261C);transition:color .7s ease;max-width:9ch;">{{ footerLine }}</h2>
+        <div style="display:flex;flex-direction:column;gap:14px;font-size:19px;">
+          <a href="mailto:soumya.krishnaraj@gmail.com" style="border-bottom:1.5px solid currentColor;padding-bottom:4px;">soumya.krishnaraj@gmail.com</a>
+          <a href="tel:+19293468337">+1 (929) 346 8337</a>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted,#8A4F48);border-top:1px solid var(--line,#EFD6D2);padding-top:24px;transition:color .7s ease,border-color .7s ease;">
+        <span>© 2026 Soumya Krishnaraj</span>
+      </div>
+    </footer>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showHoverThumbs&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Thumbnails&quot;}}">
+const N = 96;
+const EASE = 'cubic-bezier(.7,0,.2,1)';
+const fmt = pts => 'polygon(' + pts.map(([x, y]) => x.toFixed(2) + '% ' + y.toFixed(2) + '%').join(',') + ')';
+const angles = () => Array.from({ length: N }, (_, i) => -Math.PI / 2 + (2 * Math.PI * i) / N);
+const radial = fn => fmt(angles().map(t => { const r = fn(t); return [50 + r * Math.cos(t), 50 + r * Math.sin(t)]; }));
+function rayPoly(poly) {
+  return fmt(angles().map(t => {
+    const dx = Math.cos(t), dy = Math.sin(t); let best = 1e9;
+    for (let i = 0; i < poly.length; i++) {
+      const [x1, y1] = poly[i], [x2, y2] = poly[(i + 1) % poly.length];
+      const ex = x2 - x1, ey = y2 - y1, den = dx * ey - dy * ex;
+      if (Math.abs(den) < 1e-9) continue;
+      const qx = x1 - 50, qy = y1 - 50;
+      const tt = (qx * ey - qy * ex) / den, u = (qx * dy - qy * dx) / den;
+      if (tt > 0 && u >= 0 && u <= 1 && tt < best) best = tt;
+    }
+    return [50 + best * dx, 50 + best * dy];
+  }));
+}
+const arcPts = []; for (let i = 0; i <= 40; i++) { const a = Math.PI + (Math.PI * i) / 40; arcPts.push([50 + 50 * Math.cos(a), 50 + 50 * Math.sin(a)]); }
+const SHAPES = {
+  circle: radial(() => 50),
+  clover: radial(t => 36 + 26 * Math.pow(Math.abs(Math.sin(2 * t)), 0.6)),
+  para: rayPoly([[24, 0], [100, 0], [76, 100], [0, 100]]),
+  burst: radial(t => 45 + 5 * Math.cos(12 * t)),
+  squircle: radial(t => 50 / Math.pow(Math.pow(Math.abs(Math.cos(t)), 4) + Math.pow(Math.abs(Math.sin(t)), 4), 0.25)),
+  arch: rayPoly([...arcPts, [100, 100], [0, 100]]),
+};
+
+const THEMES = {
+  design: { bg: '#FFFDFC', fg: '#2A0D09', head: '#F9261C', accent: '#F9261C', soft: '#F8DEDB', muted: '#8A4F48', line: '#EFD6D2' },
+  research: { bg: '#230907', fg: '#F8DEDB', head: '#F8DEDB', accent: '#FF3B2E', soft: '#3A120D', muted: '#C9A09A', line: '#4A1E18' },
+};
+
+const SLOTS = {
+  design: [
+    { l: '53%', t: '6%', w: '21vw', h: '13vw', shape: 'circle', rot: -18, c: '#F9261C', tc: '#FFFFFF', label: 'Systems thinker', on: 1 },
+    { l: '16%', t: '48%', w: '15vw', h: '15vw', shape: 'clover', rot: 0, c: '#F8DEDB', tc: '#F9261C', label: 'Detail obsessive', on: 1 },
+    { l: '59%', t: '69%', w: '19vw', h: '11vw', shape: 'para', rot: 0, c: '#43160F', tc: '#FFFFFF', label: 'Context-aware', on: 1 },
+    { l: '16%', t: '9%', w: '10vw', h: '12vw', shape: 'arch', rot: 0, c: '#F9261C', tc: '#FFFFFF', label: '', on: 0 },
+  ],
+  research: [
+    { l: '57%', t: '17%', w: '13vw', h: '13vw', shape: 'circle', rot: 0, c: '#FF3B2E', tc: '#FFFFFF', label: 'Pattern-finder', on: 1 },
+    { l: '21%', t: '17%', w: '15vw', h: '15vw', shape: 'burst', rot: 12, c: '#F8DEDB', tc: '#43160F', label: 'Meaning maker', on: 1 },
+    { l: '18%', t: '55%', w: '21vw', h: '8vw', shape: 'squircle', rot: -4, c: '#5E1C14', tc: '#F8DEDB', label: 'Signal from noise', on: 1 },
+    { l: '62%', t: '49%', w: '12vw', h: '15vw', shape: 'arch', rot: 0, c: '#FF3B2E', tc: '#FFFFFF', label: 'Synthesis nerd', on: 1 },
+  ],
+};
+
+const COPY = {
+  design: { head: 'I design for how people actually work.', eyebrow: 'Product designer', toggle: 'Research', footer: "Let's build it right." },
+  research: { head: 'I listen for what people actually mean.', eyebrow: 'Design researcher', toggle: 'Design', footer: "Let's go find out." },
+};
+
+const PROJECTS = {
+  design: [
+    { name: 'Shipped', tag: 'KitchenIQ · Admin tools', statement: 'Making compliance-driven question building easier for admins', href: 'Checklist Builder.dc.html', thumb: ((window.__resources||{}).thumbBuilder||'case-study/thumb-builder-v2.png'), thumbHover: ((window.__resources||{}).thumbBuilder||'case-study/thumb-builder-v2.png'),
+      metrics: [{ v: '80%', l: 'faster to create checklists with the new questions repository' }, { v: '98%', l: 'reduction in time taken to go from a non-compliant answer to a corrective action ' }, { v: '16,000', l: 'locations in North America and EU adopted this way of building & storing checklists' }] },
+    { name: 'Side navigation', tag: 'Design system', statement: 'Rebuilding the side nav’s selected state to pass WCAG, with one component for every module and user level.', href: 'Side Navigation.dc.html', thumb: ((window.__resources||{}).thumbSidenav||'case-study/thumb-sidenav.png'), thumbHover: ((window.__resources||{}).thumbSidenav||'case-study/thumb-sidenav.png'),
+      metrics: [{ v: 'AA', l: 'WCAG 2.1 contrast on every nav text and indicator' }, { v: '15', l: 'modules covered by one menu item component' }, { v: '4', l: 'personas built from the same parts' }] },
+    { name: 'Org structures', tag: 'KitchenIQ · Platform', statement: 'Letting customers build their own hierarchy, so content and accountability reach the right people.', href: 'Org Structures.dc.html', status: 'dev', thumb: ((window.__resources||{}).thumbOrg||'case-study/thumb-org-v2.png'), thumbHover: ((window.__resources||{}).thumbOrg||'case-study/thumb-org-v2.png'),
+      metrics: [] }
+  ],
+  research: [
+    { name: 'Misinformation guidebook', tag: 'Master’s capstone · Purdue', statement: 'Helping older adults in India question what they read online, with their grandchildren beside them.', href: 'Misinformation Guidebook.dc.html', status: 'capstone',
+      metrics: [{ v: '100%', l: 'of participants correctly explained the algorithm concept' }, { v: '50–75', l: 'minutes per family discussion' }, { v: '>2×', l: 'task completion after the visual redesign' }] }
+  ],
+};
+
+class Component extends DCLogic {
+  constructor(p) {
+    super(p);
+    const m = (typeof location !== 'undefined' && location.hash === '#research') ? 'research' : 'design';
+    this.state = { mode: m, bgMode: m, headMode: m, headOut: false, wipe: null };
+  }
+  componentDidMount() {
+    const els = document.querySelectorAll('[data-reveal]');
+    els.forEach(el => { el.style.opacity = '0'; el.style.translate = '0 40px'; el.style.transition += ',opacity 1s cubic-bezier(.2,.7,.2,1),translate 1s cubic-bezier(.2,.7,.2,1)'; });
+    this.io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.translate = '0 0'; this.io.unobserve(e.target); }
+    }), { threshold: 0.12 });
+    els.forEach(el => this.io.observe(el));
+  }
+  componentWillUnmount() { this.io && this.io.disconnect(); clearTimeout(this.t1); clearTimeout(this.t2); }
+
+  toggle = (e) => {
+    if (this.busy) return; this.busy = true;
+    const target = this.state.mode === 'design' ? 'research' : 'design';
+    const x = e.clientX || window.innerWidth / 2, y = e.clientY || 60;
+    this.setState({ wipe: { x, y, r: 0, anim: false, bg: THEMES[target].bg }, headOut: true, mode: target });
+    this.t0 = setTimeout(() => this.setState({ wipe: { x, y, r: 1, anim: true, bg: THEMES[target].bg } }), 30);
+    try { history.replaceState(null, '', target === 'research' ? '#research' : '#'); } catch (_) {}
+    this.t1 = setTimeout(() => this.setState({ headMode: target, headOut: false }), 480);
+    this.t2 = setTimeout(() => { this.setState({ bgMode: target, wipe: null }); this.busy = false; }, 1000);
+  };
+
+  onHeroMove = (e) => {
+    const r = e.currentTarget.getBoundingClientRect();
+    const dx = (e.clientX - r.left) / r.width - 0.5, dy = (e.clientY - r.top) / r.height - 0.5;
+    e.currentTarget.querySelectorAll('[data-par]').forEach(el => {
+      const d = +el.getAttribute('data-par');
+      el.style.translate = (dx * d).toFixed(1) + 'px ' + (dy * d).toFixed(1) + 'px';
+    });
+  };
+
+  renderVals() {
+    const { mode, bgMode, headMode, headOut, wipe } = this.state;
+    const T = THEMES[mode];
+    const rootStyle = {
+      '--bg': T.bg, '--fg': T.fg, '--head': T.head, '--accent': T.accent, '--soft': T.soft, '--muted': T.muted, '--line': T.line,
+      background: THEMES[bgMode].bg, minHeight: '100vh', position: 'relative', overflowX: 'clip',
+    };
+    const wipeStyle = wipe ? {
+      position: 'fixed', inset: 0, zIndex: 0, pointerEvents: 'none', background: wipe.bg,
+      clipPath: `circle(${wipe.r ? '150vmax' : '0px'} at ${wipe.x}px ${wipe.y}px)`,
+      transition: wipe.anim ? 'clip-path .95s cubic-bezier(.65,0,.25,1)' : 'none',
+    } : { display: 'none' };
+
+    const slots = SLOTS[mode].map((s, i) => {
+      const d = (i * 0.07).toFixed(2) + 's';
+      return {
+        depth: [28, -22, 18, -30][i],
+        label: s.label || SLOTS.research[i].label,
+        box: { position: 'absolute', left: s.l, top: s.t, width: s.w, height: s.h, zIndex: 1,
+          transition: ['left', 'top', 'width', 'height'].map(p => `${p} 1.1s ${EASE} ${d}`).join(',') },
+        shape: { position: 'absolute', inset: 0, background: s.c, clipPath: SHAPES[s.shape], rotate: s.rot + 'deg', scale: s.on ? '1' : '0',
+          transition: `clip-path 1.1s ${EASE} ${d}, rotate 1.1s ${EASE} ${d}, scale .8s ${EASE} ${d}, background-color .8s ease ${d}` },
+        labelStyle: { position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center',
+          padding: '0 12%', fontFamily: "'Courier Prime',monospace", fontWeight: 700, fontSize: 'clamp(13px,1.35vw,21px)', lineHeight: 1.2,
+          color: s.tc, opacity: s.on ? 1 : 0, pointerEvents: 'none', transition: `opacity .5s ease ${s.on ? '.6s' : '0s'}, color .8s ease` },
+      };
+    });
+
+    const headStyle = {
+      margin: 0, fontFamily: "'Instrument Serif',serif", fontWeight: 400, fontSize: 'clamp(48px,6.8vw,124px)', lineHeight: 0.92,
+      letterSpacing: '-0.025em', textAlign: 'center', maxWidth: '11.5ch', textWrap: 'balance', color: 'var(--head,#F9261C)',
+      opacity: headOut ? 0 : 1, translate: headOut ? '0 18px' : '0 0', filter: headOut ? 'blur(6px)' : 'blur(0)',
+      transition: 'opacity .45s ease, translate .6s cubic-bezier(.2,.7,.2,1), filter .45s ease, color .7s ease',
+    };
+
+    const projects = PROJECTS[mode].map((p, i) => ({
+      ...p, num: '0' + (i + 1), screen: `${mode === 'design' ? 'Design' : 'Research'} 0${i + 1}`,
+      hasLink: !!p.href, noLink: !p.href, slot: `${mode}-mock-${i + 1}`,
+      slotLabel: mode === 'design' ? `Static thumbnail: ${p.name}` : 'Static thumbnail: research artifact',
+      slotHover: `${mode}-mock-${i + 1}-hover`,
+      isShipped: !p.status || p.status === 'shipped', isDev: p.status === 'dev', hasThumb: !!p.thumb, noThumb: !p.thumb,
+      thumbBg: p.thumb ? `url('${p.thumb}')` : 'none', thumbHoverBg: p.thumbHover ? `url('${p.thumbHover}')` : 'none',
+      slotHoverLabel: `Hover thumbnail: ${p.name}`,
+      onEnter: () => this.setState({ hovered: i }),
+      onLeave: () => this.setState({ hovered: null }),
+      hoverLayer: (() => {
+        const on = this.props.showHoverThumbs || this.state.hovered === i;
+        return { position: 'absolute', inset: 0, visibility: on ? 'visible' : 'hidden', pointerEvents: on ? 'auto' : 'none' };
+      })(),
+    }));
+
+    return {
+      rootStyle, wipeStyle, slots, headStyle, projects,
+      headline: COPY[headMode].head, eyebrow: COPY[headMode].eyebrow,
+      toggleLabel: COPY[mode].toggle, footerLine: COPY[mode].footer,
+      toggle: this.toggle, onHeroMove: this.onHeroMove, isResearch: mode === 'research', workCount: String(PROJECTS[mode].length).padStart(2, '0'),
+    };
+  }
+}
+</script>
+</body>
+</html>

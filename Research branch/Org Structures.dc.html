@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><script src="./sticky-header.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Courier+Prime:ital,wght@0,400;0,700;1,400&amp;family=Instrument+Sans:ital,wght@0,400..700;1,400..700&amp;family=Roboto:wght@400;500;700&amp;display=swap">
+<script src="./image-slot.js"></script>
+<style>
+html,body{margin:0;padding:0;background:#FFFDFC;}
+body{-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}
+a:hover{color:#F9261C;}
+::selection{background:#F9261C;color:#fff;}
+</style>
+</helmet>
+
+<div style="font-family:'Instrument Sans',system-ui,sans-serif;color:#2A0D09;background:#FFFDFC;min-height:100vh;">
+  <div style="position:fixed;top:0;left:0;height:3px;background:#F9261C;z-index:40;width:{{ progress }};"></div>
+
+  <header style="position:sticky;top:0;z-index:30;background:#FFFDFC;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px clamp(20px,4.5vw,72px);flex-wrap:wrap;">
+    <a href="Portfolio.dc.html" style="font-family:'Instrument Serif',serif;font-size:32px;letter-spacing:-0.02em;color:#F9261C;">Soumya Krishnaraj</a>
+    <nav style="display:flex;align-items:center;gap:clamp(16px,2.4vw,36px);font-size:19px;">
+      <a href="Portfolio.dc.html#research" style="display:flex;align-items:center;gap:10px;"><span style="width:10px;height:10px;border-radius:50%;background:#F9261C;"></span><span>Research</span></a>
+      <a href="Archive.dc.html">Archive</a>
+      <a href="About.dc.html">About</a>
+      <a href="mailto:soumya.krishnaraj@gmail.com" style="background:#F9261C;color:#fff;padding:18px 34px;border-radius:999px;transition:transform .25s ease;" style-hover="transform:translateY(-2px) rotate(-2deg);color:#fff;">Get in touch</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section data-screen-label="Case hero" style="padding:clamp(40px,6vw,96px) clamp(20px,4.5vw,72px) clamp(64px,7vw,112px);display:flex;flex-direction:column;gap:40px;">
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">
+      <span style="display:inline-flex;align-items:center;gap:8px;color:#7A4B00;background:#FFE7B8;border:1px solid #D99A2B;border-radius:999px;padding:4px 12px 4px 10px;"><span style="width:8px;height:8px;border-radius:50%;background:#E08A00;box-shadow:0 0 0 3px #E08A0033;"></span>In development</span>
+      
+    </div>
+    <h1 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(64px,12vw,210px);line-height:.86;letter-spacing:-0.035em;color:#F9261C;max-width:100%;text-wrap:balance;overflow-wrap:break-word;">Organization&nbsp;<i>structures</i></h1>
+    <p style="margin:0;max-width:30ch;font-family:'Instrument Serif',serif;font-size:clamp(28px,2.8vw,44px);line-height:1.08;text-wrap:pretty;">Letting customers build their own hierarchy, so content and accountability reach the right people.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;border-top:1.5px solid #2A0D09;padding-top:20px;">
+      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Role</span><span style="font-size:17px;">Product designer: framing, experience design; research support</span></div>
+      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Team</span><span style="font-size:17px;">3 designers, 2 PMs, 8 engineers</span></div>
+      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">TIMELINE</span><span style="font-size:17px;">3 months (Ongoing)</span></div>
+      <div style="display:flex;flex-direction:column;gap:8px;"></div>
+    </div>
+  </section>
+
+  <!-- 01 PROBLEM -->
+  <section data-screen-label="Problem" style="background:#43160F;color:#F8DEDB;padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:40px;">
+    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#FF6A5E;">01 / THE PROBLEM</span>
+    <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Everyone could see <em style="color:#FF6A5E;">everything.</em></h2>
+    <p style="margin:0;max-width:60ch;font-size:19px;line-height:1.5;text-wrap:pretty;">Large customers group their stores by client account, region and business line, often all at once. KitchenIQ had one flat hierarchy, so admins worked around it.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:24px;">
+      <sc-for list="{{ gaps }}" as="g" hint-placeholder-count="3">
+        <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #F8DEDB;padding-top:16px;">
+          <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#FF6A5E;">{{ g.n }} · {{ g.k }}</span>
+          <span style="font-size:18px;line-height:1.45;">{{ g.v }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- 02 REFRAME -->
+  <section data-screen-label="Reframe" style="padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:40px;">
+    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">02 / REFRAMING THE ASK</span>
+    <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Buckets were <em style="color:#F9261C;">half the problem.</em></h2>
+    <div style="display:flex;flex-direction:column;gap:28px;padding:clamp(28px,4vw,56px);background:#FBEAE7;border-radius:6px;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(24px,4vw,56px);align-items:start;">
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Admins asked for</span>
+          <span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.8vw,40px);line-height:1.08;color:#8A4F48;text-decoration:line-through;text-decoration-thickness:1.5px;">A way to bucket information.</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">The layer above them needed</span>
+          <span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.8vw,40px);line-height:1.08;">Control over <em style="color:#F9261C;">who gets what,</em> and a record of it.</span>
+        </div>
+      </div>
+      <span style="font-size:18px;line-height:1.55;max-width:62ch;text-wrap:pretty;">Talking to the people who manage admins showed the flat hierarchy was also breaking content distribution and audit trails. With everyone able to access everything, no one could say who received what, or who was accountable for it.</span>
+    </div>
+
+    <div data-screen-label="Flow" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(20px,3vw,40px);">
+      <figure style="margin:0;display:flex;flex-direction:column;gap:16px;">
+        <div style="flex:1;background:#FFFDFC;border:1.5px dashed #C9B3AE;border-radius:6px;padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;align-items:center;">
+          <div style="padding:10px 16px;border-radius:8px;background:#F4EDEC;color:#43160F;border:none;font-family:Roboto,sans-serif;font-size:14px;font-weight:500;text-align:center;white-space:nowrap;">Admin</div><div style="width:2px;height:22px;background:#C9B3AE;margin:0 auto;"></div>
+          <div style="padding:10px 16px;border-radius:8px;background:#F4EDEC;color:#43160F;border:none;font-family:Roboto,sans-serif;font-size:14px;font-weight:500;text-align:center;white-space:nowrap;">One global master list</div><div style="width:2px;height:22px;background:#C9B3AE;margin:0 auto;"></div>
+          <div style="display:grid;grid-template-columns:repeat(10,10px);gap:5px;justify-content:center;"><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span></div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:18px;">
+            <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-size:11px;color:#C9372C;border:1px solid #C9372C;border-radius:999px;padding:3px 10px;">Emails</span>
+            <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-size:11px;color:#C9372C;border:1px solid #C9372C;border-radius:999px;padding:3px 10px;">Naming conventions</span>
+            <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-size:11px;color:#C9372C;border:1px solid #C9372C;border-radius:999px;padding:3px 10px;">Memory</span>
+          </div>
+        </div>
+        <figcaption style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;min-height:48px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Before</span><span style="font-size:16px;">Everything reaches every location. Rules live outside the product.</span></figcaption>
+      </figure>
+      <figure style="margin:0;display:flex;flex-direction:column;gap:16px;">
+        <div style="flex:1;background:#FFFDFC;border:1.5px solid #2A0D09;border-radius:6px;padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;align-items:center;">
+          <div style="padding:10px 16px;border-radius:8px;background:rgb(237,243,250);color:rgb(0,107,211);border:none;font-family:Roboto,sans-serif;font-size:14px;font-weight:500;text-align:center;white-space:nowrap;">Admin</div><div style="width:2px;height:22px;background:#C9B3AE;margin:0 auto;"></div>
+          <div style="padding:10px 16px;border-radius:8px;background:#fff;color:rgb(44,62,93);border:1.5px solid rgb(0,107,211);font-family:Roboto,sans-serif;font-size:14px;font-weight:500;text-align:center;white-space:nowrap;">Brand A</div>
+          <div style="display:flex;gap:24px;justify-content:center;position:relative;padding-top:22px;">
+            <div style="position:absolute;top:0;left:25%;right:25%;height:22px;border:2px solid #C9B3AE;border-bottom:none;border-radius:8px 8px 0 0;"></div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:10px;"><div style="padding:10px 16px;border-radius:8px;background:rgb(237,243,250);color:rgb(0,107,211);border:1.5px solid rgb(0,107,211);font-family:Roboto,sans-serif;font-size:14px;font-weight:500;text-align:center;white-space:nowrap;">North Region</div><div style="display:grid;grid-template-columns:repeat(6,10px);gap:5px;justify-content:center;"><span style="width:10px;height:10px;border-radius:3px;background:rgb(0,107,211);"></span><span style="width:10px;height:10px;border-radius:3px;background:rgb(0,107,211);"></span><span style="width:10px;height:10px;border-radius:3px;background:rgb(0,107,211);"></span><span style="width:10px;height:10px;border-radius:3px;background:rgb(0,107,211);"></span><span style="width:10px;height:10px;border-radius:3px;background:rgb(0,107,211);"></span><span style="width:10px;height:10px;border-radius:3px;background:rgb(0,107,211);"></span></div><span style="font-family:Roboto,sans-serif;font-size:12px;color:rgb(98,111,134);">Manager: D. Ortiz</span></div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:10px;"><div style="padding:10px 16px;border-radius:8px;background:#fff;color:rgb(98,111,134);border:1.5px solid rgb(220,223,228);font-family:Roboto,sans-serif;font-size:14px;font-weight:500;text-align:center;white-space:nowrap;">South Region</div><div style="display:grid;grid-template-columns:repeat(6,10px);gap:5px;justify-content:center;"><span style="width:10px;height:10px;border-radius:3px;background:rgb(220,223,228);"></span><span style="width:10px;height:10px;border-radius:3px;background:rgb(220,223,228);"></span><span style="width:10px;height:10px;border-radius:3px;background:rgb(220,223,228);"></span><span style="width:10px;height:10px;border-radius:3px;background:rgb(220,223,228);"></span><span style="width:10px;height:10px;border-radius:3px;background:rgb(220,223,228);"></span><span style="width:10px;height:10px;border-radius:3px;background:rgb(220,223,228);"></span></div><span style="font-family:Roboto,sans-serif;font-size:12px;color:rgb(98,111,134);">Manager: H. Park</span></div>
+          </div>
+        </div>
+        <figcaption style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;min-height:48px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">After</span><span style="font-size:16px;">Content goes to a group. Only its locations get it, and someone owns it.</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 03 RESEARCH -->
+  <section data-screen-label="Research" style="padding:0 clamp(20px,4.5vw,72px) clamp(80px,9vw,140px);display:flex;flex-direction:column;gap:clamp(56px,7vw,104px);">
+    <div style="display:flex;flex-direction:column;gap:24px;">
+      <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">03 / RESEARCH</span>
+      <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Workarounds <em style="color:#F9261C;">everywhere.</em></h2>
+      <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.06em;line-height:1.5;color:#43160F;max-width:60ch;">* Research was led by a colleague. I assisted with interviews and synthesis, and ran the FigJam concept tests.</span>
+    </div>
+
+    <div data-screen-label="Goals" style="display:flex;flex-direction:column;gap:28px;">
+      <div style="display:flex;gap:12px;align-items:center;border-top:1.5px solid #2A0D09;padding-top:16px;"><span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">What we set out to learn</span></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:24px;">
+        <sc-for list="{{ goals }}" as="g" hint-placeholder-count="5">
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <span style="font-family:'Instrument Serif',serif;font-size:44px;line-height:.9;color:#F9261C;">{{ g.n }}</span>
+            <span style="font-size:17px;line-height:1.5;text-wrap:pretty;">{{ g.v }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div data-screen-label="Pain points" style="display:flex;flex-direction:column;gap:28px;">
+      <div style="display:flex;gap:12px;align-items:center;border-top:1.5px solid #2A0D09;padding-top:16px;"><span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">What we heard</span></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:16px;">
+        <sc-for list="{{ pains }}" as="p" hint-placeholder-count="8">
+          <div style="display:flex;flex-direction:column;justify-content:space-between;gap:20px;padding:24px;border-radius:6px;background:#FBEAE7;">
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">{{ p.k }}</span>
+              <span style="font-family:'Instrument Serif',serif;font-size:26px;line-height:1.1;text-wrap:pretty;">“{{ p.q }}”</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #EFC9C3;padding-top:12px;">
+              <span style="font-size:15px;line-height:1.45;">{{ p.v }}</span>
+              <span style="font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.06em;color:#8A4F48;">— {{ p.who }}</span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div data-screen-label="Takeaway" style="background:#43160F;color:#F8DEDB;border-radius:6px;padding:clamp(32px,5vw,72px);display:flex;flex-direction:column;gap:20px;">
+      <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#FF6A5E;">The takeaway</span>
+      <span style="font-family:'Instrument Serif',serif;font-size:clamp(32px,3.6vw,56px);line-height:1.05;max-width:26ch;text-wrap:balance;">Without structure, governance ran on <em style="color:#FF6A5E;">emails and memory.</em></span>
+      <span style="font-size:18px;line-height:1.55;max-width:62ch;text-wrap:pretty;">As organizations scaled, the lack of structure pushed teams onto manual workarounds, leading to unsafe collaboration, unstable content and operational overhead.</span>
+    </div>
+
+    <div data-screen-label="Principles" style="display:flex;flex-direction:column;gap:28px;">
+      <div style="display:flex;gap:12px;align-items:center;border-top:1.5px solid #2A0D09;padding-top:16px;"><span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">Principles we designed by</span></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:24px;">
+        <sc-for list="{{ principles }}" as="pg" hint-placeholder-count="3">
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <span style="font-family:'Instrument Serif',serif;font-size:clamp(30px,2.8vw,40px);line-height:1;">{{ pg.t }}</span>
+            <div style="display:flex;flex-direction:column;">
+              <sc-for list="{{ pg.items }}" as="it" hint-placeholder-count="3">
+                <span style="font-size:17px;line-height:1.4;padding:10px 0;border-top:1px solid #EFD6D2;">{{ it }}</span>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:clamp(20px,4vw,56px);align-items:baseline;padding:clamp(24px,3vw,40px);border:1.5px solid #2A0D09;border-radius:6px;">
+        <span style="flex:1 1 280px;font-family:'Instrument Serif',serif;font-size:clamp(26px,2.4vw,36px);line-height:1.1;font-style:italic;">“You could have… a culinarian and a retailer focusing on different things.”</span>
+        <span style="flex:1 1 280px;font-size:17px;line-height:1.55;text-wrap:pretty;">Same scope, different responsibilities. This is why we chose <strong>content-type permissions</strong> over new role types.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 APPROACH -->
+  <section data-screen-label="Seamful" style="background:#FBEAE7;padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:clamp(40px,5vw,64px);">
+    <div style="display:flex;flex-direction:column;gap:40px;">
+      <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">04 / APPROACH</span>
+      <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Show the seams, <em style="color:#F9261C;">don’t hide them.</em></h2>
+      <p style="margin:0;max-width:62ch;font-size:19px;line-height:1.5;text-wrap:pretty;">Permissions usually hide their machinery: content just shows up. Here, hiding it was the problem. Admins had been working blind. That’s why “visibility before restriction” shaped the design: the structure is made visible where it matters, before anything is sent.</p>
+    </div>
+
+    <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.06em;line-height:1.5;color:#43160F;">* Refined from my low-fi screens. The high-fidelity designs are under NDA, and all names are anonymized.</span>
+    <div data-screen-label="Features" style="display:flex;flex-direction:column;gap:clamp(64px,8vw,120px);">
+      <sc-for list="{{ features }}" as="f" hint-placeholder-count="4">
+        <figure style="margin:0;display:flex;flex-direction:column;gap:28px;">
+          <div role="img" aria-label="{{ f.t }}" style="width:100%;aspect-ratio:{{ f.ratio }};max-width:{{ f.maxw }};border-radius:10px;background-image:{{ f.bg }};background-size:contain;background-repeat:no-repeat;background-position:center;box-shadow:0 1px 3px rgba(67,22,15,.08),0 12px 40px rgba(67,22,15,.08);"></div>
+          <figcaption style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(20px,3vw,48px);">
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">{{ f.n }}</span>
+              <span style="font-family:'Instrument Serif',serif;font-size:clamp(30px,2.8vw,42px);line-height:1;">{{ f.t }}</span>
+              <span style="font-size:17px;line-height:1.5;text-wrap:pretty;">{{ f.what }}</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #2A0D09;padding-top:14px;">
+              <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Insight</span>
+              <span style="font-family:'Instrument Serif',serif;font-size:22px;line-height:1.15;font-style:italic;">“{{ f.q }}”</span>
+              <span style="font-size:15px;line-height:1.5;">{{ f.insight }}</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #2A0D09;padding-top:14px;">
+              <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Rationale</span>
+              <span style="font-size:15px;line-height:1.5;text-wrap:pretty;">{{ f.why }}</span>
+              <span style="font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.06em;color:#F9261C;">Principle · {{ f.p }}</span>
+            </div>
+          </figcaption>
+        </figure>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- 05 IMPACT -->
+  <section data-screen-label="Impact" style="padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:40px;">
+    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">05 / EXPECTED IMPACT</span>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:24px;">
+      <sc-for list="{{ impacts }}" as="o" hint-placeholder-count="4">
+        <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #2A0D09;padding-top:16px;">
+          <span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.6vw,38px);line-height:1.05;color:#F9261C;">{{ o.t }}</span>
+          <span style="font-size:17px;line-height:1.45;">{{ o.v }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <a href="Portfolio.dc.html#work" data-screen-label="Next" style="display:flex;flex-direction:column;gap:20px;padding:clamp(56px,7vw,112px) clamp(20px,4.5vw,72px);background:#43160F;color:#F8DEDB;transition:background .4s ease;" style-hover="background:#F9261C;color:#fff;">
+    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">Back to work</span>
+    <span style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;font-family:'Instrument Serif',serif;font-size:clamp(56px,8vw,140px);line-height:.9;letter-spacing:-0.03em;"><span>All projects</span><span>→</span></span>
+  </a>
+  <button onClick="{{ jump }}" aria-label="{{ jumpAria }}" style="position:fixed;right:clamp(16px,3vw,40px);bottom:clamp(16px,3vw,40px);z-index:40;display:flex;align-items:center;gap:10px;height:52px;padding:0 20px 0 16px;border:none;border-radius:999px;background:#2A0D09;color:#FFFDFC;font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;box-shadow:0 8px 24px rgba(42,13,9,.18);transition:background-color .3s ease;" style-hover="background:#F9261C;">
+    <span style="display:inline-flex;font-size:18px;line-height:1;transition:transform .45s cubic-bezier(.22,1,.36,1);transform:{{ jumpRot }};">↓</span>
+    <span>{{ jumpLabel }}</span>
+  </button>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const P = (n, r) => ({ n, r, i: n.split(' ').map(w => w[0]).join('') });
+const C = (id, t, kids, locs, people) => ({ id, t, kids: kids || [], locs: locs || [], people: people || [] });
+const LOC = (t, a) => ({ t, a });
+const TREE = C('root', 'Brand Group', [
+  C('ba', 'Brand A', [
+    C('nr', 'North Region', [
+      C('tx', 'Texas', [
+        C('dal', 'Dallas', [], [LOC('Northpark Mall Store', '1234 Mall Rd, Dallas, TX'), LOC('Preston Center', '88 Preston Rd, Dallas, TX'), LOC('Uptown', '410 McKinney Ave, Dallas, TX')], [P('Olivia Rhye', 'Area manager')]),
+        C('sa', 'San Antonio', [], [LOC('Riverwalk', '12 River St, San Antonio, TX'), LOC('Alamo Heights', '5 Broadway, San Antonio, TX'), LOC('Stone Oak', '90 Stone Oak Pkwy, San Antonio, TX')], [P('Noah Kim', 'Area manager')]),
+        C('aus', 'Austin', [], [LOC('South Congress', '1500 S Congress, Austin, TX'), LOC('Domain', '11410 Century Oaks, Austin, TX')], [P('Ava Patel', 'Area manager')])
+      ], [], [P('Marcus Lee', 'State director'), P('Priya Shah', 'Compliance lead')]),
+      C('nc', 'North Carolina', [
+        C('clt', 'Charlotte', [], [LOC('South End', '200 Camden Rd, Charlotte, NC'), LOC('Uptown CLT', '1 Tryon St, Charlotte, NC')], [P('Ethan Brooks', 'Area manager')])
+      ], [], [P('Grace Liu', 'State director')])
+    ], [], [P('Daniel Ortiz', 'Regional VP')]),
+    C('sr', 'South Region', [
+      C('fl', 'Florida', [
+        C('mia', 'Miami', [], [LOC('Brickell', '801 Brickell Ave, Miami, FL'), LOC('Wynwood', '250 NW 24th St, Miami, FL')], [P('Sofia Reyes', 'Area manager')])
+      ], [], [P('Leo Carter', 'State director')])
+    ], [], [P('Hannah Park', 'Regional VP')])
+  ], [], [P('James Wu', 'Brand director')])
+], [], [P('Rachel Green', 'Org admin')]);
+const count = n => n.locs.length + n.kids.reduce((a, k) => a + count(k), 0);
+const people = n => n.people.length + n.kids.reduce((a, k) => a + people(k), 0);
+const findPath = (n, id, path = []) => { const p = path.concat([n]); if (n.id === id) return p; for (const k of n.kids) { const r = findPath(k, id, p); if (r) return r; } return null; };
+
+class Component extends DCLogic {
+  state = { sel: 'tx', loc: null, tab: 'sub', progress: 0, icons: null };
+  icon(name) {
+    const d = this.state.icons && this.state.icons[name];
+    if (!d) return null;
+    return React.createElement('span', { style: { display: 'flex', width: 20, height: 20 }, dangerouslySetInnerHTML: { __html: '<svg viewBox="' + d.viewBox + '" width="20" height="20" fill="none">' + d.body + '</svg>' } });
+  }
+  componentDidMount() {
+    this.__jumpInit();
+    import(new URL('../sidenav-icons/icon-data.js', location.href).href).then(m => this.setState({ icons: m.default })).catch(() => {});
+    this.onScroll = () => { const h = document.documentElement.scrollHeight - innerHeight; this.setState({ progress: h > 0 ? scrollY / h : 0 }); };
+    addEventListener('scroll', this.onScroll, { passive: true });
+  }
+  componentWillUnmount() { removeEventListener('scroll', this.onJumpScroll); removeEventListener('resize', this.onJumpScroll); removeEventListener('scroll', this.onScroll); }
+
+  __jumpTarget() { return document.querySelector('[data-screen-label="Seamful"]'); }
+  __jumpInit() {
+    this.onJumpScroll = () => {
+      const h = document.documentElement.scrollHeight - innerHeight, p = h > 0 ? scrollY / h : 0;
+      const s = this.__jumpTarget(), hd = document.querySelector('header');
+      const past = s ? s.getBoundingClientRect().top <= (hd ? hd.offsetHeight : 0) + 24 : false;
+      const up = p > 0.3 || past;
+      if (up !== !!this.state.jumpUp) this.setState({ jumpUp: up });
+    };
+    addEventListener('scroll', this.onJumpScroll, { passive: true });
+    addEventListener('resize', this.onJumpScroll);
+    this.onJumpScroll();
+  }
+  jump = () => {
+    if (this.state.jumpUp) { scrollTo({ top: 0, behavior: 'smooth' }); return; }
+    const s = this.__jumpTarget(), hd = document.querySelector('header');
+    if (s) scrollTo({ top: s.getBoundingClientRect().top + scrollY - (hd ? hd.offsetHeight : 0), behavior: 'smooth' });
+  };
+  renderVals() {
+    const up = !!this.state.jumpUp;
+    return { ...this.__rv(), jump: this.jump, jumpLabel: up ? 'Top' : 'Solution', jumpAria: up ? 'Back to top' : 'Jump to the solution', jumpRot: up ? 'rotate(180deg)' : 'rotate(0deg)' };
+  }
+  __rv() {
+    const { sel, loc, tab } = this.state;
+    const path = findPath(TREE, sel) || [TREE];
+    const node = path[path.length - 1];
+    const focused = path.length > 2;
+    const start = focused ? path.length - 2 : 0;
+    const BLUE = 'rgb(0,107,211)';
+    const levels = [];
+    const mk = (n, onPath, isSel) => ({
+      t: n.t, icon: this.icon('LanMdStroke'), hasCount: true, count: count(n) + ' locations', hasPeople: people(n) > 0, people: people(n) + (people(n) === 1 ? ' person' : ' people'),
+      outline: isSel && !loc ? '2px solid ' + BLUE : onPath ? '1px solid rgba(0,107,211,.35)' : 'none', op: 1,
+      pick: () => this.setState({ sel: n.id, loc: null, tab: n.kids.length ? 'sub' : 'loc' })
+    });
+    for (let i = start; i < path.length; i++) {
+      const parent = path[i - 1];
+      const row = (i === start || !parent) ? [path[i]] : parent.kids;
+      levels.push({ showLine: levels.length > 0, nodes: row.map(n => mk(n, path.includes(n), n.id === sel)) });
+    }
+    if (node.kids.length) levels.push({ showLine: true, nodes: node.kids.map(n => mk(n, false, false)) });
+    if (node.locs.length) levels.push({ showLine: true, nodes: node.locs.map(l => ({ t: l.t, icon: this.icon('LocationOnMdStroke'), hasCount: false, count: '', hasPeople: false, people: '', outline: loc === l.t ? '2px solid ' + BLUE : 'none', op: 1, pick: () => this.setState({ loc: l.t }) })) });
+    const crumb = path.map(p => p.t).join(' › ');
+    let panel, panelRows = [];
+    if (loc) {
+      const l = node.locs.find(x => x.t === loc);
+      const ppl = node.people.concat([P('Store lead', 'Location manager')]);
+      panel = { t: l.t, tag: 'Location', tagBg: '#FFE7D6', tagFg: '#B4490A', path: crumb + ' › ' + l.t, isContainer: false, isLocation: true, code: 'LOC-' + (100000 + l.t.length * 7919 % 899999), addr: l.a, people: ppl, nPeople: ppl.length };
+    } else {
+      panel = { t: node.t, tag: 'Container', tagBg: '#F1E8FF', tagFg: '#6B2FBF', path: crumb, isContainer: true, isLocation: false };
+      if (tab === 'sub') panelRows = node.kids.map(k => ({ t: k.t, sub: 'Sub-container', badge: count(k) + ' locations', pick: () => this.setState({ sel: k.id, loc: null, tab: k.kids.length ? 'sub' : 'loc' }) }));
+      const allLocs = []; const walk = n => { n.locs.forEach(l => allLocs.push({ l, n })); n.kids.forEach(walk); }; walk(node);
+      if (tab === 'loc') panelRows = allLocs.map(x => ({ t: x.l.t, sub: x.n.t, badge: 'Location', pick: () => this.setState({ sel: x.n.id, loc: x.l.t }) }));
+      if (tab === 'ppl') panelRows = node.people.map(p => ({ t: p.n, sub: p.r, badge: 'Assigned here', pick: () => {} })).concat(node.kids.flatMap(k => k.people.map(p => ({ t: p.n, sub: p.r + ' · ' + k.t, badge: 'Via ' + k.t, pick: () => {} }))));
+    }
+    const nLoc = count(node);
+    const tabs = [['sub', 'Sub-containers ' + node.kids.length], ['loc', 'Locations ' + nLoc], ['ppl', 'Assignments ' + people(node)]].map(([k, t]) => ({ t, fg: tab === k ? BLUE : 'rgb(98,111,134)', bb: tab === k ? '2px solid ' + BLUE : '2px solid transparent', pick: () => this.setState({ tab: k }) }));
+    return {
+      progress: (this.state.progress * 100).toFixed(1) + '%',
+      levels, focused, goHome: () => this.setState({ sel: 'root', loc: null, tab: 'sub' }), panel, panelRows, tabs,
+      seamList: [
+        { n: '01', t: 'Every node shows its reach', v: 'Each container shows how many locations sit under it and how many people are assigned, so admins know what a change will touch before they make it.' },
+        { n: '02', t: 'A path, not a mystery', v: 'Every container and location carries its full path. Anyone can see where something sits and why it gets what it gets.' },
+        { n: '03', t: 'Inherited vs assigned here', v: 'Assignments are labeled by where they come from. People assigned higher up show as inherited, not as local.' },
+        { n: '04', t: 'Details without losing the tree', v: 'Selecting a node opens a preview beside the tree. Deep branches collapse into a focused view, with a way back to the whole org.' }
+      ],
+      features: [
+        { n: '01 · Org tree', bg: "url('../case-study/org-01-tree.png')", ratio: '1480/820', maxw: '1000px', t: 'The org as a tree, with its reach on every node',
+          what: 'Customers build their own hierarchy of containers. Every node shows how many locations sit under it and how many people are assigned.',
+          q: 'That’s really the only way we’re grouping them… with naming.', insight: 'Admins faked structure with naming conventions in one flat list of 400+ locations.',
+          why: 'Structure had to come first, and it had to match how customers already think. Showing reach on every node makes a change’s blast radius visible before it happens.', p: 'Structure before complexity · Visibility before restriction' },
+        { n: '02 · Container details', bg: "url('../case-study/org-02-container.png')", ratio: '2428/1460', maxw: '100%', t: 'Focus on a branch without losing your place',
+          what: 'Selecting a container focuses the tree on its branch and opens a details panel with its full path, sub-containers and locations.',
+          q: 'I’d love to be able to go into just healthcare and just seniors.', insight: 'Users couldn’t isolate a segment. Content applied globally, and finding a subset meant scrolling.',
+          why: 'Scope is the unit of targeting, so it had to be easy to enter and easy to leave. The breadcrumb and “Return to home view” keep the mental model intact.', p: 'Scope determines access · Keep mental models intact' },
+        { n: '03 · Assignments', bg: "url('../case-study/org-03-assignments.png')", ratio: '2428/1460', maxw: '100%', t: 'Who’s responsible, and where it comes from',
+          what: 'The Assignments tab separates people assigned to this container from people assigned further down, labeled with where they sit.',
+          q: 'Right now… everybody has the same access and the same rights.', insight: 'Admin rights were handed out to unblock work. No one could say who owned a set of locations.',
+          why: 'Being in a scope and being responsible for it are different things. Separating them let us use content-type permissions instead of inventing new role types.', p: 'Decouple scope from responsibility' },
+        { n: '04 · Location details', bg: "url('../case-study/org-04-location.png')", ratio: '2428/1460', maxw: '100%', t: 'Every location knows where it belongs',
+          what: 'A location shows its full path through the org, its details and everyone assigned to it, without leaving the tree.',
+          q: 'We track it and backtrack and figure out who did it.', insight: 'Finding the owner of a store, or who changed it, took manual investigation.',
+          why: 'Surfacing the path and the people at the lowest level gives a clear audit trail and replaces the email-and-memory workflow.', p: 'Replace manual workflows · Design for reporting' }
+      ],
+      goals: [
+        { n: '01', v: 'How users manage and think about locations today, including their terms and grouping strategies.' },
+        { n: '02', v: 'Whether users understand the terms for hierarchy: group, segment or container.' },
+        { n: '03', v: 'How users expect to organize locations into levels like regions, districts or business units.' },
+        { n: '04', v: 'How users expect permissions, assignments and access to behave within a hierarchy.' },
+        { n: '05', v: 'Whether creating, moving, merging and deleting containers feels intuitive and predictable.' }
+      ],
+      pains: [
+        { k: 'Access chaos', q: 'Everybody has the same access and the same rights.', v: 'Admin rights were handed out to unblock work, not based on need.', who: 'Customer admin' },
+        { k: 'Accidental deletion', q: 'It was just making the tool not look like it was working.', v: 'Users deleted templates and lists without knowing the impact.', who: 'Customer ops lead' },
+        { k: 'Manual governance', q: 'We sent emails… telling people not to delete templates.', v: 'Rules lived in emails, verbal instructions and training.', who: 'Customer admin' },
+        { k: 'Flat structure', q: 'That’s really the only way we’re grouping them… with naming.', v: 'Every location sat in one flat list, grouped by naming conventions.', who: 'Customer admin' },
+        { k: 'No segmentation', q: 'I’d love to be able to go into just healthcare and just seniors.', v: 'Content couldn’t target a subset, so everything applied globally.', who: 'Customer ops lead' },
+        { k: 'Poor discoverability', q: 'We had to look through 400+ locations…', v: 'No structured search or filtering, only naming tricks.', who: 'Customer admin' },
+        { k: 'No audit trail', q: 'We track it and backtrack and figure out who did it.', v: 'Nobody could see who changed what without manual digging.', who: 'Customer admin' },
+        { k: 'Limited reporting', q: 'I want to see how many labels are printed in healthcare vs seniors.', v: 'Reporting by segment meant manual data analysis.', who: 'Customer ops lead' }
+      ],
+      principles: [
+        { t: 'Foundation', items: ['Structure before complexity', 'Scope determines access', 'Keep mental models intact'] },
+        { t: 'Governance', items: ['Control without friction', 'Visibility before restriction', 'Protect the source of truth', 'Decouple scope from responsibility'] },
+        { t: 'Scale', items: ['Enable safe collaboration', 'Design for reporting', 'Reduce cognitive load', 'Replace manual workflows'] }
+      ],
+      gaps: [
+        { n: '01', k: 'No scoping', v: 'Nothing limited what a user could see. A manager at one site saw content meant for others.' },
+        { n: '02', k: 'No targeting', v: 'Content and assignments couldn’t be sent to a group, so admins faked groups with workarounds.' },
+        { n: '03', k: 'No change', v: 'When a customer added a region or client account, the product had no way to reflect it.' }
+      ],
+      impacts: [
+        { t: 'Assign once', v: 'Admins send content to a group, not location by location.' },
+        { t: 'No cross-overs', v: 'Content stops reaching locations it wasn’t meant for.' },
+        { t: 'Clear audit trail', v: 'It’s visible who assigned what, to whom, and when.' },
+        { t: 'Real accountability', v: 'Managers are tied to the groups they’re responsible for.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

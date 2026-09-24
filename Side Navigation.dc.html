@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><script src="./sticky-header.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Courier+Prime:ital,wght@0,400;0,700;1,400&amp;family=Instrument+Sans:ital,wght@0,400..700;1,400..700&amp;family=Roboto:wght@400;500;700&amp;display=swap">
+<style>
+html,body{margin:0;padding:0;background:#FFFDFC;}
+body{-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}
+a:hover{color:#F9261C;}
+::selection{background:#F9261C;color:#fff;}
+</style>
+</helmet>
+
+<div style="font-family:'Instrument Sans',system-ui,sans-serif;color:#2A0D09;background:#FFFDFC;min-height:100vh;">
+  <div style="position:fixed;top:0;left:0;height:3px;background:#F9261C;z-index:40;width:{{ progress }};"></div>
+
+  <header style="position:sticky;top:0;z-index:30;background:#FFFDFC;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px clamp(20px,4.5vw,72px);flex-wrap:wrap;">
+    <a href="Portfolio.dc.html" style="font-family:'Instrument Serif',serif;font-size:32px;letter-spacing:-0.02em;color:#F9261C;">Soumya Krishnaraj</a>
+    <nav style="display:flex;align-items:center;gap:clamp(16px,2.4vw,36px);font-size:19px;">
+      <a href="Portfolio.dc.html#research" style="display:flex;align-items:center;gap:10px;"><span style="width:10px;height:10px;border-radius:50%;background:#F9261C;"></span><span>Research</span></a>
+      <a href="Archive.dc.html">Archive</a>
+      <a href="About.dc.html">About</a>
+      <a href="mailto:soumya.krishnaraj@gmail.com" style="background:#F9261C;color:#fff;padding:18px 34px;border-radius:999px;transition:transform .25s ease;" style-hover="transform:translateY(-2px) rotate(-2deg);color:#fff;">Get in touch</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section data-screen-label="Case hero" style="padding:clamp(40px,6vw,96px) clamp(20px,4.5vw,72px) clamp(64px,7vw,112px);display:flex;flex-direction:column;gap:40px;">
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">
+      
+      
+    </div>
+    <h1 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(64px,12vw,210px);line-height:.86;letter-spacing:-0.035em;color:#F9261C;max-width:100%;text-wrap:balance;overflow-wrap:break-word;">Side <i>navigation</i></h1>
+    <p style="margin:0;max-width:30ch;font-family:'Instrument Serif',serif;font-size:clamp(28px,2.8vw,44px);line-height:1.08;text-wrap:pretty;">Improved the nav’s performance against the WCAG accessibility standards</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;border-top:1.5px solid #2A0D09;padding-top:20px;">
+      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Role</span><span style="font-size:17px;">Product designer (IC)</span></div>
+      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Team</span><span style="font-size:17px;">Me, 1 PM, 2 engineers</span></div>
+      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">TIMELINE</span><span style="font-size:17px;">12 days</span></div>
+      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Tools</span><span style="font-size:17px;">Figma, Stark</span></div>
+    </div>
+    <div data-screen-label="Outcome" style="display:flex;flex-direction:column;gap:24px;margin-top:clamp(16px,3vw,40px);">
+      <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">OUTCOME</span>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:24px;">
+        <sc-for list="{{ outcomes }}" as="o" hint-placeholder-count="3">
+          <div style="display:flex;flex-direction:column;gap:12px;border-top:1.5px solid #2A0D09;padding-top:16px;">
+            <span style="font-family:'Instrument Serif',serif;font-size:clamp(72px,8vw,128px);line-height:.85;letter-spacing:-0.03em;color:#F9261C;">{{ o.v }}</span>
+            <span style="font-size:17px;line-height:1.4;max-width:28ch;">{{ o.l }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div data-screen-label="Before after" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(20px,3vw,40px);margin-top:clamp(16px,3vw,40px);align-items:stretch;">
+      <figure style="margin:0;display:flex;flex-direction:column;gap:16px;">
+        <div style="background:#EEEFFE;border-radius:6px;padding:clamp(24px,4vw,56px);display:flex;justify-content:center;align-items:flex-start;flex:1;">
+          <div style="width:260px;background:#fff;padding:24px 16px;display:flex;flex-direction:column;gap:6px;font-family:Roboto,sans-serif;font-size:14px;border-radius:4px;">
+            <span style="font-size:12px;letter-spacing:.04em;color:#758195;padding:8px 8px 4px;">ORGANIZATION</span>
+            <div style="background:#EEEFFE;border-radius:8px;padding:4px;display:flex;flex-direction:column;gap:2px;">
+              <div style="display:flex;justify-content:space-between;padding:10px 12px;color:#5560F1;font-weight:500;"><span>Checklists</span><span>⌃</span></div>
+              <div style="padding:10px 12px;color:#758195;">Checklist Menu</div>
+              <div style="padding:10px 12px;color:#5560F1;background:#E0E2FC;border-radius:6px;">Check Bank</div>
+              <div style="padding:10px 12px;color:#758195;">Scheduling</div>
+            </div>
+            <div style="padding:10px 12px;color:#758195;">Roles &amp; Users</div>
+            <div style="padding:10px 12px;color:#758195;">Reports</div>
+          </div>
+        </div>
+        <figcaption style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;min-height:64px;align-content:flex-start;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Before</span><span style="font-size:16px;">Purple on two purple tints. Selected item: 3.74:1.</span></figcaption>
+      </figure>
+      <figure style="margin:0;display:flex;flex-direction:column;gap:16px;">
+        <div style="background:#EDF3FA;border-radius:6px;padding:clamp(24px,4vw,56px);display:flex;justify-content:center;align-items:flex-start;flex:1;">
+          <div style="width:260px;background:#fff;padding:24px 12px;display:flex;flex-direction:column;gap:8px;font-family:Roboto,sans-serif;font-size:14px;line-height:20px;border-radius:4px;">
+            <span style="font-size:13px;font-weight:500;line-height:16px;color:rgb(98,111,134);padding:8px 12px 8px 8px;">Services</span>
+            <div style="display:flex;align-items:center;gap:8px;height:36px;padding:8px 8px 8px 12px;box-sizing:border-box;color:rgb(0,107,211);font-weight:500;"><span style="display:flex;width:20px;height:20px;">{{ icChk }}</span><span style="flex:1;">Checklists</span><span style="display:flex;width:20px;height:20px;">{{ icUp }}</span></div>
+            <div style="display:flex;flex-direction:column;padding-left:12px;">
+              <div style="height:36px;box-sizing:border-box;padding:8px 12px;border-left:1px solid rgb(133,144,162);color:rgb(44,62,93);">Menu</div>
+              <div style="height:36px;box-sizing:border-box;padding:8px 12px;border-left:2px solid rgb(0,107,211);border-radius:0 8px 8px 0;background:rgb(237,243,250);color:rgb(0,107,211);font-weight:700;">Questions</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;height:36px;box-sizing:border-box;padding:8px 8px 8px 12px;color:rgb(44,62,93);font-weight:500;"><span style="display:flex;width:20px;height:20px;">{{ icPlan }}</span><span>Planner</span></div>
+            <div style="display:flex;align-items:center;gap:8px;height:36px;box-sizing:border-box;padding:8px 8px 8px 12px;color:rgb(44,62,93);font-weight:500;"><span style="display:flex;width:20px;height:20px;">{{ icFood }}</span><span>Food lists</span></div>
+            <div style="display:flex;align-items:center;gap:8px;height:36px;box-sizing:border-box;padding:8px 8px 8px 12px;color:rgb(44,62,93);font-weight:500;"><span style="display:flex;width:20px;height:20px;">{{ icRep }}</span><span style="flex:1;">Reporting</span><span style="display:flex;width:20px;height:20px;color:rgb(179,185,196);">{{ icDown }}</span></div>
+          </div>
+        </div>
+        <figcaption style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;min-height:64px;align-content:flex-start;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">After</span><span style="font-size:16px;">One tint, bar + weight for selection. All pairs pass AA.</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 01 PROBLEM -->
+  <section data-screen-label="Problem" style="background:#43160F;color:#F8DEDB;padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:clamp(40px,5vw,72px);">
+    <div style="display:flex;flex-direction:column;gap:40px;">
+      <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#FF6A5E;">01 / THE PROBLEM</span>
+      <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">The nav worked, but <em style="color:#FF6A5E;">not for everyone.</em></h2>
+      <p style="margin:0;max-width:60ch;font-size:19px;line-height:1.5;text-wrap:pretty;">Almost every admin task in KitchenIQ starts in the side nav. I audited it against WCAG 2.1 AA with Stark. The selected state failed, and so did the items around it.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(24px,3vw,40px);">
+      <figure style="margin:0;display:flex;flex-direction:column;gap:14px;">
+        <img src="case-study/sn-stark-unselected.png" alt="Stark audit: unselected sub-item at 3.45:1" style="display:block;width:100%;height:auto;border-radius:6px;">
+        <figcaption style="font-size:16px;line-height:1.5;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;color:#FF6A5E;">3.45:1 · </span>Unselected sub-item on the group tint. Fails AA.</figcaption>
+      </figure>
+      <figure style="margin:0;display:flex;flex-direction:column;gap:14px;">
+        <img src="case-study/sn-stark-selected.png" alt="Stark audit: selected sub-item at 3.74:1" style="display:block;width:100%;height:auto;border-radius:6px;">
+        <figcaption style="font-size:16px;line-height:1.5;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;color:#FF6A5E;">3.74:1 · </span>Selected sub-item on the darker tint. Fails AA.</figcaption>
+      </figure>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:24px;">
+      <sc-for list="{{ issues }}" as="g" hint-placeholder-count="4">
+        <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #F8DEDB;padding-top:16px;">
+          <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#FF6A5E;">{{ g.k }}</span>
+          <span style="font-size:18px;line-height:1.45;">{{ g.v }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- 02 APPROACH -->
+  <section data-screen-label="Approach" style="padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:clamp(40px,5vw,72px);">
+    <div style="display:flex;flex-direction:column;gap:40px;">
+      <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">02 / APPROACH</span>
+      <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Fix the atoms, and <em style="color:#F9261C;">everything passes.</em></h2>
+      <p style="margin:0;max-width:60ch;font-size:19px;line-height:1.5;text-wrap:pretty;">I rebuilt the nav with atomic design. Once the smallest pieces passed contrast, everything built from them passed too, with no screen-by-screen re-checks.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:24px;">
+      <sc-for list="{{ layers }}" as="l" hint-placeholder-count="4">
+        <div style="display:flex;flex-direction:column;gap:12px;border-top:1.5px solid #2A0D09;padding-top:16px;">
+          <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">{{ l.n }} · {{ l.t }}</span>
+          <span style="font-size:17px;line-height:1.5;">{{ l.v }}</span>
+        </div>
+      </sc-for>
+    </div>
+    <div data-screen-label="States" style="display:flex;flex-direction:column;gap:20px;background:#FBEAE7;border-radius:6px;padding:clamp(24px,4vw,56px);">
+      <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">Menu item · 5 states</span>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:16px;">
+        <sc-for list="{{ states }}" as="s" hint-placeholder-count="5">
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="background:#fff;border-radius:8px;padding:10px;">
+              <div style="height:36px;border-radius:8px;box-sizing:border-box;padding:8px 8px 8px 12px;display:flex;align-items:center;gap:8px;font-family:Roboto,sans-serif;font-weight:500;font-size:14px;line-height:20px;background:{{ s.bg }};color:{{ s.fg }};">
+                <span style="display:flex;width:20px;height:20px;">{{ s.icon }}</span><span>Planner</span>
+              </div>
+            </div>
+            <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.08em;color:#8A4F48;">{{ s.name }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 DECISIONS -->
+  <section data-screen-label="Decisions" style="background:#FBEAE7;padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:clamp(40px,5vw,72px);">
+    <div style="display:flex;flex-direction:column;gap:40px;">
+      <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">03 / KEY DECISIONS</span>
+      <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Fewer colors, <em style="color:#F9261C;">clearer signals.</em></h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:0;">
+      <sc-for list="{{ decisions }}" as="d" hint-placeholder-count="4">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(16px,4vw,64px);border-top:1.5px solid #2A0D09;padding:24px 0 clamp(32px,4vw,56px);">
+          <div style="display:flex;gap:14px;align-items:baseline;">
+            <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;color:#F9261C;">{{ d.n }}</span>
+            <span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.8vw,40px);line-height:1.05;">{{ d.t }}</span>
+          </div>
+          <span style="font-size:17px;line-height:1.55;max-width:56ch;text-wrap:pretty;">{{ d.v }}</span>
+        </div>
+      </sc-for>
+    </div>
+    <div data-screen-label="Contrast table" style="display:flex;flex-direction:column;gap:16px;">
+      <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">Contrast, before → after (AA)</span>
+      <div style="display:flex;flex-direction:column;background:#FFFDFC;border-radius:6px;overflow:hidden;">
+        <sc-for list="{{ ratios }}" as="r" hint-placeholder-count="4">
+          <div style="display:grid;grid-template-columns:minmax(0,2.2fr) repeat(3,minmax(0,1fr));gap:12px;padding:16px clamp(16px,2vw,24px);border-bottom:1px solid #EFD6D2;font-size:16px;align-items:baseline;">
+            <span>{{ r.el }}</span>
+            <span style="font-family:'Courier Prime',monospace;color:#8A4F48;">{{ r.b }}</span>
+            <span style="font-family:'Courier Prime',monospace;font-weight:700;color:#107003;">{{ r.a }}</span>
+            <span style="font-family:'Courier Prime',monospace;color:#8A4F48;">needs {{ r.need }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 MODES -->
+  <section data-screen-label="Modes" style="padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px) 0;display:flex;flex-direction:column;gap:clamp(40px,5vw,64px);">
+    <div style="display:flex;flex-direction:column;gap:40px;">
+      <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">04 / THREE MODES</span>
+      <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Static, collapsed, <em style="color: rgb(249, 38, 28);">overlay.</em></h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:20px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;">
+        <div role="tablist" style="display:flex;gap:6px;padding:4px;border-radius:999px;border:1.5px solid #2A0D09;">
+          <sc-for list="{{ modeTabs }}" as="m" hint-placeholder-count="3">
+            <button role="tab" onClick="{{ m.pick }}" style="border:none;cursor:pointer;border-radius:999px;padding:10px 20px;font-family:'Instrument Sans',sans-serif;font-size:16px;background:{{ m.bg }};color:{{ m.fg }};">{{ m.t }}</button>
+          </sc-for>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <sc-for list="{{ stateTabs }}" as="s" hint-placeholder-count="3">
+            <button onClick="{{ s.pick }}" style="cursor:pointer;border-radius:999px;padding:6px 14px;font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-size:12px;border:1px solid #43160F;background:{{ s.bg }};color:{{ s.fg }};">{{ s.t }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:clamp(24px,4vw,56px);align-items:center;">
+        <div role="img" aria-label="{{ modeAlt }}" style="flex:3 1 480px;min-width:0;aspect-ratio:1504/1096;background-image:{{ modeImg }};background-size:contain;background-repeat:no-repeat;background-position:center;"></div>
+        <div style="flex:1 1 260px;display:flex;flex-direction:column;gap:12px;max-width:40ch;">
+          <span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.6vw,40px);line-height:1.05;">{{ modeTitle }}</span>
+          <span style="font-size:17px;line-height:1.55;text-wrap:pretty;">{{ modeDesc }}</span>
+          <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">{{ stateDesc }}</span>
+        </div>
+      </div>
+    </div>
+    <figure data-screen-label="Hit zones" style="margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(24px,4vw,56px);align-items:center;">
+      <div style="display:flex;justify-content:center;"><img src="case-study/sn-spec-zones.png" alt="Collapsed rail hit zones spec" style="display:block;width:100%;max-width:420px;height:auto;"></div>
+      <figcaption style="display:flex;flex-direction:column;gap:12px;max-width:40ch;">
+        <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">Spec · collapsed rail</span>
+        <span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.6vw,40px);line-height:1.05;">Two hit zones</span>
+        <span style="font-size:17px;line-height:1.55;text-wrap:pretty;">The toggle gets a 48×48px zone around its 20px icon, 12px below the header. Clicking it pins the nav open. The rest of the rail is a hover zone that opens the overlay.</span>
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- 05 TRY IT -->
+  <section data-screen-label="Try it" style="padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:32px;">
+    <div style="display:flex;flex-direction:column;gap:24px;">
+      <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">05 / TRY IT</span>
+      <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Collapse, peek, <em style="color:#F9261C;">switch.</em></h2>
+      <div style="display:flex;flex-direction:column;gap:6px;font-size:17px;line-height:1.5;">
+        <span><strong>1.</strong> Open and close a group.</span>
+        <span><strong>2.</strong> Collapse the nav with the toggle or ⌘B / Ctrl+B.</span>
+        <span><strong>3.</strong> Hover the left edge to peek, pick a page, move away.</span>
+      </div>
+    </div>
+
+    <div style="position:relative;height:640px;border-radius:10px;overflow:hidden;border:1px solid rgba(9,30,66,.12);background:rgb(247,248,249);font-family:Roboto,sans-serif;color:rgb(44,62,93);">
+      <div style="position:absolute;left:0;top:0;bottom:0;right:0;padding-left:{{ contentPad }};transition:padding-left .28s cubic-bezier(.2,.7,.2,1);">
+        <div style="height:100%;display:flex;flex-direction:column;gap:24px;padding:28px 36px;box-sizing:border-box;">
+          <div style="display:flex;align-items:center;gap:14px;min-height:40px;">
+            <div style="display:flex;flex-direction:column;gap:2px;">
+              <span style="font-size:12px;color:rgb(98,111,134);">{{ crumb }}</span>
+              <span style="font-size:20px;font-weight:500;">{{ pageTitle }}</span>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;">
+            <div style="height:96px;border-radius:10px;background:#fff;"></div>
+            <div style="height:96px;border-radius:10px;background:#fff;"></div>
+            <div style="height:96px;border-radius:10px;background:#fff;"></div>
+          </div>
+          <div style="flex:1;border-radius:10px;background:#fff;display:flex;flex-direction:column;gap:18px;padding:24px;">
+            <div style="width:40%;height:14px;border-radius:7px;background:rgb(220,223,228);"></div>
+            <div style="width:85%;height:10px;border-radius:5px;background:rgb(237,239,242);"></div>
+            <div style="width:70%;height:10px;border-radius:5px;background:rgb(237,239,242);"></div>
+            <div style="width:78%;height:10px;border-radius:5px;background:rgb(237,239,242);"></div>
+          </div>
+        </div>
+      </div>
+
+      <sc-if value="{{ collapsed }}" hint-placeholder-val="{{ false }}">
+        <div style="position:absolute;left:0;top:0;bottom:0;width:52px;z-index:3;background:#fff;box-sizing:border-box;border-right:{{ railBorder }};display:flex;flex-direction:column;align-items:center;">
+          <button onClick="{{ toggle }}" onMouseEnter="{{ tipOn }}" onMouseLeave="{{ tipOff }}" aria-label="Open side menu" style="margin-top:12px;width:48px;height:48px;border-radius:8px;border:none;background:{{ railBtnBg }};color:rgb(44,62,93);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;flex-shrink:0;">{{ dockIcon }}</button>
+          <div onMouseEnter="{{ peekOn }}" onMouseLeave="{{ railOff }}" style="flex:1;align-self:stretch;"></div>
+        </div>
+      </sc-if>
+
+      <aside onMouseLeave="{{ peekOff }}" style="position:absolute;left:0;top:0;bottom:0;width:240px;z-index:4;background:#fff;border-right:2px solid rgba(9,30,66,0.0588);box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between;padding:32px 0 16px;transform:{{ navX }};box-shadow:{{ navShadow }};transition:transform .28s cubic-bezier(.2,.7,.2,1),box-shadow .28s ease;">
+        <button onClick="{{ toggle }}" onMouseEnter="{{ tipOn }}" onMouseLeave="{{ tipOff }}" aria-label="{{ tipText }}" style="position:absolute;top:8px;right:8px;width:40px;height:40px;border-radius:8px;border:none;background:transparent;color:rgb(44,62,93);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;">{{ dockIcon }}</button>
+        <div style="flex:1;min-height:0;overflow-y:auto;display:flex;flex-direction:column;gap:8px;padding:0 12px;">
+          <sc-for list="{{ rows }}" as="r" hint-placeholder-count="10">
+            <sc-if value="{{ r.isLabel }}" hint-placeholder-val="{{ false }}">
+              <div style="height:32px;box-sizing:border-box;padding:8px 12px 8px 8px;font-size:13px;font-weight:500;line-height:16px;color:rgb(98,111,134);flex-shrink:0;">{{ r.t }}</div>
+            </sc-if>
+            <sc-if value="{{ r.isDivider }}" hint-placeholder-val="{{ false }}">
+              <div style="height:2px;background:rgba(9,30,66,0.0588);margin:4px 0;flex-shrink:0;"></div>
+            </sc-if>
+            <sc-if value="{{ r.isItem }}" hint-placeholder-val="{{ true }}">
+              <div role="button" tabindex="0" onClick="{{ r.click }}" onMouseEnter="{{ r.enter }}" onMouseLeave="{{ r.leave }}" onMouseDown="{{ r.down }}" onMouseUp="{{ r.up }}" style="height:36px;flex-shrink:0;border-radius:8px;box-sizing:border-box;padding:8px 8px 8px 12px;display:flex;align-items:center;gap:8px;cursor:pointer;user-select:none;background:{{ r.bg }};color:{{ r.fg }};">
+                <span style="display:flex;width:20px;height:20px;flex-shrink:0;">{{ r.icon }}</span>
+                <span style="flex:1;font-size:14px;font-weight:500;line-height:20px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ r.t }}</span>
+                <sc-if value="{{ r.hasKids }}" hint-placeholder-val="{{ false }}">
+                  <span style="display:flex;width:20px;height:20px;color:{{ r.chev }};">{{ r.chevIcon }}</span>
+                </sc-if>
+              </div>
+            </sc-if>
+            <sc-if value="{{ r.isSub }}" hint-placeholder-val="{{ false }}">
+              <div style="padding-left:12px;flex-shrink:0;margin-top:{{ r.mt }};">
+                <div role="button" tabindex="0" onClick="{{ r.click }}" onMouseEnter="{{ r.enter }}" onMouseLeave="{{ r.leave }}" style="height:36px;box-sizing:border-box;padding:8px 12px;border-radius:0 8px 8px 0;border-left:{{ r.borderL }};background:{{ r.bg }};color:{{ r.fg }};font-weight:{{ r.fw }};font-size:14px;line-height:20px;cursor:pointer;user-select:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ r.t }}</div>
+              </div>
+            </sc-if>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:16px 12px 0;border-top:1px solid rgba(9,30,66,0.0588);font-size:12px;line-height:16px;">
+          <span style="color:rgb(0,107,211);">Program Terms</span>
+          <span style="color:rgb(0,107,211);">© Ecolab 2026 Inc. All Rights Reserved.</span>
+        </div>
+      </aside>
+
+      <sc-if value="{{ tip }}" hint-placeholder-val="{{ false }}">
+        <div style="position:absolute;z-index:6;top:{{ tipTop }};left:{{ tipLeft }};background:rgb(9,30,66);color:#fff;border-radius:6px;padding:8px 10px;font-size:12px;line-height:16px;display:flex;flex-direction:column;gap:2px;pointer-events:none;white-space:nowrap;">
+          <span>{{ tipText }}</span>
+          <span style="color:rgb(179,185,196);">{{ tipKey }}</span>
+        </div>
+      </sc-if>
+    </div>
+    
+  </section>
+
+  <a href="Org Structures.dc.html" data-screen-label="Next" style="display:flex;flex-direction:column;gap:20px;padding:clamp(56px,7vw,112px) clamp(20px,4.5vw,72px);background:#43160F;color:#F8DEDB;transition:background .4s ease;" style-hover="background:#F9261C;color:#fff;">
+    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">Next project · 03</span>
+    <span style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;font-family:'Instrument Serif',serif;font-size:clamp(56px,8vw,140px);line-height:.9;letter-spacing:-0.03em;"><span>Org structures</span><span>→</span></span>
+  </a>
+  <button onClick="{{ jump }}" aria-label="{{ jumpAria }}" style="position:fixed;right:clamp(16px,3vw,40px);bottom:clamp(16px,3vw,40px);z-index:40;display:flex;align-items:center;gap:10px;height:52px;padding:0 20px 0 16px;border:none;border-radius:999px;background:#2A0D09;color:#FFFDFC;font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;box-shadow:0 8px 24px rgba(42,13,9,.18);transition:background-color .3s ease;" style-hover="background:#F9261C;">
+    <span style="display:inline-flex;font-size:18px;line-height:1;transition:transform .45s cubic-bezier(.22,1,.36,1);transform:{{ jumpRot }};">↓</span>
+    <span>{{ jumpLabel }}</span>
+  </button>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const NAV = [
+  { label: 'Manage', items: [
+    { id: 'loc', t: 'Locations', ic: 'LocationOnMdStroke' },
+    { id: 'adm', t: 'Admin users', ic: 'ShieldPersonMd' },
+    { id: 'roles', t: 'Roles & users', ic: 'GroupMdStroke', kids: ['Roles', 'Users'] },
+    { id: 'set', t: 'Settings', ic: 'SettingsMdStroke' }] },
+  { label: 'Services', items: [
+    { id: 'chk', t: 'Checklists', ic: 'ChecklistMd', kids: ['Menu', 'Questions'] },
+    { id: 'rem', t: 'Remote monitoring', ic: 'SettingsRemoteMd', kids: ['Equipment', 'Equipment templates', 'Alerts'] },
+    { id: 'plan', t: 'Planner', ic: 'EventNoteMd' },
+    { id: 'food', t: 'Food lists', ic: 'FastfoodMd' },
+    { id: 'rep', t: 'Reporting', ic: 'InsertChartMd', kids: ['Equipment monitoring', 'Checklists'] },
+    { id: 'int', t: 'Integrations', ic: 'WebhookMd' }] }
+];
+const BLUE = 'rgb(0,107,211)', INK = 'rgb(44,62,93)';
+
+class Component extends DCLogic {
+  state = { mode: 0, mstate: 0, pinned: true, peek: false, open: { chk: true }, sel: 'chk/Questions', hover: null, press: null, tip: false, icons: null, progress: 0 };
+  componentDidMount() {
+    this.__jumpInit();
+    import(new URL('sidenav-icons/icon-data.js', location.href).href).then(m => this.setState({ icons: m.default })).catch(() => {});
+    this.onKey = e => { if ((e.metaKey || e.ctrlKey) && (e.key || '').toLowerCase() === 'b') { e.preventDefault(); this.toggle(); } };
+    this.onScroll = () => { const h = document.documentElement.scrollHeight - innerHeight; this.setState({ progress: h > 0 ? scrollY / h : 0 }); };
+    addEventListener('keydown', this.onKey); addEventListener('scroll', this.onScroll, { passive: true });
+  }
+  componentWillUnmount() { removeEventListener('scroll', this.onJumpScroll); removeEventListener('resize', this.onJumpScroll); removeEventListener('keydown', this.onKey); removeEventListener('scroll', this.onScroll); }
+  modeVals() {
+    const M = [
+      { t: 'Expanded', title: 'Pinned open', desc: 'The nav sits beside the content and pushes it over. The toggle closes it.', states: [['Default','sn-exp-default','Resting state'],['Hover icon','sn-exp-hover','Tooltip: Close side menu, ⌘B'],['Pressed','sn-exp-press','Clicking the toggle collapses the nav']] },
+      { t: 'Collapsed', title: 'Full-width work', desc: 'Only a slim rail stays. The page gets the full width for builders and tables.', states: [['Hover icon','sn-col-hover','Tooltip: Open side menu, ⌘B'],['Hover rail','sn-col-bar','The rail edge turns blue before the overlay opens'],['Pressed','sn-col-press','Clicking the toggle pins the nav open']] },
+      { t: 'Overlay', title: 'Peek to switch', desc: 'Hovering the rail opens the nav over the content, so the layout doesn’t move. It closes when the cursor leaves.', states: [['Hovering','sn-ov-hover','Nav opens over the page'],['Picking','sn-ov-hover2','Users pick a page. It loads behind the overlay'],['Hover icon','sn-ov-icon','The toggle can pin it open from here']] }
+    ];
+    const s = this.state, m = M[s.mode], st = m.states[Math.min(s.mstate, m.states.length - 1)];
+    const on = a => ({ bg: a ? '#2A0D09' : 'transparent', fg: a ? '#FFFDFC' : '#2A0D09' });
+    return {
+      modeTabs: M.map((x, i) => Object.assign({ t: x.t, pick: () => this.setState({ mode: i, mstate: 0 }) }, on(i === s.mode))),
+      stateTabs: m.states.map((x, i) => Object.assign({ t: x[0], pick: () => this.setState({ mstate: i }) }, on(i === s.mstate))),
+      modeImg: "url('case-study/" + st[1] + ".png')", modeAlt: m.t + ' · ' + st[0], modeTitle: m.title, modeDesc: m.desc, stateDesc: st[2]
+    };
+  }
+  toggle() { this.setState(s => ({ pinned: !s.pinned, peek: false, tip: false })); }
+  icon(name, size = 20) {
+    const d = this.state.icons && this.state.icons[name];
+    if (!d) return null;
+    return React.createElement('span', { style: { display: 'flex', width: size, height: size }, dangerouslySetInnerHTML: { __html: `<svg viewBox="${d.viewBox}" width="${size}" height="${size}" fill="none">${d.body}</svg>` } });
+  }
+
+  __jumpTarget() { return document.querySelector('[data-screen-label="Decisions"]'); }
+  __jumpInit() {
+    this.onJumpScroll = () => {
+      const h = document.documentElement.scrollHeight - innerHeight, p = h > 0 ? scrollY / h : 0;
+      const s = this.__jumpTarget(), hd = document.querySelector('header');
+      const past = s ? s.getBoundingClientRect().top <= (hd ? hd.offsetHeight : 0) + 24 : false;
+      const up = p > 0.3 || past;
+      if (up !== !!this.state.jumpUp) this.setState({ jumpUp: up });
+    };
+    addEventListener('scroll', this.onJumpScroll, { passive: true });
+    addEventListener('resize', this.onJumpScroll);
+    this.onJumpScroll();
+  }
+  jump = () => {
+    if (this.state.jumpUp) { scrollTo({ top: 0, behavior: 'smooth' }); return; }
+    const s = this.__jumpTarget(), hd = document.querySelector('header');
+    if (s) scrollTo({ top: s.getBoundingClientRect().top + scrollY - (hd ? hd.offsetHeight : 0), behavior: 'smooth' });
+  };
+  renderVals() {
+    const up = !!this.state.jumpUp;
+    return { ...this.__rv(), jump: this.jump, jumpLabel: up ? 'Top' : 'Solution', jumpAria: up ? 'Back to top' : 'Jump to the solution', jumpRot: up ? 'rotate(180deg)' : 'rotate(0deg)' };
+  }
+  __rv() {
+    const s = this.state;
+    const rows = [];
+    NAV.forEach((sec, si) => {
+      if (si) rows.push({ isDivider: true });
+      rows.push({ isLabel: true, t: sec.label });
+      sec.items.forEach(it => {
+        const kids = !!it.kids, open = kids && !!s.open[it.id];
+        const isSel = s.sel === it.id, childSel = s.sel.indexOf(it.id + '/') === 0;
+        const hov = s.hover === it.id, prs = s.press === it.id;
+        rows.push({
+          isItem: true, t: it.t, hasKids: kids,
+          bg: isSel || (childSel && !open) ? 'rgb(237,243,250)' : prs ? 'rgb(247,248,249)' : hov ? 'rgb(247,248,249)' : '#fff',
+          fg: isSel || childSel ? BLUE : prs ? 'rgb(98,111,134)' : INK,
+          icon: this.icon(it.ic), chevIcon: this.icon(open ? 'KeyboardArrowUp' : 'KeyboardArrowDown'),
+          chev: isSel || childSel ? BLUE : (open || hov) ? 'rgb(9,30,66)' : 'rgb(179,185,196)',
+          click: () => kids ? this.setState(st => ({ open: st.open[it.id] ? {} : { [it.id]: true } })) : this.setState({ sel: it.id, open: {} }),
+          enter: () => this.setState({ hover: it.id }), leave: () => this.setState({ hover: null, press: null }),
+          down: () => this.setState({ press: it.id }), up: () => this.setState({ press: null })
+        });
+        if (open) it.kids.forEach((k, ki) => {
+          const key = it.id + '/' + k, on = s.sel === key, hv = s.hover === key;
+          rows.push({
+            isSub: true, t: k, mt: '-8px',
+            borderL: on ? '2px solid ' + BLUE : '1px solid rgb(133,144,162)',
+            bg: on ? 'rgb(237,243,250)' : hv ? 'rgb(247,248,249)' : 'transparent', fg: on ? BLUE : INK, fw: on ? 700 : 400,
+            click: () => this.setState({ sel: key, open: { [it.id]: true } }), enter: () => this.setState({ hover: key }), leave: () => this.setState({ hover: null })
+          });
+        });
+      });
+    });
+    const [pid, kid] = s.sel.split('/');
+    const parent = NAV.flatMap(x => x.items).find(i => i.id === pid);
+    const collapsed = !s.pinned, showNav = s.pinned || s.peek;
+    const S = (bg, fg, name, ic = 'EventNoteMd') => ({ bg, fg, name, icon: this.icon(ic) });
+    return {
+      progress: (s.progress * 100).toFixed(1) + '%',
+      rows, collapsed,
+      contentPad: s.pinned ? '240px' : '52px',
+      navX: showNav ? 'translateX(0)' : 'translateX(-100%)',
+      navShadow: collapsed && s.peek ? '2px 0 0 rgb(37,127,186), 8px 0 32px rgba(9,30,66,.16)' : 'none',
+      toggle: () => this.toggle(),
+      peekOn: () => this.setState({ peek: true }),
+      peekOff: () => { if (!this.state.pinned) this.setState({ peek: false, hover: null }); },
+      tip: s.tip, tipOn: () => this.setState({ tip: true }), tipOff: () => this.setState({ tip: false }),
+      tipText: showNav ? 'Close side menu' : 'Open side menu',
+      tipTop: showNav ? '52px' : '14px', tipLeft: showNav ? '180px' : '60px', tipKey: showNav ? 'Press ⌘B to close' : 'Press ⌘B to open',
+      railBorder: s.peek ? '2px solid rgb(37,127,186)' : '2px solid rgba(9,30,66,0.0588)', railBtnBg: s.tip && !showNav ? 'rgb(247,248,249)' : 'transparent',
+      railOff: () => {},
+      ...this.modeVals(),
+      dockIcon: this.icon('DockToRightMd'),
+      icChk: this.icon('ChecklistMd'), icUp: this.icon('KeyboardArrowUp'), icDown: this.icon('KeyboardArrowDown'), icPlan: this.icon('EventNoteMd'), icFood: this.icon('FastfoodMd'), icRep: this.icon('InsertChartMd'),
+      crumb: parent ? (kid ? parent.t : 'KitchenIQ') : '',
+      pageTitle: kid || (parent && parent.t) || '',
+      states: [S('#fff', INK, 'Default'), S('rgb(252,252,252)', INK, 'Hover'), S('rgb(247,248,249)', 'rgb(98,111,134)', 'Pressed'), S('rgb(237,243,250)', BLUE, 'Selected'), S('rgba(9,30,66,0.0314)', 'rgb(179,185,196)', 'Disabled')],
+      issues: [
+        { k: 'Stacked tints', v: 'An open group sat on lavender, and the selected item on a darker lavender inside it. Each tint cut contrast further.' },
+        { k: 'Color-only selection', v: 'A shift in purple was the only cue, which fails WCAG 1.4.1 (Use of color).' },
+        { k: 'Weak wayfinding', v: 'Every item used the same icon, and nothing tied sub-items to their parent.' },
+        { k: 'No interaction spec', v: 'Hover, pressed, disabled and collapse weren’t defined, so every screen behaved differently.' }
+      ],
+      layers: [
+        { n: '01', t: 'Atoms', v: 'One icon per module, the selected bar, label, chevron and panel toggle.' },
+        { n: '02', t: 'Molecules', v: 'Menu item and sub-item, each with 5 states, with and without children.' },
+        { n: '03', t: 'Organisms', v: 'A group per module with fixed sub-items, so it behaves the same everywhere.' },
+        { n: '04', t: 'Templates', v: 'Full navs for 4 personas: default, org landing, org layer and location.' }
+      ],
+      decisions: [
+        { n: '01', t: 'One tint, only on selection', v: 'I dropped the container tint around open groups. Text sits on white, so unselected items went from 3.45:1 to 10.8:1. The selected blue was picked to pass on its own tint.' },
+        { n: '02', t: 'Selection without color', v: 'Selected sub-items get a 2px bar, a heavier weight and blue. Remove the color and the bar and weight still show where you are. The parent turns blue with no fill.' },
+        { n: '03', t: 'Hierarchy at a glance', v: 'Each module has its own icon, and a guide line connects sub-items to their parent. Section labels moved to sentence case.' },
+        { n: '04', t: 'One group open at a time', v: 'Opening a group closes the one before it. If the page you’re on sits in a closed group, that parent gets the selected tint, so you never lose where you are while browsing another module.' },
+        { n: '05', t: 'Collapse and quick switch', v: 'The toggle hides the nav for full-width work, with ⌘B surfaced in its tooltip. When collapsed, hovering the left edge opens it as an overlay, so users switch pages without re-pinning it.' }
+      ],
+      ratios: [
+        { el: 'Selected sub-item', b: '3.74:1', a: '4.65:1', need: '4.5:1' },
+        { el: 'Unselected sub-items', b: '3.45:1', a: '10.8:1', need: '4.5:1' },
+        { el: 'Section labels', b: '—', a: '5.07:1', need: '4.5:1' },
+        { el: 'Selected indicator bar', b: 'none', a: '5.2:1', need: '3:1' }
+      ],
+      outcomes: [
+        { v: 'AA', l: 'every nav text and indicator passes WCAG 2.1 AA' },
+        { v: '15', l: 'modules covered by one menu item component' },
+        { v: '4', l: 'personas, each built from the same parts' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

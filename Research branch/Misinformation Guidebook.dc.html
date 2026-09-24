@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><script src="./sticky-header.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Courier+Prime:ital,wght@0,400;0,700;1,400&amp;family=Instrument+Sans:ital,wght@0,400..700;1,400..700&amp;display=swap">
+<script src="./image-slot.js"></script>
+<style>
+html,body{margin:0;padding:0;background:#FFFDFC;}
+body{-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}
+a:hover{color:#F9261C;}
+::selection{background:#F9261C;color:#fff;}
+</style>
+</helmet>
+
+<div style="font-family:'Instrument Sans',system-ui,sans-serif;color:#2A0D09;background:#FFFDFC;min-height:100vh;">
+  <div style="position:fixed;top:0;left:0;height:3px;background:#F9261C;z-index:40;width:{{ progress }};"></div>
+
+  <header style="position:sticky;top:0;z-index:30;background:#FFFDFC;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px clamp(20px,4.5vw,72px);flex-wrap:wrap;">
+    <a href="Portfolio.dc.html" style="font-family:'Instrument Serif',serif;font-size:32px;letter-spacing:-0.02em;color:#F9261C;">Soumya Krishnaraj</a>
+    <nav style="display:flex;align-items:center;gap:clamp(16px,2.4vw,36px);font-size:19px;">
+      <a href="Portfolio.dc.html#research" style="display:flex;align-items:center;gap:10px;"><span style="width:10px;height:10px;border-radius:50%;background:#F9261C;"></span><span>Research</span></a>
+      <a href="Archive.dc.html">Archive</a>
+      <a href="About.dc.html">About</a>
+      <a href="mailto:soumya.krishnaraj@gmail.com" style="background:#F9261C;color:#fff;padding:18px 34px;border-radius:999px;transition:transform .25s ease;" style-hover="transform:translateY(-2px) rotate(-2deg);color:#fff;">Get in touch</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section data-screen-label="Case hero" style="padding:clamp(40px,6vw,96px) clamp(20px,4.5vw,72px) clamp(64px,7vw,112px);display:flex;flex-direction:column;gap:40px;">
+    
+    <h1 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(56px,9vw,160px);line-height:.88;letter-spacing:-0.035em;color:#F9261C;max-width:14ch;text-wrap:balance;">How to talk to your <i>grandma</i> about misinformation</h1>
+    <p style="margin:0;max-width:34ch;font-family:'Instrument Serif',serif;font-size:clamp(26px,2.6vw,40px);line-height:1.1;text-wrap:pretty;">A media literacy guidebook that helps older adults in India question what they read online, with their grandchildren beside them.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;border-top:1.5px solid #2A0D09;padding-top:20px;">
+      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Role</span><span style="font-size:17px;">Sole researcher and designer</span></div>
+      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Timeline</span><span style="font-size:17px;">One semester, Spring 2024</span></div>
+      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Methods</span><span style="font-size:17px;">Literature review, interviews, diary study, concept testing</span></div>
+      <div style="display:flex;flex-direction:column;gap:8px;"></div>
+    </div><div style="position:relative;aspect-ratio:16/9;border-radius:6px;overflow:hidden;">
+      <image-slot id="mis-cover" shape="rect" placeholder="Drop: guidebook cover" style="position: absolute; inset: 0; height: 101%; width: 43%; left: 172px; top: -2px"></image-slot>
+    </div>
+    
+  </section>
+
+  <!-- SUMMARY -->
+  <section data-screen-label="Summary" style="background:#43160F;color:#F8DEDB;padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:40px;">
+    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#FF6A5E;">00 / SUMMARY</span>
+    <h2 style="margin:0;max-width:20ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(44px,5.4vw,92px);line-height:.96;letter-spacing:-0.025em;text-wrap:balance;">I set out to build a browser extension. <em style="color:#FF6A5E;">I made a book.</em></h2>
+    <p style="margin:0;max-width:62ch;font-size:19px;line-height:1.55;text-wrap:pretty;">The research showed that the most trusted fact-checker in an Indian household is often a grandchild, and those conversations happen at the dining table, not on a screen. So the final design is a hands-on guidebook a grandparent and grandchild work through together.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:24px;">
+      <sc-for list="{{ results }}" as="o" hint-placeholder-count="3">
+        <div style="display:flex;flex-direction:column;gap:12px;border-top:1.5px solid #F8DEDB;padding-top:16px;">
+          <span style="font-family:'Instrument Serif',serif;font-size:clamp(56px,6vw,96px);line-height:.85;color:#FF6A5E;">{{ o.v }}</span>
+          <span style="font-size:17px;line-height:1.4;max-width:26ch;">{{ o.l }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- 01 WHERE IT STARTED -->
+  <section data-screen-label="Origin" style="padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:40px;">
+    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">01 / WHERE IT STARTED</span>
+    <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">My grandmother <em style="color:#F9261C;">believed it.</em></h2>
+    <p style="margin:0;max-width:60ch;font-size:19px;line-height:1.55;text-wrap:pretty;">She believed a YouTube video about a celebrity that I took for satire. After that I noticed how often she forwarded things that weren’t true, including, once, that birds aren’t real. Each time I sat with her and talked through how to check it. The numbers suggested it wasn’t only my family.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:24px;">
+      <sc-for list="{{ stats }}" as="s" hint-placeholder-count="3">
+        <div style="display:flex;flex-direction:column;gap:12px;border-top:1.5px solid #2A0D09;padding-top:16px;">
+          <span style="font-family:'Instrument Serif',serif;font-size:clamp(56px,6vw,96px);line-height:.85;color:#F9261C;">{{ s.v }}</span>
+          <span style="font-size:17px;line-height:1.45;">{{ s.l }}</span>
+          <span style="font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.06em;color:#8A4F48;">{{ s.src }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- 02 APPROACH -->
+  <section data-screen-label="Approach" style="background:#FBEAE7;padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:40px;">
+    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">02 / APPROACH</span>
+    <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Each round changed <em style="color:#F9261C;">the question.</em></h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;">
+      <sc-for list="{{ methods }}" as="m" hint-placeholder-count="6">
+        <div style="background:#FFFDFC;border-radius:6px;padding:24px;display:flex;flex-direction:column;gap:10px;">
+          <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">{{ m.n }} · {{ m.t }}</span>
+          <span style="font-size:16px;line-height:1.5;">{{ m.v }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- 03-08 RESEARCH ROUNDS -->
+  <sc-for list="{{ rounds }}" as="r" hint-placeholder-count="5">
+    <section data-screen-label="{{ r.label }}" style="padding: clamp(80px,9vw,140px) clamp(20px,4.5vw,72px) 0; display: flex; flex-direction: column; gap: 36px; position: relative">
+      <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">{{ r.n }}</span>
+      <h2 style="margin: 0; max-width: 20ch; font-family: 'Instrument Serif',serif; font-weight: 400; font-size: clamp(40px,4.6vw,76px); line-height: .98; letter-spacing: -0.02em; text-wrap: balance; position: relative">{{ r.t }}</h2>
+      <p style="margin:0;max-width:62ch;font-size:18px;line-height:1.55;text-wrap:pretty;">{{ r.intro }}</p>
+      <sc-if value="{{ r.hasPoints }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:24px;">
+          <sc-for list="{{ r.points }}" as="p" hint-placeholder-count="4">
+            <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #2A0D09;padding-top:16px;">
+              <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">{{ p.k }}</span>
+              <span style="font-size:16px;line-height:1.5;">{{ p.v }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+      <sc-if value="{{ r.hasQuotes }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:24px;">
+          <sc-for list="{{ r.quotes }}" as="q" hint-placeholder-count="2">
+            <div style="display:flex;flex-direction:column;gap:12px;padding:28px;border-radius:6px;background:#FBEAE7;">
+              <span style="font-family:'Instrument Serif',serif;font-size:clamp(26px,2.4vw,36px);line-height:1.1;">“{{ q.q }}”</span>
+              <sc-if value="{{ q.hasOrig }}" hint-placeholder-val="{{ false }}"><span style="font-size:15px;font-style:italic;color:#8A4F48;">“{{ q.orig }}”</span></sc-if>
+              <span style="font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.06em;color:#8A4F48;">— {{ q.who }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+      <sc-if value="{{ r.hasFigs }}" hint-placeholder-val="{{ false }}">
+        
+      </sc-if>
+      <sc-if value="{{ r.hasImg }}" hint-placeholder-val="{{ false }}">
+        <figure style="margin:0;display:flex;flex-direction:column;gap:12px;">
+          <div role="img" aria-label="{{ r.imgCap }}" style="width:100%;aspect-ratio:{{ r.imgRatio }};background-image:{{ r.imgBg }};background-size:contain;background-repeat:no-repeat;background-position:center;"></div>
+          <figcaption style="font-size:14px;line-height:1.45;color:#43160F;">{{ r.imgCap }}</figcaption>
+        </figure>
+      </sc-if>
+      <div style="display:flex;flex-wrap:wrap;gap:12px 32px;align-items:baseline;padding:clamp(20px,3vw,32px);border:1.5px solid #2A0D09;border-radius:6px;">
+        <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;white-space:nowrap;">{{ r.impN }}</span>
+        <span style="flex:1 1 320px;font-family:'Instrument Serif',serif;font-size:clamp(22px,2vw,30px);line-height:1.15;">{{ r.imp }}</span>
+      </div>
+    </section>
+  </sc-for>
+
+  <!-- 07 DIARY -->
+  <section data-screen-label="Diary study" style="padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px) 0;display:flex;flex-direction:column;gap:36px;">
+    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">07 / DIARY STUDY</span>
+    <h2 style="margin:0;max-width:20ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(40px,4.6vw,76px);line-height:.98;letter-spacing:-0.02em;text-wrap:balance;">Five days, one platform each.</h2>
+    <p style="margin:0;max-width:62ch;font-size:18px;line-height:1.55;text-wrap:pretty;">Four participants aged 57+. A prompt went out at 9am IST, responses due by 10pm, in whatever form was comfortable: notes, texts, voice notes or video.</p>
+    <div style="display:flex;flex-direction:column;">
+      <sc-for list="{{ days }}" as="d" hint-placeholder-count="5">
+        <div style="display:grid;grid-template-columns:minmax(0,120px) repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px clamp(20px,3vw,48px);border-top:1.5px solid #2A0D09;padding:20px 0 28px;align-items:baseline;">
+          <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">{{ d.n }} · {{ d.p }}</span>
+          <span style="font-family:'Instrument Serif',serif;font-size:22px;line-height:1.2;font-style:italic;">“{{ d.q }}”</span>
+          <span style="font-size:16px;line-height:1.5;">{{ d.v }}</span>
+          <sc-if value="{{ d.hasImg }}" hint-placeholder-val="{{ false }}">
+            <div role="img" aria-label="{{ d.p }} synthesis" style="grid-column:1 / -1;width:100%;max-width:{{ d.maxw }};aspect-ratio:{{ d.ratio }};background-image:{{ d.img }};background-size:contain;background-repeat:no-repeat;background-position:left center;margin-top:8px;"></div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:clamp(24px,4vw,64px);align-items:center;background:#43160F;color:#F8DEDB;border-radius:6px;padding:clamp(28px,4vw,56px);">
+      <div style="flex:1 1 300px;display:flex;flex-direction:column;gap:14px;">
+        <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#FF6A5E;">The pattern</span>
+        <span style="font-family:'Instrument Serif',serif;font-size:clamp(32px,3.4vw,52px);line-height:1.02;">An echo chamber no one could see.</span>
+        <span style="font-size:17px;line-height:1.55;">What we see is a small, biased slice of the internet. What we trust from it is shaped by confirmation bias. Each reinforces the other.</span>
+      </div>
+      <div style="flex:1 1 320px;position:relative;aspect-ratio:4/3;border-radius:6px;overflow:hidden;">
+        <image-slot id="mis-echo" shape="rect" placeholder="Drop: FIG 31 selective exposure + confirmation bias diagram" style="position: absolute; inset: 0; height: 558px; width: 624px" src="./screenshot-2026-09-23-at-10-34-07-pm-muez9sdm-g94j.png"></image-slot>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 PLATFORM -->
+  <sc-for list="{{ rounds2 }}" as="r" hint-placeholder-count="1">
+    <section data-screen-label="{{ r.label }}" style="padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px) 0;display:flex;flex-direction:column;gap:36px;">
+      <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">{{ r.n }}</span>
+      <h2 style="margin:0;max-width:20ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(40px,4.6vw,76px);line-height:.98;letter-spacing:-0.02em;text-wrap:balance;">{{ r.t }}</h2>
+      <p style="margin:0;max-width:62ch;font-size:18px;line-height:1.55;text-wrap:pretty;">{{ r.intro }}</p>
+      <sc-if value="{{ r.hasPoints }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:24px;">
+          <sc-for list="{{ r.points }}" as="p" hint-placeholder-count="4">
+            <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #2A0D09;padding-top:16px;">
+              <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">{{ p.k }}</span>
+              <span style="font-size:16px;line-height:1.5;">{{ p.v }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+      <sc-if value="{{ r.hasQuotes }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:24px;">
+          <sc-for list="{{ r.quotes }}" as="q" hint-placeholder-count="2">
+            <div style="display:flex;flex-direction:column;gap:12px;padding:28px;border-radius:6px;background:#FBEAE7;">
+              <span style="font-family:'Instrument Serif',serif;font-size:clamp(26px,2.4vw,36px);line-height:1.1;">“{{ q.q }}”</span>
+              <sc-if value="{{ q.hasOrig }}" hint-placeholder-val="{{ false }}"><span style="font-size:15px;font-style:italic;color:#8A4F48;">“{{ q.orig }}”</span></sc-if>
+              <span style="font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.06em;color:#8A4F48;">— {{ q.who }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+      <sc-if value="{{ r.hasFigs }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:20px;">
+          <sc-for list="{{ r.figs }}" as="f" hint-placeholder-count="3">
+            <figure style="margin:0;display:flex;flex-direction:column;gap:10px;">
+              <div style="position:relative;aspect-ratio:4/3;border-radius:6px;overflow:hidden;">
+                <image-slot id="{{ f.id }}" shape="rect" placeholder="{{ f.ph }}" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+              </div>
+              <figcaption style="font-size:14px;line-height:1.45;color:#43160F;">{{ f.cap }}</figcaption>
+            </figure>
+          </sc-for>
+        </div>
+      </sc-if>
+      <div style="display:flex;flex-wrap:wrap;gap:12px 32px;align-items:baseline;padding:clamp(20px,3vw,32px);border:1.5px solid #2A0D09;border-radius:6px;">
+        <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;white-space:nowrap;">{{ r.impN }}</span>
+        <span style="flex:1 1 320px;font-family:'Instrument Serif',serif;font-size:clamp(22px,2vw,30px);line-height:1.15;">{{ r.imp }}</span>
+      </div>
+    </section>
+  </sc-for>
+
+  <!-- 09 PIVOT -->
+  <section data-screen-label="Pivot" style="padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:36px;">
+    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">09 / THE PIVOT</span>
+    <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">From screens to <em style="color:#F9261C;">the dining table.</em></h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px;">
+      <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #2A0D09;padding-top:16px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;color:#F9261C;">REASON 1</span><span style="font-size:18px;line-height:1.5;">Redesigning WhatsApp or YouTube means changing policy across users, platforms and government. I didn’t have the data to make that case.</span></div>
+      <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #2A0D09;padding-top:16px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;color:#F9261C;">REASON 2</span><span style="font-size:18px;line-height:1.5;">The mid-term jury pointed out that these family conversations already happen offline. That was the better place to design for.</span></div>
+    </div>
+    <div style="position:relative;aspect-ratio:21/9;border-radius:6px;overflow:hidden;">
+      <image-slot id="mis-sketches" shape="rect" placeholder="Drop: FIGS 6–11 family-based sketches" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Four implications carried into the book</span>
+      <sc-for list="{{ implications }}" as="i" hint-placeholder-count="4">
+        <div style="display:flex;gap:16px;align-items:baseline;border-top:1px solid #EFD6D2;padding-top:12px;"><span style="font-family:'Instrument Serif',serif;font-size:32px;line-height:1;color:#F9261C;">{{ i.n }}</span><span style="font-size:17px;line-height:1.5;">{{ i.v }}</span></div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- 10 GUIDEBOOK -->
+  <section data-screen-label="Guidebook" style="background:#FBEAE7;padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:clamp(40px,5vw,64px);">
+    <div style="display:flex;flex-direction:column;gap:24px;">
+      <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">10 / THE GUIDEBOOK</span>
+      <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">A book two generations <em style="color:#F9261C;">fill in together.</em></h2>
+      <p style="margin:0;max-width:62ch;font-size:18px;line-height:1.55;text-wrap:pretty;">It’s meant to be handled. In the first activity, you dig through clippings for the one that disproves a headline. Only then does the book explain why seeking disconfirmation matters. The tone stays gentle and second-person: having biases is normal.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:16px;">
+      <sc-for list="{{ steps }}" as="s" hint-placeholder-count="4">
+        <div style="background:#FFFDFC;border-radius:6px;padding:20px;display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;color:#F9261C;">{{ s.n }}</span><span style="font-size:16px;line-height:1.45;">{{ s.v }}</span></div>
+      </sc-for>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:clamp(40px,5vw,72px);">
+      <sc-for list="{{ topics }}" as="t" hint-placeholder-count="4">
+        <div style="display:flex;flex-wrap:wrap;gap:clamp(24px,4vw,64px);align-items:center;">
+          <div style="flex:3 1 420px;min-width:0;position:relative;aspect-ratio:16/10;border-radius:6px;overflow:hidden;order:{{ t.order }};">
+            <image-slot id="{{ t.id }}" shape="rect" placeholder="{{ t.ph }}" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+          </div>
+          <div style="flex:2 1 260px;min-width:0;display:flex;flex-direction:column;gap:12px;max-width:40ch;">
+            <span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.6vw,40px);line-height:1.05;">{{ t.t }}</span>
+            <span style="font-size:17px;line-height:1.55;text-wrap:pretty;">{{ t.v }}</span>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- 11 POP YOUR BUBBLE -->
+  <section data-screen-label="Pop your bubble" style="padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:36px;">
+    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">11 / POP YOUR BUBBLE</span>
+    <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Same start, <em style="color:#F9261C;">different paths.</em></h2>
+    <p style="margin:0;max-width:62ch;font-size:18px;line-height:1.55;text-wrap:pretty;">A QR code in the book starts a group game on YouTube. Everyone begins on the same video and follows recommendations until they reach one that debunks it. Each person’s algorithm takes them somewhere different.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:16px;">
+      <sc-for list="{{ game }}" as="g" hint-placeholder-count="4">
+        <div style="display:flex;flex-direction:column;gap:8px;border-top:1.5px solid #2A0D09;padding-top:14px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;color:#F9261C;">{{ g.n }}</span><span style="font-size:16px;line-height:1.45;">{{ g.v }}</span></div>
+      </sc-for>
+    </div>
+    <div data-screen-label="Paths" style="display:flex;flex-direction:column;gap:18px;background:#43160F;color:#F8DEDB;border-radius:6px;padding:clamp(24px,4vw,48px);">
+      <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#FF6A5E;">Videos watched to reach the other side</span>
+      <sc-for list="{{ players }}" as="p" hint-placeholder-count="3">
+        <div style="display:flex;align-items:center;gap:16px;">
+          <span style="width:72px;flex-shrink:0;font-family:'Courier Prime',monospace;font-size:13px;">{{ p.n }}</span>
+          <div style="flex:1;display:flex;gap:4px;flex-wrap:wrap;">
+            <sc-for list="{{ p.dots }}" as="d" hint-placeholder-count="10"><span style="width:18px;height:18px;border-radius:4px;background:{{ d }};"></span></sc-for>
+          </div>
+          <span style="width:40px;text-align:right;font-family:'Instrument Serif',serif;font-size:32px;line-height:1;color:#FF6A5E;">{{ p.c }}</span>
+        </div>
+      </sc-for>
+      <span style="font-size:16px;line-height:1.5;max-width:60ch;">Even someone actively looking for other views has to work against the algorithm to find them.</span>
+    </div>
+    <div style="position:relative;aspect-ratio:21/9;border-radius:6px;overflow:hidden;">
+      <image-slot id="mis-game" shape="rect" placeholder="Drop: Pop Your Bubble phone screens (steps 1–6)" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+    </div>
+  </section>
+
+  <!-- 12 TESTING -->
+  <section data-screen-label="Testing" style="background:#FBEAE7;padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:36px;">
+    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">12 / TESTING</span>
+    <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Two rounds, <em style="color:#F9261C;">same families.</em></h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(20px,3vw,40px);">
+      <figure style="margin:0;display:flex;flex-direction:column;gap:14px;">
+        <div style="position:relative;aspect-ratio:4/3;border-radius:6px;overflow:hidden;"><image-slot id="mis-round1" shape="rect" placeholder="Drop: FIG 20 handwritten prototype" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot></div>
+        <figcaption style="display:flex;flex-direction:column;gap:6px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;color:#F9261C;">ROUND 1 · HAND-DRAWN</span><span style="font-size:16px;line-height:1.5;">The YouTube concept landed. Nobody finished the text on seeking disconfirmation, and some said it felt text-heavy.</span></figcaption>
+      </figure>
+      <figure style="margin:0;display:flex;flex-direction:column;gap:14px;">
+        <div style="position:relative;aspect-ratio:4/3;border-radius:6px;overflow:hidden;"><image-slot id="mis-round2" shape="rect" placeholder="Drop: FIG 21 redesigned spreads" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot></div>
+        <figcaption style="display:flex;flex-direction:column;gap:6px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;color:#F9261C;">ROUND 2 · REDESIGNED</span><span style="font-size:16px;line-height:1.5;">Sessions were unmoderated, so I treated “too text-heavy” as a hypothesis and rebuilt the flows with comics, diagrams and short callouts.</span></figcaption>
+      </figure>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:24px;">
+      <sc-for list="{{ results }}" as="o" hint-placeholder-count="3">
+        <div style="display:flex;flex-direction:column;gap:12px;border-top:1.5px solid #2A0D09;padding-top:16px;">
+          <span style="font-family:'Instrument Serif',serif;font-size:clamp(56px,6vw,96px);line-height:.85;color:#F9261C;">{{ o.v }}</span>
+          <span style="font-size:17px;line-height:1.4;max-width:26ch;">{{ o.l }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- 13 REFLECTION -->
+  <section data-screen-label="Reflection" style="padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:36px;">
+    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">13 / REFLECTION</span>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:24px;">
+      <sc-for list="{{ reflections }}" as="r" hint-placeholder-count="5">
+        <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #2A0D09;padding-top:16px;"><span style="font-family:'Instrument Serif',serif;font-size:26px;line-height:1.1;">{{ r.t }}</span><span style="font-size:16px;line-height:1.5;">{{ r.v }}</span></div>
+      </sc-for>
+    </div>
+    <p style="margin:0;max-width:30ch;font-family:'Instrument Serif',serif;font-size:clamp(28px,3vw,46px);line-height:1.1;text-wrap:pretty;">I let the process stay uncertain, and a browser extension turned into a book. <em style="color:#F9261C;">It also made my grandmother proud.</em></p>
+  </section>
+
+  <a href="Portfolio.dc.html#work" data-screen-label="Next" style="display:flex;flex-direction:column;gap:20px;padding:clamp(56px,7vw,112px) clamp(20px,4.5vw,72px);background:#43160F;color:#F8DEDB;">
+    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">Back to work</span>
+    <span style="font-family:'Instrument Serif',serif;font-size:clamp(56px,8vw,140px);line-height:.9;letter-spacing:-0.03em;">All projects →</span>
+  </a>
+  <button onClick="{{ jump }}" aria-label="{{ jumpAria }}" style="position:fixed;right:clamp(16px,3vw,40px);bottom:clamp(16px,3vw,40px);z-index:40;display:flex;align-items:center;gap:10px;height:52px;padding:0 20px 0 16px;border:none;border-radius:999px;background:#2A0D09;color:#FFFDFC;font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;box-shadow:0 8px 24px rgba(42,13,9,.18);transition:background-color .3s ease;" style-hover="background:#F9261C;">
+    <span style="display:inline-flex;font-size:18px;line-height:1;transition:transform .45s cubic-bezier(.22,1,.36,1);transform:{{ jumpRot }};">↓</span>
+    <span>{{ jumpLabel }}</span>
+  </button>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { progress: 0 };
+  componentDidMount() {
+    this.__jumpInit();
+    this.onScroll = () => { const h = document.documentElement.scrollHeight - innerHeight; this.setState({ progress: h > 0 ? scrollY / h : 0 }); };
+    addEventListener('scroll', this.onScroll, { passive: true });
+  }
+  componentWillUnmount() { removeEventListener('scroll', this.onJumpScroll); removeEventListener('resize', this.onJumpScroll); removeEventListener('scroll', this.onScroll); }
+
+  __jumpTarget() { return document.querySelector('[data-screen-label="Guidebook"]'); }
+  __jumpInit() {
+    this.onJumpScroll = () => {
+      const h = document.documentElement.scrollHeight - innerHeight, p = h > 0 ? scrollY / h : 0;
+      const s = this.__jumpTarget(), hd = document.querySelector('header');
+      const past = s ? s.getBoundingClientRect().top <= (hd ? hd.offsetHeight : 0) + 24 : false;
+      const up = p > 0.3 || past;
+      if (up !== !!this.state.jumpUp) this.setState({ jumpUp: up });
+    };
+    addEventListener('scroll', this.onJumpScroll, { passive: true });
+    addEventListener('resize', this.onJumpScroll);
+    this.onJumpScroll();
+  }
+  jump = () => {
+    if (this.state.jumpUp) { scrollTo({ top: 0, behavior: 'smooth' }); return; }
+    const s = this.__jumpTarget(), hd = document.querySelector('header');
+    if (s) scrollTo({ top: s.getBoundingClientRect().top + scrollY - (hd ? hd.offsetHeight : 0), behavior: 'smooth' });
+  };
+  renderVals() {
+    const up = !!this.state.jumpUp;
+    return { ...this.__rv(), jump: this.jump, jumpLabel: up ? 'Top' : 'Solution', jumpAria: up ? 'Back to top' : 'Jump to the solution', jumpRot: up ? 'rotate(180deg)' : 'rotate(0deg)' };
+  }
+  __rv() {
+    const R = (o) => Object.assign({ hasPoints: !!o.points, hasQuotes: !!o.quotes, hasFigs: !!o.figs, hasImg: false }, o);
+    const dots = (n, total) => Array.from({ length: total }, (_, i) => i < n - 1 ? '#8A4F48' : i === n - 1 ? '#FF6A5E' : 'transparent').slice(0, n);
+    return {
+      progress: (this.state.progress * 100).toFixed(1) + '%',
+      results: [
+        { v: '100%', l: 'of participants correctly explained the algorithm concept' },
+        { v: '50–75', l: 'minutes per family discussion' },
+        { v: '>2×', l: 'task completion after the visual redesign' }
+      ],
+      stats: [
+        { v: '~1 in 6', l: 'pieces of misinformation worldwide came from India, the largest source of Covid misinformation', src: 'Ahmad, 2021' },
+        { v: '80%', l: 'of fake news shares in the 2016 US election came from “supersharers,” where users over 50 were overrepresented', src: 'Grinberg et al., 2019' },
+        { v: '16%', l: 'of older adults need someone’s help to find information online (76% go online for it)', src: 'Li et al., 2019' }
+      ],
+      methods: [
+        { n: '01', t: 'Literature review', v: 'Cognitive aging, social psychology, journalism credibility, WhatsApp and YouTube in India.' },
+        { n: '02', t: 'Interviews', v: '6 older adults in Tamil, Marathi, Hindi and English, transcribed by hand.' },
+        { n: '03', t: 'Reddit exploration', v: 'How families elsewhere describe the same dynamic.' },
+        { n: '04', t: 'Diary study', v: '5 days, 4 participants aged 57+, one platform per day.' },
+        { n: '05', t: 'Sketching + critique', v: 'Three rounds of concepts and mid-term jury feedback.' },
+        { n: '06', t: 'Concept testing', v: '2 unmoderated rounds with the same grandparent and grandchild pairs.' }
+      ],
+      rounds: [
+        R({ label: 'Secondary research', n: '03 / SECONDARY RESEARCH', t: 'Why older adults are more exposed.',
+          intro: 'Truth-Default Theory says people assume information is true unless something prompts doubt. Several factors make that default harder for older adults to override.',
+          points: [
+            { k: 'Cognitive changes', v: 'Repeated exposure increases belief, and source memory fades, so a fact-check is forgotten while the claim sticks.' },
+            { k: 'Social goals', v: 'Sharing eases loneliness, and trust in friends and family rises with age.' },
+            { k: 'Digital literacy', v: 'Late adopters know less about clickbait, and spotting a doctored image gets harder with age.' },
+            { k: 'Credibility', v: 'They grew up with trusted gatekeepers. The internet removed those, but the habit of trusting anything that looks like news stayed.' }
+          ], impN: 'Implication 1', imp: 'Explain what misinformation is, how it’s made and how journalism has changed, with room to reflect on personal bias.' }),
+        R({ label: 'Interviews', n: '04 / INTERVIEWS', t: 'Six conversations in four languages.',
+          intro: 'Skepticism was real but narrow. It showed up for ads that promised too much, and the only tool anyone described was instinct. The finding that shaped the project: they took interesting things to their children and grandchildren, and listened when told it was fake.',
+          quotes: [
+            { q: 'I don’t want to lose my money, and I don’t want to die.', who: 'P2, on why health and finance content gets extra suspicion', hasOrig: false },
+            { q: 'Something is definitely fishy. How will they make profits like this?', orig: 'Lagta hai ki kuch toh gadbad hai, aisehi thodi na dhandha badhega unka', hasOrig: true, who: 'P4, on an ad that seemed too good to be true' }
+          ],
+          figs: [
+            { id: 'mis-fig22', ph: 'Drop: FIG 22', cap: 'A side-by-side view of every perspective on a story.' },
+            { id: 'mis-fig23', ph: 'Drop: FIG 23', cap: 'An extension that rewrites the page as it would have been framed 10–15 years ago.' },
+            { id: 'mis-fig24', ph: 'Drop: FIG 24', cap: 'A perspective meter that nudges readers to open other viewpoints before sharing.' }
+          ], impN: 'Implication 2', imp: 'Explain echo chambers in terms this group can follow, and offer better strategies than instinct.' }),
+        R({ label: 'Counter-signal', n: '05 / COUNTER-SIGNAL', t: 'Reddit told a different story.',
+          intro: 'Online, people described older relatives as stubborn and impossible to argue with. Most posts came from Western users. Literature on Indian families showed grandchildren often teach grandparents technology, and calm disagreement is valued. That gave me the framing: use the trust that already exists between grandparents and grandchildren.',
+          hasImg: true, imgBg: "url('../case-study/mis-reddit.png')", imgRatio: '2512/1370', imgCap: 'A few of many Reddit comments on the “stubbornness” of older relatives.',
+          impN: 'Framing', imp: 'Build on the trust between grandparents and grandchildren.' }),
+        R({ label: 'First concepts', n: '06 / FIRST CONCEPTS', t: 'Putting the family in the loop.',
+          intro: 'My first ideas let the family step in at the moment of sharing. Every one depended on the family being able to spot misinformation. If they couldn’t, the concepts would just pass the problem along.',
+          figs: [
+            { id: 'mis-fig3', ph: 'Drop: FIG 3', cap: '“Parent lock”: a child lock in reverse.' },
+            { id: 'mis-fig4', ph: 'Drop: FIG 4', cap: 'A credibility checklist before forwarding on WhatsApp.' },
+            { id: 'mis-fig5', ph: 'Drop: FIG 5', cap: 'An extension that interrupts in the family’s voice: “Paati, wait!”' }
+          ], impN: 'Implication 3', imp: 'Design for the whole family as a unit, so everyone learns to recognise unreliable information together.' })
+      ],
+      rounds2: [
+        R({ label: 'Platform lens', n: '08 / PLATFORM LENS', t: 'What WhatsApp and YouTube add.',
+          intro: 'WhatsApp in India changed mostly in response to crises, which researchers call “governance by shock.” YouTube’s recommendations create a feedback loop that pushes users into mild echo chambers and narrows what everyone sees over time.',
+          impN: 'Implication 4', imp: 'Show how algorithms make echo chambers worse, and encourage people to look for other perspectives.' })
+      ],
+      days: [
+        { n: 'Day 1', p: 'WhatsApp', q: 'Who did you get it from, and what did you do with it?', v: 'Content came from people who shared their views. Interesting things got forwarded.', hasImg: true, img: "url('../case-study/mis-day1.png')", maxw: '432px', ratio: '664/366' },
+        { n: 'Day 2', p: 'YouTube', q: 'Do you notice a pattern in what’s recommended?', v: 'The same kinds of content every day, judged by instinct.', hasImg: true, img: "url('../case-study/mis-day2.png')", maxw: '432px', ratio: '1324/992' },
+        { n: 'Day 3', p: 'Facebook', q: 'How do you judge what’s trustworthy?', v: 'Two responded. Both kept seeing content like what they’d liked before.', hasImg: true, img: "url('../case-study/mis-day3.png')", ratio: '530/762', maxw: '252px' },
+        { n: 'Day 4', p: 'Television', q: 'What information on TV do you trust, and why?', v: 'Channels matched their politics. One in four browsed the other side.', hasImg: true, img: "url('../case-study/mis-day4.png')", ratio: '776/926', maxw: '288px' },
+        { n: 'Day 5', p: 'Their choice', q: 'Reflect on information on any platform.', v: 'Three of four went back to WhatsApp, one chose a local OTT platform.', hasImg: true, img: "url('../case-study/mis-day5.png')", ratio: '1034/712', maxw: '336px' }
+      ],
+      implications: [
+        { n: '1', v: 'Explain what misinformation is and how it’s made.' },
+        { n: '2', v: 'Explain echo chambers and offer better strategies than instinct.' },
+        { n: '3', v: 'Design for the whole family as a unit.' },
+        { n: '4', v: 'Show how algorithms deepen echo chambers.' }
+      ],
+      steps: [
+        { n: '1 · ACTIVITY', v: 'Try it first, with no instructions.' },
+        { n: '2 · ANSWERS', v: 'What was fake, and why.' },
+        { n: '3 · STRATEGIES', v: 'Tips to use next time.' },
+        { n: '4 · DISCUSS', v: 'Prompts to talk about offline.' }
+      ],
+      topics: [
+        { id: 'mis-fig12', ph: 'Drop: FIG 12 clippings activity', order: 0, t: 'Seeking disconfirmation', v: 'Find the clipping that disproves the headline. Without actively looking, the truth gets lost in the pile.' },
+        { id: 'mis-fig18', ph: 'Drop: FIG 18–19 source credibility', order: 1, t: 'Source credibility', v: 'Readers rank real news brands, then scan a QR code to compare with PolitiFact ratings, and reflect on why they got some wrong.' },
+        { id: 'mis-flap', ph: 'Drop: image manipulation flap page', order: 0, t: 'Image manipulation', v: 'A doctored photo of a politician with a “420” badge. Lift the flap to see the original, then learn reverse image search.' },
+        { id: 'mis-comic', ph: 'Drop: echo chamber comic spread', order: 1, t: 'Echo chambers, as a story about Grandma', v: 'Her circle of friends shrinks after each disagreement until she’s inside a box asking, “Wait, what’s that echo?”' }
+      ],
+      game: [
+        { n: 'STEP 1', v: 'Vote on a starting video. Everyone begins from the same one.' },
+        { n: 'STEP 2', v: 'Tap the next recommendation until you reach a video that debunks it.' },
+        { n: 'STEP 3', v: 'Checkpoint: compare screens. Everyone is somewhere different.' },
+        { n: 'STEP 4', v: 'See how long it took, then go back to the book to talk it over.' }
+      ],
+      players: [
+        { n: 'Player A', c: 10, dots: dots(10, 18) },
+        { n: 'Player B', c: 7, dots: dots(7, 18) },
+        { n: 'Player C', c: 18, dots: dots(18, 18) }
+      ],
+      reflections: [
+        { t: 'A more balanced sample', v: 'All four diary participants were women, and only one of six interviewees was a man.' },
+        { t: 'Bias has no cure', v: 'The book builds awareness of confirmation and truth bias. It can’t remove them.' },
+        { t: 'Print goes stale', v: 'Tactics change fast. A monthly or subscription format could keep it current.' },
+        { t: 'Long-term effect is unknown', v: 'Longitudinal testing is the next thing to measure.' },
+        { t: 'Accessibility was assumed', v: 'Future versions should design for disabilities directly and add regional languages.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
