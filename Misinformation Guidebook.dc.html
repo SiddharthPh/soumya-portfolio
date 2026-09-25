@@ -88,7 +88,7 @@ a:hover{color:#F9261C;}
       <sc-for list="{{ methods }}" as="m" hint-placeholder-count="6">
         <div style="background:#FFFDFC;border-radius:6px;padding:24px;display:flex;flex-direction:column;gap:10px;">
           <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">{{ m.n }} · {{ m.t }}</span>
-          <span style="font-size:16px;line-height:1.5;">{{ m.v }}</span>
+          <span style="font-size:17px;line-height:1.55;">{{ m.v }}</span>
         </div>
       </sc-for>
     </div>
@@ -105,7 +105,7 @@ a:hover{color:#F9261C;}
           <sc-for list="{{ r.points }}" as="p" hint-placeholder-count="4">
             <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #2A0D09;padding-top:16px;">
               <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">{{ p.k }}</span>
-              <span style="font-size:16px;line-height:1.5;">{{ p.v }}</span>
+              <span style="font-size:17px;line-height:1.55;">{{ p.v }}</span>
             </div>
           </sc-for>
         </div>
@@ -144,12 +144,12 @@ a:hover{color:#F9261C;}
     <p style="margin:0;max-width:62ch;font-size:18px;line-height:1.55;text-wrap:pretty;">Four participants aged 57+. A prompt went out at 9am IST, responses due by 10pm, in whatever form was comfortable: notes, texts, voice notes or video.</p>
     <div style="display:flex;flex-direction:column;">
       <sc-for list="{{ days }}" as="d" hint-placeholder-count="5">
-        <div style="display:grid;grid-template-columns:minmax(0,120px) repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px clamp(20px,3vw,48px);border-top:1.5px solid #2A0D09;padding:20px 0 28px;align-items:baseline;">
+        <div style="display:grid;grid-template-columns:minmax(0,120px) repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px clamp(20px,3vw,48px);border-top:1.5px solid #2A0D09;padding:24px 0 32px;align-items:baseline;">
           <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">{{ d.n }} · {{ d.p }}</span>
-          <span style="font-family:'Instrument Serif',serif;font-size:22px;line-height:1.2;font-style:italic;">“{{ d.q }}”</span>
-          <span style="font-size:16px;line-height:1.5;">{{ d.v }}</span>
+          <span style="font-family:'Instrument Serif',serif;font-size:24px;line-height:1.25;font-style:italic;">“{{ d.q }}”</span>
+          <span style="font-size:17px;line-height:1.55;">{{ d.v }}</span>
           <sc-if value="{{ d.hasImg }}" hint-placeholder-val="{{ false }}">
-            <div role="img" aria-label="{{ d.p }} synthesis" style="grid-column:1 / -1;width:100%;max-width:{{ d.maxw }};aspect-ratio:{{ d.ratio }};background-image:{{ d.img }};background-size:contain;background-repeat:no-repeat;background-position:left center;margin-top:8px;"></div>
+            <div role="img" aria-label="{{ d.p }} synthesis" style="grid-column:1 / -1;width:100%;max-width:{{ d.maxw }};aspect-ratio:{{ d.ratio }};background-image:{{ d.img }};background-size:contain;background-repeat:no-repeat;background-position:center center;margin:16px auto 0;"></div>
           </sc-if>
         </div>
       </sc-for>
@@ -160,8 +160,8 @@ a:hover{color:#F9261C;}
         <span style="font-family:'Instrument Serif',serif;font-size:clamp(32px,3.4vw,52px);line-height:1.02;">An echo chamber no one could see.</span>
         <span style="font-size:17px;line-height:1.55;">What we see is a small, biased slice of the internet. What we trust from it is shaped by confirmation bias. Each reinforces the other.</span>
       </div>
-      <div style="flex:1 1 320px;position:relative;aspect-ratio:4/3;border-radius:6px;overflow:hidden;">
-        <image-slot id="mis-echo" shape="rect" placeholder="Drop: FIG 31 selective exposure + confirmation bias diagram" style="position: absolute; inset: 0; height: 558px; width: 624px" src="./screenshot-2026-09-23-at-10-34-07-pm-muez9sdm-g94j.png"></image-slot>
+      <div style="flex:1 1 320px;position:relative;aspect-ratio:1758/1168;border-radius:6px;overflow:hidden;background:#3A120D;">
+        <image-slot id="mis-echo" shape="rect" placeholder="Drop: FIG 31 selective exposure + confirmation bias diagram" fit="contain" style="position:absolute;inset:0;width:100%;height:100%;" src="./screenshot-2026-09-23-at-10-34-07-pm-muez9sdm-g94j.png"></image-slot>
       </div>
     </div>
   </section>
@@ -177,7 +177,7 @@ a:hover{color:#F9261C;}
           <sc-for list="{{ r.points }}" as="p" hint-placeholder-count="4">
             <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #2A0D09;padding-top:16px;">
               <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">{{ p.k }}</span>
-              <span style="font-size:16px;line-height:1.5;">{{ p.v }}</span>
+              <span style="font-size:17px;line-height:1.55;">{{ p.v }}</span>
             </div>
           </sc-for>
         </div>
@@ -220,8 +220,8 @@ a:hover{color:#F9261C;}
       <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #2A0D09;padding-top:16px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;color:#F9261C;">REASON 1</span><span style="font-size:18px;line-height:1.5;">Redesigning WhatsApp or YouTube means changing policy across users, platforms and government. I didn’t have the data to make that case.</span></div>
       <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #2A0D09;padding-top:16px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;color:#F9261C;">REASON 2</span><span style="font-size:18px;line-height:1.5;">The mid-term jury pointed out that these family conversations already happen offline. That was the better place to design for.</span></div>
     </div>
-    <div style="position:relative;aspect-ratio:21/9;border-radius:6px;overflow:hidden;">
-      <image-slot id="mis-sketches" shape="rect" placeholder="Drop: FIGS 6–11 family-based sketches" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+    <div style="position:relative;aspect-ratio:16/9;border-radius:6px;overflow:hidden;background:#FBEAE7;">
+      <image-slot id="mis-sketches" shape="rect" placeholder="Drop: FIGS 6–11 family-based sketches" src="case-study/mis-sketches.png" fit="contain" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
     </div>
     <div style="display:flex;flex-direction:column;gap:14px;">
       <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Four implications carried into the book</span>
@@ -240,14 +240,14 @@ a:hover{color:#F9261C;}
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:16px;">
       <sc-for list="{{ steps }}" as="s" hint-placeholder-count="4">
-        <div style="background:#FFFDFC;border-radius:6px;padding:20px;display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;color:#F9261C;">{{ s.n }}</span><span style="font-size:16px;line-height:1.45;">{{ s.v }}</span></div>
+        <div style="background:#FFFDFC;border-radius:6px;padding:20px;display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;color:#F9261C;">{{ s.n }}</span><span style="font-size:17px;line-height:1.5;">{{ s.v }}</span></div>
       </sc-for>
     </div>
     <div style="display:flex;flex-direction:column;gap:clamp(40px,5vw,72px);">
       <sc-for list="{{ topics }}" as="t" hint-placeholder-count="4">
         <div style="display:flex;flex-wrap:wrap;gap:clamp(24px,4vw,64px);align-items:center;">
-          <div style="flex:3 1 420px;min-width:0;position:relative;aspect-ratio:16/10;border-radius:6px;overflow:hidden;order:{{ t.order }};">
-            <image-slot id="{{ t.id }}" shape="rect" placeholder="{{ t.ph }}" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+          <div style="flex:3 1 420px;min-width:0;position:relative;aspect-ratio:{{ t.ratio }};border-radius:6px;overflow:hidden;order:{{ t.order }};background:#FBEAE7;">
+            <image-slot id="{{ t.id }}" shape="rect" placeholder="{{ t.ph }}" src="{{ t.src }}" fit="contain" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
           </div>
           <div style="flex:2 1 260px;min-width:0;display:flex;flex-direction:column;gap:12px;max-width:40ch;">
             <span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.6vw,40px);line-height:1.05;">{{ t.t }}</span>
@@ -265,7 +265,7 @@ a:hover{color:#F9261C;}
     <p style="margin:0;max-width:62ch;font-size:18px;line-height:1.55;text-wrap:pretty;">A QR code in the book starts a group game on YouTube. Everyone begins on the same video and follows recommendations until they reach one that debunks it. Each person’s algorithm takes them somewhere different.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:16px;">
       <sc-for list="{{ game }}" as="g" hint-placeholder-count="4">
-        <div style="display:flex;flex-direction:column;gap:8px;border-top:1.5px solid #2A0D09;padding-top:14px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;color:#F9261C;">{{ g.n }}</span><span style="font-size:16px;line-height:1.45;">{{ g.v }}</span></div>
+        <div style="display:flex;flex-direction:column;gap:8px;border-top:1.5px solid #2A0D09;padding-top:14px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;color:#F9261C;">{{ g.n }}</span><span style="font-size:17px;line-height:1.5;">{{ g.v }}</span></div>
       </sc-for>
     </div>
     <div data-screen-label="Paths" style="display:flex;flex-direction:column;gap:18px;background:#43160F;color:#F8DEDB;border-radius:6px;padding:clamp(24px,4vw,48px);">
@@ -279,10 +279,10 @@ a:hover{color:#F9261C;}
           <span style="width:40px;text-align:right;font-family:'Instrument Serif',serif;font-size:32px;line-height:1;color:#FF6A5E;">{{ p.c }}</span>
         </div>
       </sc-for>
-      <span style="font-size:16px;line-height:1.5;max-width:60ch;">Even someone actively looking for other views has to work against the algorithm to find them.</span>
+      <span style="font-size:17px;line-height:1.55;max-width:60ch;">Even someone actively looking for other views has to work against the algorithm to find them.</span>
     </div>
-    <div style="position:relative;aspect-ratio:21/9;border-radius:6px;overflow:hidden;">
-      <image-slot id="mis-game" shape="rect" placeholder="Drop: Pop Your Bubble phone screens (steps 1–6)" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+    <div style="width:100%;max-width:340px;margin:0 auto;position:relative;aspect-ratio:1190/1652;border-radius:16px;overflow:hidden;background:#FBEAE7;">
+      <video src="case-study/mis-game.mp4" poster="case-study/mis-game-poster.jpg" controls muted loop playsinline aria-label="Pop Your Bubble phone screens, steps 1 through 6" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;"></video>
     </div>
   </section>
 
@@ -293,11 +293,11 @@ a:hover{color:#F9261C;}
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(20px,3vw,40px);">
       <figure style="margin:0;display:flex;flex-direction:column;gap:14px;">
         <div style="position:relative;aspect-ratio:4/3;border-radius:6px;overflow:hidden;"><image-slot id="mis-round1" shape="rect" placeholder="Drop: FIG 20 handwritten prototype" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot></div>
-        <figcaption style="display:flex;flex-direction:column;gap:6px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;color:#F9261C;">ROUND 1 · HAND-DRAWN</span><span style="font-size:16px;line-height:1.5;">The YouTube concept landed. Nobody finished the text on seeking disconfirmation, and some said it felt text-heavy.</span></figcaption>
+        <figcaption style="display:flex;flex-direction:column;gap:6px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;color:#F9261C;">ROUND 1 · HAND-DRAWN</span><span style="font-size:17px;line-height:1.55;">The YouTube concept landed. Nobody finished the text on seeking disconfirmation, and some said it felt text-heavy.</span></figcaption>
       </figure>
       <figure style="margin:0;display:flex;flex-direction:column;gap:14px;">
         <div style="position:relative;aspect-ratio:4/3;border-radius:6px;overflow:hidden;"><image-slot id="mis-round2" shape="rect" placeholder="Drop: FIG 21 redesigned spreads" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot></div>
-        <figcaption style="display:flex;flex-direction:column;gap:6px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;color:#F9261C;">ROUND 2 · REDESIGNED</span><span style="font-size:16px;line-height:1.5;">Sessions were unmoderated, so I treated “too text-heavy” as a hypothesis and rebuilt the flows with comics, diagrams and short callouts.</span></figcaption>
+        <figcaption style="display:flex;flex-direction:column;gap:6px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;color:#F9261C;">ROUND 2 · REDESIGNED</span><span style="font-size:17px;line-height:1.55;">Sessions were unmoderated, so I treated “too text-heavy” as a hypothesis and rebuilt the flows with comics, diagrams and short callouts.</span></figcaption>
       </figure>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:24px;">
@@ -315,7 +315,7 @@ a:hover{color:#F9261C;}
     <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">13 / REFLECTION</span>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:24px;">
       <sc-for list="{{ reflections }}" as="r" hint-placeholder-count="5">
-        <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #2A0D09;padding-top:16px;"><span style="font-family:'Instrument Serif',serif;font-size:26px;line-height:1.1;">{{ r.t }}</span><span style="font-size:16px;line-height:1.5;">{{ r.v }}</span></div>
+        <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #2A0D09;padding-top:16px;"><span style="font-family:'Instrument Serif',serif;font-size:26px;line-height:1.1;">{{ r.t }}</span><span style="font-size:17px;line-height:1.55;">{{ r.v }}</span></div>
       </sc-for>
     </div>
     <p style="margin:0;max-width:30ch;font-family:'Instrument Serif',serif;font-size:clamp(28px,3vw,46px);line-height:1.1;text-wrap:pretty;">I let the process stay uncertain, and a browser extension turned into a book. <em style="color:#F9261C;">It also made my grandmother proud.</em></p>
@@ -443,10 +443,10 @@ class Component extends DCLogic {
         { n: '4 · DISCUSS', v: 'Prompts to talk about offline.' }
       ],
       topics: [
-        { id: 'mis-fig12', ph: 'Drop: FIG 12 clippings activity', order: 0, t: 'Seeking disconfirmation', v: 'Find the clipping that disproves the headline. Without actively looking, the truth gets lost in the pile.' },
-        { id: 'mis-fig18', ph: 'Drop: FIG 18–19 source credibility', order: 1, t: 'Source credibility', v: 'Readers rank real news brands, then scan a QR code to compare with PolitiFact ratings, and reflect on why they got some wrong.' },
-        { id: 'mis-flap', ph: 'Drop: image manipulation flap page', order: 0, t: 'Image manipulation', v: 'A doctored photo of a politician with a “420” badge. Lift the flap to see the original, then learn reverse image search.' },
-        { id: 'mis-comic', ph: 'Drop: echo chamber comic spread', order: 1, t: 'Echo chambers, as a story about Grandma', v: 'Her circle of friends shrinks after each disagreement until she’s inside a box asking, “Wait, what’s that echo?”' }
+        { id: 'mis-fig12', ph: 'Drop: FIG 12 clippings activity', order: 0, t: 'Seeking disconfirmation', v: 'Find the clipping that disproves the headline. Without actively looking, the truth gets lost in the pile.', src: 'case-study/mis-fig12.png', ratio: '600/388' },
+        { id: 'mis-fig18', ph: 'Drop: FIG 18–19 source credibility', order: 1, t: 'Source credibility', v: 'Readers rank real news brands, then scan a QR code to compare with PolitiFact ratings, and reflect on why they got some wrong.', src: 'case-study/mis-fig18.png', ratio: '600/388' },
+        { id: 'mis-flap', ph: 'Drop: image manipulation flap page', order: 0, t: 'Image manipulation', v: 'A doctored photo of a politician with a “420” badge. Lift the flap to see the original, then learn reverse image search.', src: 'case-study/mis-flap.png', ratio: '600/904' },
+        { id: 'mis-comic', ph: 'Drop: echo chamber comic spread', order: 1, t: 'Echo chambers, as a story about Grandma', v: 'Her circle of friends shrinks after each disagreement until she’s inside a box asking, “Wait, what’s that echo?”', src: 'case-study/mis-comic.png', ratio: '1414/2000' }
       ],
       game: [
         { n: 'STEP 1', v: 'Vote on a starting video. Everyone begins from the same one.' },

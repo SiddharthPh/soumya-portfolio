@@ -109,9 +109,9 @@ a:hover{color:#F9261C;}
           <div style="flex:7 1 460px;min-width:0;">
             <div onMouseEnter="{{ p.onEnter }}" onMouseLeave="{{ p.onLeave }}" style="position:relative;aspect-ratio:4/3;border-radius:6px;overflow:hidden;background:transparent;transition:transform .9s cubic-bezier(.22,1,.36,1),background-color .7s ease;will-change:transform;cursor:default;box-shadow:none;" style-hover="transform:translateY(-6px) scale(1.01);">
               <sc-if value="{{ p.hasThumb }}" hint-placeholder-val="{{ false }}">
-                <div role="img" aria-label="{{ p.name }}" style="position:absolute;inset:0;background-image:{{ p.thumbBg }};background-size:cover;background-position:center;"></div>
+                <div role="img" aria-label="{{ p.name }}" style="position:absolute;inset:0;background-image:{{ p.thumbBg }};background-size:{{ p.thumbFit }};background-repeat:no-repeat;background-position:center;"></div>
                 <div style="{{ p.hoverLayer }}">
-                  <div role="img" aria-label="{{ p.name }}" style="position:absolute;inset:0;background-image:{{ p.thumbHoverBg }};background-size:cover;background-position:center;"></div>
+                  <div role="img" aria-label="{{ p.name }}" style="position:absolute;inset:0;background-image:{{ p.thumbHoverBg }};background-size:{{ p.thumbFit }};background-repeat:no-repeat;background-position:center;"></div>
                 </div>
               </sc-if>
               <sc-if value="{{ p.noThumb }}" hint-placeholder-val="{{ true }}">
@@ -208,7 +208,10 @@ const PROJECTS = {
   ],
   research: [
     { name: 'Misinformation guidebook', tag: 'Master’s capstone · Purdue', statement: 'Helping older adults in India question what they read online, with their grandchildren beside them.', href: 'Misinformation Guidebook.dc.html', status: 'capstone',
-      metrics: [{ v: '100%', l: 'of participants correctly explained the algorithm concept' }, { v: '50–75', l: 'minutes per family discussion' }, { v: '>2×', l: 'task completion after the visual redesign' }] }
+      metrics: [{ v: '100%', l: 'of participants correctly explained the algorithm concept' }, { v: '50–75', l: 'minutes per family discussion' }, { v: '>2×', l: 'task completion after the visual redesign' }] },
+    { name: 'Being watched while you work', tag: 'TECH 697 · Purdue', statement: 'A qualitative study on what Figma’s real-time Observe mode does to the people being watched.', href: 'Being watched while you work.dc.html', status: 'coursework',
+      thumb: 'case-study/obs-mark-scattered.png', thumbHover: 'case-study/obs-mark-scattered.png', thumbFit: 'contain',
+      metrics: [{ v: '5', l: 'design team members interviewed across two cohorts, US and India' }, { v: '5', l: 'design recommendations delivered from the findings' }] }
   ],
 };
 
@@ -294,6 +297,7 @@ class Component extends DCLogic {
       slotHover: `${mode}-mock-${i + 1}-hover`,
       isShipped: !p.status || p.status === 'shipped', isDev: p.status === 'dev', hasThumb: !!p.thumb, noThumb: !p.thumb,
       thumbBg: p.thumb ? `url('${p.thumb}')` : 'none', thumbHoverBg: p.thumbHover ? `url('${p.thumbHover}')` : 'none',
+      thumbFit: p.thumbFit || 'cover',
       slotHoverLabel: `Hover thumbnail: ${p.name}`,
       onEnter: () => this.setState({ hovered: i }),
       onLeave: () => this.setState({ hovered: null }),
