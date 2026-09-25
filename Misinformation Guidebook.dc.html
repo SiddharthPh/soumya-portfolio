@@ -29,7 +29,7 @@ a:hover{color:#F9261C;}
     <nav style="display:flex;align-items:center;gap:clamp(16px,2.4vw,36px);font-size:19px;">
       <a href="Portfolio.dc.html#research" style="display:flex;align-items:center;gap:10px;"><span style="width:10px;height:10px;border-radius:50%;background:#F9261C;"></span><span>Research</span></a>
       <a href="About.dc.html">About</a>
-      <a href="mailto:soumya.krishnaraj@gmail.com" style="background:#F9261C;color:#fff;padding:18px 34px;border-radius:999px;transition:transform .25s ease;" style-hover="transform:translateY(-2px) rotate(-2deg);color:#fff;">Get in touch</a>
+      <a href="https://www.linkedin.com/in/soumya-krishnaraj/" target="_blank" rel="noopener" style="background:#F9261C;color:#fff;padding:18px 34px;border-radius:999px;transition:transform .25s ease;" style-hover="transform:translateY(-2px) rotate(-2deg);color:#fff;">Get in touch</a>
     </nav>
   </header>
 
@@ -246,8 +246,13 @@ a:hover{color:#F9261C;}
     <div style="display:flex;flex-direction:column;gap:clamp(40px,5vw,72px);">
       <sc-for list="{{ topics }}" as="t" hint-placeholder-count="4">
         <div style="display:flex;flex-wrap:wrap;gap:clamp(24px,4vw,64px);align-items:center;">
-          <div style="flex:3 1 420px;min-width:0;position:relative;aspect-ratio:{{ t.ratio }};border-radius:6px;overflow:hidden;order:{{ t.order }};background:#FBEAE7;">
-            <image-slot id="{{ t.id }}" shape="rect" placeholder="{{ t.ph }}" src="{{ t.src }}" fit="contain" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+          <div style="flex:{{ t.flex }};min-width:0;position:relative;aspect-ratio:{{ t.ratio }};border-radius:6px;overflow:hidden;order:{{ t.order }};background:#FBEAE7;">
+            <sc-if value="{{ t.isVideo }}" hint-placeholder-val="{{ false }}">
+              <video src="{{ t.src }}" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" preload="auto" aria-label="{{ t.ph }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;"></video>
+            </sc-if>
+            <sc-if value="{{ t.noVideo }}" hint-placeholder-val="{{ true }}">
+              <image-slot id="{{ t.id }}" shape="rect" placeholder="{{ t.ph }}" src="{{ t.src }}" fit="contain" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+            </sc-if>
           </div>
           <div style="flex:2 1 260px;min-width:0;display:flex;flex-direction:column;gap:12px;max-width:40ch;">
             <span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.6vw,40px);line-height:1.05;">{{ t.t }}</span>
@@ -282,7 +287,7 @@ a:hover{color:#F9261C;}
       <span style="font-size:17px;line-height:1.55;max-width:60ch;">Even someone actively looking for other views has to work against the algorithm to find them.</span>
     </div>
     <div style="width:100%;max-width:340px;margin:0 auto;position:relative;aspect-ratio:1190/1652;border-radius:16px;overflow:hidden;background:#FBEAE7;">
-      <video src="case-study/mis-game.mp4" poster="case-study/mis-game-poster.jpg" controls muted loop playsinline aria-label="Pop Your Bubble phone screens, steps 1 through 6" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;"></video>
+      <video src="case-study/mis-game.mp4" poster="case-study/mis-game-poster.jpg" controls="controls" muted="muted" loop="loop" playsinline="playsinline" aria-label="Pop Your Bubble phone screens, steps 1 through 6" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;"></video>
     </div>
   </section>
 
@@ -443,10 +448,10 @@ class Component extends DCLogic {
         { n: '4 · DISCUSS', v: 'Prompts to talk about offline.' }
       ],
       topics: [
-        { id: 'mis-fig12', ph: 'Drop: FIG 12 clippings activity', order: 0, t: 'Seeking disconfirmation', v: 'Find the clipping that disproves the headline. Without actively looking, the truth gets lost in the pile.', src: 'case-study/mis-fig12.png', ratio: '600/388' },
-        { id: 'mis-fig18', ph: 'Drop: FIG 18–19 source credibility', order: 1, t: 'Source credibility', v: 'Readers rank real news brands, then scan a QR code to compare with PolitiFact ratings, and reflect on why they got some wrong.', src: 'case-study/mis-fig18.png', ratio: '600/388' },
-        { id: 'mis-flap', ph: 'Drop: image manipulation flap page', order: 0, t: 'Image manipulation', v: 'A doctored photo of a politician with a “420” badge. Lift the flap to see the original, then learn reverse image search.', src: 'case-study/mis-flap.png', ratio: '600/904' },
-        { id: 'mis-comic', ph: 'Drop: echo chamber comic spread', order: 1, t: 'Echo chambers, as a story about Grandma', v: 'Her circle of friends shrinks after each disagreement until she’s inside a box asking, “Wait, what’s that echo?”', src: 'case-study/mis-comic.png', ratio: '1414/2000' }
+        { id: 'mis-fig12', ph: 'Drop: FIG 12 clippings activity', order: 0, t: 'Seeking disconfirmation', v: 'Find the clipping that disproves the headline. Without actively looking, the truth gets lost in the pile.', src: 'case-study/mis-fig12.mp4', ratio: '600/388', flex: '3 1 420px', isVideo: true, noVideo: false },
+        { id: 'mis-fig18', ph: 'Drop: FIG 18–19 source credibility', order: 1, t: 'Source credibility', v: 'Readers rank real news brands, then scan a QR code to compare with PolitiFact ratings, and reflect on why they got some wrong.', src: 'case-study/mis-fig18.mp4', ratio: '600/388', flex: '3 1 420px', isVideo: true, noVideo: false },
+        { id: 'mis-flap', ph: 'Drop: image manipulation flap page', order: 0, t: 'Image manipulation', v: 'A doctored photo of a politician with a “420” badge. Lift the flap to see the original, then learn reverse image search.', src: 'case-study/mis-flap.mp4', ratio: '600/904', flex: '0 1 240px', isVideo: true, noVideo: false },
+        { id: 'mis-comic', ph: 'Drop: echo chamber comic spread', order: 1, t: 'Echo chambers, as a story about Grandma', v: 'Her circle of friends shrinks after each disagreement until she’s inside a box asking, “Wait, what’s that echo?”', src: 'case-study/mis-comic.png', ratio: '1414/2000', flex: '0 1 240px', isVideo: false, noVideo: true }
       ],
       game: [
         { n: 'STEP 1', v: 'Vote on a starting video. Everyone begins from the same one.' },

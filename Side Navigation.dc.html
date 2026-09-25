@@ -28,7 +28,7 @@ a:hover{color:#F9261C;}
     <nav style="display:flex;align-items:center;gap:clamp(16px,2.4vw,36px);font-size:19px;">
       <a href="Portfolio.dc.html#research" style="display:flex;align-items:center;gap:10px;"><span style="width:10px;height:10px;border-radius:50%;background:#F9261C;"></span><span>Research</span></a>
       <a href="About.dc.html">About</a>
-      <a href="mailto:soumya.krishnaraj@gmail.com" style="background:#F9261C;color:#fff;padding:18px 34px;border-radius:999px;transition:transform .25s ease;" style-hover="transform:translateY(-2px) rotate(-2deg);color:#fff;">Get in touch</a>
+      <a href="https://www.linkedin.com/in/soumya-krishnaraj/" target="_blank" rel="noopener" style="background:#F9261C;color:#fff;padding:18px 34px;border-radius:999px;transition:transform .25s ease;" style-hover="transform:translateY(-2px) rotate(-2deg);color:#fff;">Get in touch</a>
     </nav>
   </header>
 
@@ -305,6 +305,21 @@ a:hover{color:#F9261C;}
       </sc-if>
     </div>
     
+  </section>
+
+  <!-- 06 IMPACT -->
+  <section data-screen-label="Impact" style="background:#FBEAE7;padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:36px;">
+    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">06 / IMPACT</span>
+    <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">One component, <em style="color:#F9261C;">every persona.</em></h2>
+    <p style="margin:0;max-width:62ch;font-size:19px;line-height:1.55;text-wrap:pretty;">The accessibility fix ended up simplifying the whole system. Instead of patching each module's selected state on its own, one component now covers all 15, reused across all four personas without a single exception. The constraint made the system better, not just compliant.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:24px;">
+      <sc-for list="{{ outcomes }}" as="o" hint-placeholder-count="3">
+        <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #2A0D09;padding-top:16px;">
+          <span style="font-family:'Instrument Serif',serif;font-size:clamp(40px,3.4vw,56px);line-height:.9;color:#F9261C;">{{ o.v }}</span>
+          <span style="font-size:14px;line-height:1.35;text-wrap:pretty;">{{ o.l }}</span>
+        </div>
+      </sc-for>
+    </div>
   </section>
 
   <a href="Org Structures.dc.html" data-screen-label="Next" style="display:flex;flex-direction:column;gap:20px;padding:clamp(56px,7vw,112px) clamp(20px,4.5vw,72px);background:#43160F;color:#F8DEDB;transition:background .4s ease;" style-hover="background:#F9261C;color:#fff;">
