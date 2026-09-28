@@ -10,44 +10,67 @@
 <x-dc>
 <helmet><script src="./sticky-header.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Courier+Prime:ital,wght@0,400;0,700;1,400&amp;family=Instrument+Sans:ital,wght@0,400..700;1,400..700&amp;family=Roboto:wght@400;500;700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Instrument+Sans:ital,wght@0,400..700;1,400..700&amp;family=Roboto:wght@400;500;700&amp;display=swap">
 <style>
 html,body{margin:0;padding:0;background:#FFFDFC;}
 body{-webkit-font-smoothing:antialiased;}
 a{color:inherit;text-decoration:none;}
 a:hover{color:#F9261C;}
 ::selection{background:#F9261C;color:#fff;}
+.mobile-nav-checkbox{display:none;}
+.hamburger-btn{display:none;cursor:pointer;color:#2A0D09;}
+.hamburger-icon-close{display:none;}
+.mobile-nav-panel{display:none;flex-direction:column;padding:8px clamp(20px,4.5vw,72px) 28px;gap:4px;border-top:1px solid #EFD6D2;background:#FFFDFC;position:sticky;top:97px;z-index:29;}
+.mobile-nav-panel a{padding:16px 0;font-size:20px;border-bottom:1px solid #EFD6D2;display:flex;align-items:center;gap:12px;}
+.mobile-nav-cta{margin-top:16px!important;text-align:center;justify-content:center!important;background:#F9261C;color:#fff!important;padding:18px 34px!important;border-radius:999px;border-bottom:none!important;}
+.mobile-nav-checkbox:checked ~ .mobile-nav-panel{display:flex!important;}
+.mobile-nav-checkbox:checked ~ header .hamburger-icon-open{display:none!important;}
+.mobile-nav-checkbox:checked ~ header .hamburger-icon-close{display:flex!important;}
+@media (max-width:767px){
+.desktop-nav{display:none!important;}
+.hamburger-btn{display:flex!important;align-items:center;justify-content:center;}
+}
 </style>
 </helmet>
 
 <div style="font-family:'Instrument Sans',system-ui,sans-serif;color:#2A0D09;background:#FFFDFC;min-height:100vh;">
   <div style="position:fixed;top:0;left:0;height:3px;background:#F9261C;z-index:40;width:{{ progress }};"></div>
 
+  <input type="checkbox" id="mobile-nav-toggle" class="mobile-nav-checkbox">
   <header style="position:sticky;top:0;z-index:30;background:#FFFDFC;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px clamp(20px,4.5vw,72px);flex-wrap:wrap;">
     <a href="Portfolio.dc.html" style="font-family:'Instrument Serif',serif;font-size:32px;letter-spacing:-0.02em;color:#F9261C;">Soumya Krishnaraj</a>
-    <nav style="display:flex;align-items:center;gap:clamp(16px,2.4vw,36px);font-size:19px;">
+    <nav class="desktop-nav" style="display:flex;align-items:center;gap:clamp(16px,2.4vw,36px);font-size:19px;">
       <a href="Portfolio.dc.html#research" style="display:flex;align-items:center;gap:10px;"><span style="width:10px;height:10px;border-radius:50%;background:#F9261C;"></span><span>Research</span></a>
       <a href="About.dc.html">About</a>
       <a href="https://www.linkedin.com/in/soumya-krishnaraj/" target="_blank" rel="noopener" style="background:#F9261C;color:#fff;padding:18px 34px;border-radius:999px;transition:transform .25s ease;" style-hover="transform:translateY(-2px) rotate(-2deg);color:#fff;">Get in touch</a>
     </nav>
-  </header>
+      <label for="mobile-nav-toggle" class="hamburger-btn" aria-label="Menu">
+      <svg class="hamburger-icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg class="hamburger-icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </label>
+</header>
+  <div class="mobile-nav-panel">
+    <a href="Portfolio.dc.html#research"><span style="width:10px;height:10px;border-radius:50%;background:#F9261C;"></span><span>Research</span></a>
+    <a href="About.dc.html">About</a>
+    <a href="https://www.linkedin.com/in/soumya-krishnaraj/" target="_blank" rel="noopener" class="mobile-nav-cta">Get in touch</a>
+  </div>
 
   <!-- HERO -->
   <section data-screen-label="Case hero" style="padding:clamp(40px,6vw,96px) clamp(20px,4.5vw,72px) clamp(64px,7vw,112px);display:flex;flex-direction:column;gap:40px;">
-    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">
       
       
     </div>
     <h1 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(64px,12vw,210px);line-height:.86;letter-spacing:-0.035em;color:#F9261C;max-width:100%;text-wrap:balance;overflow-wrap:break-word;">Side <i>navigation</i></h1>
     <p style="margin:0;max-width:30ch;font-family:'Instrument Serif',serif;font-size:clamp(28px,2.8vw,44px);line-height:1.08;text-wrap:pretty;">Improved the nav’s performance against the WCAG accessibility standards</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;border-top:1.5px solid #2A0D09;padding-top:20px;">
-      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Role</span><span style="font-size:17px;">Product designer (IC)</span></div>
-      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Team</span><span style="font-size:17px;">Me, 1 PM, 2 engineers</span></div>
-      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">TIMELINE</span><span style="font-size:17px;">12 days</span></div>
-      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Tools</span><span style="font-size:17px;">Figma, Stark</span></div>
+      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Role</span><span style="font-size:17px;">Product designer (IC)</span></div>
+      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Team</span><span style="font-size:17px;">Me, 1 PM, 2 engineers</span></div>
+      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">TIMELINE</span><span style="font-size:17px;">12 days</span></div>
+      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Tools</span><span style="font-size:17px;">Figma, Stark</span></div>
     </div>
     <div data-screen-label="Outcome" style="display:flex;flex-direction:column;gap:24px;margin-top:clamp(16px,3vw,40px);">
-      <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">OUTCOME</span>
+      <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">OUTCOME</span>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:24px;">
         <sc-for list="{{ outcomes }}" as="o" hint-placeholder-count="3">
           <div style="display:flex;flex-direction:column;gap:12px;border-top:1.5px solid #2A0D09;padding-top:16px;">
@@ -73,7 +96,7 @@ a:hover{color:#F9261C;}
             <div style="padding:10px 12px;color:#758195;">Reports</div>
           </div>
         </div>
-        <figcaption style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;min-height:64px;align-content:flex-start;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Before</span><span style="font-size:16px;">Purple on two purple tints. Selected item: 3.74:1.</span></figcaption>
+        <figcaption style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;min-height:64px;align-content:flex-start;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Before</span><span style="font-size:16px;">Purple on two purple tints. Selected item: 3.74:1.</span></figcaption>
       </figure>
       <figure style="margin:0;display:flex;flex-direction:column;gap:16px;">
         <div style="background:#EDF3FA;border-radius:6px;padding:clamp(24px,4vw,56px);display:flex;justify-content:center;align-items:flex-start;flex:1;">
@@ -89,7 +112,7 @@ a:hover{color:#F9261C;}
             <div style="display:flex;align-items:center;gap:8px;height:36px;box-sizing:border-box;padding:8px 8px 8px 12px;color:rgb(44,62,93);font-weight:500;"><span style="display:flex;width:20px;height:20px;">{{ icRep }}</span><span style="flex:1;">Reporting</span><span style="display:flex;width:20px;height:20px;color:rgb(179,185,196);">{{ icDown }}</span></div>
           </div>
         </div>
-        <figcaption style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;min-height:64px;align-content:flex-start;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">After</span><span style="font-size:16px;">One tint, bar + weight for selection. All pairs pass AA.</span></figcaption>
+        <figcaption style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;min-height:64px;align-content:flex-start;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">After</span><span style="font-size:16px;">One tint, bar + weight for selection. All pairs pass AA.</span></figcaption>
       </figure>
     </div>
   </section>
@@ -97,24 +120,24 @@ a:hover{color:#F9261C;}
   <!-- 01 PROBLEM -->
   <section data-screen-label="Problem" style="background:#43160F;color:#F8DEDB;padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:clamp(40px,5vw,72px);">
     <div style="display:flex;flex-direction:column;gap:40px;">
-      <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#FF6A5E;">01 / THE PROBLEM</span>
+      <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#FF6A5E;">01 / THE PROBLEM</span>
       <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">The nav worked, but <em style="color:#FF6A5E;">not for everyone.</em></h2>
       <p style="margin:0;max-width:60ch;font-size:19px;line-height:1.5;text-wrap:pretty;">Almost every admin task in KitchenIQ starts in the side nav. I audited it against WCAG 2.1 AA with Stark. The selected state failed, and so did the items around it.</p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(24px,3vw,40px);">
       <figure style="margin:0;display:flex;flex-direction:column;gap:14px;">
         <img src="case-study/sn-stark-unselected.png" alt="Stark audit: unselected sub-item at 3.45:1" style="display:block;width:100%;height:auto;border-radius:6px;">
-        <figcaption style="font-size:16px;line-height:1.5;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;color:#FF6A5E;">3.45:1 · </span>Unselected sub-item on the group tint. Fails AA.</figcaption>
+        <figcaption style="font-size:16px;line-height:1.5;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;color:#FF6A5E;">3.45:1 · </span>Unselected sub-item on the group tint. Fails AA.</figcaption>
       </figure>
       <figure style="margin:0;display:flex;flex-direction:column;gap:14px;">
         <img src="case-study/sn-stark-selected.png" alt="Stark audit: selected sub-item at 3.74:1" style="display:block;width:100%;height:auto;border-radius:6px;">
-        <figcaption style="font-size:16px;line-height:1.5;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;color:#FF6A5E;">3.74:1 · </span>Selected sub-item on the darker tint. Fails AA.</figcaption>
+        <figcaption style="font-size:16px;line-height:1.5;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;color:#FF6A5E;">3.74:1 · </span>Selected sub-item on the darker tint. Fails AA.</figcaption>
       </figure>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:24px;">
       <sc-for list="{{ issues }}" as="g" hint-placeholder-count="4">
         <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #F8DEDB;padding-top:16px;">
-          <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#FF6A5E;">{{ g.k }}</span>
+          <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#FF6A5E;">{{ g.k }}</span>
           <span style="font-size:18px;line-height:1.45;">{{ g.v }}</span>
         </div>
       </sc-for>
@@ -124,20 +147,20 @@ a:hover{color:#F9261C;}
   <!-- 02 APPROACH -->
   <section data-screen-label="Approach" style="padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:clamp(40px,5vw,72px);">
     <div style="display:flex;flex-direction:column;gap:40px;">
-      <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">02 / APPROACH</span>
+      <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">02 / APPROACH</span>
       <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Fix the atoms, and <em style="color:#F9261C;">everything passes.</em></h2>
       <p style="margin:0;max-width:60ch;font-size:19px;line-height:1.5;text-wrap:pretty;">I rebuilt the nav with atomic design. Once the smallest pieces passed contrast, everything built from them passed too, with no screen-by-screen re-checks.</p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:24px;">
       <sc-for list="{{ layers }}" as="l" hint-placeholder-count="4">
         <div style="display:flex;flex-direction:column;gap:12px;border-top:1.5px solid #2A0D09;padding-top:16px;">
-          <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">{{ l.n }} · {{ l.t }}</span>
+          <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">{{ l.n }} · {{ l.t }}</span>
           <span style="font-size:17px;line-height:1.5;">{{ l.v }}</span>
         </div>
       </sc-for>
     </div>
     <div data-screen-label="States" style="display:flex;flex-direction:column;gap:20px;background:#FBEAE7;border-radius:6px;padding:clamp(24px,4vw,56px);">
-      <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">Menu item · 5 states</span>
+      <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">Menu item · 5 states</span>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:16px;">
         <sc-for list="{{ states }}" as="s" hint-placeholder-count="5">
           <div style="display:flex;flex-direction:column;gap:10px;">
@@ -146,7 +169,7 @@ a:hover{color:#F9261C;}
                 <span style="display:flex;width:20px;height:20px;">{{ s.icon }}</span><span>Planner</span>
               </div>
             </div>
-            <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.08em;color:#8A4F48;">{{ s.name }}</span>
+            <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.08em;color:#8A4F48;">{{ s.name }}</span>
           </div>
         </sc-for>
       </div>
@@ -156,14 +179,14 @@ a:hover{color:#F9261C;}
   <!-- 03 DECISIONS -->
   <section data-screen-label="Decisions" style="background:#FBEAE7;padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:clamp(40px,5vw,72px);">
     <div style="display:flex;flex-direction:column;gap:40px;">
-      <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">03 / KEY DECISIONS</span>
+      <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">03 / KEY DECISIONS</span>
       <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Fewer colors, <em style="color:#F9261C;">clearer signals.</em></h2>
     </div>
     <div style="display:flex;flex-direction:column;gap:0;">
       <sc-for list="{{ decisions }}" as="d" hint-placeholder-count="4">
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(16px,4vw,64px);border-top:1.5px solid #2A0D09;padding:24px 0 clamp(32px,4vw,56px);">
           <div style="display:flex;gap:14px;align-items:baseline;">
-            <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;color:#F9261C;">{{ d.n }}</span>
+            <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;color:#F9261C;">{{ d.n }}</span>
             <span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.8vw,40px);line-height:1.05;">{{ d.t }}</span>
           </div>
           <span style="font-size:17px;line-height:1.55;max-width:56ch;text-wrap:pretty;">{{ d.v }}</span>
@@ -171,14 +194,14 @@ a:hover{color:#F9261C;}
       </sc-for>
     </div>
     <div data-screen-label="Contrast table" style="display:flex;flex-direction:column;gap:16px;">
-      <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">Contrast, before → after (AA)</span>
+      <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">Contrast, before → after (AA)</span>
       <div style="display:flex;flex-direction:column;background:#FFFDFC;border-radius:6px;overflow:hidden;">
         <sc-for list="{{ ratios }}" as="r" hint-placeholder-count="4">
           <div style="display:grid;grid-template-columns:minmax(0,2.2fr) repeat(3,minmax(0,1fr));gap:12px;padding:16px clamp(16px,2vw,24px);border-bottom:1px solid #EFD6D2;font-size:16px;align-items:baseline;">
             <span>{{ r.el }}</span>
-            <span style="font-family:'Courier Prime',monospace;color:#8A4F48;">{{ r.b }}</span>
-            <span style="font-family:'Courier Prime',monospace;font-weight:700;color:#107003;">{{ r.a }}</span>
-            <span style="font-family:'Courier Prime',monospace;color:#8A4F48;">needs {{ r.need }}</span>
+            <span style="font-family:'Instrument Sans',system-ui,sans-serif;color:#8A4F48;">{{ r.b }}</span>
+            <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-weight:700;color:#107003;">{{ r.a }}</span>
+            <span style="font-family:'Instrument Sans',system-ui,sans-serif;color:#8A4F48;">needs {{ r.need }}</span>
           </div>
         </sc-for>
       </div>
@@ -188,7 +211,7 @@ a:hover{color:#F9261C;}
   <!-- 04 MODES -->
   <section data-screen-label="Modes" style="padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px) 0;display:flex;flex-direction:column;gap:clamp(40px,5vw,64px);">
     <div style="display:flex;flex-direction:column;gap:40px;">
-      <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">04 / THREE MODES</span>
+      <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">04 / THREE MODES</span>
       <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Static, collapsed, <em style="color: rgb(249, 38, 28);">overlay.</em></h2>
     </div>
     <div style="display:flex;flex-direction:column;gap:20px;">
@@ -200,7 +223,7 @@ a:hover{color:#F9261C;}
         </div>
         <div style="display:flex;gap:8px;flex-wrap:wrap;">
           <sc-for list="{{ stateTabs }}" as="s" hint-placeholder-count="3">
-            <button onClick="{{ s.pick }}" style="cursor:pointer;border-radius:999px;padding:6px 14px;font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-size:12px;border:1px solid #43160F;background:{{ s.bg }};color:{{ s.fg }};">{{ s.t }}</button>
+            <button onClick="{{ s.pick }}" style="cursor:pointer;border-radius:999px;padding:6px 14px;font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-size:12px;border:1px solid #43160F;background:{{ s.bg }};color:{{ s.fg }};">{{ s.t }}</button>
           </sc-for>
         </div>
       </div>
@@ -209,14 +232,14 @@ a:hover{color:#F9261C;}
         <div style="flex:1 1 260px;display:flex;flex-direction:column;gap:12px;max-width:40ch;">
           <span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.6vw,40px);line-height:1.05;">{{ modeTitle }}</span>
           <span style="font-size:17px;line-height:1.55;text-wrap:pretty;">{{ modeDesc }}</span>
-          <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">{{ stateDesc }}</span>
+          <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">{{ stateDesc }}</span>
         </div>
       </div>
     </div>
     <figure data-screen-label="Hit zones" style="margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(24px,4vw,56px);align-items:center;">
       <div style="display:flex;justify-content:center;"><img src="case-study/sn-spec-zones.png" alt="Collapsed rail hit zones spec" style="display:block;width:100%;max-width:420px;height:auto;"></div>
       <figcaption style="display:flex;flex-direction:column;gap:12px;max-width:40ch;">
-        <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">Spec · collapsed rail</span>
+        <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">Spec · collapsed rail</span>
         <span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.6vw,40px);line-height:1.05;">Two hit zones</span>
         <span style="font-size:17px;line-height:1.55;text-wrap:pretty;">The toggle gets a 48×48px zone around its 20px icon, 12px below the header. Clicking it pins the nav open. The rest of the rail is a hover zone that opens the overlay.</span>
       </figcaption>
@@ -226,7 +249,7 @@ a:hover{color:#F9261C;}
   <!-- 05 TRY IT -->
   <section data-screen-label="Try it" style="padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:32px;">
     <div style="display:flex;flex-direction:column;gap:24px;">
-      <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">05 / TRY IT</span>
+      <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">05 / TRY IT</span>
       <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Collapse, peek, <em style="color:#F9261C;">switch.</em></h2>
       <div style="display:flex;flex-direction:column;gap:6px;font-size:17px;line-height:1.5;">
         <span><strong>1.</strong> Open and close a group.</span>
@@ -309,7 +332,7 @@ a:hover{color:#F9261C;}
 
   <!-- 06 IMPACT -->
   <section data-screen-label="Impact" style="background:#FBEAE7;padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:36px;">
-    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">06 / IMPACT</span>
+    <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">06 / IMPACT</span>
     <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">One component, <em style="color:#F9261C;">every persona.</em></h2>
     <p style="margin:0;max-width:62ch;font-size:19px;line-height:1.55;text-wrap:pretty;">The accessibility fix ended up simplifying the whole system. Instead of patching each module's selected state on its own, one component now covers all 15, reused across all four personas without a single exception. The constraint made the system better, not just compliant.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:24px;">
@@ -323,10 +346,10 @@ a:hover{color:#F9261C;}
   </section>
 
   <a href="Org Structures.dc.html" data-screen-label="Next" style="display:flex;flex-direction:column;gap:20px;padding:clamp(56px,7vw,112px) clamp(20px,4.5vw,72px);background:#43160F;color:#F8DEDB;transition:background .4s ease;" style-hover="background:#F9261C;color:#fff;">
-    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">Next project · 03</span>
+    <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">Next project · 03</span>
     <span style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;font-family:'Instrument Serif',serif;font-size:clamp(56px,8vw,140px);line-height:.9;letter-spacing:-0.03em;"><span>Org structures</span><span>→</span></span>
   </a>
-  <button onClick="{{ jump }}" aria-label="{{ jumpAria }}" style="position:fixed;right:clamp(16px,3vw,40px);bottom:clamp(16px,3vw,40px);z-index:40;display:flex;align-items:center;gap:10px;height:52px;padding:0 20px 0 16px;border:none;border-radius:999px;background:#2A0D09;color:#FFFDFC;font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;box-shadow:0 8px 24px rgba(42,13,9,.18);transition:background-color .3s ease;" style-hover="background:#F9261C;">
+  <button onClick="{{ jump }}" aria-label="{{ jumpAria }}" style="position:fixed;right:clamp(16px,3vw,40px);bottom:clamp(16px,3vw,40px);z-index:40;display:flex;align-items:center;gap:10px;height:52px;padding:0 20px 0 16px;border:none;border-radius:999px;background:#2A0D09;color:#FFFDFC;font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;box-shadow:0 8px 24px rgba(42,13,9,.18);transition:background-color .3s ease;" style-hover="background:#F9261C;">
     <span style="display:inline-flex;font-size:18px;line-height:1;transition:transform .45s cubic-bezier(.22,1,.36,1);transform:{{ jumpRot }};">↓</span>
     <span>{{ jumpLabel }}</span>
   </button>

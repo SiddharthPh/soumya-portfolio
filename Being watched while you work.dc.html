@@ -10,7 +10,7 @@
 <x-dc>
 <helmet><script src="./sticky-header.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Courier+Prime:ital,wght@0,400;0,700;1,400&amp;family=Instrument+Sans:ital,wght@0,400..700;1,400..700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Instrument+Sans:ital,wght@0,400..700;1,400..700&amp;display=swap">
 <script src="./image-slot.js"></script>
 <style>
 html,body{margin:0;padding:0;background:#FFFDFC;}
@@ -18,41 +18,64 @@ body{-webkit-font-smoothing:antialiased;}
 a{color:inherit;text-decoration:none;}
 a:hover{color:#F9261C;}
 ::selection{background:#F9261C;color:#fff;}
-.obs-chip{display:inline-flex;align-items:center;padding:9px 18px;border-radius:999px;font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.04em;transition:transform .25s ease;}
+.obs-chip{display:inline-flex;align-items:center;padding:9px 18px;border-radius:999px;font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.04em;transition:transform .25s ease;}
 .obs-chip:hover{transform:translateY(-3px) rotate(0deg) !important;}
 .obs-node{transition:transform .25s ease;}
 .obs-node:hover{transform:scale(1.045);}
+.mobile-nav-checkbox{display:none;}
+.hamburger-btn{display:none;cursor:pointer;color:#2A0D09;}
+.hamburger-icon-close{display:none;}
+.mobile-nav-panel{display:none;flex-direction:column;padding:8px clamp(20px,4.5vw,72px) 28px;gap:4px;border-top:1px solid #EFD6D2;background:#FFFDFC;position:sticky;top:97px;z-index:29;}
+.mobile-nav-panel a{padding:16px 0;font-size:20px;border-bottom:1px solid #EFD6D2;display:flex;align-items:center;gap:12px;}
+.mobile-nav-cta{margin-top:16px!important;text-align:center;justify-content:center!important;background:#F9261C;color:#fff!important;padding:18px 34px!important;border-radius:999px;border-bottom:none!important;}
+.mobile-nav-checkbox:checked ~ .mobile-nav-panel{display:flex!important;}
+.mobile-nav-checkbox:checked ~ header .hamburger-icon-open{display:none!important;}
+.mobile-nav-checkbox:checked ~ header .hamburger-icon-close{display:flex!important;}
+@media (max-width:767px){
+.desktop-nav{display:none!important;}
+.hamburger-btn{display:flex!important;align-items:center;justify-content:center;}
+}
 </style>
 </helmet>
 
 <div style="font-family:'Instrument Sans',system-ui,sans-serif;color:#2A0D09;background:#FFFDFC;min-height:100vh;">
   <div style="position:fixed;top:0;left:0;height:3px;background:#F9261C;z-index:40;width:{{ progress }};"></div>
 
+  <input type="checkbox" id="mobile-nav-toggle" class="mobile-nav-checkbox">
   <header style="position:sticky;top:0;z-index:30;background:#FFFDFC;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px clamp(20px,4.5vw,72px);flex-wrap:wrap;">
     <a href="Portfolio.dc.html" style="font-family:'Instrument Serif',serif;font-size:32px;letter-spacing:-0.02em;color:#F9261C;">Soumya Krishnaraj</a>
-    <nav style="display:flex;align-items:center;gap:clamp(16px,2.4vw,36px);font-size:19px;">
+    <nav class="desktop-nav" style="display:flex;align-items:center;gap:clamp(16px,2.4vw,36px);font-size:19px;">
       <a href="Portfolio.dc.html#research" style="display:flex;align-items:center;gap:10px;"><span style="width:10px;height:10px;border-radius:50%;background:#F9261C;"></span><span>Research</span></a>
       <a href="About.dc.html">About</a>
       <a href="https://www.linkedin.com/in/soumya-krishnaraj/" target="_blank" rel="noopener" style="background:#F9261C;color:#fff;padding:18px 34px;border-radius:999px;transition:transform .25s ease;" style-hover="transform:translateY(-2px) rotate(-2deg);color:#fff;">Get in touch</a>
     </nav>
-  </header>
+      <label for="mobile-nav-toggle" class="hamburger-btn" aria-label="Menu">
+      <svg class="hamburger-icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg class="hamburger-icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </label>
+</header>
+  <div class="mobile-nav-panel">
+    <a href="Portfolio.dc.html#research"><span style="width:10px;height:10px;border-radius:50%;background:#F9261C;"></span><span>Research</span></a>
+    <a href="About.dc.html">About</a>
+    <a href="https://www.linkedin.com/in/soumya-krishnaraj/" target="_blank" rel="noopener" class="mobile-nav-cta">Get in touch</a>
+  </div>
 
   <!-- HERO -->
   <section data-screen-label="Case hero" style="padding:clamp(40px,6vw,96px) clamp(20px,4.5vw,72px) clamp(64px,7vw,112px);display:flex;flex-direction:column;gap:36px;">
     <h1 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,7.5vw,124px);line-height:.94;letter-spacing:-0.03em;color:#F9261C;max-width:16ch;text-wrap:balance;">Being watched while you work</h1>
     <p style="margin:0;max-width:56ch;font-family:'Instrument Serif',serif;font-size:clamp(24px,2.4vw,36px);line-height:1.2;text-wrap:pretty;">Figma's Observe mode lets a manager, or a teammate, follow your cursor and watch your file change in real time. It's built as a collaboration feature. I ran a small qualitative study to find out what it actually feels like on the other end of that.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;border-top:1.5px solid #2A0D09;padding-top:20px;">
-      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Role</span><span style="font-size:17px;">Researcher (solo): study design, interviews, thematic analysis, recommendations</span></div>
-      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Scope</span><span style="font-size:17px;">Design team members and design managers using Figma's Observe mode</span></div>
-      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Team</span><span style="font-size:17px;">Solo project, TECH 697: Qualitative Research Methods, Purdue University</span></div>
-      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Timeline</span><span style="font-size:17px;">2023</span></div>
-      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Tools</span><span style="font-size:17px;">Zoom, Otter.ai, Dovetail, Figma</span></div>
+      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Role</span><span style="font-size:17px;">Researcher (solo): study design, interviews, thematic analysis, recommendations</span></div>
+      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Scope</span><span style="font-size:17px;">Design team members and design managers using Figma's Observe mode</span></div>
+      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Team</span><span style="font-size:17px;">Solo project, TECH 697: Qualitative Research Methods, Purdue University</span></div>
+      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Timeline</span><span style="font-size:17px;">2023</span></div>
+      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Tools</span><span style="font-size:17px;">Zoom, Otter.ai, Dovetail, Figma</span></div>
     </div>
   </section>
 
   <!-- 01 CONTEXT -->
   <section data-screen-label="Context" style="padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:36px;">
-    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">01 / CONTEXT</span>
+    <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">01 / CONTEXT</span>
     <h2 style="margin:0;max-width:20ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">A feature for collaboration. Also a way to <em style="color:#F9261C;">watch someone work.</em></h2>
     <p style="margin:0;max-width:62ch;font-size:19px;line-height:1.55;text-wrap:pretty;">Figma's Observe mode lets anyone in a file see, in real time, exactly what one collaborator is doing: every click, every drag. It's pitched as a way to work together. If a manager turns it on to check someone's report, it quietly becomes something else too: a live feed of unfinished work.</p>
     <p style="margin:0;max-width:62ch;font-size:19px;line-height:1.55;text-wrap:pretty;">I wanted to know if that difference actually shows up for the people being watched, and what it costs them when it does.</p>
@@ -60,12 +83,12 @@ a:hover{color:#F9261C;}
 
   <!-- 02 THE QUESTION -->
   <section data-screen-label="The question" style="background:#FBEAE7;padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:36px;">
-    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">02 / THE QUESTION</span>
+    <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">02 / THE QUESTION</span>
     <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">What I actually <em style="color:#F9261C;">wanted to know.</em></h2>
     <p style="margin:0;max-width:62ch;font-size:19px;line-height:1.55;text-wrap:pretty;">There's already research on what constant oversight does to people at work: it wears down autonomy and trust, and it raises stress. Observe mode brings a version of that into a tool designers use all day long, so I went in with two questions.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px;">
-      <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #2A0D09;padding-top:16px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;color:#F9261C;">QUESTION 1</span><span style="font-size:18px;line-height:1.5;">How does real-time visibility into a coworker's file affect communication, task allocation, and team cohesion?</span></div>
-      <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #2A0D09;padding-top:16px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;color:#F9261C;">QUESTION 2</span><span style="font-size:18px;line-height:1.5;">What does it do to individual productivity and emotional well-being, specifically around performance pressure, self-efficacy, and stress?</span></div>
+      <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #2A0D09;padding-top:16px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;color:#F9261C;">QUESTION 1</span><span style="font-size:18px;line-height:1.5;">How does real-time visibility into a coworker's file affect communication, task allocation, and team cohesion?</span></div>
+      <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #2A0D09;padding-top:16px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;color:#F9261C;">QUESTION 2</span><span style="font-size:18px;line-height:1.5;">What does it do to individual productivity and emotional well-being, specifically around performance pressure, self-efficacy, and stress?</span></div>
     </div>
     <div style="display:flex;gap:20px;padding:8px 0;">
       <div style="width:4px;flex-shrink:0;background:#F9261C;border-radius:999px;"></div>
@@ -75,12 +98,12 @@ a:hover{color:#F9261C;}
 
   <!-- 03 METHODOLOGY -->
   <section data-screen-label="Methodology" style="padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:40px;">
-    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">03 / METHODOLOGY</span>
+    <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">03 / METHODOLOGY</span>
     <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Five interviews, <em style="color:#F9261C;">two vantage points.</em></h2>
     <p style="margin:0;max-width:62ch;font-size:19px;line-height:1.55;text-wrap:pretty;">I ran semi-structured interviews with five people on design teams, based in the US and India, and split them into two groups with different questions for each.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:24px;">
-      <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #2A0D09;padding-top:16px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Design managers</span><span style="font-size:16px;line-height:1.5;">How and why they use Observe mode, and where they personally draw ethical lines around monitoring.</span></div>
-      <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #2A0D09;padding-top:16px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Design team members</span><span style="font-size:16px;line-height:1.5;">How being observed affects their focus, their work quality, and their relationship with the person watching.</span></div>
+      <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #2A0D09;padding-top:16px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Design managers</span><span style="font-size:16px;line-height:1.5;">How and why they use Observe mode, and where they personally draw ethical lines around monitoring.</span></div>
+      <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #2A0D09;padding-top:16px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Design team members</span><span style="font-size:16px;line-height:1.5;">How being observed affects their focus, their work quality, and their relationship with the person watching.</span></div>
     </div>
     <p style="margin:0;max-width:62ch;font-size:19px;line-height:1.55;text-wrap:pretty;">Everything was recorded in Zoom, transcribed in Otter.ai, and coded in Dovetail. I moved from transcripts to codes to themes slowly, checking each pattern against the other interviews before I trusted it.</p>
     <div style="display:flex;flex-direction:column;gap:10px;">
@@ -88,12 +111,12 @@ a:hover{color:#F9261C;}
         <span class="obs-node" style="background:#FBEAE7;color:#43160F;padding:18px 26px;border-radius:999px;font-size:17px;font-weight:600;">Qualitative data</span>
         <span style="display:flex;flex-direction:column;align-items:center;gap:2px;min-width:100px;padding:0 6px;">
           <span style="font-size:20px;color:#8A4F48;">→</span>
-          <span style="font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8A4F48;">Coding</span>
+          <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8A4F48;">Coding</span>
         </span>
         <span class="obs-node" style="background:#F9261C;color:#fff;padding:18px 26px;border-radius:999px;font-size:17px;font-weight:600;">Codes</span>
         <span style="display:flex;flex-direction:column;align-items:center;gap:2px;min-width:120px;padding:0 6px;">
           <span style="font-size:20px;color:#8A4F48;">→</span>
-          <span style="font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8A4F48;">Iterative comparison</span>
+          <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8A4F48;">Iterative comparison</span>
         </span>
         <span class="obs-node" style="background:#43160F;color:#F8DEDB;padding:18px 26px;border-radius:999px;font-size:17px;font-weight:600;">Themes</span>
       </div>
@@ -102,7 +125,7 @@ a:hover{color:#F9261C;}
 
   <!-- 04 MICROMANAGEMENT -->
   <section data-screen-label="Micromanagement" style="background:#FBEAE7;padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:32px;">
-    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">04 / WHAT I FOUND</span>
+    <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">04 / WHAT I FOUND</span>
     <h2 style="margin:0;max-width:20ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(40px,4.6vw,76px);line-height:.98;letter-spacing:-0.02em;text-wrap:balance;">It felt like <em style="color:#F9261C;">micromanagement,</em> not teamwork.</h2>
     <p style="margin:0;max-width:62ch;font-size:18px;line-height:1.55;text-wrap:pretty;">Discomfort was the most common reaction I heard. People called it intrusive, and more than one person used the word creepy. It wasn't just a passing feeling either: people told me they started second-guessing their own decisions in the moment, and spent more energy thinking about how their work looked than on the work itself.</p>
     <div style="display:flex;flex-wrap:wrap;gap:12px 14px;">
@@ -117,24 +140,24 @@ a:hover{color:#F9261C;}
 
   <!-- 05 WORKAROUNDS -->
   <section data-screen-label="Workarounds" style="padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:32px;">
-    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">05 / WHAT I FOUND</span>
+    <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">05 / WHAT I FOUND</span>
     <h2 style="margin:0;max-width:22ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(40px,4.6vw,76px);line-height:.98;letter-spacing:-0.02em;text-wrap:balance;">So people found <em style="color:#F9261C;">ways around it</em> instead of saying anything.</h2>
     <p style="margin:0;max-width:62ch;font-size:18px;line-height:1.55;text-wrap:pretty;">Nobody I spoke with brought the discomfort to their manager directly. Instead, they worked around it. Some worked at night, when fewer people were likely to be watching. Others did the real work in a private file and only moved it into the shared one once it looked finished. Different tactics, same goal: keep the messy part of the process away from an audience it wasn't made for.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px;">
       <div style="display:flex;flex-direction:column;gap:12px;padding:28px;border-radius:6px;background:#FBEAE7;">
         <span style="font-family:'Instrument Serif',serif;font-size:clamp(24px,2.2vw,32px);line-height:1.15;">“This is the reason why I work at night.”</span>
-        <span style="font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.06em;color:#8A4F48;">· A design team member, on choosing hours with fewer eyes on the file</span>
+        <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:12px;letter-spacing:.06em;color:#8A4F48;">· A design team member, on choosing hours with fewer eyes on the file</span>
       </div>
       <div style="display:flex;flex-direction:column;gap:12px;padding:28px;border-radius:6px;background:#FBEAE7;">
         <span style="font-family:'Instrument Serif',serif;font-size:clamp(24px,2.2vw,32px);line-height:1.15;">“I use a separate file, but it's too much work.”</span>
-        <span style="font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.06em;color:#8A4F48;">· A design team member, on the cost of the workaround itself</span>
+        <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:12px;letter-spacing:.06em;color:#8A4F48;">· A design team member, on the cost of the workaround itself</span>
       </div>
     </div>
   </section>
 
   <!-- 06 WHEN IT WORKS -->
   <section data-screen-label="When it works" style="background:#FBEAE7;padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:32px;">
-    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">06 / WHAT I FOUND</span>
+    <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">06 / WHAT I FOUND</span>
     <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(40px,4.6vw,76px);line-height:.98;letter-spacing:-0.02em;text-wrap:balance;">It wasn't all bad, <em style="color:#F9261C;">though.</em></h2>
     <p style="margin:0;max-width:62ch;font-size:18px;line-height:1.55;text-wrap:pretty;">A few people genuinely liked it, in specific situations. It seemed to work well when it replaced something people would've had to schedule anyway, and it grated when it felt like watching for the sake of watching.</p>
     <div style="display:flex;flex-direction:column;">
@@ -146,7 +169,7 @@ a:hover{color:#F9261C;}
 
   <!-- 07 IT DEPENDS -->
   <section data-screen-label="It depends" style="padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:32px;">
-    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">07 / WHAT I FOUND</span>
+    <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">07 / WHAT I FOUND</span>
     <h2 style="margin:0;max-width:22ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(40px,4.6vw,76px);line-height:.98;letter-spacing:-0.02em;text-wrap:balance;">How people felt about it <em style="color:#F9261C;">depended on a lot.</em></h2>
     <p style="margin:0;max-width:62ch;font-size:18px;line-height:1.55;text-wrap:pretty;">The same feature landed very differently depending on the situation. If people believed the monitoring was there to help, they were fine with it. If it felt like oversight for its own sake, they weren't.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(24px,4vw,48px);">
@@ -171,14 +194,14 @@ a:hover{color:#F9261C;}
 
   <!-- 08 THE REAL ISSUE -->
   <section data-screen-label="The real issue" style="background:#43160F;color:#F8DEDB;padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:32px;">
-    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#FF6A5E;">08 / THE REAL ISSUE</span>
+    <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#FF6A5E;">08 / THE REAL ISSUE</span>
     <h2 style="margin:0;max-width:20ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(44px,5.4vw,92px);line-height:.96;letter-spacing:-0.025em;text-wrap:balance;">People didn't want less visibility. They wanted <em style="color:#FF6A5E;">consent.</em></h2>
     <p style="margin:0;max-width:62ch;font-size:19px;line-height:1.55;text-wrap:pretty;">Almost nobody asked me to get rid of the feature. What came up again and again, from both groups, was some version of "just tell me first." A few people had already started asking verbally before turning Observe mode on, on their own, without anyone telling them to. That, more than anything else, told me what the product was actually missing.</p>
   </section>
 
   <!-- 09 DESIGN RECOMMENDATIONS -->
   <section data-screen-label="Design recommendations" style="background:#FBEAE7;padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:32px;">
-    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">09 / DESIGN RECOMMENDATIONS</span>
+    <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">09 / DESIGN RECOMMENDATIONS</span>
     <h2 style="margin:0;max-width:16ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">What I'd <em style="color:#F9261C;">change.</em></h2>
     <div style="display:flex;flex-direction:column;gap:14px;">
       <div style="display:flex;gap:16px;align-items:baseline;border-top:1px solid #EFD6D2;padding-top:12px;"><span style="font-family:'Instrument Serif',serif;font-size:32px;line-height:1;color:#F9261C;">1</span><span style="font-size:17px;line-height:1.5;"><strong>Selective visibility.</strong> Let the person being observed choose what part of the file is visible, instead of showing the whole canvas by default.</span></div>
@@ -191,11 +214,11 @@ a:hover{color:#F9261C;}
 
   <!-- 10 REFLECTION -->
   <section data-screen-label="Reflection" style="padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:28px;">
-    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">10 / REFLECTION</span>
+    <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">10 / REFLECTION</span>
     <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(40px,4.6vw,76px);line-height:.98;letter-spacing:-0.02em;text-wrap:balance;">The ambiguity, it turns out, <em style="color:#F9261C;">was the finding.</em></h2>
     <p style="margin:0;max-width:62ch;font-size:19px;line-height:1.55;text-wrap:pretty;">I expected people to feel anxious about being watched. That part wasn't surprising. What I didn't expect was how much the same feature, used the exact same way, could read as either helpful or invasive, depending only on whether there was consent and context around it. That's not really a policy problem. It's a design one: right now the product can't tell the difference between someone watching to help and someone watching to check up on you, and it leaves the person being watched to sort that out on their own.</p>
     <div style="display:flex;flex-direction:column;gap:20px;padding-top:12px;">
-      <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">The study, by the numbers</span>
+      <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">The study, by the numbers</span>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:24px;">
         <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #2A0D09;padding-top:16px;">
           <span style="font-family:'Instrument Serif',serif;font-size:clamp(36px,3vw,48px);line-height:.9;color:#F9261C;">5</span>
@@ -214,10 +237,10 @@ a:hover{color:#F9261C;}
   </section>
 
   <a href="Portfolio.dc.html#work" data-screen-label="Next" style="display:flex;flex-direction:column;gap:20px;padding:clamp(56px,7vw,112px) clamp(20px,4.5vw,72px);background:#43160F;color:#F8DEDB;">
-    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">Back to work</span>
+    <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">Back to work</span>
     <span style="font-family:'Instrument Serif',serif;font-size:clamp(56px,8vw,140px);line-height:.9;letter-spacing:-0.03em;">All projects →</span>
   </a>
-  <button onClick="{{ jump }}" aria-label="{{ jumpAria }}" style="position:fixed;right:clamp(16px,3vw,40px);bottom:clamp(16px,3vw,40px);z-index:40;display:flex;align-items:center;gap:10px;height:52px;padding:0 20px 0 16px;border:none;border-radius:999px;background:#2A0D09;color:#FFFDFC;font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;box-shadow:0 8px 24px rgba(42,13,9,.18);transition:background-color .3s ease;" style-hover="background:#F9261C;">
+  <button onClick="{{ jump }}" aria-label="{{ jumpAria }}" style="position:fixed;right:clamp(16px,3vw,40px);bottom:clamp(16px,3vw,40px);z-index:40;display:flex;align-items:center;gap:10px;height:52px;padding:0 20px 0 16px;border:none;border-radius:999px;background:#2A0D09;color:#FFFDFC;font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;box-shadow:0 8px 24px rgba(42,13,9,.18);transition:background-color .3s ease;" style-hover="background:#F9261C;">
     <span style="display:inline-flex;font-size:18px;line-height:1;transition:transform .45s cubic-bezier(.22,1,.36,1);transform:{{ jumpRot }};">↓</span>
     <span>{{ jumpLabel }}</span>
   </button>

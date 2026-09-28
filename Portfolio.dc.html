@@ -14,7 +14,7 @@
 <x-dc>
 <helmet><script src="./sticky-header.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Courier+Prime:wght@400;700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Instrument+Sans:ital,wght@0,400..700;1,400..700&amp;display=swap">
 <script src="./image-slot.js"></script>
 <style>
 html,body{margin:0;padding:0;}
@@ -22,32 +22,55 @@ body{-webkit-font-smoothing:antialiased;}
 a{color:inherit;text-decoration:none;}
 a:hover{color:#F9261C;}
 ::selection{background:#F9261C;color:#fff;}
+.project-card{display:grid;grid-template-columns:5fr 7fr;grid-template-rows:1fr auto;grid-template-areas:"header thumb" "metrics thumb";column-gap:clamp(32px,4.5vw,80px);row-gap:48px;align-items:stretch;}
+.project-card-header{grid-area:header;min-width:0;display:flex;flex-direction:column;gap:28px;}
+.project-card-metrics{grid-area:metrics;min-width:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-self:end;}
+.project-card-thumb{grid-area:thumb;min-width:0;display:flex;align-items:center;}
+@media (max-width:767px){
+  .hero-shape{display:none!important;}
+  [data-screen-label="Hero"]{height:48vh!important;min-height:340px!important;max-height:420px!important;}
+  .desktop-nav{display:none!important;}
+  .hamburger-btn{display:flex!important;align-items:center;justify-content:center;}
+  .project-card{grid-template-columns:1fr;grid-template-rows:auto auto auto;grid-template-areas:"header" "thumb" "metrics";row-gap:32px;}
+  .project-card-metrics{align-self:start;}
+}
 </style>
 </helmet>
 
 <div style="{{ rootStyle }}">
   <div style="{{ wipeStyle }}"></div>
 
-  <div style="position:relative;z-index:1;font-family:'Courier Prime',ui-monospace,monospace;color:var(--fg,#2A0D09);transition:color .7s ease;">
+  <div style="position:relative;z-index:1;font-family:'Instrument Sans',system-ui,sans-serif;color:var(--fg,#2A0D09);transition:color .7s ease;">
 
     <!-- NAV -->
     <header style="position:sticky;top:0;z-index:30;background:var(--bg,#FFFDFC);transition:background-color .7s ease;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px clamp(20px,4.5vw,72px);flex-wrap:wrap;">
       <a href="Portfolio.dc.html" style="font-family:'Instrument Serif',serif;font-size:32px;letter-spacing:-0.02em;color:var(--head,#F9261C);transition:color .7s ease;">Soumya Krishnaraj</a>
-      <nav style="display:flex;align-items:center;gap:clamp(16px,2.4vw,36px);font-size:19px;">
+      <nav class="desktop-nav" style="display:flex;align-items:center;gap:clamp(16px,2.4vw,36px);font-size:19px;">
         <button onClick="{{ toggle }}" style="all:unset;cursor:pointer;display:flex;align-items:center;gap:10px;color:var(--fg,#2A0D09);transition:color .7s ease;" style-hover="color:#F9261C;">
           <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--accent,#F9261C);"></span>
           <span>{{ toggleLabel }}</span>
         </button>
-        
+
         <a href="About.dc.html" style="color:var(--fg,#2A0D09);transition:color .7s ease;">About</a>
         <a href="https://www.linkedin.com/in/soumya-krishnaraj/" target="_blank" rel="noopener" style="background:#F9261C;color:#fff;padding:18px 34px;border-radius:999px;transition:transform .25s ease,background .25s ease;" style-hover="transform:translateY(-2px) rotate(-2deg);background:#E01810;color:#fff;">Get in touch</a>
       </nav>
+      <button class="hamburger-btn" onClick="{{ toggleMobileNav }}" aria-label="{{ mobileNavAria }}" style="all:unset;display:none;cursor:pointer;color:var(--fg,#2A0D09);">{{ mobileNavIcon }}</button>
     </header>
+    <sc-if value="{{ mobileNavOpen }}" hint-placeholder-val="{{ false }}">
+      <div class="mobile-nav-panel" style="position:sticky;top:97px;z-index:29;background:var(--bg,#FFFDFC);border-top:1px solid var(--line,#EFD6D2);display:flex;flex-direction:column;padding:8px clamp(20px,4.5vw,72px) 28px;gap:4px;">
+        <button onClick="{{ toggleFromMobile }}" style="all:unset;cursor:pointer;display:flex;align-items:center;gap:12px;padding:16px 0;font-size:20px;color:var(--fg,#2A0D09);border-bottom:1px solid var(--line,#EFD6D2);">
+          <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--accent,#F9261C);"></span>
+          <span>{{ toggleLabel }}</span>
+        </button>
+        <a href="About.dc.html" style="padding:16px 0;font-size:20px;color:var(--fg,#2A0D09);border-bottom:1px solid var(--line,#EFD6D2);">About</a>
+        <a href="https://www.linkedin.com/in/soumya-krishnaraj/" target="_blank" rel="noopener" style="margin-top:16px;text-align:center;background:#F9261C;color:#fff;padding:18px 34px;border-radius:999px;">Get in touch</a>
+      </div>
+    </sc-if>
 
     <!-- HERO -->
     <section data-screen-label="Hero" onMouseMove="{{ onHeroMove }}" style="position:relative;height:calc(100vh - 112px);min-height:620px;max-height:980px;overflow:hidden;">
       <sc-for list="{{ slots }}" as="s" hint-placeholder-count="0">
-        <div style="{{ s.box }}">
+        <div class="hero-shape" style="{{ s.box }}">
           <div data-par="{{ s.depth }}" style="position:absolute;inset:0;transition:translate .8s cubic-bezier(.2,.7,.2,1),scale .4s ease;" style-hover="scale:1.05;">
             <div style="{{ s.shape }}"></div>
             <div style="{{ s.labelStyle }}">{{ s.label }}</div>
@@ -56,11 +79,11 @@ a:hover{color:#F9261C;}
       </sc-for>
 
       <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;padding:0 24px;pointer-events:none;z-index:2;">
-        <div style="font-size:15px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted,#8A4F48);transition:color .7s ease;">{{ eyebrow }}</div>
+        <div style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted,#8A4F48);transition:color .7s ease;">{{ eyebrow }}</div>
         <h1 style="{{ headStyle }}">{{ headline }}</h1>
       </div>
 
-      <a href="#work" style="position:absolute;left:50%;bottom:28px;translate:-50% 0;z-index:3;display:flex;align-items:center;gap:12px;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg,#2A0D09);transition:color .7s ease;">
+      <a href="#work" style="position:absolute;left:50%;bottom:28px;translate:-50% 0;width:max-content;z-index:3;display:flex;align-items:center;gap:12px;font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg,#2A0D09);transition:color .7s ease;white-space:nowrap;">
         <span>Selected work ({{ workCount }})</span><span style="font-size:18px;">↓</span>
       </a>
     </section>
@@ -68,10 +91,9 @@ a:hover{color:#F9261C;}
     <!-- WORK -->
     <main id="work" style="padding:clamp(64px,8vw,128px) clamp(20px,4.5vw,72px) 0;display:flex;flex-direction:column;gap:clamp(80px,10vw,160px);">
       <sc-for list="{{ projects }}" as="p" hint-placeholder-count="3">
-        <article data-reveal="1" data-screen-label="{{ p.screen }}" style="display: flex; flex-wrap: wrap; gap: clamp(32px,4.5vw,80px); align-items: stretch; border-top: 1px solid var(--line,#EFD6D2); padding-top: 32px; transition: border-color .7s ease; position: relative">
-          <div style="flex:5 1 340px;min-width:0;display:flex;flex-direction:column;justify-content:space-between;gap:48px;">
-            <div style="display:flex;flex-direction:column;gap:28px;">
-              <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">
+        <article class="project-card" data-reveal="1" data-screen-label="{{ p.screen }}" style="border-top: 1px solid var(--line,#EFD6D2); padding-top: 32px; transition: border-color .7s ease; position: relative">
+            <div class="project-card-header">
+              <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">
                 <span style="color:var(--accent,#F9261C);">{{ p.num }}</span>
                 <sc-if value="{{ p.isShipped }}" hint-placeholder-val="{{ true }}">
                 <span style="display: inline-flex; align-items: center; gap: 8px; color: #107003; transition: color .7s ease; background-color: #B6F1A795; border-width: 1px; border-style: solid; border-color: #489D47; border-radius: 999px; padding: 4px 12px 4px 10px;"><span style="width: 8px; height: 8px; border-radius: 50%; background: #1FA20F; box-shadow: 0 0 0 3px #1FA20F33;"></span>Shipped</span>
@@ -91,7 +113,7 @@ a:hover{color:#F9261C;}
                 <span style="align-self:flex-start;font-size:15px;color:var(--muted,#8A4F48);">Case study in progress</span>
               </sc-if>
             </div>
-            <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;">
+            <div class="project-card-metrics">
               <sc-for list="{{ p.metrics }}" as="m" hint-placeholder-count="3">
                 <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid var(--fg,#2A0D09);padding-top:16px;transition:border-color .7s ease;">
                   <span style="font-family:'Instrument Serif',serif;font-size:clamp(40px,3.4vw,56px);line-height:.9;color:var(--accent,#F9261C);">{{ m.v }}</span>
@@ -99,8 +121,7 @@ a:hover{color:#F9261C;}
                 </div>
               </sc-for>
             </div>
-          </div>
-          <div style="flex:7 1 460px;min-width:0;display:flex;align-items:center;">
+          <div class="project-card-thumb">
             <sc-if value="{{ p.hasLink }}" hint-placeholder-val="{{ false }}">
               <a href="{{ p.href }}" aria-label="Read the case study: {{ p.name }}" onMouseEnter="{{ p.onEnter }}" onMouseLeave="{{ p.onLeave }}" style="display:block;width:100%;position:relative;aspect-ratio:4/3;border-radius:6px;overflow:hidden;background:transparent;transition:transform .9s cubic-bezier(.22,1,.36,1),background-color .7s ease;will-change:transform;box-shadow:none;" style-hover="transform:translateY(-6px) scale(1.01);">
                 <sc-if value="{{ p.hasThumb }}" hint-placeholder-val="{{ false }}">
@@ -152,7 +173,7 @@ a:hover{color:#F9261C;}
           </a>
         </div>
       </div>
-      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted,#8A4F48);border-top:1px solid var(--line,#EFD6D2);padding-top:24px;transition:color .7s ease,border-color .7s ease;">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font-family:'Instrument Sans',system-ui,sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted,#8A4F48);border-top:1px solid var(--line,#EFD6D2);padding-top:24px;transition:color .7s ease,border-color .7s ease;">
         <span>© 2026 Soumya Krishnaraj</span>
       </div>
     </footer>
@@ -236,7 +257,7 @@ class Component extends DCLogic {
   constructor(p) {
     super(p);
     const m = (typeof location !== 'undefined' && location.hash === '#research') ? 'research' : 'design';
-    this.state = { mode: m, bgMode: m, headMode: m, headOut: false, wipe: null };
+    this.state = { mode: m, bgMode: m, headMode: m, headOut: false, wipe: null, mobileNavOpen: false };
   }
   componentDidMount() {
     const els = document.querySelectorAll('[data-reveal]');
@@ -259,6 +280,9 @@ class Component extends DCLogic {
     this.t2 = setTimeout(() => { this.setState({ bgMode: target, wipe: null }); this.busy = false; }, 1000);
   };
 
+  toggleMobileNav = () => { this.setState({ mobileNavOpen: !this.state.mobileNavOpen }); };
+  toggleFromMobile = (e) => { this.setState({ mobileNavOpen: false }); this.toggle(e); };
+
   onHeroMove = (e) => {
     const r = e.currentTarget.getBoundingClientRect();
     const dx = (e.clientX - r.left) / r.width - 0.5, dy = (e.clientY - r.top) / r.height - 0.5;
@@ -269,7 +293,7 @@ class Component extends DCLogic {
   };
 
   renderVals() {
-    const { mode, bgMode, headMode, headOut, wipe } = this.state;
+    const { mode, bgMode, headMode, headOut, wipe, mobileNavOpen } = this.state;
     const T = THEMES[mode];
     const rootStyle = {
       '--bg': T.bg, '--fg': T.fg, '--head': T.head, '--accent': T.accent, '--soft': T.soft, '--muted': T.muted, '--line': T.line,
@@ -295,7 +319,7 @@ class Component extends DCLogic {
         shape: { position: 'absolute', inset: 0, background: s.c, clipPath: SHAPES[s.shape], rotate: s.rot + 'deg', scale: s.on ? '1' : '0',
           transition: `clip-path 1.1s ${EASE} ${d}, rotate 1.1s ${EASE} ${d}, scale .8s ${EASE} ${d}, background-color .8s ease ${d}` },
         labelStyle: { position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center',
-          padding: '0 12%', fontFamily: "'Courier Prime',monospace", fontWeight: 700, fontSize: 'clamp(13px,1.35vw,21px)', lineHeight: 1.2,
+          padding: '0 12%', fontFamily: "'Instrument Sans',system-ui,sans-serif", fontWeight: 700, fontSize: 'clamp(13px,1.35vw,21px)', lineHeight: 1.2,
           color: s.tc, opacity: s.on ? 1 : 0, pointerEvents: 'none', transition: `opacity .5s ease ${s.on ? '.6s' : '0s'}, color .8s ease` },
       };
     });
@@ -329,6 +353,14 @@ class Component extends DCLogic {
       headline: COPY[headMode].head, eyebrow: COPY[headMode].eyebrow,
       toggleLabel: COPY[mode].toggle, footerLine: COPY[mode].footer,
       toggle: this.toggle, onHeroMove: this.onHeroMove, isResearch: mode === 'research', workCount: String(PROJECTS[mode].length).padStart(2, '0'),
+      mobileNavOpen, toggleMobileNav: this.toggleMobileNav, toggleFromMobile: this.toggleFromMobile,
+      mobileNavAria: mobileNavOpen ? 'Close menu' : 'Open menu',
+      mobileNavIcon: React.createElement('span', {
+        style: { display: 'flex', alignItems: 'center', justifyContent: 'center' },
+        dangerouslySetInnerHTML: { __html: mobileNavOpen
+          ? '<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>'
+          : '<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>' }
+      }),
     };
   }
 }

@@ -10,28 +10,52 @@
 <x-dc>
 <helmet><script src="./sticky-header.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap">
 <style>
 html,body{margin:0;padding:0;background:#FFFDFC;}
 body{-webkit-font-smoothing:antialiased;}
 a{color:inherit;text-decoration:none;}
 a:hover{color:#F9261C;}
+.mobile-nav-checkbox{display:none;}
+.hamburger-btn{display:none;cursor:pointer;color:#2A0D09;}
+.hamburger-icon-close{display:none;}
+.mobile-nav-panel{display:none;flex-direction:column;padding:8px clamp(20px,4.5vw,72px) 28px;gap:4px;border-top:1px solid #EFD6D2;background:#FFFDFC;position:sticky;top:97px;z-index:29;}
+.mobile-nav-panel a{padding:16px 0;font-size:20px;border-bottom:1px solid #EFD6D2;display:flex;align-items:center;gap:12px;}
+.mobile-nav-cta{margin-top:16px!important;text-align:center;justify-content:center!important;background:#F9261C;color:#fff!important;padding:18px 34px!important;border-radius:999px;border-bottom:none!important;}
+.mobile-nav-checkbox:checked ~ .mobile-nav-panel{display:flex!important;}
+.mobile-nav-checkbox:checked ~ header .hamburger-icon-open{display:none!important;}
+.mobile-nav-checkbox:checked ~ header .hamburger-icon-close{display:flex!important;}
+@media (max-width:767px){
+.desktop-nav{display:none!important;}
+.hamburger-btn{display:flex!important;align-items:center;justify-content:center;}
+}
 </style>
 </helmet>
-<div style="font-family:'Courier Prime',ui-monospace,monospace;color:#2A0D09;background:#FFFDFC;min-height:100vh;">
+<div style="font-family:'Instrument Sans',system-ui,sans-serif;color:#2A0D09;background:#FFFDFC;min-height:100vh;">
+  <input type="checkbox" id="mobile-nav-toggle" class="mobile-nav-checkbox">
   <header style="position:sticky;top:0;z-index:30;background:#FFFDFC;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px clamp(20px,4.5vw,72px);flex-wrap:wrap;">
     <a href="Portfolio.dc.html" style="font-family:'Instrument Serif',serif;font-size:32px;letter-spacing:-0.02em;color:#F9261C;">Soumya Krishnaraj</a>
-    <nav style="display:flex;align-items:center;gap:clamp(16px,2.4vw,36px);font-size:19px;">
+    <nav class="desktop-nav" style="display:flex;align-items:center;gap:clamp(16px,2.4vw,36px);font-size:19px;">
       <a href="Portfolio.dc.html">Design</a>
       <a href="Portfolio.dc.html#research">Research</a>
       <a href="About.dc.html">About</a>
       <a href="https://www.linkedin.com/in/soumya-krishnaraj/" target="_blank" rel="noopener" style="background:#F9261C;color:#fff;padding:18px 34px;border-radius:999px;">Get in touch</a>
     </nav>
-  </header>
+      <label for="mobile-nav-toggle" class="hamburger-btn" aria-label="Menu">
+      <svg class="hamburger-icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg class="hamburger-icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </label>
+</header>
+  <div class="mobile-nav-panel">
+    <a href="Portfolio.dc.html">Design</a>
+    <a href="Portfolio.dc.html#research">Research</a>
+    <a href="About.dc.html">About</a>
+    <a href="https://www.linkedin.com/in/soumya-krishnaraj/" target="_blank" rel="noopener" class="mobile-nav-cta">Get in touch</a>
+  </div>
   <main data-screen-label="Archive" style="padding:clamp(40px,6vw,96px) clamp(20px,4.5vw,72px) 120px;display:flex;flex-direction:column;gap:56px;">
     <h1 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(72px,11vw,190px);line-height:.86;letter-spacing:-0.035em;color:#F9261C;">Archive</h1>
     <div style="display:flex;flex-direction:column;border-top:1.5px solid #2A0D09;">
-      <div style="display:grid;grid-template-columns:80px minmax(0,3fr) minmax(0,2fr) 90px;gap:16px;padding:14px 0;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;border-bottom:1px solid #EFD6D2;"><span>Year</span><span>Project</span><span>Type</span><span style="text-align:right;">Link</span></div>
+      <div style="display:grid;grid-template-columns:80px minmax(0,3fr) minmax(0,2fr) 90px;gap:16px;padding:14px 0;font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;border-bottom:1px solid #EFD6D2;"><span>Year</span><span>Project</span><span>Type</span><span style="text-align:right;">Link</span></div>
       <a href="Checklist Builder.dc.html" style="display:grid;grid-template-columns:80px minmax(0,3fr) minmax(0,2fr) 90px;gap:16px;align-items:baseline;padding:22px 0;border-bottom:1px solid #EFD6D2;transition:padding .3s ease,color .3s ease;" style-hover="padding-left:14px;color:#F9261C;">
         <span style="font-size:15px;">2026</span><span style="font-family:'Instrument Serif',serif;font-size:clamp(26px,2.4vw,38px);line-height:1;">The Checklist Builder</span><span style="font-size:15px;">Product design</span><span style="text-align:right;">→</span>
       </a>

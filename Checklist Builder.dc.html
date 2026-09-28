@@ -10,7 +10,7 @@
 <x-dc>
 <helmet><script src="./sticky-header.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Courier+Prime:ital,wght@0,400;0,700;1,400&amp;family=Instrument+Sans:ital,wght@0,400..700;1,400..700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Instrument+Sans:ital,wght@0,400..700;1,400..700&amp;display=swap">
 <script src="./image-slot.js"></script>
 <style>
 html,body{margin:0;padding:0;background:#FFFDFC;}
@@ -18,33 +18,56 @@ body{-webkit-font-smoothing:antialiased;}
 a{color:inherit;text-decoration:none;}
 a:hover{color:#F9261C;}
 ::selection{background:#F9261C;color:#fff;}
+.mobile-nav-checkbox{display:none;}
+.hamburger-btn{display:none;cursor:pointer;color:#2A0D09;}
+.hamburger-icon-close{display:none;}
+.mobile-nav-panel{display:none;flex-direction:column;padding:8px clamp(20px,4.5vw,72px) 28px;gap:4px;border-top:1px solid #EFD6D2;background:#FFFDFC;position:sticky;top:97px;z-index:29;}
+.mobile-nav-panel a{padding:16px 0;font-size:20px;border-bottom:1px solid #EFD6D2;display:flex;align-items:center;gap:12px;}
+.mobile-nav-cta{margin-top:16px!important;text-align:center;justify-content:center!important;background:#F9261C;color:#fff!important;padding:18px 34px!important;border-radius:999px;border-bottom:none!important;}
+.mobile-nav-checkbox:checked ~ .mobile-nav-panel{display:flex!important;}
+.mobile-nav-checkbox:checked ~ header .hamburger-icon-open{display:none!important;}
+.mobile-nav-checkbox:checked ~ header .hamburger-icon-close{display:flex!important;}
+@media (max-width:767px){
+.desktop-nav{display:none!important;}
+.hamburger-btn{display:flex!important;align-items:center;justify-content:center;}
+}
 </style>
 </helmet>
 
 <div style="font-family:'Instrument Sans',system-ui,sans-serif;color:#2A0D09;background:#FFFDFC;min-height:100vh;">
   <div style="position:fixed;top:0;left:0;height:3px;background:#F9261C;z-index:40;width:{{ progress }};"></div>
 
+  <input type="checkbox" id="mobile-nav-toggle" class="mobile-nav-checkbox">
   <header style="position:sticky;top:0;z-index:30;background:#FFFDFC;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px clamp(20px,4.5vw,72px);flex-wrap:wrap;">
     <a href="Portfolio.dc.html" style="font-family:'Instrument Serif',serif;font-size:32px;letter-spacing:-0.02em;color:#F9261C;">Soumya Krishnaraj</a>
-    <nav style="display:flex;align-items:center;gap:clamp(16px,2.4vw,36px);font-size:19px;">
+    <nav class="desktop-nav" style="display:flex;align-items:center;gap:clamp(16px,2.4vw,36px);font-size:19px;">
       <a href="Portfolio.dc.html#research" style="display:flex;align-items:center;gap:10px;"><span style="width:10px;height:10px;border-radius:50%;background:#F9261C;"></span><span>Research</span></a>
       <a href="About.dc.html">About</a>
       <a href="https://www.linkedin.com/in/soumya-krishnaraj/" target="_blank" rel="noopener" style="background:#F9261C;color:#fff;padding:18px 34px;border-radius:999px;transition:transform .25s ease;" style-hover="transform:translateY(-2px) rotate(-2deg);color:#fff;">Get in touch</a>
     </nav>
-  </header>
+      <label for="mobile-nav-toggle" class="hamburger-btn" aria-label="Menu">
+      <svg class="hamburger-icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg class="hamburger-icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </label>
+</header>
+  <div class="mobile-nav-panel">
+    <a href="Portfolio.dc.html#research"><span style="width:10px;height:10px;border-radius:50%;background:#F9261C;"></span><span>Research</span></a>
+    <a href="About.dc.html">About</a>
+    <a href="https://www.linkedin.com/in/soumya-krishnaraj/" target="_blank" rel="noopener" class="mobile-nav-cta">Get in touch</a>
+  </div>
 
   <!-- HERO -->
   <section data-screen-label="Case hero" style="padding:clamp(40px,6vw,96px) clamp(20px,4.5vw,72px) clamp(64px,7vw,112px);display:flex;flex-direction:column;gap:40px;">
     <h1 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(64px,12vw,210px);line-height:.86;letter-spacing:-0.035em;color:#F9261C;max-width:100%;text-wrap:balance;overflow-wrap:break-word;">Question <i>repo + builder</i></h1>
     <p style="margin:0;max-width:30ch;font-family:'Instrument Serif',serif;font-size:clamp(28px,2.8vw,44px);line-height:1.08;text-wrap:pretty;">Making compliance-driven question building easier for admins</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;border-top:1.5px solid #2A0D09;padding-top:20px;">
-      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Role</span><span style="font-size:17px;">Design owner</span></div>
-      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Timeline</span><span style="font-size:17px;">3 weeks</span></div>
-      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Team</span><span style="font-size:17px;">Product, Engineering, Design</span></div>
-      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Shipped</span><span style="font-size:17px;">Q4 2025</span></div>
+      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Role</span><span style="font-size:17px;">Design owner</span></div>
+      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Timeline</span><span style="font-size:17px;">3 weeks</span></div>
+      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Team</span><span style="font-size:17px;">Product, Engineering, Design</span></div>
+      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Shipped</span><span style="font-size:17px;">Q4 2025</span></div>
     </div>
     <div data-screen-label="Outcome" style="display:flex;flex-direction:column;gap:24px;margin-top:clamp(16px,3vw,40px);">
-      <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">OUTCOME</span>
+      <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">OUTCOME</span>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:24px;">
         <sc-for list="{{ outcomes }}" as="o" hint-placeholder-count="3">
           <div style="display:flex;flex-direction:column;gap:12px;border-top:1.5px solid #2A0D09;padding-top:16px;">
@@ -59,12 +82,12 @@ a:hover{color:#F9261C;}
 
   <!-- 01 GAP -->
   <section data-screen-label="Gap" style="background:#43160F;color:#F8DEDB;padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:40px;">
-    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#FF6A5E;">01 / THE GAP</span>
+    <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#FF6A5E;">01 / THE GAP</span>
     <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">A failed check closed out <em style="color:#FF6A5E;">exactly like a passed one.</em></h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:24px;">
       <sc-for list="{{ gapPoints }}" as="g" hint-placeholder-count="4">
         <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #F8DEDB;padding-top:16px;">
-          <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#FF6A5E;">{{ g.k }}</span>
+          <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#FF6A5E;">{{ g.k }}</span>
           <span style="font-size:19px;line-height:1.45;">{{ g.v }}</span>
         </div>
       </sc-for>
@@ -73,44 +96,44 @@ a:hover{color:#F9261C;}
 
   <!-- 02 RESEARCH -->
   <section data-screen-label="Research" style="padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:40px;">
-    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">02 / RESEARCH</span>
+    <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">02 / RESEARCH</span>
     <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Managers found out <em style="color:#F9261C;">hours too late.</em></h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:24px;">
       <sc-for list="{{ methods }}" as="m" hint-placeholder-count="3">
         <div style="display:flex;flex-direction:column;gap:14px;border-top:1.5px solid #2A0D09;padding-top:16px;">
-          <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">{{ m.n }} · {{ m.t }}</span>
+          <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">{{ m.n }} · {{ m.t }}</span>
           <span style="font-size:19px;line-height:1.45;font-weight:500;">{{ m.i }}</span>
         </div>
       </sc-for>
     </div>
     <div data-screen-label="Reframe" style="display:flex;flex-direction:column;gap:28px;margin-top:clamp(32px,5vw,72px);padding:clamp(28px,4vw,56px);background:#FBEAE7;border-radius:6px;">
-      <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">What reframed the problem</span>
+      <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">What reframed the problem</span>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(24px,4vw,56px);align-items:start;">
         <div style="display:flex;flex-direction:column;gap:10px;">
-          <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">We assumed</span>
+          <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">We assumed</span>
           <span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.8vw,40px);line-height:1.08;color:#8A4F48;text-decoration:line-through;text-decoration-thickness:1.5px;">Failures weren’t being caught.</span>
         </div>
         <div style="display:flex;flex-direction:column;gap:10px;">
-          <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">FINDING #1</span>
+          <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">FINDING #1</span>
           <span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.8vw,40px);line-height:1.08;">They were caught. <em style="color:#F9261C;">Nobody was told.</em></span>
         </div>
       </div>
       <span style="font-size:18px;line-height:1.55;max-width:62ch;text-wrap:pretty;">The system put the onus on people. Associates had to notify managers outside the app, or managers had to keep checking every submission themselves. Either way, food safety depended on someone remembering. So the fix had to live inside the question, at the moment it fails.</span>
     </div>
     <div data-screen-label="No repository" style="display:flex;flex-direction:column;gap:28px;margin-top:clamp(24px,3vw,40px);padding:clamp(28px,4vw,56px);border:1.5px solid #2A0D09;border-radius:6px;">
-      <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">FINDING #2 · NO QUESTION REPOSITORY</span>
+      <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">FINDING #2 · NO QUESTION REPOSITORY</span>
       <span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.8vw,40px);line-height:1.08;max-width:24ch;text-wrap:balance;">Every checklist was built <em style="color:#F9261C;">from scratch.</em></span>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(20px,3vw,40px);">
         <div style="display:flex;flex-direction:column;gap:8px;border-top:1.5px solid #2A0D09;padding-top:14px;">
-          <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Before</span>
+          <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Before</span>
           <span style="font-size:17px;line-height:1.5;">Admins typed in each question by hand, even if it already existed in another checklist.</span>
         </div>
         <div style="display:flex;flex-direction:column;gap:8px;border-top:1.5px solid #2A0D09;padding-top:14px;">
-          <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Cost</span>
+          <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Cost</span>
           <span style="font-size:17px;line-height:1.5;">Slow to build, and the same check was worded differently from one location to the next.</span>
         </div>
         <div style="display:flex;flex-direction:column;gap:8px;border-top:1.5px solid #2A0D09;padding-top:14px;">
-          <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">What I designed</span>
+          <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">What I designed</span>
           <span style="font-size:17px;line-height:1.5;">A questions repository. Every saved question goes into it, and admins pull from it while building a checklist.</span>
         </div>
       </div>
@@ -120,12 +143,12 @@ a:hover{color:#F9261C;}
   <!-- 03 PROCESS -->
   <section data-screen-label="Process" style="padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:clamp(56px,7vw,112px);">
     <div style="display:flex;flex-direction:column;gap:40px;">
-      <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">03 / PROCESS</span>
+      <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">03 / PROCESS</span>
       <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Defining what a question <em style="color:#F9261C;">can do.</em></h2>
     </div>
 
     <div data-screen-label="Typology" style="display:flex;flex-direction:column;gap:clamp(32px,4vw,56px);">
-      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;border-top:1.5px solid #2A0D09;padding-top:16px;"><span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">Mapping the question types</span></div>
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;border-top:1.5px solid #2A0D09;padding-top:16px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">Mapping the question types</span></div>
       <div style="display:flex;flex-wrap:wrap;gap:clamp(32px,5vw,96px);align-items:center;">
         <div style="flex:3 1 420px;min-width:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,1.5vw,20px);">
           <img src="case-study/cl-whiteboard-types.png" alt="Whiteboard: question types and how each is answered" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:6px;">
@@ -140,14 +163,14 @@ a:hover{color:#F9261C;}
     </div>
 
     <div data-screen-label="Explorations" style="display:flex;flex-direction:column;gap:clamp(32px,4vw,56px);">
-      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;border-top:1.5px solid #2A0D09;padding-top:16px;"><span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">Directions we tried</span></div>
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;border-top:1.5px solid #2A0D09;padding-top:16px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">Directions we tried</span></div>
       <div style="display:flex;flex-wrap:wrap;gap:clamp(32px,5vw,72px);align-items:flex-start;">
         <figure style="margin:0;flex:1 1 340px;min-width:0;display:flex;flex-direction:column;gap:24px;">
           <div style="aspect-ratio:4/3;border-radius:6px;overflow:hidden;background:#F4F4F4;">
             <img src="case-study/cl-explore-stack.png" alt="Exploration A: stacked follow-up cards" style="display:block;width:100%;height:100%;object-fit:cover;object-position:top;">
           </div>
           <figcaption style="display:flex;flex-direction:column;gap:10px;">
-            <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">A</span><span style="font-family:'Instrument Serif',serif;font-size:clamp(26px,2.4vw,34px);line-height:1;">Stacked cards</span><span style="font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#43160F;border:1px solid #43160F;border-radius:999px;padding:3px 10px;">Tested · dropped</span></div>
+            <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">A</span><span style="font-family:'Instrument Serif',serif;font-size:clamp(26px,2.4vw,34px);line-height:1;">Stacked cards</span><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#43160F;border:1px solid #43160F;border-radius:999px;padding:3px 10px;">Tested · dropped</span></div>
             <span style="font-size:16px;line-height:1.5;max-width:48ch;text-wrap:pretty;">Everything on one long page. In testing there was no focused space to work in, and too much happening at once raised cognitive load.</span>
           </figcaption>
         </figure>
@@ -156,7 +179,7 @@ a:hover{color:#F9261C;}
             <img src="case-study/cl-explore-flowchart.png" alt="Exploration B: flowchart tree" style="display:block;width:100%;height:100%;object-fit:cover;object-position:top;">
           </div>
           <figcaption style="display:flex;flex-direction:column;gap:10px;">
-            <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">B</span><span style="font-family:'Instrument Serif',serif;font-size:clamp(26px,2.4vw,34px);line-height:1;">Flowchart</span><span style="font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#43160F;border:1px solid #43160F;border-radius:999px;padding:3px 10px;">Cut before testing</span></div>
+            <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">B</span><span style="font-family:'Instrument Serif',serif;font-size:clamp(26px,2.4vw,34px);line-height:1;">Flowchart</span><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#43160F;border:1px solid #43160F;border-radius:999px;padding:3px 10px;">Cut before testing</span></div>
             <span style="font-size:16px;line-height:1.5;max-width:48ch;text-wrap:pretty;">Intuitive, but our Angular stack couldn’t support a full-structure view. Building it would have delayed the release by months.</span>
           </figcaption>
         </figure>
@@ -168,14 +191,14 @@ a:hover{color:#F9261C;}
   <!-- 04 SOLUTION -->
   <section data-screen-label="Solution" style="background:#FBEAE7;padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:48px;">
     <div style="display:flex;flex-direction:column;gap:40px;">
-      <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">04 / SOLUTION</span>
+      <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">04 / SOLUTION</span>
       <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Configure the corrective action&nbsp;<em style="color: rgb(249, 38, 28);">with the question.</em></h2>
-      <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.06em;line-height:1.5;color:#43160F;max-width:60ch;">* Screens are lightly recreated. The originals are under NDA, but the structure and interactions are true to what shipped.</span>
+      <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.06em;line-height:1.5;color:#43160F;max-width:60ch;">* Screens are lightly recreated. The originals are under NDA, but the structure and interactions are true to what shipped.</span>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px;">
       <sc-for list="{{ decisions }}" as="d" hint-placeholder-count="3">
         <div style="background:#FFFDFC;border-radius:6px;padding:24px;display:flex;flex-direction:column;gap:12px;">
-          <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">{{ d.n }}</span>
+          <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">{{ d.n }}</span>
           <span style="font-family:'Instrument Serif',serif;font-size:32px;line-height:1;">{{ d.t }}</span>
           <span style="font-size:16px;line-height:1.5;">{{ d.v }}</span>
         </div>
@@ -187,7 +210,7 @@ a:hover{color:#F9261C;}
         <img src="case-study/cl-overview.png" alt="Question builder: tree, configuration and live preview" style="display:block;width:100%;height:auto;border-radius:4px;">
       </div>
       <figcaption style="display:flex;gap:16px;flex-wrap:wrap;align-items:baseline;">
-        <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">The builder</span>
+        <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">The builder</span>
         <span style="font-size:16px;line-height:1.5;max-width:60ch;text-wrap:pretty;"><b>Structure, configuration and outcome</b> in one view. Admins see what the associate will see while they build it.</span>
       </figcaption>
     </figure>
@@ -195,47 +218,47 @@ a:hover{color:#F9261C;}
     <div style="display:flex;flex-direction:column;gap:clamp(96px,11vw,176px);margin-top:clamp(48px,6vw,96px);">
     <div data-screen-label="Admin features" style="display:flex;flex-direction:column;gap:clamp(64px,8vw,128px);">
       <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;border-top:1.5px solid #2A0D09;padding-top:16px;">
-        <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">Admin · building a question</span>
+        <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">Admin · building a question</span>
       </div>
       <figure style="margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:clamp(32px,5vw,96px);">
         <div style="flex:3 1 400px;min-width:0;display:flex;justify-content:center;">
           <img src="case-study/cl-repository.png" alt="Questions repository" style="display:block;width:100%;max-width:680px;height:auto;border-radius:6px;">
         </div>
         <figcaption style="flex:2 1 280px;min-width:0;display:flex;flex-direction:column;gap:12px;">
-          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;color:#F9261C;">01</span><span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.6vw,40px);line-height:1;">Questions repository</span></div>
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;color:#F9261C;">01</span><span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.6vw,40px);line-height:1;">Questions repository</span></div>
           <span style="font-size:17px;line-height:1.55;max-width:40ch;text-wrap:pretty;">Every saved question lands here. Admins pull from it while building a checklist, instead of retyping it. It's the backbone the rest of the builder pulls from, so it gets the most room on the page.</span>
         </figcaption>
       </figure>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(32px,4vw,64px);">
         <figure style="margin:0;display:flex;flex-direction:column;gap:16px;">
-          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;color:#F9261C;">02</span><span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.6vw,40px);line-height:1;">Questions tree</span></div>
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;color:#F9261C;">02</span><span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.6vw,40px);line-height:1;">Questions tree</span></div>
           <img src="case-study/cl-tree-crop.png" alt="Questions tree" style="display:block;width:100%;max-width:420px;height:auto;border-radius:6px;margin:0 auto;">
           <figcaption style="font-size:17px;line-height:1.55;text-wrap:pretty;">Follow-ups nest under their parent, labelled with the condition that fires them.</figcaption>
         </figure>
         <figure style="margin:0;display:flex;flex-direction:column;gap:16px;">
-          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;color:#F9261C;">03</span><span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.6vw,40px);line-height:1;">Trigger conditions</span></div>
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;color:#F9261C;">03</span><span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.6vw,40px);line-height:1;">Trigger conditions</span></div>
           <img src="case-study/cl-trigger.png" alt="Trigger conditions" style="display:block;width:100%;max-width:520px;height:auto;border-radius:6px;margin:0 auto;">
           <figcaption style="font-size:17px;line-height:1.55;text-wrap:pretty;">Choose when a follow-up shows: completed, compliant, non-compliant, or a specific answer.</figcaption>
         </figure>
       </div>
       <figure style="margin:0;display:flex;flex-direction:column;gap:16px;max-width:480px;">
-        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;color:#F9261C;">04</span><span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.6vw,40px);line-height:1;">Smart suggestions</span><span style="font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#43160F;border:1px solid #43160F;border-radius:999px;padding:3px 10px;">Concept</span></div>
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;color:#F9261C;">04</span><span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.6vw,40px);line-height:1;">Smart suggestions</span><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#43160F;border:1px solid #43160F;border-radius:999px;padding:3px 10px;">Concept</span></div>
         <img src="case-study/cl-ai-suggestions.png" alt="Smart suggestions" style="display:block;width:100%;height:auto;border-radius:6px;">
         <figcaption style="font-size:17px;line-height:1.55;text-wrap:pretty;">Prompts admins to add what’s missing, like an “Other” option or instructions.</figcaption>
       </figure>
     </div>
     <div data-screen-label="Associate features" style="display:flex;flex-direction:column;gap:clamp(64px,8vw,128px);">
       <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;border-top:1.5px solid #2A0D09;padding-top:16px;">
-        <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">Associate · completing a checklist</span><span style="font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#43160F;border:1px solid #43160F;border-radius:999px;padding:3px 10px;">DESIGNED BY A COLLEAGUE, INFORMED BY MY WORK</span>
+        <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">Associate · completing a checklist</span><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#43160F;border:1px solid #43160F;border-radius:999px;padding:3px 10px;">DESIGNED BY A COLLEAGUE, INFORMED BY MY WORK</span>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(32px,4vw,64px);">
         <figure style="margin:0;display:flex;flex-direction:column;gap:16px;">
-          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;color:#F9261C;">05</span><span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.6vw,40px);line-height:1;">Non-compliance flag</span></div>
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;color:#F9261C;">05</span><span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.6vw,40px);line-height:1;">Non-compliance flag</span></div>
           <img src="case-study/cl-noncompliant.png" alt="Non-compliance flag" style="display:block;width:100%;max-width:320px;height:auto;border-radius:6px;margin:0 auto;">
           <figcaption style="font-size:17px;line-height:1.55;text-wrap:pretty;">A failing answer is flagged, and its follow-ups appear right away.</figcaption>
         </figure>
         <figure style="margin:0;display:flex;flex-direction:column;gap:16px;">
-          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;color:#F9261C;">06</span><span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.6vw,40px);line-height:1;">Corrective action</span></div>
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;color:#F9261C;">06</span><span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.6vw,40px);line-height:1;">Corrective action</span></div>
           <img src="case-study/cl-corrective.png" alt="Corrective action" style="display:block;width:100%;max-width:340px;height:auto;border-radius:6px;margin:0 auto;">
           <figcaption style="font-size:17px;line-height:1.55;text-wrap:pretty;">Associates log what they fixed. A photo follow-up adds proof.</figcaption>
         </figure>
@@ -247,11 +270,11 @@ a:hover{color:#F9261C;}
 
   <!-- 05 REFLECTION -->
   <section data-screen-label="Reflection" style="padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:28px;">
-    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">05 / REFLECTION</span>
+    <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">05 / REFLECTION</span>
     <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(40px,4.6vw,76px);line-height:.98;letter-spacing:-0.02em;text-wrap:balance;">The best version of <em style="color:#F9261C;">what was possible.</em></h2>
     <p style="margin:0;max-width:62ch;font-size:19px;line-height:1.55;text-wrap:pretty;">A lot of these decisions came down to the same question: what does the admin actually need, and what can the platform support right now? The trigger types got capped at four after admin interviews showed that was the real ceiling, not a technical one. Smart suggestions stayed a concept because the underlying detection wasn't ready to ship, not because the idea was wrong. Most of what I learned building this was where that line actually sat, and how to design toward it instead of past it.</p>
     <div style="display:flex;flex-direction:column;gap:20px;padding-top:12px;">
-      <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Where it landed</span>
+      <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Where it landed</span>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:24px;">
         <sc-for list="{{ outcomes }}" as="o" hint-placeholder-count="3">
           <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #2A0D09;padding-top:16px;">
@@ -264,14 +287,14 @@ a:hover{color:#F9261C;}
   </section>
 
   <a href="Side Navigation.dc.html" data-screen-label="Next" style="display:flex;flex-direction:column;gap:20px;padding:clamp(56px,7vw,112px) clamp(20px,4.5vw,72px);background:#43160F;color:#F8DEDB;transition:background .4s ease;" style-hover="background:#F9261C;color:#fff;">
-    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">Next project · 02</span>
+    <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">Next project · 02</span>
     <span style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;font-family:'Instrument Serif',serif;font-size:clamp(56px,8vw,140px);line-height:.9;letter-spacing:-0.03em;"><span>Side navigation</span><span>→</span></span>
   </a>
-  <footer style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding:24px clamp(20px,4.5vw,72px) 40px;font-family:'Courier Prime',monospace;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#8A4F48;">
+  <footer style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding:24px clamp(20px,4.5vw,72px) 40px;font-family:'Instrument Sans',system-ui,sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#8A4F48;">
     <span>© 2026 Soumya Krishnaraj</span>
     <a href="mailto:soumya.krishnaraj@gmail.com">soumya.krishnaraj@gmail.com</a>
   </footer>
-  <button onClick="{{ jump }}" aria-label="{{ jumpAria }}" style="position:fixed;right:clamp(16px,3vw,40px);bottom:clamp(16px,3vw,40px);z-index:40;display:flex;align-items:center;gap:10px;height:52px;padding:0 20px 0 16px;border:none;border-radius:999px;background:#2A0D09;color:#FFFDFC;font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;box-shadow:0 8px 24px rgba(42,13,9,.18);transition:background-color .3s ease;" style-hover="background:#F9261C;">
+  <button onClick="{{ jump }}" aria-label="{{ jumpAria }}" style="position:fixed;right:clamp(16px,3vw,40px);bottom:clamp(16px,3vw,40px);z-index:40;display:flex;align-items:center;gap:10px;height:52px;padding:0 20px 0 16px;border:none;border-radius:999px;background:#2A0D09;color:#FFFDFC;font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;box-shadow:0 8px 24px rgba(42,13,9,.18);transition:background-color .3s ease;" style-hover="background:#F9261C;">
     <span style="display:inline-flex;font-size:18px;line-height:1;transition:transform .45s cubic-bezier(.22,1,.36,1);transform:{{ jumpRot }};">↓</span>
     <span>{{ jumpLabel }}</span>
   </button>

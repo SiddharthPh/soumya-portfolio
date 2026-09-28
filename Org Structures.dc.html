@@ -10,7 +10,7 @@
 <x-dc>
 <helmet><script src="./sticky-header.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Courier+Prime:ital,wght@0,400;0,700;1,400&amp;family=Instrument+Sans:ital,wght@0,400..700;1,400..700&amp;family=Roboto:wght@400;500;700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Instrument+Sans:ital,wght@0,400..700;1,400..700&amp;family=Roboto:wght@400;500;700&amp;display=swap">
 <script src="./image-slot.js"></script>
 <style>
 html,body{margin:0;padding:0;background:#FFFDFC;}
@@ -18,46 +18,69 @@ body{-webkit-font-smoothing:antialiased;}
 a{color:inherit;text-decoration:none;}
 a:hover{color:#F9261C;}
 ::selection{background:#F9261C;color:#fff;}
+.mobile-nav-checkbox{display:none;}
+.hamburger-btn{display:none;cursor:pointer;color:#2A0D09;}
+.hamburger-icon-close{display:none;}
+.mobile-nav-panel{display:none;flex-direction:column;padding:8px clamp(20px,4.5vw,72px) 28px;gap:4px;border-top:1px solid #EFD6D2;background:#FFFDFC;position:sticky;top:97px;z-index:29;}
+.mobile-nav-panel a{padding:16px 0;font-size:20px;border-bottom:1px solid #EFD6D2;display:flex;align-items:center;gap:12px;}
+.mobile-nav-cta{margin-top:16px!important;text-align:center;justify-content:center!important;background:#F9261C;color:#fff!important;padding:18px 34px!important;border-radius:999px;border-bottom:none!important;}
+.mobile-nav-checkbox:checked ~ .mobile-nav-panel{display:flex!important;}
+.mobile-nav-checkbox:checked ~ header .hamburger-icon-open{display:none!important;}
+.mobile-nav-checkbox:checked ~ header .hamburger-icon-close{display:flex!important;}
+@media (max-width:767px){
+.desktop-nav{display:none!important;}
+.hamburger-btn{display:flex!important;align-items:center;justify-content:center;}
+}
 </style>
 </helmet>
 
 <div style="font-family:'Instrument Sans',system-ui,sans-serif;color:#2A0D09;background:#FFFDFC;min-height:100vh;">
   <div style="position:fixed;top:0;left:0;height:3px;background:#F9261C;z-index:40;width:{{ progress }};"></div>
 
+  <input type="checkbox" id="mobile-nav-toggle" class="mobile-nav-checkbox">
   <header style="position:sticky;top:0;z-index:30;background:#FFFDFC;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px clamp(20px,4.5vw,72px);flex-wrap:wrap;">
     <a href="Portfolio.dc.html" style="font-family:'Instrument Serif',serif;font-size:32px;letter-spacing:-0.02em;color:#F9261C;">Soumya Krishnaraj</a>
-    <nav style="display:flex;align-items:center;gap:clamp(16px,2.4vw,36px);font-size:19px;">
+    <nav class="desktop-nav" style="display:flex;align-items:center;gap:clamp(16px,2.4vw,36px);font-size:19px;">
       <a href="Portfolio.dc.html#research" style="display:flex;align-items:center;gap:10px;"><span style="width:10px;height:10px;border-radius:50%;background:#F9261C;"></span><span>Research</span></a>
       <a href="About.dc.html">About</a>
       <a href="https://www.linkedin.com/in/soumya-krishnaraj/" target="_blank" rel="noopener" style="background:#F9261C;color:#fff;padding:18px 34px;border-radius:999px;transition:transform .25s ease;" style-hover="transform:translateY(-2px) rotate(-2deg);color:#fff;">Get in touch</a>
     </nav>
-  </header>
+      <label for="mobile-nav-toggle" class="hamburger-btn" aria-label="Menu">
+      <svg class="hamburger-icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg class="hamburger-icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </label>
+</header>
+  <div class="mobile-nav-panel">
+    <a href="Portfolio.dc.html#research"><span style="width:10px;height:10px;border-radius:50%;background:#F9261C;"></span><span>Research</span></a>
+    <a href="About.dc.html">About</a>
+    <a href="https://www.linkedin.com/in/soumya-krishnaraj/" target="_blank" rel="noopener" class="mobile-nav-cta">Get in touch</a>
+  </div>
 
   <!-- HERO -->
   <section data-screen-label="Case hero" style="padding:clamp(40px,6vw,96px) clamp(20px,4.5vw,72px) clamp(64px,7vw,112px);display:flex;flex-direction:column;gap:40px;">
-    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">
       <span style="display:inline-flex;align-items:center;gap:8px;color:#7A4B00;background:#FFE7B8;border:1px solid #D99A2B;border-radius:999px;padding:4px 12px 4px 10px;"><span style="width:8px;height:8px;border-radius:50%;background:#E08A00;box-shadow:0 0 0 3px #E08A0033;"></span>In development</span>
       
     </div>
     <h1 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(64px,12vw,210px);line-height:.86;letter-spacing:-0.035em;color:#F9261C;max-width:100%;text-wrap:balance;overflow-wrap:break-word;">Organization&nbsp;<i>structures</i></h1>
     <p style="margin:0;max-width:30ch;font-family:'Instrument Serif',serif;font-size:clamp(28px,2.8vw,44px);line-height:1.08;text-wrap:pretty;">Letting customers build their own hierarchy, so content and accountability reach the right people.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;border-top:1.5px solid #2A0D09;padding-top:20px;">
-      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Role</span><span style="font-size:17px;">Product designer: framing, experience design; research support</span></div>
-      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Team</span><span style="font-size:17px;">3 designers, 2 PMs, 8 engineers</span></div>
-      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">TIMELINE</span><span style="font-size:17px;">3 months (Ongoing)</span></div>
+      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Role</span><span style="font-size:17px;">Product designer: framing, experience design; research support</span></div>
+      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Team</span><span style="font-size:17px;">3 designers, 2 PMs, 8 engineers</span></div>
+      <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">TIMELINE</span><span style="font-size:17px;">3 months (Ongoing)</span></div>
       <div style="display:flex;flex-direction:column;gap:8px;"></div>
     </div>
   </section>
 
   <!-- 01 PROBLEM -->
   <section data-screen-label="Problem" style="background:#43160F;color:#F8DEDB;padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:40px;">
-    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#FF6A5E;">01 / THE PROBLEM</span>
+    <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#FF6A5E;">01 / THE PROBLEM</span>
     <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Everyone could see <em style="color:#FF6A5E;">everything.</em></h2>
     <p style="margin:0;max-width:60ch;font-size:19px;line-height:1.5;text-wrap:pretty;">Large customers group their stores by client account, region and business line, often all at once. KitchenIQ had one flat hierarchy, so admins worked around it.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:24px;">
       <sc-for list="{{ gaps }}" as="g" hint-placeholder-count="3">
         <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #F8DEDB;padding-top:16px;">
-          <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#FF6A5E;">{{ g.n }} · {{ g.k }}</span>
+          <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#FF6A5E;">{{ g.n }} · {{ g.k }}</span>
           <span style="font-size:18px;line-height:1.45;">{{ g.v }}</span>
         </div>
       </sc-for>
@@ -66,16 +89,16 @@ a:hover{color:#F9261C;}
 
   <!-- 02 REFRAME -->
   <section data-screen-label="Reframe" style="padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:40px;">
-    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">02 / REFRAMING THE ASK</span>
+    <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">02 / REFRAMING THE ASK</span>
     <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Buckets were <em style="color:#F9261C;">half the problem.</em></h2>
     <div style="display:flex;flex-direction:column;gap:28px;padding:clamp(28px,4vw,56px);background:#FBEAE7;border-radius:6px;">
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(24px,4vw,56px);align-items:start;">
         <div style="display:flex;flex-direction:column;gap:10px;">
-          <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Admins asked for</span>
+          <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Admins asked for</span>
           <span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.8vw,40px);line-height:1.08;color:#8A4F48;text-decoration:line-through;text-decoration-thickness:1.5px;">A way to bucket information.</span>
         </div>
         <div style="display:flex;flex-direction:column;gap:10px;">
-          <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">The layer above them needed</span>
+          <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">The layer above them needed</span>
           <span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.8vw,40px);line-height:1.08;">Control over <em style="color:#F9261C;">who gets what,</em> and a record of it.</span>
         </div>
       </div>
@@ -89,12 +112,12 @@ a:hover{color:#F9261C;}
           <div style="padding:10px 16px;border-radius:8px;background:#F4EDEC;color:#43160F;border:none;font-family:Roboto,sans-serif;font-size:14px;font-weight:500;text-align:center;white-space:nowrap;">One global master list</div><div style="width:2px;height:22px;background:#C9B3AE;margin:0 auto;"></div>
           <div style="display:grid;grid-template-columns:repeat(10,10px);gap:5px;justify-content:center;"><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span><span style="width:10px;height:10px;border-radius:3px;background:#C9372C;"></span></div>
           <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:18px;">
-            <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-size:11px;color:#C9372C;border:1px solid #C9372C;border-radius:999px;padding:3px 10px;">Emails</span>
-            <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-size:11px;color:#C9372C;border:1px solid #C9372C;border-radius:999px;padding:3px 10px;">Naming conventions</span>
-            <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-size:11px;color:#C9372C;border:1px solid #C9372C;border-radius:999px;padding:3px 10px;">Memory</span>
+            <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-size:11px;color:#C9372C;border:1px solid #C9372C;border-radius:999px;padding:3px 10px;">Emails</span>
+            <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-size:11px;color:#C9372C;border:1px solid #C9372C;border-radius:999px;padding:3px 10px;">Naming conventions</span>
+            <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-size:11px;color:#C9372C;border:1px solid #C9372C;border-radius:999px;padding:3px 10px;">Memory</span>
           </div>
         </div>
-        <figcaption style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;min-height:48px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Before</span><span style="font-size:16px;">Everything reaches every location. Rules live outside the product.</span></figcaption>
+        <figcaption style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;min-height:48px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Before</span><span style="font-size:16px;">Everything reaches every location. Rules live outside the product.</span></figcaption>
       </figure>
       <figure style="margin:0;display:flex;flex-direction:column;gap:16px;">
         <div style="flex:1;background:#FFFDFC;border:1.5px solid #2A0D09;border-radius:6px;padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;align-items:center;">
@@ -106,7 +129,7 @@ a:hover{color:#F9261C;}
             <div style="display:flex;flex-direction:column;align-items:center;gap:10px;"><div style="padding:10px 16px;border-radius:8px;background:#fff;color:rgb(98,111,134);border:1.5px solid rgb(220,223,228);font-family:Roboto,sans-serif;font-size:14px;font-weight:500;text-align:center;white-space:nowrap;">South Region</div><div style="display:grid;grid-template-columns:repeat(6,10px);gap:5px;justify-content:center;"><span style="width:10px;height:10px;border-radius:3px;background:rgb(220,223,228);"></span><span style="width:10px;height:10px;border-radius:3px;background:rgb(220,223,228);"></span><span style="width:10px;height:10px;border-radius:3px;background:rgb(220,223,228);"></span><span style="width:10px;height:10px;border-radius:3px;background:rgb(220,223,228);"></span><span style="width:10px;height:10px;border-radius:3px;background:rgb(220,223,228);"></span><span style="width:10px;height:10px;border-radius:3px;background:rgb(220,223,228);"></span></div><span style="font-family:Roboto,sans-serif;font-size:12px;color:rgb(98,111,134);">Manager: H. Park</span></div>
           </div>
         </div>
-        <figcaption style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;min-height:48px;"><span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">After</span><span style="font-size:16px;">Content goes to a group. Only its locations get it, and someone owns it.</span></figcaption>
+        <figcaption style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;min-height:48px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">After</span><span style="font-size:16px;">Content goes to a group. Only its locations get it, and someone owns it.</span></figcaption>
       </figure>
     </div>
   </section>
@@ -114,13 +137,13 @@ a:hover{color:#F9261C;}
   <!-- 03 RESEARCH -->
   <section data-screen-label="Research" style="padding:0 clamp(20px,4.5vw,72px) clamp(80px,9vw,140px);display:flex;flex-direction:column;gap:clamp(56px,7vw,104px);">
     <div style="display:flex;flex-direction:column;gap:24px;">
-      <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">03 / RESEARCH</span>
+      <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">03 / RESEARCH</span>
       <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Workarounds <em style="color:#F9261C;">everywhere.</em></h2>
-      <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.06em;line-height:1.5;color:#43160F;max-width:60ch;">* Research was led by a colleague. I assisted with interviews and synthesis, and ran the FigJam concept tests.</span>
+      <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.06em;line-height:1.5;color:#43160F;max-width:60ch;">* Research was led by a colleague. I assisted with interviews and synthesis, and ran the FigJam concept tests.</span>
     </div>
 
     <div data-screen-label="Goals" style="display:flex;flex-direction:column;gap:28px;">
-      <div style="display:flex;gap:12px;align-items:center;border-top:1.5px solid #2A0D09;padding-top:16px;"><span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">What we set out to learn</span></div>
+      <div style="display:flex;gap:12px;align-items:center;border-top:1.5px solid #2A0D09;padding-top:16px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">What we set out to learn</span></div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:24px;">
         <sc-for list="{{ goals }}" as="g" hint-placeholder-count="5">
           <div style="display:flex;flex-direction:column;gap:10px;">
@@ -132,17 +155,17 @@ a:hover{color:#F9261C;}
     </div>
 
     <div data-screen-label="Pain points" style="display:flex;flex-direction:column;gap:28px;">
-      <div style="display:flex;gap:12px;align-items:center;border-top:1.5px solid #2A0D09;padding-top:16px;"><span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">What we heard</span></div>
+      <div style="display:flex;gap:12px;align-items:center;border-top:1.5px solid #2A0D09;padding-top:16px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">What we heard</span></div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:16px;">
         <sc-for list="{{ pains }}" as="p" hint-placeholder-count="8">
           <div style="display:flex;flex-direction:column;justify-content:space-between;gap:20px;padding:24px;border-radius:6px;background:#FBEAE7;">
             <div style="display:flex;flex-direction:column;gap:10px;">
-              <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">{{ p.k }}</span>
+              <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">{{ p.k }}</span>
               <span style="font-family:'Instrument Serif',serif;font-size:26px;line-height:1.1;text-wrap:pretty;">“{{ p.q }}”</span>
             </div>
             <div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #EFC9C3;padding-top:12px;">
               <span style="font-size:15px;line-height:1.45;">{{ p.v }}</span>
-              <span style="font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.06em;color:#8A4F48;">— {{ p.who }}</span>
+              <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:12px;letter-spacing:.06em;color:#8A4F48;">— {{ p.who }}</span>
             </div>
           </div>
         </sc-for>
@@ -150,13 +173,13 @@ a:hover{color:#F9261C;}
     </div>
 
     <div data-screen-label="Takeaway" style="background:#43160F;color:#F8DEDB;border-radius:6px;padding:clamp(32px,5vw,72px);display:flex;flex-direction:column;gap:20px;">
-      <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#FF6A5E;">The takeaway</span>
+      <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#FF6A5E;">The takeaway</span>
       <span style="font-family:'Instrument Serif',serif;font-size:clamp(32px,3.6vw,56px);line-height:1.05;max-width:26ch;text-wrap:balance;">Without structure, governance ran on <em style="color:#FF6A5E;">emails and memory.</em></span>
       <span style="font-size:18px;line-height:1.55;max-width:62ch;text-wrap:pretty;">As organizations scaled, the lack of structure pushed teams onto manual workarounds, leading to unsafe collaboration, unstable content and operational overhead.</span>
     </div>
 
     <div data-screen-label="Principles" style="display:flex;flex-direction:column;gap:28px;">
-      <div style="display:flex;gap:12px;align-items:center;border-top:1.5px solid #2A0D09;padding-top:16px;"><span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">Principles we designed by</span></div>
+      <div style="display:flex;gap:12px;align-items:center;border-top:1.5px solid #2A0D09;padding-top:16px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">Principles we designed by</span></div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:24px;">
         <sc-for list="{{ principles }}" as="pg" hint-placeholder-count="3">
           <div style="display:flex;flex-direction:column;gap:16px;">
@@ -179,31 +202,31 @@ a:hover{color:#F9261C;}
   <!-- 04 APPROACH -->
   <section data-screen-label="Seamful" style="background:#FBEAE7;padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:clamp(40px,5vw,64px);">
     <div style="display:flex;flex-direction:column;gap:40px;">
-      <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">04 / APPROACH</span>
+      <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">04 / APPROACH</span>
       <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Show the seams, <em style="color:#F9261C;">don’t hide them.</em></h2>
       <p style="margin:0;max-width:62ch;font-size:19px;line-height:1.5;text-wrap:pretty;">Permissions usually hide their machinery: content just shows up. Here, hiding it was the problem. Admins had been working blind. That’s why “visibility before restriction” shaped the design: the structure is made visible where it matters, before anything is sent.</p>
     </div>
 
-    <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.06em;line-height:1.5;color:#43160F;">* Refined from my low-fi screens. The high-fidelity designs are under NDA, and all names are anonymized.</span>
+    <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.06em;line-height:1.5;color:#43160F;">* Refined from my low-fi screens. The high-fidelity designs are under NDA, and all names are anonymized.</span>
     <div data-screen-label="Features" style="display:flex;flex-direction:column;gap:clamp(64px,8vw,120px);">
       <sc-for list="{{ features }}" as="f" hint-placeholder-count="4">
         <figure style="margin:0;display:flex;flex-direction:column;gap:28px;">
           <div role="img" aria-label="{{ f.t }}" style="width:100%;aspect-ratio:{{ f.ratio }};max-width:{{ f.maxw }};border-radius:10px;background-image:{{ f.bg }};background-size:contain;background-repeat:no-repeat;background-position:center;box-shadow:0 1px 3px rgba(67,22,15,.08),0 12px 40px rgba(67,22,15,.08);"></div>
           <figcaption style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(20px,3vw,48px);">
             <div style="display:flex;flex-direction:column;gap:10px;">
-              <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">{{ f.n }}</span>
+              <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">{{ f.n }}</span>
               <span style="font-family:'Instrument Serif',serif;font-size:clamp(30px,2.8vw,42px);line-height:1;">{{ f.t }}</span>
               <span style="font-size:17px;line-height:1.5;text-wrap:pretty;">{{ f.what }}</span>
             </div>
             <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #2A0D09;padding-top:14px;">
-              <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Insight</span>
+              <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Insight</span>
               <span style="font-family:'Instrument Serif',serif;font-size:22px;line-height:1.15;font-style:italic;">“{{ f.q }}”</span>
               <span style="font-size:15px;line-height:1.5;">{{ f.insight }}</span>
             </div>
             <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #2A0D09;padding-top:14px;">
-              <span style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Rationale</span>
+              <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Rationale</span>
               <span style="font-size:15px;line-height:1.5;text-wrap:pretty;">{{ f.why }}</span>
-              <span style="font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.06em;color:#F9261C;">Principle · {{ f.p }}</span>
+              <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:12px;letter-spacing:.06em;color:#F9261C;">Principle · {{ f.p }}</span>
             </div>
           </figcaption>
         </figure>
@@ -213,7 +236,7 @@ a:hover{color:#F9261C;}
 
   <!-- 05 IMPACT -->
   <section data-screen-label="Impact" style="padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:40px;">
-    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;color:#F9261C;">05 / EXPECTED IMPACT</span>
+    <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">05 / EXPECTED IMPACT</span>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:24px;">
       <sc-for list="{{ impacts }}" as="o" hint-placeholder-count="4">
         <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #2A0D09;padding-top:16px;">
@@ -225,10 +248,10 @@ a:hover{color:#F9261C;}
   </section>
 
   <a href="Portfolio.dc.html#work" data-screen-label="Next" style="display:flex;flex-direction:column;gap:20px;padding:clamp(56px,7vw,112px) clamp(20px,4.5vw,72px);background:#43160F;color:#F8DEDB;transition:background .4s ease;" style-hover="background:#F9261C;color:#fff;">
-    <span style="font-family:'Courier Prime',monospace;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">Back to work</span>
+    <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">Back to work</span>
     <span style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;font-family:'Instrument Serif',serif;font-size:clamp(56px,8vw,140px);line-height:.9;letter-spacing:-0.03em;"><span>All projects</span><span>→</span></span>
   </a>
-  <button onClick="{{ jump }}" aria-label="{{ jumpAria }}" style="position:fixed;right:clamp(16px,3vw,40px);bottom:clamp(16px,3vw,40px);z-index:40;display:flex;align-items:center;gap:10px;height:52px;padding:0 20px 0 16px;border:none;border-radius:999px;background:#2A0D09;color:#FFFDFC;font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;box-shadow:0 8px 24px rgba(42,13,9,.18);transition:background-color .3s ease;" style-hover="background:#F9261C;">
+  <button onClick="{{ jump }}" aria-label="{{ jumpAria }}" style="position:fixed;right:clamp(16px,3vw,40px);bottom:clamp(16px,3vw,40px);z-index:40;display:flex;align-items:center;gap:10px;height:52px;padding:0 20px 0 16px;border:none;border-radius:999px;background:#2A0D09;color:#FFFDFC;font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;box-shadow:0 8px 24px rgba(42,13,9,.18);transition:background-color .3s ease;" style-hover="background:#F9261C;">
     <span style="display:inline-flex;font-size:18px;line-height:1;transition:transform .45s cubic-bezier(.22,1,.36,1);transform:{{ jumpRot }};">↓</span>
     <span>{{ jumpLabel }}</span>
   </button>
