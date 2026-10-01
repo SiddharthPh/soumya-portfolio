@@ -26,9 +26,15 @@ a:hover{color:#F9261C;}
 .mobile-nav-checkbox:checked ~ .mobile-nav-panel{display:flex!important;}
 .mobile-nav-checkbox:checked ~ header .hamburger-icon-open{display:none!important;}
 .mobile-nav-checkbox:checked ~ header .hamburger-icon-close{display:flex!important;}
+.about-main{display:grid;grid-template-columns:4fr 6fr;grid-template-areas:"portrait headline" "portrait contact";align-items:start;column-gap:clamp(40px,6vw,112px);row-gap:clamp(28px,3vw,40px);}
+.about-headline{grid-area:headline;}
+.about-portrait-col{grid-area:portrait;}
+.about-contact{grid-area:contact;}
 @media (max-width:767px){
 .desktop-nav{display:none!important;}
 .hamburger-btn{display:flex!important;align-items:center;justify-content:center;}
+.about-main{grid-template-columns:1fr;grid-template-areas:"headline" "portrait" "contact";}
+.about-portrait-col{max-width:100%!important;}
 }
 </style>
 </helmet>
@@ -53,17 +59,17 @@ a:hover{color:#F9261C;}
     <a href="About.dc.html">About</a>
     <a href="https://www.linkedin.com/in/soumya-krishnaraj/" target="_blank" rel="noopener" class="mobile-nav-cta">Get in touch</a>
   </div>
-  <main data-screen-label="About" style="flex:1;padding:clamp(40px,6vw,96px) clamp(20px,4.5vw,72px);display:flex;flex-wrap:wrap;gap:clamp(40px,6vw,112px);align-items:flex-start;">
-    <div style="flex:4 1 280px;position:relative;aspect-ratio:4/5;max-width:460px;">
+  <main data-screen-label="About" class="about-main" style="padding:clamp(40px,6vw,96px) clamp(20px,4.5vw,72px);gap:clamp(40px,6vw,112px) clamp(40px,6vw,112px);">
+    <div class="about-headline" style="display:flex;flex-direction:column;gap:20px;">
+      <h1 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(39px,4.9vw,84px);line-height:.9;letter-spacing:-0.03em;color:#F9261C;text-wrap:balance;">Curious about how things work and why they matter.</h1>
+      <p style="margin:0;font-family:'Instrument Serif',serif;font-size:clamp(22px,2vw,30px);line-height:1.2;color:#2A0D09;max-width:48ch;text-wrap:pretty;">A childhood fascination with how pilots manage a cockpit under pressure turned into a Master's in UX Design at Purdue, where I studied how people make decisions under pressure, and it's shaped every system I've designed since.</p>
+    </div>
+    <div class="about-portrait-col" style="position:relative;aspect-ratio:4/5;max-width:460px;">
       <image-slot id="about-portrait" mask="polygon(0 0,100% 0,100% 82%,82% 100%,0 100%)" placeholder="Drop portrait" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
     </div>
-    <div style="flex:6 1 420px;display:flex;flex-direction:column;gap:32px;max-width:62ch;">
-      <h1 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(39px,4.9vw,84px);line-height:.9;letter-spacing:-0.03em;color:#F9261C;text-wrap:balance;">Curious about how things work and why they matter.</h1>
-      <p style="margin:0;font-family:'Instrument Serif',serif;font-size:clamp(26px,2.4vw,38px);line-height:1.12;text-wrap:pretty;">I’m a product designer and researcher who likes getting into the messy parts of how products work. I design tools and systems that help people get things done, from admin builders and organizational structures to navigation and complex workflows.</p>
-      
-      
+    <div class="about-contact" style="display:flex;flex-direction:column;gap:32px;max-width:62ch;">
       <p style="margin:0;font-size:18px;line-height:1.65;text-wrap:pretty;">If you want to talk about design, research, building things, or just have an interesting problem to untangle, <a href="mailto:soumya.krishnaraj@gmail.com" style="color:#F9261C;text-decoration:underline;text-underline-offset:3px;">say hi</a>.</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;border-top:1.5px solid #2A0D09;padding-top:20px;font-size:17px;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;border-top:1.5px solid #2A0D09;padding-top:20px;font-size:17px;overflow-wrap:anywhere;">
         <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Email</span><a href="mailto:soumya.krishnaraj@gmail.com">soumya.krishnaraj@gmail.com</a></div>
         <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Phone</span><a href="tel:+19293468337">+1 (929) 346 8337</a></div>
         <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Elsewhere</span><span><u>[<a href="https://www.linkedin.com/in/soumya-krishnaraj/" style="text-decoration-line: underline;">LinkedIn</a>]</u></span></div>
