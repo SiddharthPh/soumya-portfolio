@@ -34,7 +34,7 @@ a:hover{color:#F9261C;}
 .hero-guide-label-bottom{transform:translate(8px,calc(-100% - 8px));}
 .hero-guide-label-left{transform:translate(8px,-50%);}
 .hero-guide-label-right{transform:translate(calc(-100% - 8px),-50%);}
-.hero-dotgrid-bg{position:absolute;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(circle, var(--muted) 1.3px, transparent 1.3px);background-size:30px 30px;}
+.hero-dotgrid-bg{position:absolute;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(circle, var(--muted) 1px, transparent 1px);background-size:30px 30px;}
 .headline-highlight{background-image:linear-gradient(120deg,rgba(255,235,59,.55),rgba(255,235,59,.55));background-repeat:no-repeat;background-position:0 88%;background-size:0% 38%;transition:background-size 1s cubic-bezier(.2,.7,.2,1);box-decoration-break:clone;-webkit-box-decoration-break:clone;}
 .headline-highlight.is-on{background-size:100% 38%;}
 .kw-circle{position:relative;display:inline-block;padding:0 .12em;}
@@ -384,7 +384,7 @@ class Component extends DCLogic {
     } : { display: 'none' };
 
     const guideStyle = { position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none', display: mode === 'design' ? 'block' : 'none' };
-    const gridStyle = { opacity: mode === 'design' ? 0.44 : 0.24 };
+    const gridStyle = { opacity: mode === 'design' ? 0.1 : 0.08 };
 
     // Push each shape's centre SPREAD× further from the hero centre, kept inside the hero.
     // Verifying commit authorship shows soumyakrishnaraj.
