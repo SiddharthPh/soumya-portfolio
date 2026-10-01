@@ -14,7 +14,7 @@
 <x-dc>
 <helmet><script src="./sticky-header.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Instrument+Sans:ital,wght@0,400..700;1,400..700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Instrument+Sans:ital,wght@0,400..700;1,400..700&amp;family=Caveat:wght@500;700&amp;display=swap">
 <script src="./image-slot.js"></script>
 <style>
 html,body{margin:0;padding:0;}
@@ -26,6 +26,21 @@ a:hover{color:#F9261C;}
 .project-card-header{grid-area:header;min-width:0;display:flex;flex-direction:column;gap:28px;}
 .project-card-metrics{grid-area:metrics;min-width:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-self:end;}
 .project-card-thumb{grid-area:thumb;min-width:0;display:flex;align-items:center;}
+.hero-guides{position:absolute;inset:0;opacity:0;transition:opacity .35s ease;}
+.hero-guide-line-v{position:absolute;top:0;bottom:0;width:1px;background:var(--accent,#F9261C);opacity:.4;}
+.hero-guide-line-h{position:absolute;left:0;right:0;height:1px;background:var(--accent,#F9261C);opacity:.4;}
+.hero-guide-label{position:absolute;font-family:'Instrument Sans',system-ui,sans-serif;font-size:11px;font-variant-numeric:tabular-nums;letter-spacing:.02em;color:var(--accent,#F9261C);background:var(--bg,#FFFDFC);padding:2px 6px;border-radius:3px;white-space:nowrap;box-shadow:0 0 0 1px var(--line,#EFD6D2);}
+.hero-guide-label-top{transform:translate(8px,8px);}
+.hero-guide-label-bottom{transform:translate(8px,calc(-100% - 8px));}
+.hero-guide-label-left{transform:translate(8px,-50%);}
+.hero-guide-label-right{transform:translate(calc(-100% - 8px),-50%);}
+.hero-dotgrid-bg{position:absolute;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(circle, var(--muted) 1.3px, transparent 1.3px);background-size:30px 30px;}
+.headline-highlight{background-image:linear-gradient(120deg,rgba(255,235,59,.55),rgba(255,235,59,.55));background-repeat:no-repeat;background-position:0 88%;background-size:0% 38%;transition:background-size 1s cubic-bezier(.2,.7,.2,1);box-decoration-break:clone;-webkit-box-decoration-break:clone;}
+.headline-highlight.is-on{background-size:100% 38%;}
+.kw-circle{position:relative;display:inline-block;padding:0 .12em;}
+.kw-circle::after{content:"";position:absolute;left:-7%;right:-7%;top:-14%;bottom:-10%;border:2px solid #FF3B2E;border-radius:52% 48% 50% 50% / 56% 52% 48% 44%;opacity:.65;pointer-events:none;rotate:-1.5deg;}
+.kw-arrow{position:relative;display:inline-block;}
+.kw-arrow-icon{position:absolute;left:100%;top:50%;translate:6px -50%;width:26px;height:18px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 34' fill='none'%3E%3Cpath d='M46 17 C34 15, 20 17, 8 17' stroke='%23FF3B2E' stroke-width='2.5' stroke-linecap='round'/%3E%3Cpath d='M8 17 L17 10 M8 17 L17 24' stroke='%23FF3B2E' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-size:contain;opacity:.7;pointer-events:none;}
 @media (max-width:767px){
   .hero-shape{display:none!important;}
   [data-screen-label="Hero"]{height:48vh!important;min-height:340px!important;max-height:420px!important;}
@@ -33,6 +48,13 @@ a:hover{color:#F9261C;}
   .hamburger-btn{display:flex!important;align-items:center;justify-content:center;}
   .project-card{grid-template-columns:1fr;grid-template-rows:auto auto auto;grid-template-areas:"header" "thumb" "metrics";row-gap:32px;}
   .project-card-metrics{align-self:start;}
+  .hero-scribble-0{left:auto!important;top:6%!important;right:7%!important;width:clamp(90px,24vw,140px)!important;height:clamp(52px,13.7vw,80px)!important;}
+  .hero-scribble-1{left:7%!important;top:6%!important;width:clamp(90px,24vw,140px)!important;height:clamp(52px,13.7vw,80px)!important;}
+  .hero-scribble-2{left:6%!important;top:auto!important;bottom:17%!important;width:clamp(68px,18vw,106px)!important;height:clamp(39px,10.3vw,61px)!important;}
+  .hero-scribble-3{left:auto!important;top:auto!important;right:6%!important;bottom:17%!important;width:clamp(68px,18vw,106px)!important;height:clamp(39px,10.3vw,61px)!important;}
+}
+@media (min-width:768px) and (max-width:1024px){
+  .hero-scribble{width:16vw!important;}
 }
 </style>
 </helmet>
@@ -68,19 +90,33 @@ a:hover{color:#F9261C;}
     </sc-if>
 
     <!-- HERO -->
-    <section data-screen-label="Hero" onMouseMove="{{ onHeroMove }}" style="position:relative;height:calc(100vh - 112px);min-height:620px;max-height:980px;overflow:hidden;">
+    <section data-screen-label="Hero" onMouseMove="{{ onHeroMove }}" onMouseLeave="{{ onHeroLeave }}" onTouchMove="{{ onHeroTouchMove }}" onTouchEnd="{{ onHeroLeave }}" style="position:relative;height:calc(100vh - 112px);min-height:620px;max-height:980px;overflow:hidden;">
+      <div class="hero-dotgrid-bg" style="{{ gridStyle }}"></div>
+
       <sc-for list="{{ slots }}" as="s" hint-placeholder-count="0">
-        <div class="hero-shape" style="{{ s.box }}">
+        <div class="{{ s.wrapClass }}" style="{{ s.box }}">
           <div data-par="{{ s.depth }}" style="position:absolute;inset:0;transition:translate .8s cubic-bezier(.2,.7,.2,1),scale .4s ease;" style-hover="scale:1.05;">
             <div style="{{ s.shape }}"></div>
+            <sc-if value="{{ s.isNote }}" hint-placeholder-val="{{ false }}">
+              <div style="{{ s.tagDot }}"></div>
+            </sc-if>
             <div style="{{ s.labelStyle }}">{{ s.label }}</div>
           </div>
         </div>
       </sc-for>
 
+      <div class="hero-guides" style="{{ guideStyle }}">
+        <div class="hero-guide-line-v"></div>
+        <div class="hero-guide-line-h"></div>
+        <div class="hero-guide-label hero-guide-label-top"></div>
+        <div class="hero-guide-label hero-guide-label-bottom"></div>
+        <div class="hero-guide-label hero-guide-label-left"></div>
+        <div class="hero-guide-label hero-guide-label-right"></div>
+      </div>
+
       <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;padding:0 24px;pointer-events:none;z-index:2;">
         <div style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted,#8A4F48);transition:color .7s ease;">{{ eyebrow }}</div>
-        <h1 style="{{ headStyle }}">{{ headline }}</h1>
+        <h1 style="{{ headStyle }}">{{ headlineNode }}</h1>
       </div>
 
       <a href="#work" style="position:absolute;left:50%;bottom:28px;translate:-50% 0;width:max-content;z-index:3;display:flex;align-items:center;gap:12px;font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg,#2A0D09);transition:color .7s ease;white-space:nowrap;">
@@ -103,7 +139,7 @@ a:hover{color:#F9261C;}
                 </sc-if>
                 <span style="color:var(--muted,#8A4F48);transition:color .7s ease;">{{ p.tag }}</span>
               </div>
-              <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(36px,3.6vw,60px);line-height:1.02;letter-spacing:-0.015em;text-wrap:pretty;color:var(--head,#F9261C);transition:color .7s ease;">{{ p.statement }}</h2>
+              <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(36px,3.6vw,60px);line-height:1.02;letter-spacing:-0.015em;text-wrap:pretty;color:var(--head,#F9261C);transition:color .7s ease;">{{ p.statementNode }}</h2>
               <sc-if value="{{ p.hasLink }}" hint-placeholder-val="{{ false }}">
                 <a href="{{ p.href }}" style="align-self:flex-start;display:flex;align-items:center;gap:12px;font-size:17px;padding-bottom:4px;border-bottom:1.5px solid currentColor;color:var(--fg,#2A0D09);transition:gap .3s ease,color .3s ease;" style-hover="gap:22px;color:#F9261C;">
                   <span>Read the case study</span><span>→</span>
@@ -223,16 +259,16 @@ const SLOTS = {
     { l: '16%', t: '9%', w: '10vw', h: '12vw', shape: 'arch', rot: 0, c: '#F9261C', tc: '#FFFFFF', label: '', on: 0 },
   ],
   research: [
-    { l: '57%', t: '17%', w: '13vw', h: '13vw', shape: 'circle', rot: 0, c: '#FF3B2E', tc: '#FFFFFF', label: 'Pattern-finder', on: 1 },
-    { l: '21%', t: '17%', w: '15vw', h: '15vw', shape: 'burst', rot: 12, c: '#F8DEDB', tc: '#43160F', label: 'Meaning maker', on: 1 },
-    { l: '18%', t: '55%', w: '21vw', h: '8vw', shape: 'squircle', rot: -4, c: '#5E1C14', tc: '#F8DEDB', label: 'Signal from noise', on: 1 },
-    { l: '62%', t: '49%', w: '12vw', h: '15vw', shape: 'arch', rot: 0, c: '#FF3B2E', tc: '#FFFFFF', label: 'Synthesis nerd', on: 1 },
+    { l: '56%', t: '14%', w: '19vw', h: '13vw', rot: -3, c: '#FFEE58', labelImg: 'label-pattern-finder.png', label: 'Pattern-finder', on: 1 },
+    { l: '24%', t: '20%', w: '18vw', h: '14vw', rot: 4, c: '#FF4FA3', labelImg: 'label-meaning-maker.png', label: 'Meaning maker', on: 1 },
+    { l: '17%', t: '54%', w: '19vw', h: '14vw', rot: -4, c: '#4FC3F7', labelImg: 'label-signal-noise.png', label: 'Signal from noise', on: 1 },
+    { l: '61%', t: '48%', w: '18vw', h: '14vw', rot: 5, c: '#B2FF59', labelImg: 'label-synthesis-nerd.png', label: 'Synthesis nerd', on: 1 },
   ],
 };
 
 const COPY = {
   design: { head: 'I design for how people actually work.', eyebrow: 'Product designer', toggle: 'Research', footer: "Let's build it right." },
-  research: { head: 'I listen for what people actually mean.', eyebrow: 'Design researcher', toggle: 'Design', footer: "Let's go find out." },
+  research: { head: 'I listen for what people actually ', headHighlight: 'mean.', eyebrow: 'Design researcher', toggle: 'Design', footer: "Let's go find out." },
 };
 
 const PROJECTS = {
@@ -245,7 +281,7 @@ const PROJECTS = {
       metrics: [{ v: '1', l: 'place to assign content to a whole group, once it ships, instead of location by location' }, { v: '0', l: 'cross-overs expected: content stops reaching locations it was never meant for' }, { v: '100%', l: 'traceable: who assigned what, to whom, and when' }] }
   ],
   research: [
-    { name: 'Misinformation guidebook', tag: 'Master’s capstone · Purdue', statement: 'Helping older adults in India question what they read online, with their grandchildren beside them.', href: 'Misinformation Guidebook.dc.html', status: 'capstone',
+    { name: 'Misinformation guidebook', tag: 'Master’s capstone · Purdue', statement: 'Design intervention to make older adults in India more resilient against misinformation online', href: 'Misinformation Guidebook.dc.html', status: 'capstone',
       metrics: [{ v: '100%', l: 'of participants correctly explained the algorithm concept' }, { v: '50–75', l: 'minutes per family discussion' }, { v: '>2×', l: 'task completion after the visual redesign' }] },
     { name: 'Being watched while you work', tag: 'TECH 697 · Purdue', statement: 'A qualitative study on what Figma’s real-time Observe mode does to the people being watched.', href: 'Being watched while you work.dc.html', status: 'coursework',
       thumb: 'case-study/obs-mark-scattered.png', thumbHover: 'case-study/obs-mark-scattered.png', thumbFit: 'contain',
@@ -257,7 +293,7 @@ class Component extends DCLogic {
   constructor(p) {
     super(p);
     const m = (typeof location !== 'undefined' && location.hash === '#research') ? 'research' : 'design';
-    this.state = { mode: m, bgMode: m, headMode: m, headOut: false, wipe: null, mobileNavOpen: false };
+    this.state = { mode: m, bgMode: m, headMode: m, headOut: false, wipe: null, mobileNavOpen: false, notesRevealed: false, highlightOn: false };
   }
   componentDidMount() {
     const els = document.querySelectorAll('[data-reveal]');
@@ -266,18 +302,32 @@ class Component extends DCLogic {
       if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.translate = '0 0'; this.io.unobserve(e.target); }
     }), { threshold: 0.12 });
     els.forEach(el => this.io.observe(el));
+    if (this.state.mode === 'research') {
+      this.t3 = setTimeout(() => this.setState({ notesRevealed: true }), 150);
+      this.t4 = setTimeout(() => this.setState({ highlightOn: true }), 900);
+    }
   }
-  componentWillUnmount() { this.io && this.io.disconnect(); clearTimeout(this.t1); clearTimeout(this.t2); }
+  componentWillUnmount() {
+    this.io && this.io.disconnect();
+    clearTimeout(this.t1); clearTimeout(this.t2); clearTimeout(this.t3); clearTimeout(this.t4);
+  }
 
   toggle = (e) => {
     if (this.busy) return; this.busy = true;
     const target = this.state.mode === 'design' ? 'research' : 'design';
     const x = e.clientX || window.innerWidth / 2, y = e.clientY || 60;
-    this.setState({ wipe: { x, y, r: 0, anim: false, bg: THEMES[target].bg }, headOut: true, mode: target });
+    clearTimeout(this.t3); clearTimeout(this.t4);
+    this.setState({ wipe: { x, y, r: 0, anim: false, bg: THEMES[target].bg }, headOut: true, mode: target, notesRevealed: false, highlightOn: false });
     this.t0 = setTimeout(() => this.setState({ wipe: { x, y, r: 1, anim: true, bg: THEMES[target].bg } }), 30);
     try { history.replaceState(null, '', target === 'research' ? '#research' : '#'); } catch (_) {}
     this.t1 = setTimeout(() => this.setState({ headMode: target, headOut: false }), 480);
-    this.t2 = setTimeout(() => { this.setState({ bgMode: target, wipe: null }); this.busy = false; }, 1000);
+    this.t2 = setTimeout(() => {
+      this.setState({ bgMode: target, wipe: null }); this.busy = false;
+      if (target === 'research') {
+        this.t3 = setTimeout(() => this.setState({ notesRevealed: true }), 150);
+        this.t4 = setTimeout(() => this.setState({ highlightOn: true }), 900);
+      }
+    }, 1000);
   };
 
   toggleMobileNav = () => { this.setState({ mobileNavOpen: !this.state.mobileNavOpen }); };
@@ -290,10 +340,38 @@ class Component extends DCLogic {
       const d = +el.getAttribute('data-par');
       el.style.translate = (dx * d).toFixed(1) + 'px ' + (dy * d).toFixed(1) + 'px';
     });
+
+    const x = e.clientX - r.left, y = e.clientY - r.top;
+
+    const guides = e.currentTarget.querySelector('.hero-guides');
+    if (guides) {
+      guides.style.opacity = '1';
+      const vLine = guides.querySelector('.hero-guide-line-v'), hLine = guides.querySelector('.hero-guide-line-h');
+      if (vLine) vLine.style.left = x + 'px';
+      if (hLine) hLine.style.top = y + 'px';
+      const lt = guides.querySelector('.hero-guide-label-top'), lb = guides.querySelector('.hero-guide-label-bottom');
+      const ll = guides.querySelector('.hero-guide-label-left'), lrt = guides.querySelector('.hero-guide-label-right');
+      if (lt) { lt.style.left = x + 'px'; lt.style.top = '0px'; lt.textContent = Math.round(y) + 'px'; }
+      if (lb) { lb.style.left = x + 'px'; lb.style.top = r.height + 'px'; lb.textContent = Math.round(r.height - y) + 'px'; }
+      if (ll) { ll.style.top = y + 'px'; ll.style.left = '0px'; ll.textContent = Math.round(x) + 'px'; }
+      if (lrt) { lrt.style.top = y + 'px'; lrt.style.left = r.width + 'px'; lrt.textContent = Math.round(r.width - x) + 'px'; }
+    }
+
+  };
+
+  onHeroLeave = (e) => {
+    const guides = e.currentTarget.querySelector('.hero-guides');
+    if (guides) guides.style.opacity = '0';
+  };
+
+  onHeroTouchMove = (e) => {
+    const t = e.touches && e.touches[0];
+    if (!t) return;
+    this.onHeroMove({ currentTarget: e.currentTarget, clientX: t.clientX, clientY: t.clientY });
   };
 
   renderVals() {
-    const { mode, bgMode, headMode, headOut, wipe, mobileNavOpen } = this.state;
+    const { mode, bgMode, headMode, headOut, wipe, mobileNavOpen, notesRevealed, highlightOn } = this.state;
     const T = THEMES[mode];
     const rootStyle = {
       '--bg': T.bg, '--fg': T.fg, '--head': T.head, '--accent': T.accent, '--soft': T.soft, '--muted': T.muted, '--line': T.line,
@@ -305,19 +383,44 @@ class Component extends DCLogic {
       transition: wipe.anim ? 'clip-path .95s cubic-bezier(.65,0,.25,1)' : 'none',
     } : { display: 'none' };
 
+    const guideStyle = { position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none', display: mode === 'design' ? 'block' : 'none' };
+    const gridStyle = { opacity: mode === 'design' ? 0.44 : 0.24 };
+
     // Push each shape's centre SPREAD× further from the hero centre, kept inside the hero.
     // Verifying commit authorship shows soumyakrishnaraj.
     const SPREAD = 1.3;
     const spread = (pos, size) => `clamp(0px, calc(50% + (${pos} + ${size} / 2 - 50%) * ${SPREAD} - ${size} / 2), calc(100% - ${size}))`;
     const slots = SLOTS[mode].map((s, i) => {
       const d = (i * 0.07).toFixed(2) + 's';
+      if (mode === 'research') {
+        const on = notesRevealed;
+        return {
+          depth: [28, -22, 18, -30][i],
+          label: '',
+          isNote: false,
+          wrapClass: `hero-scribble hero-scribble-${i}`,
+          box: { position: 'absolute', left: spread(s.l, s.w), top: spread(s.t, s.h), width: s.w, height: s.h, zIndex: 1,
+            transition: ['left', 'top', 'width', 'height'].map(p => `${p} 1.1s ${EASE} ${d}`).join(',') },
+          shape: { display: 'none' },
+          tagDot: { display: 'none' },
+          labelStyle: { position: 'absolute', inset: '-14%',
+            backgroundImage: `url('case-study/${s.labelImg}')`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center',
+            rotate: s.rot + 'deg',
+            filter: on ? 'drop-shadow(0 4px 8px rgba(0,0,0,.4))' : 'none',
+            scale: on ? '1' : '0.55', opacity: on ? 1 : 0, pointerEvents: 'none',
+            transition: `scale .75s ${EASE} ${d}, opacity .6s ease ${d}, filter .6s ease ${d}, rotate .9s ${EASE} ${d}` },
+        };
+      }
       return {
         depth: [28, -22, 18, -30][i],
         label: s.label || SLOTS.research[i].label,
+        isNote: false,
+        wrapClass: 'hero-shape',
         box: { position: 'absolute', left: spread(s.l, s.w), top: spread(s.t, s.h), width: s.w, height: s.h, zIndex: 1,
           transition: ['left', 'top', 'width', 'height'].map(p => `${p} 1.1s ${EASE} ${d}`).join(',') },
         shape: { position: 'absolute', inset: 0, background: s.c, clipPath: SHAPES[s.shape], rotate: s.rot + 'deg', scale: s.on ? '1' : '0',
           transition: `clip-path 1.1s ${EASE} ${d}, rotate 1.1s ${EASE} ${d}, scale .8s ${EASE} ${d}, background-color .8s ease ${d}` },
+        tagDot: { display: 'none' },
         labelStyle: { position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center',
           padding: '0 12%', fontFamily: "'Instrument Sans',system-ui,sans-serif", fontWeight: 700, fontSize: 'clamp(13px,1.35vw,21px)', lineHeight: 1.2,
           color: s.tc, opacity: s.on ? 1 : 0, pointerEvents: 'none', transition: `opacity .5s ease ${s.on ? '.6s' : '0s'}, color .8s ease` },
@@ -331,8 +434,27 @@ class Component extends DCLogic {
       transition: 'opacity .45s ease, translate .6s cubic-bezier(.2,.7,.2,1), filter .45s ease, color .7s ease',
     };
 
+    const withKeyword = (text, keyword, cls) => {
+      const i = text.indexOf(keyword);
+      if (i === -1) return text;
+      const children = cls === 'kw-arrow'
+        ? [React.createElement('span', { key: 'icon', className: 'kw-arrow-icon' }), keyword]
+        : [keyword];
+      return React.createElement(React.Fragment, null,
+        text.slice(0, i),
+        React.createElement('span', { className: cls }, ...children),
+        text.slice(i + keyword.length));
+    };
+    const RESEARCH_KEYWORDS = [
+      { word: 'misinformation', cls: 'kw-circle' },
+      { word: 'watched', cls: 'kw-arrow' },
+    ];
+
     const projects = PROJECTS[mode].map((p, i) => ({
       ...p, num: '0' + (i + 1), screen: `${mode === 'design' ? 'Design' : 'Research'} 0${i + 1}`,
+      statementNode: mode === 'research' && RESEARCH_KEYWORDS[i]
+        ? withKeyword(p.statement, RESEARCH_KEYWORDS[i].word, RESEARCH_KEYWORDS[i].cls)
+        : p.statement,
       hasLink: !!p.href, noLink: !p.href, slot: `${mode}-mock-${i + 1}`,
       slotLabel: mode === 'design' ? `Static thumbnail: ${p.name}` : 'Static thumbnail: research artifact',
       slotHover: `${mode}-mock-${i + 1}-hover`,
@@ -348,11 +470,16 @@ class Component extends DCLogic {
       })(),
     }));
 
+    const headCopy = COPY[headMode];
+    const headlineNode = headCopy.headHighlight
+      ? React.createElement(React.Fragment, null, headCopy.head, React.createElement('span', { className: 'headline-highlight' + (highlightOn ? ' is-on' : '') }, headCopy.headHighlight))
+      : headCopy.head;
+
     return {
-      rootStyle, wipeStyle, slots, headStyle, projects,
-      headline: COPY[headMode].head, eyebrow: COPY[headMode].eyebrow,
+      rootStyle, wipeStyle, slots, headStyle, projects, guideStyle, gridStyle, headlineNode,
+      eyebrow: COPY[headMode].eyebrow,
       toggleLabel: COPY[mode].toggle, footerLine: COPY[mode].footer,
-      toggle: this.toggle, onHeroMove: this.onHeroMove, isResearch: mode === 'research', workCount: String(PROJECTS[mode].length).padStart(2, '0'),
+      toggle: this.toggle, onHeroMove: this.onHeroMove, onHeroLeave: this.onHeroLeave, onHeroTouchMove: this.onHeroTouchMove, isResearch: mode === 'research', workCount: String(PROJECTS[mode].length).padStart(2, '0'),
       mobileNavOpen, toggleMobileNav: this.toggleMobileNav, toggleFromMobile: this.toggleFromMobile,
       mobileNavAria: mobileNavOpen ? 'Close menu' : 'Open menu',
       mobileNavIcon: React.createElement('span', {
