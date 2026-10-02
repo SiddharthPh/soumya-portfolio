@@ -27,7 +27,9 @@ a:hover{color:#F9261C;}
 .project-card-metrics{grid-area:metrics;min-width:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-self:end;}
 .project-card-thumb{grid-area:thumb;min-width:0;display:flex;align-items:center;}
 .hero-guides{position:absolute;inset:0;}
-.worked-with{flex-direction:column;gap:20px;padding:clamp(28px,4vw,48px) 0 0;border-top:1px solid var(--line,#EFD6D2);}
+.worked-with{flex-direction:column;gap:20px;padding:clamp(40px,5vw,64px) 0 0;}
+.work-label{padding:clamp(56px,7vw,104px) clamp(20px,4.5vw,72px) 0;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg,#2A0D09);}
+main > article:first-of-type{border-top:0!important;}
 .worked-label{padding:0 clamp(20px,4.5vw,72px);font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted,#8A4F48);}
 .worked-marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);}
 .worked-track{display:flex;width:max-content;gap:clamp(40px,5vw,72px);padding-right:clamp(40px,5vw,72px);animation:worked-scroll 38s linear infinite;}
@@ -35,7 +37,7 @@ a:hover{color:#F9261C;}
 .worked-track{align-items:center;}
 .worked-item{display:block;width:auto;max-width:none;opacity:.6;transition:opacity .3s ease;}
 .worked-item:hover{opacity:1;}
-.worked-line{margin:0;padding:0 clamp(20px,4.5vw,72px);max-width:62ch;font-size:16px;line-height:1.55;color:var(--muted,#8A4F48);}
+.worked-line{margin:0;padding:0 clamp(20px,4.5vw,72px);font-size:16px;line-height:1.55;color:var(--muted,#8A4F48);}
 @keyframes worked-scroll{to{transform:translateX(-50%);}}
 @media (prefers-reduced-motion:reduce){.worked-track{animation:none;flex-wrap:wrap;width:auto;padding:0 clamp(20px,4.5vw,72px);}.worked-item:nth-child(n+8){display:none;}}
 .hero-guide-line-v{position:absolute;top:0;bottom:0;width:1px;background:var(--accent,#F9261C);opacity:.4;}
@@ -130,9 +132,6 @@ a:hover{color:#F9261C;}
         <h1 style="{{ headStyle }}">{{ headlineNode }}</h1>
       </div>
 
-      <a href="#work" style="position:absolute;left:50%;bottom:28px;translate:-50% 0;width:max-content;z-index:3;display:flex;align-items:center;gap:12px;font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg,#2A0D09);transition:color .7s ease;white-space:nowrap;">
-        <span>Selected work ({{ workCount }})</span><span style="font-size:18px;">↓</span>
-      </a>
     </section>
 
     <!-- WORKED WITH -->
@@ -148,8 +147,10 @@ a:hover{color:#F9261C;}
       <p class="worked-line">{{ industriesLine }}</p>
     </section>
 
+    <div id="work" class="work-label">Selected work ({{ workCount }})</div>
+
     <!-- WORK -->
-    <main id="work" style="padding:clamp(64px,8vw,128px) clamp(20px,4.5vw,72px) 0;display:flex;flex-direction:column;gap:clamp(80px,10vw,160px);">
+    <main style="padding:clamp(28px,3vw,40px) clamp(20px,4.5vw,72px) 0;display:flex;flex-direction:column;gap:clamp(80px,10vw,160px);">
       <sc-for list="{{ projects }}" as="p" hint-placeholder-count="3">
         <article class="project-card" data-reveal="1" data-screen-label="{{ p.screen }}" style="border-top: 1px solid var(--line,#EFD6D2); padding-top: 32px; transition: border-color .7s ease; position: relative">
             <div class="project-card-header">
@@ -219,6 +220,7 @@ a:hover{color:#F9261C;}
       </sc-for>
       <div style="border-top:1px solid var(--line,#EFD6D2);transition:border-color .7s ease;"></div>
     </main>
+
 
     <!-- FOOTER -->
     <footer data-screen-label="Contact" style="padding:clamp(120px,14vw,220px) clamp(20px,4.5vw,72px) 40px;display:flex;flex-direction:column;gap:64px;">
