@@ -27,6 +27,17 @@ a:hover{color:#F9261C;}
 .project-card-metrics{grid-area:metrics;min-width:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-self:end;}
 .project-card-thumb{grid-area:thumb;min-width:0;display:flex;align-items:center;}
 .hero-guides{position:absolute;inset:0;}
+.worked-with{flex-direction:column;gap:20px;padding:clamp(28px,4vw,48px) 0 0;border-top:1px solid var(--line,#EFD6D2);}
+.worked-label{padding:0 clamp(20px,4.5vw,72px);font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted,#8A4F48);}
+.worked-marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);}
+.worked-track{display:flex;width:max-content;gap:clamp(40px,5vw,72px);padding-right:clamp(40px,5vw,72px);animation:worked-scroll 38s linear infinite;}
+.worked-marquee:hover .worked-track{animation-play-state:paused;}
+.worked-track{align-items:center;}
+.worked-item{display:block;width:auto;max-width:none;opacity:.6;transition:opacity .3s ease;}
+.worked-item:hover{opacity:1;}
+.worked-line{margin:0;padding:0 clamp(20px,4.5vw,72px);max-width:62ch;font-size:16px;line-height:1.55;color:var(--muted,#8A4F48);}
+@keyframes worked-scroll{to{transform:translateX(-50%);}}
+@media (prefers-reduced-motion:reduce){.worked-track{animation:none;flex-wrap:wrap;width:auto;padding:0 clamp(20px,4.5vw,72px);}.worked-item:nth-child(n+8){display:none;}}
 .hero-guide-line-v{position:absolute;top:0;bottom:0;width:1px;background:var(--accent,#F9261C);opacity:.4;}
 .hero-guide-line-h{position:absolute;left:0;right:0;height:1px;background:var(--accent,#F9261C);opacity:.4;}
 .hero-guide-label{position:absolute;font-family:'Instrument Sans',system-ui,sans-serif;font-size:11px;font-variant-numeric:tabular-nums;letter-spacing:.02em;color:var(--accent,#F9261C);background:var(--bg,#FFFDFC);padding:2px 6px;border-radius:3px;white-space:nowrap;box-shadow:0 0 0 1px var(--line,#EFD6D2);}
@@ -122,6 +133,19 @@ a:hover{color:#F9261C;}
       <a href="#work" style="position:absolute;left:50%;bottom:28px;translate:-50% 0;width:max-content;z-index:3;display:flex;align-items:center;gap:12px;font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg,#2A0D09);transition:color .7s ease;white-space:nowrap;">
         <span>Selected work ({{ workCount }})</span><span style="font-size:18px;">↓</span>
       </a>
+    </section>
+
+    <!-- WORKED WITH -->
+    <section class="worked-with" style="{{ workedStyle }}">
+      <div class="worked-label">Worked with</div>
+      <div class="worked-marquee">
+        <div class="worked-track">
+          <sc-for list="{{ companies }}" as="c" hint-placeholder-count="14">
+            <img class="worked-item" src="{{ c.src }}" alt="{{ c.name }}" style="{{ c.style }}">
+          </sc-for>
+        </div>
+      </div>
+      <p class="worked-line">{{ industriesLine }}</p>
     </section>
 
     <!-- WORK -->
@@ -396,6 +420,18 @@ class Component extends DCLogic {
     } : { display: 'none' };
 
     const guideStyle = { position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none', display: mode === 'design' ? 'block' : 'none' };
+    const workedStyle = { display: mode === 'design' ? 'flex' : 'none' };
+    const COMPANY_LOGOS = [
+      { name: 'Ecolab', file: 'ecolab', h: 34 },
+      { name: 'Zebra Technologies', file: 'zebra', h: 44 },
+      { name: 'World Wide Technology', file: 'wwt', h: 38 },
+      { name: 'Wonderland Education', file: 'wonderland', h: 62 },
+      { name: 'fastjobs.io', file: 'fastjobs', h: 72 },
+      { name: 'DVC Lab, Purdue', file: 'dvc', h: 48 },
+      { name: 'SGX3', file: 'sgx3', h: 34 },
+    ];
+    const companies = COMPANY_LOGOS.concat(COMPANY_LOGOS).map(c => ({ name: c.name, src: `case-study/logos/${c.file}.png`, style: `height:${c.h}px;` }));
+    const industriesLine = 'Across enterprise SaaS, food safety, healthcare, retail, hiring, K-12 education, and science research.';
     const gridStyle = { opacity: mode === 'design' ? 0.1 : 0.08 };
 
     // Push each shape's centre SPREAD× further from the hero centre, kept inside the hero.
@@ -488,7 +524,7 @@ class Component extends DCLogic {
       : headCopy.head;
 
     return {
-      rootStyle, wipeStyle, slots, headStyle, projects, guideStyle, gridStyle, headlineNode,
+      rootStyle, wipeStyle, slots, headStyle, projects, guideStyle, gridStyle, headlineNode, workedStyle, companies, industriesLine,
       eyebrow: COPY[headMode].eyebrow,
       toggleLabel: COPY[mode].toggle, footerLine: COPY[mode].footer,
       toggle: this.toggle, onHeroMove: this.onHeroMove, onHeroTouchMove: this.onHeroTouchMove, isResearch: mode === 'research', workCount: String(PROJECTS[mode].length).padStart(2, '0'),
