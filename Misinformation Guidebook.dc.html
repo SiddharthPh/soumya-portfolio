@@ -21,7 +21,7 @@ a:hover{color:#F9261C;}
 .mobile-nav-checkbox{display:none;}
 .hamburger-btn{display:none;cursor:pointer;color:#2A0D09;}
 .hamburger-icon-close{display:none;}
-.mobile-nav-panel{display:none;flex-direction:column;padding:8px clamp(20px,4.5vw,72px) 28px;gap:4px;border-top:1px solid #EFD6D2;background:#FFFDFC;position:sticky;top:97px;z-index:29;}
+.mobile-nav-panel{display:none;flex-direction:column;padding:8px clamp(20px,min(4.5vw,64.8px),72px) 28px;gap:4px;border-top:1px solid #EFD6D2;background:#FFFDFC;position:sticky;top:97px;z-index:29;}
 .mobile-nav-panel a{padding:16px 0;font-size:20px;border-bottom:1px solid #EFD6D2;display:flex;align-items:center;gap:12px;}
 .mobile-nav-cta{margin-top:16px!important;text-align:center;justify-content:center!important;background:#F9261C;color:#fff!important;padding:18px 34px!important;border-radius:999px;border-bottom:none!important;}
 .mobile-nav-checkbox:checked ~ .mobile-nav-panel{display:flex!important;}
@@ -34,13 +34,13 @@ a:hover{color:#F9261C;}
 </style>
 </helmet>
 
-<div style="font-family:'Instrument Sans',system-ui,sans-serif;color:#2A0D09;background:#FFFDFC;min-height:100vh;">
+<div style="font-family:'Instrument Sans',system-ui,sans-serif;color:#2A0D09;background:#FFFDFC;min-height:100vh;max-width:1440px;margin:0 auto;">
   <div style="position:fixed;top:0;left:0;height:3px;background:#F9261C;z-index:40;width:{{ progress }};"></div>
 
   <input type="checkbox" id="mobile-nav-toggle" class="mobile-nav-checkbox">
-  <header style="position:sticky;top:0;z-index:30;background:#FFFDFC;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px clamp(20px,4.5vw,72px);flex-wrap:wrap;">
+  <header style="position:sticky;top:0;z-index:30;background:#FFFDFC;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px clamp(20px,min(4.5vw,64.8px),72px);flex-wrap:wrap;">
     <a href="Portfolio.dc.html" style="font-family:'Instrument Serif',serif;font-size:32px;letter-spacing:-0.02em;color:#F9261C;">Soumya Krishnaraj</a>
-    <nav class="desktop-nav" style="display:flex;align-items:center;gap:clamp(16px,2.4vw,36px);font-size:19px;">
+    <nav class="desktop-nav" style="display:flex;align-items:center;gap:clamp(16px,min(2.4vw,34.56px),36px);font-size:19px;">
       <a href="Portfolio.dc.html#research" style="display:flex;align-items:center;gap:10px;"><span style="width:10px;height:10px;border-radius:50%;background:#F9261C;"></span><span>Research</span></a>
       <a href="About.dc.html">About</a>
       <a href="https://www.linkedin.com/in/soumya-krishnaraj/" target="_blank" rel="noopener" style="background:#F9261C;color:#fff;padding:18px 34px;border-radius:999px;transition:transform .25s ease;" style-hover="transform:translateY(-2px) rotate(-2deg);color:#fff;">Get in touch</a>
@@ -57,10 +57,10 @@ a:hover{color:#F9261C;}
   </div>
 
   <!-- HERO -->
-  <section data-screen-label="Case hero" style="padding:clamp(40px,6vw,96px) clamp(20px,4.5vw,72px) clamp(64px,7vw,112px);display:flex;flex-direction:column;gap:40px;">
+  <section data-screen-label="Case hero" style="padding:clamp(40px,min(6vw,86.4px),96px) clamp(20px,min(4.5vw,64.8px),72px) clamp(64px,min(7vw,100.8px),112px);display:flex;flex-direction:column;gap:40px;">
     
-    <h1 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(56px,9vw,160px);line-height:.88;letter-spacing:-0.035em;color:#F9261C;max-width:14ch;text-wrap:balance;">How to talk to your <i>grandma</i> about misinformation</h1>
-    <p style="margin:0;max-width:34ch;font-family:'Instrument Serif',serif;font-size:clamp(26px,2.6vw,40px);line-height:1.1;text-wrap:pretty;">A media literacy guidebook that helps older adults in India question what they read online, with their grandchildren beside them.</p>
+    <h1 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(56px,min(9vw,129.6px),160px);line-height:.88;letter-spacing:-0.035em;color:#F9261C;max-width:14ch;text-wrap:balance;">How to talk to your <i>grandma</i> about misinformation</h1>
+    <p style="margin:0;max-width:34ch;font-family:'Instrument Serif',serif;font-size:clamp(26px,min(2.6vw,37.44px),40px);line-height:1.1;text-wrap:pretty;">A media literacy guidebook that helps older adults in India question what they read online, with their grandchildren beside them.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;border-top:1.5px solid #2A0D09;padding-top:20px;">
       <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Role</span><span style="font-size:17px;">Sole researcher and designer</span></div>
       <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Timeline</span><span style="font-size:17px;">One semester, Spring 2024</span></div>
@@ -73,14 +73,14 @@ a:hover{color:#F9261C;}
   </section>
 
   <!-- SUMMARY -->
-  <section data-screen-label="Summary" style="background:#43160F;color:#F8DEDB;padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:40px;">
+  <section data-screen-label="Summary" style="background:#43160F;color:#F8DEDB;padding:clamp(80px,min(9vw,129.6px),140px) clamp(20px,min(4.5vw,64.8px),72px);display:flex;flex-direction:column;gap:40px;">
     <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#FF6A5E;">00 / SUMMARY</span>
-    <h2 style="margin:0;max-width:20ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(44px,5.4vw,92px);line-height:.96;letter-spacing:-0.025em;text-wrap:balance;">I set out to build a browser extension. <em style="color:#FF6A5E;">I made a book.</em></h2>
+    <h2 style="margin:0;max-width:20ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(44px,min(5.4vw,77.76px),92px);line-height:.96;letter-spacing:-0.025em;text-wrap:balance;">I set out to build a browser extension. <em style="color:#FF6A5E;">I made a book.</em></h2>
     <p style="margin:0;max-width:62ch;font-size:19px;line-height:1.55;text-wrap:pretty;">The research showed that the most trusted fact-checker in an Indian household is often a grandchild, and those conversations happen at the dining table, not on a screen. So the final design is a hands-on guidebook a grandparent and grandchild work through together.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:24px;">
       <sc-for list="{{ results }}" as="o" hint-placeholder-count="3">
         <div style="display:flex;flex-direction:column;gap:12px;border-top:1.5px solid #F8DEDB;padding-top:16px;">
-          <span style="font-family:'Instrument Serif',serif;font-size:clamp(56px,6vw,96px);line-height:.85;color:#FF6A5E;">{{ o.v }}</span>
+          <span style="font-family:'Instrument Serif',serif;font-size:clamp(56px,min(6vw,86.4px),96px);line-height:.85;color:#FF6A5E;">{{ o.v }}</span>
           <span style="font-size:17px;line-height:1.4;max-width:26ch;">{{ o.l }}</span>
         </div>
       </sc-for>
@@ -88,14 +88,14 @@ a:hover{color:#F9261C;}
   </section>
 
   <!-- 01 WHERE IT STARTED -->
-  <section data-screen-label="Origin" style="padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:40px;">
+  <section data-screen-label="Origin" style="padding:clamp(80px,min(9vw,129.6px),140px) clamp(20px,min(4.5vw,64.8px),72px);display:flex;flex-direction:column;gap:40px;">
     <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">01 / WHERE IT STARTED</span>
-    <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">My grandmother <em style="color:#F9261C;">believed it.</em></h2>
+    <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,min(6vw,86.4px),104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">My grandmother <em style="color:#F9261C;">believed it.</em></h2>
     <p style="margin:0;max-width:60ch;font-size:19px;line-height:1.55;text-wrap:pretty;">She believed a YouTube video about a celebrity that I took for satire. After that I noticed how often she forwarded things that weren’t true, including, once, that birds aren’t real. Each time I sat with her and talked through how to check it. The numbers suggested it wasn’t only my family.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:24px;">
       <sc-for list="{{ stats }}" as="s" hint-placeholder-count="3">
         <div style="display:flex;flex-direction:column;gap:12px;border-top:1.5px solid #2A0D09;padding-top:16px;">
-          <span style="font-family:'Instrument Serif',serif;font-size:clamp(56px,6vw,96px);line-height:.85;color:#F9261C;">{{ s.v }}</span>
+          <span style="font-family:'Instrument Serif',serif;font-size:clamp(56px,min(6vw,86.4px),96px);line-height:.85;color:#F9261C;">{{ s.v }}</span>
           <span style="font-size:17px;line-height:1.45;">{{ s.l }}</span>
           <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:12px;letter-spacing:.06em;color:#8A4F48;">{{ s.src }}</span>
         </div>
@@ -104,9 +104,9 @@ a:hover{color:#F9261C;}
   </section>
 
   <!-- 02 APPROACH -->
-  <section data-screen-label="Approach" style="background:#FBEAE7;padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:40px;">
+  <section data-screen-label="Approach" style="background:#FBEAE7;padding:clamp(80px,min(9vw,129.6px),140px) clamp(20px,min(4.5vw,64.8px),72px);display:flex;flex-direction:column;gap:40px;">
     <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">02 / APPROACH</span>
-    <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Each round changed <em style="color:#F9261C;">the question.</em></h2>
+    <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,min(6vw,86.4px),104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Each round changed <em style="color:#F9261C;">the question.</em></h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;">
       <sc-for list="{{ methods }}" as="m" hint-placeholder-count="6">
         <div style="background:#FFFDFC;border-radius:6px;padding:24px;display:flex;flex-direction:column;gap:10px;">
@@ -119,9 +119,9 @@ a:hover{color:#F9261C;}
 
   <!-- 03-08 RESEARCH ROUNDS -->
   <sc-for list="{{ rounds }}" as="r" hint-placeholder-count="5">
-    <section data-screen-label="{{ r.label }}" style="padding: clamp(80px,9vw,140px) clamp(20px,4.5vw,72px) 0; display: flex; flex-direction: column; gap: 36px; position: relative">
+    <section data-screen-label="{{ r.label }}" style="padding: clamp(80px,min(9vw,129.6px),140px) clamp(20px,min(4.5vw,64.8px),72px) 0; display: flex; flex-direction: column; gap: 36px; position: relative">
       <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">{{ r.n }}</span>
-      <h2 style="margin: 0; max-width: 20ch; font-family: 'Instrument Serif',serif; font-weight: 400; font-size: clamp(40px,4.6vw,76px); line-height: .98; letter-spacing: -0.02em; text-wrap: balance; position: relative">{{ r.t }}</h2>
+      <h2 style="margin: 0; max-width: 20ch; font-family: 'Instrument Serif',serif; font-weight: 400; font-size: clamp(40px,min(4.6vw,66.24px),76px); line-height: .98; letter-spacing: -0.02em; text-wrap: balance; position: relative">{{ r.t }}</h2>
       <p style="margin:0;max-width:62ch;font-size:18px;line-height:1.55;text-wrap:pretty;">{{ r.intro }}</p>
       <sc-if value="{{ r.hasPoints }}" hint-placeholder-val="{{ false }}">
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:24px;">
@@ -137,7 +137,7 @@ a:hover{color:#F9261C;}
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:24px;">
           <sc-for list="{{ r.quotes }}" as="q" hint-placeholder-count="2">
             <div style="display:flex;flex-direction:column;gap:12px;padding:28px;border-radius:6px;background:#FBEAE7;">
-              <span style="font-family:'Instrument Serif',serif;font-size:clamp(26px,2.4vw,36px);line-height:1.1;">“{{ q.q }}”</span>
+              <span style="font-family:'Instrument Serif',serif;font-size:clamp(26px,min(2.4vw,34.56px),36px);line-height:1.1;">“{{ q.q }}”</span>
               <sc-if value="{{ q.hasOrig }}" hint-placeholder-val="{{ false }}"><span style="font-size:15px;font-style:italic;color:#8A4F48;">“{{ q.orig }}”</span></sc-if>
               <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:12px;letter-spacing:.06em;color:#8A4F48;">— {{ q.who }}</span>
             </div>
@@ -153,21 +153,21 @@ a:hover{color:#F9261C;}
           <figcaption style="font-size:14px;line-height:1.45;color:#43160F;">{{ r.imgCap }}</figcaption>
         </figure>
       </sc-if>
-      <div style="display:flex;flex-wrap:wrap;gap:12px 32px;align-items:baseline;padding:clamp(20px,3vw,32px);border:1.5px solid #2A0D09;border-radius:6px;">
+      <div style="display:flex;flex-wrap:wrap;gap:12px 32px;align-items:baseline;padding:clamp(20px,min(3vw,43.2px),32px);border:1.5px solid #2A0D09;border-radius:6px;">
         <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;white-space:nowrap;">{{ r.impN }}</span>
-        <span style="flex:1 1 320px;font-family:'Instrument Serif',serif;font-size:clamp(22px,2vw,30px);line-height:1.15;">{{ r.imp }}</span>
+        <span style="flex:1 1 320px;font-family:'Instrument Serif',serif;font-size:clamp(22px,min(2vw,28.8px),30px);line-height:1.15;">{{ r.imp }}</span>
       </div>
     </section>
   </sc-for>
 
   <!-- 07 DIARY -->
-  <section data-screen-label="Diary study" style="padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px) 0;display:flex;flex-direction:column;gap:36px;">
+  <section data-screen-label="Diary study" style="padding:clamp(80px,min(9vw,129.6px),140px) clamp(20px,min(4.5vw,64.8px),72px) 0;display:flex;flex-direction:column;gap:36px;">
     <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">07 / DIARY STUDY</span>
-    <h2 style="margin:0;max-width:20ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(40px,4.6vw,76px);line-height:.98;letter-spacing:-0.02em;text-wrap:balance;">Five days, one platform each.</h2>
+    <h2 style="margin:0;max-width:20ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(40px,min(4.6vw,66.24px),76px);line-height:.98;letter-spacing:-0.02em;text-wrap:balance;">Five days, one platform each.</h2>
     <p style="margin:0;max-width:62ch;font-size:18px;line-height:1.55;text-wrap:pretty;">Four participants aged 57+. A prompt went out at 9am IST, responses due by 10pm, in whatever form was comfortable: notes, texts, voice notes or video.</p>
     <div style="display:flex;flex-direction:column;">
       <sc-for list="{{ days }}" as="d" hint-placeholder-count="5">
-        <div style="display:grid;grid-template-columns:minmax(0,120px) repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px clamp(20px,3vw,48px);border-top:1.5px solid #2A0D09;padding:24px 0 32px;align-items:baseline;">
+        <div style="display:grid;grid-template-columns:minmax(0,120px) repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px clamp(20px,min(3vw,43.2px),48px);border-top:1.5px solid #2A0D09;padding:24px 0 32px;align-items:baseline;">
           <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">{{ d.n }} · {{ d.p }}</span>
           <span style="font-family:'Instrument Serif',serif;font-size:24px;line-height:1.25;font-style:italic;">“{{ d.q }}”</span>
           <span style="font-size:17px;line-height:1.55;">{{ d.v }}</span>
@@ -177,10 +177,10 @@ a:hover{color:#F9261C;}
         </div>
       </sc-for>
     </div>
-    <div style="display:flex;flex-wrap:wrap;gap:clamp(24px,4vw,64px);align-items:center;background:#43160F;color:#F8DEDB;border-radius:6px;padding:clamp(28px,4vw,56px);">
+    <div style="display:flex;flex-wrap:wrap;gap:clamp(24px,min(4vw,57.6px),64px);align-items:center;background:#43160F;color:#F8DEDB;border-radius:6px;padding:clamp(28px,min(4vw,57.6px),56px);">
       <div style="flex:1 1 300px;display:flex;flex-direction:column;gap:14px;">
         <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#FF6A5E;">The pattern</span>
-        <span style="font-family:'Instrument Serif',serif;font-size:clamp(32px,3.4vw,52px);line-height:1.02;">An echo chamber no one could see.</span>
+        <span style="font-family:'Instrument Serif',serif;font-size:clamp(32px,min(3.4vw,48.96px),52px);line-height:1.02;">An echo chamber no one could see.</span>
         <span style="font-size:17px;line-height:1.55;">What we see is a small, biased slice of the internet. What we trust from it is shaped by confirmation bias. Each reinforces the other.</span>
       </div>
       <div style="flex:1 1 320px;position:relative;aspect-ratio:1758/1168;border-radius:6px;overflow:hidden;background:#3A120D;">
@@ -191,9 +191,9 @@ a:hover{color:#F9261C;}
 
   <!-- 08 PLATFORM -->
   <sc-for list="{{ rounds2 }}" as="r" hint-placeholder-count="1">
-    <section data-screen-label="{{ r.label }}" style="padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px) 0;display:flex;flex-direction:column;gap:36px;">
+    <section data-screen-label="{{ r.label }}" style="padding:clamp(80px,min(9vw,129.6px),140px) clamp(20px,min(4.5vw,64.8px),72px) 0;display:flex;flex-direction:column;gap:36px;">
       <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">{{ r.n }}</span>
-      <h2 style="margin:0;max-width:20ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(40px,4.6vw,76px);line-height:.98;letter-spacing:-0.02em;text-wrap:balance;">{{ r.t }}</h2>
+      <h2 style="margin:0;max-width:20ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(40px,min(4.6vw,66.24px),76px);line-height:.98;letter-spacing:-0.02em;text-wrap:balance;">{{ r.t }}</h2>
       <p style="margin:0;max-width:62ch;font-size:18px;line-height:1.55;text-wrap:pretty;">{{ r.intro }}</p>
       <sc-if value="{{ r.hasPoints }}" hint-placeholder-val="{{ false }}">
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:24px;">
@@ -209,7 +209,7 @@ a:hover{color:#F9261C;}
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:24px;">
           <sc-for list="{{ r.quotes }}" as="q" hint-placeholder-count="2">
             <div style="display:flex;flex-direction:column;gap:12px;padding:28px;border-radius:6px;background:#FBEAE7;">
-              <span style="font-family:'Instrument Serif',serif;font-size:clamp(26px,2.4vw,36px);line-height:1.1;">“{{ q.q }}”</span>
+              <span style="font-family:'Instrument Serif',serif;font-size:clamp(26px,min(2.4vw,34.56px),36px);line-height:1.1;">“{{ q.q }}”</span>
               <sc-if value="{{ q.hasOrig }}" hint-placeholder-val="{{ false }}"><span style="font-size:15px;font-style:italic;color:#8A4F48;">“{{ q.orig }}”</span></sc-if>
               <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:12px;letter-spacing:.06em;color:#8A4F48;">— {{ q.who }}</span>
             </div>
@@ -228,17 +228,17 @@ a:hover{color:#F9261C;}
           </sc-for>
         </div>
       </sc-if>
-      <div style="display:flex;flex-wrap:wrap;gap:12px 32px;align-items:baseline;padding:clamp(20px,3vw,32px);border:1.5px solid #2A0D09;border-radius:6px;">
+      <div style="display:flex;flex-wrap:wrap;gap:12px 32px;align-items:baseline;padding:clamp(20px,min(3vw,43.2px),32px);border:1.5px solid #2A0D09;border-radius:6px;">
         <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;white-space:nowrap;">{{ r.impN }}</span>
-        <span style="flex:1 1 320px;font-family:'Instrument Serif',serif;font-size:clamp(22px,2vw,30px);line-height:1.15;">{{ r.imp }}</span>
+        <span style="flex:1 1 320px;font-family:'Instrument Serif',serif;font-size:clamp(22px,min(2vw,28.8px),30px);line-height:1.15;">{{ r.imp }}</span>
       </div>
     </section>
   </sc-for>
 
   <!-- 09 PIVOT -->
-  <section data-screen-label="Pivot" style="padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:36px;">
+  <section data-screen-label="Pivot" style="padding:clamp(80px,min(9vw,129.6px),140px) clamp(20px,min(4.5vw,64.8px),72px);display:flex;flex-direction:column;gap:36px;">
     <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">09 / THE PIVOT</span>
-    <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">From screens to <em style="color:#F9261C;">the dining table.</em></h2>
+    <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,min(6vw,86.4px),104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">From screens to <em style="color:#F9261C;">the dining table.</em></h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px;">
       <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #2A0D09;padding-top:16px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;color:#F9261C;">REASON 1</span><span style="font-size:18px;line-height:1.5;">Redesigning WhatsApp or YouTube means changing policy across users, platforms and government. I didn’t have the data to make that case.</span></div>
       <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #2A0D09;padding-top:16px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;color:#F9261C;">REASON 2</span><span style="font-size:18px;line-height:1.5;">The mid-term jury pointed out that these family conversations already happen offline. That was the better place to design for.</span></div>
@@ -255,10 +255,10 @@ a:hover{color:#F9261C;}
   </section>
 
   <!-- 10 GUIDEBOOK -->
-  <section data-screen-label="Guidebook" style="background:#FBEAE7;padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:clamp(40px,5vw,64px);">
+  <section data-screen-label="Guidebook" style="background:#FBEAE7;padding:clamp(80px,min(9vw,129.6px),140px) clamp(20px,min(4.5vw,64.8px),72px);display:flex;flex-direction:column;gap:clamp(40px,min(5vw,72px),64px);">
     <div style="display:flex;flex-direction:column;gap:24px;">
       <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">10 / THE GUIDEBOOK</span>
-      <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">A book two generations <em style="color:#F9261C;">fill in together.</em></h2>
+      <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,min(6vw,86.4px),104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">A book two generations <em style="color:#F9261C;">fill in together.</em></h2>
       <p style="margin:0;max-width:62ch;font-size:18px;line-height:1.55;text-wrap:pretty;">It’s meant to be handled. In the first activity, you dig through clippings for the one that disproves a headline. Only then does the book explain why seeking disconfirmation matters. The tone stays gentle and second-person: having biases is normal.</p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:16px;">
@@ -266,9 +266,9 @@ a:hover{color:#F9261C;}
         <div style="background:#FFFDFC;border-radius:6px;padding:20px;display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;color:#F9261C;">{{ s.n }}</span><span style="font-size:17px;line-height:1.5;">{{ s.v }}</span></div>
       </sc-for>
     </div>
-    <div style="display:flex;flex-direction:column;gap:clamp(40px,5vw,72px);">
+    <div style="display:flex;flex-direction:column;gap:clamp(40px,min(5vw,72px),72px);">
       <sc-for list="{{ topics }}" as="t" hint-placeholder-count="4">
-        <div style="display:flex;flex-wrap:wrap;gap:clamp(24px,4vw,64px);align-items:center;">
+        <div style="display:flex;flex-wrap:wrap;gap:clamp(24px,min(4vw,57.6px),64px);align-items:center;">
           <div style="flex:{{ t.flex }};min-width:0;position:relative;aspect-ratio:{{ t.ratio }};border-radius:6px;overflow:hidden;order:{{ t.order }};background:#FBEAE7;">
             <sc-if value="{{ t.isVideo }}" hint-placeholder-val="{{ false }}">
               <video src="{{ t.src }}" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" preload="auto" aria-label="{{ t.ph }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;"></video>
@@ -278,7 +278,7 @@ a:hover{color:#F9261C;}
             </sc-if>
           </div>
           <div style="flex:2 1 260px;min-width:0;display:flex;flex-direction:column;gap:12px;max-width:40ch;">
-            <span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.6vw,40px);line-height:1.05;">{{ t.t }}</span>
+            <span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,min(2.6vw,37.44px),40px);line-height:1.05;">{{ t.t }}</span>
             <span style="font-size:17px;line-height:1.55;text-wrap:pretty;">{{ t.v }}</span>
           </div>
         </div>
@@ -287,16 +287,16 @@ a:hover{color:#F9261C;}
   </section>
 
   <!-- 11 POP YOUR BUBBLE -->
-  <section data-screen-label="Pop your bubble" style="padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:36px;">
+  <section data-screen-label="Pop your bubble" style="padding:clamp(80px,min(9vw,129.6px),140px) clamp(20px,min(4.5vw,64.8px),72px);display:flex;flex-direction:column;gap:36px;">
     <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">11 / POP YOUR BUBBLE</span>
-    <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Same start, <em style="color:#F9261C;">different paths.</em></h2>
+    <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,min(6vw,86.4px),104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Same start, <em style="color:#F9261C;">different paths.</em></h2>
     <p style="margin:0;max-width:62ch;font-size:18px;line-height:1.55;text-wrap:pretty;">A QR code in the book starts a group game on YouTube. Everyone begins on the same video and follows recommendations until they reach one that debunks it. Each person’s algorithm takes them somewhere different.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:16px;">
       <sc-for list="{{ game }}" as="g" hint-placeholder-count="4">
         <div style="display:flex;flex-direction:column;gap:8px;border-top:1.5px solid #2A0D09;padding-top:14px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;color:#F9261C;">{{ g.n }}</span><span style="font-size:17px;line-height:1.5;">{{ g.v }}</span></div>
       </sc-for>
     </div>
-    <div data-screen-label="Paths" style="display:flex;flex-direction:column;gap:18px;background:#43160F;color:#F8DEDB;border-radius:6px;padding:clamp(24px,4vw,48px);">
+    <div data-screen-label="Paths" style="display:flex;flex-direction:column;gap:18px;background:#43160F;color:#F8DEDB;border-radius:6px;padding:clamp(24px,min(4vw,57.6px),48px);">
       <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#FF6A5E;">Videos watched to reach the other side</span>
       <sc-for list="{{ players }}" as="p" hint-placeholder-count="3">
         <div style="display:flex;align-items:center;gap:16px;">
@@ -315,10 +315,10 @@ a:hover{color:#F9261C;}
   </section>
 
   <!-- 12 TESTING -->
-  <section data-screen-label="Testing" style="background:#FBEAE7;padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:36px;">
+  <section data-screen-label="Testing" style="background:#FBEAE7;padding:clamp(80px,min(9vw,129.6px),140px) clamp(20px,min(4.5vw,64.8px),72px);display:flex;flex-direction:column;gap:36px;">
     <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">12 / TESTING</span>
-    <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Two rounds, <em style="color:#F9261C;">same families.</em></h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(20px,3vw,40px);">
+    <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,min(6vw,86.4px),104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Two rounds, <em style="color:#F9261C;">same families.</em></h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(20px,min(3vw,43.2px),40px);">
       <figure style="margin:0;display:flex;flex-direction:column;gap:14px;">
         <div style="position:relative;aspect-ratio:4/3;border-radius:6px;overflow:hidden;"><image-slot id="mis-round1" shape="rect" placeholder="Drop: FIG 20 handwritten prototype" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot></div>
         <figcaption style="display:flex;flex-direction:column;gap:6px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;color:#F9261C;">ROUND 1 · HAND-DRAWN</span><span style="font-size:17px;line-height:1.55;">The YouTube concept landed. Nobody finished the text on seeking disconfirmation, and some said it felt text-heavy.</span></figcaption>
@@ -331,7 +331,7 @@ a:hover{color:#F9261C;}
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:24px;">
       <sc-for list="{{ results }}" as="o" hint-placeholder-count="3">
         <div style="display:flex;flex-direction:column;gap:12px;border-top:1.5px solid #2A0D09;padding-top:16px;">
-          <span style="font-family:'Instrument Serif',serif;font-size:clamp(56px,6vw,96px);line-height:.85;color:#F9261C;">{{ o.v }}</span>
+          <span style="font-family:'Instrument Serif',serif;font-size:clamp(56px,min(6vw,86.4px),96px);line-height:.85;color:#F9261C;">{{ o.v }}</span>
           <span style="font-size:17px;line-height:1.4;max-width:26ch;">{{ o.l }}</span>
         </div>
       </sc-for>
@@ -339,21 +339,21 @@ a:hover{color:#F9261C;}
   </section>
 
   <!-- 13 REFLECTION -->
-  <section data-screen-label="Reflection" style="padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:36px;">
+  <section data-screen-label="Reflection" style="padding:clamp(80px,min(9vw,129.6px),140px) clamp(20px,min(4.5vw,64.8px),72px);display:flex;flex-direction:column;gap:36px;">
     <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">13 / REFLECTION</span>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:24px;">
       <sc-for list="{{ reflections }}" as="r" hint-placeholder-count="5">
         <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #2A0D09;padding-top:16px;"><span style="font-family:'Instrument Serif',serif;font-size:26px;line-height:1.1;">{{ r.t }}</span><span style="font-size:17px;line-height:1.55;">{{ r.v }}</span></div>
       </sc-for>
     </div>
-    <p style="margin:0;max-width:30ch;font-family:'Instrument Serif',serif;font-size:clamp(28px,3vw,46px);line-height:1.1;text-wrap:pretty;">I let the process stay uncertain, and a browser extension turned into a book. <em style="color:#F9261C;">It also made my grandmother proud.</em></p>
+    <p style="margin:0;max-width:30ch;font-family:'Instrument Serif',serif;font-size:clamp(28px,min(3vw,43.2px),46px);line-height:1.1;text-wrap:pretty;">I let the process stay uncertain, and a browser extension turned into a book. <em style="color:#F9261C;">It also made my grandmother proud.</em></p>
   </section>
 
-  <a href="Portfolio.dc.html#work" data-screen-label="Next" style="display:flex;flex-direction:column;gap:20px;padding:clamp(56px,7vw,112px) clamp(20px,4.5vw,72px);background:#43160F;color:#F8DEDB;">
+  <a href="Portfolio.dc.html#work" data-screen-label="Next" style="display:flex;flex-direction:column;gap:20px;padding:clamp(56px,min(7vw,100.8px),112px) clamp(20px,min(4.5vw,64.8px),72px);background:#43160F;color:#F8DEDB;">
     <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">Back to work</span>
-    <span style="font-family:'Instrument Serif',serif;font-size:clamp(56px,8vw,140px);line-height:.9;letter-spacing:-0.03em;">All projects →</span>
+    <span style="font-family:'Instrument Serif',serif;font-size:clamp(56px,min(8vw,115.2px),140px);line-height:.9;letter-spacing:-0.03em;">All projects →</span>
   </a>
-  <button onClick="{{ jump }}" aria-label="{{ jumpAria }}" style="position:fixed;right:clamp(16px,3vw,40px);bottom:clamp(16px,3vw,40px);z-index:40;display:flex;align-items:center;gap:10px;height:52px;padding:0 20px 0 16px;border:none;border-radius:999px;background:#2A0D09;color:#FFFDFC;font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;box-shadow:0 8px 24px rgba(42,13,9,.18);transition:background-color .3s ease;" style-hover="background:#F9261C;">
+  <button onClick="{{ jump }}" aria-label="{{ jumpAria }}" style="position:fixed;right:clamp(16px,min(3vw,43.2px),40px);bottom:clamp(16px,min(3vw,43.2px),40px);z-index:40;display:flex;align-items:center;gap:10px;height:52px;padding:0 20px 0 16px;border:none;border-radius:999px;background:#2A0D09;color:#FFFDFC;font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;box-shadow:0 8px 24px rgba(42,13,9,.18);transition:background-color .3s ease;" style-hover="background:#F9261C;">
     <span style="display:inline-flex;font-size:18px;line-height:1;transition:transform .45s cubic-bezier(.22,1,.36,1);transform:{{ jumpRot }};">↓</span>
     <span>{{ jumpLabel }}</span>
   </button>

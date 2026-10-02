@@ -22,24 +22,29 @@ body{-webkit-font-smoothing:antialiased;}
 a{color:inherit;text-decoration:none;}
 a:hover{color:#F9261C;}
 ::selection{background:#F9261C;color:#fff;}
-.project-card{display:grid;grid-template-columns:5fr 7fr;grid-template-rows:1fr auto;grid-template-areas:"header thumb" "metrics thumb";column-gap:clamp(32px,4.5vw,80px);row-gap:48px;align-items:stretch;}
+.project-card{display:grid;grid-template-columns:5fr 7fr;grid-template-rows:1fr auto;grid-template-areas:"header thumb" "metrics thumb";column-gap:clamp(32px,min(4.5vw,64.8px),80px);row-gap:48px;align-items:stretch;}
 .project-card-header{grid-area:header;min-width:0;display:flex;flex-direction:column;gap:28px;}
 .project-card-metrics{grid-area:metrics;min-width:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-self:end;}
 .project-card-thumb{grid-area:thumb;min-width:0;display:flex;align-items:center;}
 .hero-guides{position:absolute;inset:0;}
-.worked-with{flex-direction:column;gap:20px;padding:clamp(40px,5vw,64px) 0 0;}
-.work-label{padding:clamp(56px,7vw,104px) clamp(20px,4.5vw,72px) 0;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg,#2A0D09);}
+.worked-with{flex-direction:column;gap:20px;padding:clamp(40px,min(5vw,72px),64px) 0 0;}
+.work-label{padding:clamp(56px,min(7vw,100.8px),104px) clamp(20px,min(4.5vw,64.8px),72px) 0;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg,#2A0D09);}
 main > article:first-of-type{border-top:0!important;}
-.worked-label{padding:0 clamp(20px,4.5vw,72px);font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted,#8A4F48);}
+.worked-label{padding:0 clamp(20px,min(4.5vw,64.8px),72px);font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted,#8A4F48);}
 .worked-marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);}
-.worked-track{display:flex;width:max-content;gap:clamp(40px,5vw,72px);padding-right:clamp(40px,5vw,72px);animation:worked-scroll 38s linear infinite;}
+.worked-track{display:flex;width:max-content;gap:clamp(40px,min(5vw,72px),72px);padding-right:clamp(40px,min(5vw,72px),72px);animation:worked-scroll 38s linear infinite;}
 .worked-marquee:hover .worked-track{animation-play-state:paused;}
 .worked-track{align-items:center;}
-.worked-item{display:block;width:auto;max-width:none;opacity:.6;transition:opacity .3s ease;}
-.worked-item:hover{opacity:1;}
-.worked-line{margin:0;padding:0 clamp(20px,4.5vw,72px);font-size:16px;line-height:1.55;color:var(--muted,#8A4F48);}
+.worked-item{position:relative;display:block;flex:none;}
+.wi-gray{display:block;width:auto;max-width:none;opacity:1;transition:opacity .3s ease;}
+.wi-color{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .3s ease;}
+.wi-tip{position:absolute;left:50%;top:calc(100% + 12px);translate:-50% 0;padding:5px 10px;border-radius:6px;background:#2A0D09;color:#fff;font-size:12px;letter-spacing:.02em;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .25s ease;}
+.worked-item:hover .wi-gray{opacity:0;}
+.worked-item:hover .wi-color,.worked-item:hover .wi-tip{opacity:1;}
+.worked-marquee{padding-bottom:44px;margin-bottom:-24px;}
+.worked-line{margin:0;padding:0 clamp(20px,min(4.5vw,64.8px),72px);font-size:16px;line-height:1.55;color:var(--muted,#8A4F48);}
 @keyframes worked-scroll{to{transform:translateX(-50%);}}
-@media (prefers-reduced-motion:reduce){.worked-track{animation:none;flex-wrap:wrap;width:auto;padding:0 clamp(20px,4.5vw,72px);}.worked-item:nth-child(n+8){display:none;}}
+@media (prefers-reduced-motion:reduce){.worked-track{animation:none;flex-wrap:wrap;width:auto;padding:0 clamp(20px,min(4.5vw,64.8px),72px);}.worked-item:nth-child(n+8){display:none;}}
 .hero-guide-line-v{position:absolute;top:0;bottom:0;width:1px;background:var(--accent,#F9261C);opacity:.4;}
 .hero-guide-line-h{position:absolute;left:0;right:0;height:1px;background:var(--accent,#F9261C);opacity:.4;}
 .hero-guide-label{position:absolute;font-family:'Instrument Sans',system-ui,sans-serif;font-size:11px;font-variant-numeric:tabular-nums;letter-spacing:.02em;color:var(--accent,#F9261C);background:var(--bg,#FFFDFC);padding:2px 6px;border-radius:3px;white-space:nowrap;box-shadow:0 0 0 1px var(--line,#EFD6D2);}
@@ -61,13 +66,13 @@ main > article:first-of-type{border-top:0!important;}
   .hamburger-btn{display:flex!important;align-items:center;justify-content:center;}
   .project-card{grid-template-columns:1fr;grid-template-rows:auto auto auto;grid-template-areas:"header" "thumb" "metrics";row-gap:32px;}
   .project-card-metrics{align-self:start;}
-  .hero-scribble-0{left:auto!important;top:6%!important;right:7%!important;width:clamp(90px,24vw,140px)!important;height:clamp(52px,13.7vw,80px)!important;}
-  .hero-scribble-1{left:7%!important;top:6%!important;width:clamp(90px,24vw,140px)!important;height:clamp(52px,13.7vw,80px)!important;}
-  .hero-scribble-2{left:6%!important;top:auto!important;bottom:17%!important;width:clamp(68px,18vw,106px)!important;height:clamp(39px,10.3vw,61px)!important;}
-  .hero-scribble-3{left:auto!important;top:auto!important;right:6%!important;bottom:17%!important;width:clamp(68px,18vw,106px)!important;height:clamp(39px,10.3vw,61px)!important;}
+  .hero-scribble-0{left:auto!important;top:6%!important;right:7%!important;width:clamp(90px,min(24vw,345.6px),140px)!important;height:clamp(52px,min(13.7vw,197.28px),80px)!important;}
+  .hero-scribble-1{left:7%!important;top:6%!important;width:clamp(90px,min(24vw,345.6px),140px)!important;height:clamp(52px,min(13.7vw,197.28px),80px)!important;}
+  .hero-scribble-2{left:6%!important;top:auto!important;bottom:17%!important;width:clamp(68px,min(18vw,259.2px),106px)!important;height:clamp(39px,min(10.3vw,148.32px),61px)!important;}
+  .hero-scribble-3{left:auto!important;top:auto!important;right:6%!important;bottom:17%!important;width:clamp(68px,min(18vw,259.2px),106px)!important;height:clamp(39px,min(10.3vw,148.32px),61px)!important;}
 }
 @media (min-width:768px) and (max-width:1024px){
-  .hero-scribble{width:16vw!important;}
+  .hero-scribble{width:min(16vw,230.4px)!important;}
 }
 </style>
 </helmet>
@@ -75,12 +80,12 @@ main > article:first-of-type{border-top:0!important;}
 <div style="{{ rootStyle }}">
   <div style="{{ wipeStyle }}"></div>
 
-  <div style="position:relative;z-index:1;font-family:'Instrument Sans',system-ui,sans-serif;color:var(--fg,#2A0D09);transition:color .7s ease;">
+  <div style="position:relative;z-index:1;max-width:1440px;margin:0 auto;font-family:'Instrument Sans',system-ui,sans-serif;color:var(--fg,#2A0D09);transition:color .7s ease;">
 
     <!-- NAV -->
-    <header style="position:sticky;top:0;z-index:30;background:var(--bg,#FFFDFC);transition:background-color .7s ease;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px clamp(20px,4.5vw,72px);flex-wrap:wrap;">
+    <header style="position:sticky;top:0;z-index:30;background:var(--bg,#FFFDFC);transition:background-color .7s ease;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px clamp(20px,min(4.5vw,64.8px),72px);flex-wrap:wrap;">
       <a href="Portfolio.dc.html" style="font-family:'Instrument Serif',serif;font-size:32px;letter-spacing:-0.02em;color:var(--head,#F9261C);transition:color .7s ease;">Soumya Krishnaraj</a>
-      <nav class="desktop-nav" style="display:flex;align-items:center;gap:clamp(16px,2.4vw,36px);font-size:19px;">
+      <nav class="desktop-nav" style="display:flex;align-items:center;gap:clamp(16px,min(2.4vw,34.56px),36px);font-size:19px;">
         <button onClick="{{ toggle }}" style="all:unset;cursor:pointer;display:flex;align-items:center;gap:10px;color:var(--fg,#2A0D09);transition:color .7s ease;" style-hover="color:#F9261C;">
           <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--accent,#F9261C);"></span>
           <span>{{ toggleLabel }}</span>
@@ -92,7 +97,7 @@ main > article:first-of-type{border-top:0!important;}
       <button class="hamburger-btn" onClick="{{ toggleMobileNav }}" aria-label="{{ mobileNavAria }}" style="all:unset;display:none;cursor:pointer;color:var(--fg,#2A0D09);">{{ mobileNavIcon }}</button>
     </header>
     <sc-if value="{{ mobileNavOpen }}" hint-placeholder-val="{{ false }}">
-      <div class="mobile-nav-panel" style="position:sticky;top:97px;z-index:29;background:var(--bg,#FFFDFC);border-top:1px solid var(--line,#EFD6D2);display:flex;flex-direction:column;padding:8px clamp(20px,4.5vw,72px) 28px;gap:4px;">
+      <div class="mobile-nav-panel" style="position:sticky;top:97px;z-index:29;background:var(--bg,#FFFDFC);border-top:1px solid var(--line,#EFD6D2);display:flex;flex-direction:column;padding:8px clamp(20px,min(4.5vw,64.8px),72px) 28px;gap:4px;">
         <button onClick="{{ toggleFromMobile }}" style="all:unset;cursor:pointer;display:flex;align-items:center;gap:12px;padding:16px 0;font-size:20px;color:var(--fg,#2A0D09);border-bottom:1px solid var(--line,#EFD6D2);">
           <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--accent,#F9261C);"></span>
           <span>{{ toggleLabel }}</span>
@@ -140,7 +145,7 @@ main > article:first-of-type{border-top:0!important;}
       <div class="worked-marquee">
         <div class="worked-track">
           <sc-for list="{{ companies }}" as="c" hint-placeholder-count="14">
-            <img class="worked-item" src="{{ c.src }}" alt="{{ c.name }}" style="{{ c.style }}">
+            <span class="worked-item"><img class="wi-gray" src="{{ c.src }}" alt="{{ c.name }}" style="{{ c.style }}"><img class="wi-color" src="{{ c.colorSrc }}" alt=""><span class="wi-tip">{{ c.name }}</span></span>
           </sc-for>
         </div>
       </div>
@@ -150,7 +155,7 @@ main > article:first-of-type{border-top:0!important;}
     <div id="work" class="work-label">Selected work ({{ workCount }})</div>
 
     <!-- WORK -->
-    <main style="padding:clamp(28px,3vw,40px) clamp(20px,4.5vw,72px) 0;display:flex;flex-direction:column;gap:clamp(80px,10vw,160px);">
+    <main style="padding:clamp(28px,min(3vw,43.2px),40px) clamp(20px,min(4.5vw,64.8px),72px) 0;display:flex;flex-direction:column;gap:clamp(80px,min(10vw,144px),160px);">
       <sc-for list="{{ projects }}" as="p" hint-placeholder-count="3">
         <article class="project-card" data-reveal="1" data-screen-label="{{ p.screen }}" style="border-top: 1px solid var(--line,#EFD6D2); padding-top: 32px; transition: border-color .7s ease; position: relative">
             <div class="project-card-header">
@@ -164,7 +169,7 @@ main > article:first-of-type{border-top:0!important;}
                 </sc-if>
                 <span style="color:var(--muted,#8A4F48);transition:color .7s ease;">{{ p.tag }}</span>
               </div>
-              <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(36px,3.6vw,60px);line-height:1.02;letter-spacing:-0.015em;text-wrap:pretty;color:var(--head,#F9261C);transition:color .7s ease;">{{ p.statementNode }}</h2>
+              <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(36px,min(3.6vw,51.84px),60px);line-height:1.02;letter-spacing:-0.015em;text-wrap:pretty;color:var(--head,#F9261C);transition:color .7s ease;">{{ p.statementNode }}</h2>
               <sc-if value="{{ p.hasLink }}" hint-placeholder-val="{{ false }}">
                 <a href="{{ p.href }}" style="align-self:flex-start;display:flex;align-items:center;gap:12px;font-size:17px;padding-bottom:4px;border-bottom:1.5px solid currentColor;color:var(--fg,#2A0D09);transition:gap .3s ease,color .3s ease;" style-hover="gap:22px;color:#F9261C;">
                   <span>Read the case study</span><span>→</span>
@@ -177,7 +182,7 @@ main > article:first-of-type{border-top:0!important;}
             <div class="project-card-metrics">
               <sc-for list="{{ p.metrics }}" as="m" hint-placeholder-count="3">
                 <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid var(--fg,#2A0D09);padding-top:16px;transition:border-color .7s ease;">
-                  <span style="font-family:'Instrument Serif',serif;font-size:clamp(40px,3.4vw,56px);line-height:.9;color:var(--accent,#F9261C);">{{ m.v }}</span>
+                  <span style="font-family:'Instrument Serif',serif;font-size:clamp(40px,min(3.4vw,48.96px),56px);line-height:.9;color:var(--accent,#F9261C);">{{ m.v }}</span>
                   <span style="font-size:14px;line-height:1.35;color:var(--fg,#2A0D09);transition:color .7s ease;text-wrap:pretty;">{{ m.l }}</span>
                 </div>
               </sc-for>
@@ -223,9 +228,9 @@ main > article:first-of-type{border-top:0!important;}
 
 
     <!-- FOOTER -->
-    <footer data-screen-label="Contact" style="padding:clamp(120px,14vw,220px) clamp(20px,4.5vw,72px) 40px;display:flex;flex-direction:column;gap:64px;">
+    <footer data-screen-label="Contact" style="padding:clamp(120px,min(14vw,201.6px),220px) clamp(20px,min(4.5vw,64.8px),72px) 40px;display:flex;flex-direction:column;gap:64px;">
       <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:40px;">
-        <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(45px,7vw,118px);line-height:.88;letter-spacing:-0.03em;color:var(--head,#F9261C);transition:color .7s ease;max-width:9ch;">{{ footerLine }}</h2>
+        <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(45px,min(7vw,100.8px),118px);line-height:.88;letter-spacing:-0.03em;color:var(--head,#F9261C);transition:color .7s ease;max-width:9ch;">{{ footerLine }}</h2>
         <div style="display:flex;flex-direction:column;gap:14px;font-size:19px;">
           <a href="mailto:soumya.krishnaraj@gmail.com" style="border-bottom:1.5px solid currentColor;padding-bottom:4px;">soumya.krishnaraj@gmail.com</a>
           <a href="tel:+19293468337">+1 (929) 346 8337</a>
@@ -279,16 +284,16 @@ const THEMES = {
 
 const SLOTS = {
   design: [
-    { l: '53%', t: '6%', w: '21vw', h: '13vw', shape: 'circle', rot: -18, c: '#F9261C', tc: '#FFFFFF', label: 'Systems thinker', on: 1 },
-    { l: '16%', t: '48%', w: '15vw', h: '15vw', shape: 'clover', rot: 0, c: '#F8DEDB', tc: '#F9261C', label: 'Detail obsessive', on: 1 },
-    { l: '59%', t: '69%', w: '19vw', h: '11vw', shape: 'para', rot: 0, c: '#43160F', tc: '#FFFFFF', label: 'Context-aware', on: 1 },
-    { l: '16%', t: '9%', w: '10vw', h: '12vw', shape: 'arch', rot: 0, c: '#F9261C', tc: '#FFFFFF', label: '', on: 0 },
+    { l: '53%', t: '6%', w: 'min(21vw,302.4px)', h: 'min(13vw,187.2px)', shape: 'circle', rot: -18, c: '#F9261C', tc: '#FFFFFF', label: 'Systems thinker', on: 1 },
+    { l: '16%', t: '48%', w: 'min(15vw,216px)', h: 'min(15vw,216px)', shape: 'clover', rot: 0, c: '#F8DEDB', tc: '#F9261C', label: 'Detail obsessive', on: 1 },
+    { l: '59%', t: '69%', w: 'min(19vw,273.6px)', h: 'min(11vw,158.4px)', shape: 'para', rot: 0, c: '#43160F', tc: '#FFFFFF', label: 'Context-aware', on: 1 },
+    { l: '16%', t: '9%', w: 'min(10vw,144px)', h: 'min(12vw,172.8px)', shape: 'arch', rot: 0, c: '#F9261C', tc: '#FFFFFF', label: '', on: 0 },
   ],
   research: [
-    { l: '56%', t: '14%', w: '19vw', h: '13vw', rot: -3, c: '#FFEE58', labelImg: 'label-pattern-finder.png', label: 'Pattern-finder', on: 1 },
-    { l: '24%', t: '20%', w: '18vw', h: '14vw', rot: 4, c: '#FF4FA3', labelImg: 'label-meaning-maker.png', label: 'Meaning maker', on: 1 },
-    { l: '17%', t: '54%', w: '19vw', h: '14vw', rot: -4, c: '#4FC3F7', labelImg: 'label-signal-noise.png', label: 'Signal from noise', on: 1 },
-    { l: '61%', t: '48%', w: '18vw', h: '14vw', rot: 5, c: '#B2FF59', labelImg: 'label-synthesis-nerd.png', label: 'Synthesis nerd', on: 1 },
+    { l: '56%', t: '14%', w: 'min(19vw,273.6px)', h: 'min(13vw,187.2px)', rot: -3, c: '#FFEE58', labelImg: 'label-pattern-finder.png', label: 'Pattern-finder', on: 1 },
+    { l: '24%', t: '20%', w: 'min(18vw,259.2px)', h: 'min(14vw,201.6px)', rot: 4, c: '#FF4FA3', labelImg: 'label-meaning-maker.png', label: 'Meaning maker', on: 1 },
+    { l: '17%', t: '54%', w: 'min(19vw,273.6px)', h: 'min(14vw,201.6px)', rot: -4, c: '#4FC3F7', labelImg: 'label-signal-noise.png', label: 'Signal from noise', on: 1 },
+    { l: '61%', t: '48%', w: 'min(18vw,259.2px)', h: 'min(14vw,201.6px)', rot: 5, c: '#B2FF59', labelImg: 'label-synthesis-nerd.png', label: 'Synthesis nerd', on: 1 },
   ],
 };
 
@@ -432,7 +437,7 @@ class Component extends DCLogic {
       { name: 'DVC Lab, Purdue', file: 'dvc', h: 48 },
       { name: 'SGX3', file: 'sgx3', h: 34 },
     ];
-    const companies = COMPANY_LOGOS.concat(COMPANY_LOGOS).map(c => ({ name: c.name, src: `case-study/logos/${c.file}.png`, style: `height:${c.h}px;` }));
+    const companies = COMPANY_LOGOS.concat(COMPANY_LOGOS).map(c => ({ name: c.name, src: `case-study/logos/${c.file}.png`, colorSrc: `case-study/logos/${c.file}-color.png`, style: `height:${c.h}px;` }));
     const industriesLine = ['Enterprise SaaS', 'Food Safety', 'Healthcare', 'Retail', 'Hiring', 'K-12 Education', 'Science Research'].map(t => t.replace(/ /g, '\u00a0')).join('\u00a0\u00a0\u00b7\u00a0 ');
     const gridStyle = { opacity: mode === 'design' ? 0.1 : 0.08 };
 
@@ -472,13 +477,13 @@ class Component extends DCLogic {
           transition: `clip-path 1.1s ${EASE} ${d}, rotate 1.1s ${EASE} ${d}, scale .8s ${EASE} ${d}, background-color .8s ease ${d}` },
         tagDot: { display: 'none' },
         labelStyle: { position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center',
-          padding: '0 12%', fontFamily: "'Instrument Sans',system-ui,sans-serif", fontWeight: 700, fontSize: 'clamp(13px,1.35vw,21px)', lineHeight: 1.2,
+          padding: '0 12%', fontFamily: "'Instrument Sans',system-ui,sans-serif", fontWeight: 700, fontSize: 'clamp(13px,min(1.35vw,19.44px),21px)', lineHeight: 1.2,
           color: s.tc, opacity: s.on ? 1 : 0, pointerEvents: 'none', transition: `opacity .5s ease ${s.on ? '.6s' : '0s'}, color .8s ease` },
       };
     });
 
     const headStyle = {
-      margin: 0, fontFamily: "'Instrument Serif',serif", fontWeight: 400, fontSize: 'clamp(48px,6.8vw,124px)', lineHeight: 0.92,
+      margin: 0, fontFamily: "'Instrument Serif',serif", fontWeight: 400, fontSize: 'clamp(48px,min(6.8vw,97.92px),124px)', lineHeight: 0.92,
       letterSpacing: '-0.025em', textAlign: 'center', maxWidth: '11.5ch', textWrap: 'balance', color: 'var(--head,#F9261C)',
       opacity: headOut ? 0 : 1, translate: headOut ? '0 18px' : '0 0', filter: headOut ? 'blur(6px)' : 'blur(0)',
       transition: 'opacity .45s ease, translate .6s cubic-bezier(.2,.7,.2,1), filter .45s ease, color .7s ease',

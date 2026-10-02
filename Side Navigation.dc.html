@@ -20,7 +20,7 @@ a:hover{color:#F9261C;}
 .mobile-nav-checkbox{display:none;}
 .hamburger-btn{display:none;cursor:pointer;color:#2A0D09;}
 .hamburger-icon-close{display:none;}
-.mobile-nav-panel{display:none;flex-direction:column;padding:8px clamp(20px,4.5vw,72px) 28px;gap:4px;border-top:1px solid #EFD6D2;background:#FFFDFC;position:sticky;top:97px;z-index:29;}
+.mobile-nav-panel{display:none;flex-direction:column;padding:8px clamp(20px,min(4.5vw,64.8px),72px) 28px;gap:4px;border-top:1px solid #EFD6D2;background:#FFFDFC;position:sticky;top:97px;z-index:29;}
 .mobile-nav-panel a{padding:16px 0;font-size:20px;border-bottom:1px solid #EFD6D2;display:flex;align-items:center;gap:12px;}
 .mobile-nav-cta{margin-top:16px!important;text-align:center;justify-content:center!important;background:#F9261C;color:#fff!important;padding:18px 34px!important;border-radius:999px;border-bottom:none!important;}
 .mobile-nav-checkbox:checked ~ .mobile-nav-panel{display:flex!important;}
@@ -33,13 +33,13 @@ a:hover{color:#F9261C;}
 </style>
 </helmet>
 
-<div style="font-family:'Instrument Sans',system-ui,sans-serif;color:#2A0D09;background:#FFFDFC;min-height:100vh;">
+<div style="font-family:'Instrument Sans',system-ui,sans-serif;color:#2A0D09;background:#FFFDFC;min-height:100vh;max-width:1440px;margin:0 auto;">
   <div style="position:fixed;top:0;left:0;height:3px;background:#F9261C;z-index:40;width:{{ progress }};"></div>
 
   <input type="checkbox" id="mobile-nav-toggle" class="mobile-nav-checkbox">
-  <header style="position:sticky;top:0;z-index:30;background:#FFFDFC;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px clamp(20px,4.5vw,72px);flex-wrap:wrap;">
+  <header style="position:sticky;top:0;z-index:30;background:#FFFDFC;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px clamp(20px,min(4.5vw,64.8px),72px);flex-wrap:wrap;">
     <a href="Portfolio.dc.html" style="font-family:'Instrument Serif',serif;font-size:32px;letter-spacing:-0.02em;color:#F9261C;">Soumya Krishnaraj</a>
-    <nav class="desktop-nav" style="display:flex;align-items:center;gap:clamp(16px,2.4vw,36px);font-size:19px;">
+    <nav class="desktop-nav" style="display:flex;align-items:center;gap:clamp(16px,min(2.4vw,34.56px),36px);font-size:19px;">
       <a href="Portfolio.dc.html#research" style="display:flex;align-items:center;gap:10px;"><span style="width:10px;height:10px;border-radius:50%;background:#F9261C;"></span><span>Research</span></a>
       <a href="About.dc.html">About</a>
       <a href="https://www.linkedin.com/in/soumya-krishnaraj/" target="_blank" rel="noopener" style="background:#F9261C;color:#fff;padding:18px 34px;border-radius:999px;transition:transform .25s ease;" style-hover="transform:translateY(-2px) rotate(-2deg);color:#fff;">Get in touch</a>
@@ -56,34 +56,34 @@ a:hover{color:#F9261C;}
   </div>
 
   <!-- HERO -->
-  <section data-screen-label="Case hero" style="padding:clamp(40px,6vw,96px) clamp(20px,4.5vw,72px) clamp(64px,7vw,112px);display:flex;flex-direction:column;gap:40px;">
+  <section data-screen-label="Case hero" style="padding:clamp(40px,min(6vw,86.4px),96px) clamp(20px,min(4.5vw,64.8px),72px) clamp(64px,min(7vw,100.8px),112px);display:flex;flex-direction:column;gap:40px;">
     <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">
       
       
     </div>
-    <h1 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(64px,12vw,210px);line-height:.86;letter-spacing:-0.035em;color:#F9261C;max-width:100%;text-wrap:balance;overflow-wrap:break-word;">Side <i>navigation</i></h1>
-    <p style="margin:0;max-width:30ch;font-family:'Instrument Serif',serif;font-size:clamp(28px,2.8vw,44px);line-height:1.08;text-wrap:pretty;">Improved the nav’s performance against the WCAG accessibility standards</p>
+    <h1 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(64px,min(12vw,172.8px),210px);line-height:.86;letter-spacing:-0.035em;color:#F9261C;max-width:100%;text-wrap:balance;overflow-wrap:break-word;">Side <i>navigation</i></h1>
+    <p style="margin:0;max-width:30ch;font-family:'Instrument Serif',serif;font-size:clamp(28px,min(2.8vw,40.32px),44px);line-height:1.08;text-wrap:pretty;">Improved the nav’s performance against the WCAG accessibility standards</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;border-top:1.5px solid #2A0D09;padding-top:20px;">
       <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Role</span><span style="font-size:17px;">Product designer (IC)</span></div>
       <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Team</span><span style="font-size:17px;">Me, 1 PM, 2 engineers</span></div>
       <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">TIMELINE</span><span style="font-size:17px;">12 days</span></div>
       <div style="display:flex;flex-direction:column;gap:8px;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Tools</span><span style="font-size:17px;">Figma, Stark</span></div>
     </div>
-    <div data-screen-label="Outcome" style="display:flex;flex-direction:column;gap:24px;margin-top:clamp(16px,3vw,40px);">
+    <div data-screen-label="Outcome" style="display:flex;flex-direction:column;gap:24px;margin-top:clamp(16px,min(3vw,43.2px),40px);">
       <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">OUTCOME</span>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:24px;">
         <sc-for list="{{ outcomes }}" as="o" hint-placeholder-count="3">
           <div style="display:flex;flex-direction:column;gap:12px;border-top:1.5px solid #2A0D09;padding-top:16px;">
-            <span style="font-family:'Instrument Serif',serif;font-size:clamp(72px,8vw,128px);line-height:.85;letter-spacing:-0.03em;color:#F9261C;">{{ o.v }}</span>
+            <span style="font-family:'Instrument Serif',serif;font-size:clamp(72px,min(8vw,115.2px),128px);line-height:.85;letter-spacing:-0.03em;color:#F9261C;">{{ o.v }}</span>
             <span style="font-size:17px;line-height:1.4;max-width:28ch;">{{ o.l }}</span>
           </div>
         </sc-for>
       </div>
     </div>
 
-    <div data-screen-label="Before after" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(20px,3vw,40px);margin-top:clamp(16px,3vw,40px);align-items:stretch;">
+    <div data-screen-label="Before after" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(20px,min(3vw,43.2px),40px);margin-top:clamp(16px,min(3vw,43.2px),40px);align-items:stretch;">
       <figure style="margin:0;display:flex;flex-direction:column;gap:16px;">
-        <div style="background:#EEEFFE;border-radius:6px;padding:clamp(24px,4vw,56px);display:flex;justify-content:center;align-items:flex-start;flex:1;">
+        <div style="background:#EEEFFE;border-radius:6px;padding:clamp(24px,min(4vw,57.6px),56px);display:flex;justify-content:center;align-items:flex-start;flex:1;">
           <div style="width:260px;background:#fff;padding:24px 16px;display:flex;flex-direction:column;gap:6px;font-family:Roboto,sans-serif;font-size:14px;border-radius:4px;">
             <span style="font-size:12px;letter-spacing:.04em;color:#758195;padding:8px 8px 4px;">ORGANIZATION</span>
             <div style="background:#EEEFFE;border-radius:8px;padding:4px;display:flex;flex-direction:column;gap:2px;">
@@ -99,7 +99,7 @@ a:hover{color:#F9261C;}
         <figcaption style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;min-height:64px;align-content:flex-start;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">Before</span><span style="font-size:16px;">Purple on two purple tints. Selected item: 3.74:1.</span></figcaption>
       </figure>
       <figure style="margin:0;display:flex;flex-direction:column;gap:16px;">
-        <div style="background:#EDF3FA;border-radius:6px;padding:clamp(24px,4vw,56px);display:flex;justify-content:center;align-items:flex-start;flex:1;">
+        <div style="background:#EDF3FA;border-radius:6px;padding:clamp(24px,min(4vw,57.6px),56px);display:flex;justify-content:center;align-items:flex-start;flex:1;">
           <div style="width:260px;background:#fff;padding:24px 12px;display:flex;flex-direction:column;gap:8px;font-family:Roboto,sans-serif;font-size:14px;line-height:20px;border-radius:4px;">
             <span style="font-size:13px;font-weight:500;line-height:16px;color:rgb(98,111,134);padding:8px 12px 8px 8px;">Services</span>
             <div style="display:flex;align-items:center;gap:8px;height:36px;padding:8px 8px 8px 12px;box-sizing:border-box;color:rgb(0,107,211);font-weight:500;"><span style="display:flex;width:20px;height:20px;">{{ icChk }}</span><span style="flex:1;">Checklists</span><span style="display:flex;width:20px;height:20px;">{{ icUp }}</span></div>
@@ -118,13 +118,13 @@ a:hover{color:#F9261C;}
   </section>
 
   <!-- 01 PROBLEM -->
-  <section data-screen-label="Problem" style="background:#43160F;color:#F8DEDB;padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:clamp(40px,5vw,72px);">
+  <section data-screen-label="Problem" style="background:#43160F;color:#F8DEDB;padding:clamp(80px,min(9vw,129.6px),140px) clamp(20px,min(4.5vw,64.8px),72px);display:flex;flex-direction:column;gap:clamp(40px,min(5vw,72px),72px);">
     <div style="display:flex;flex-direction:column;gap:40px;">
       <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#FF6A5E;">01 / THE PROBLEM</span>
-      <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">The nav worked, but <em style="color:#FF6A5E;">not for everyone.</em></h2>
+      <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,min(6vw,86.4px),104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">The nav worked, but <em style="color:#FF6A5E;">not for everyone.</em></h2>
       <p style="margin:0;max-width:60ch;font-size:19px;line-height:1.5;text-wrap:pretty;">Almost every admin task in KitchenIQ starts in the side nav. I audited it against WCAG 2.1 AA with Stark. The selected state failed, and so did the items around it.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(24px,3vw,40px);">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(24px,min(3vw,43.2px),40px);">
       <figure style="margin:0;display:flex;flex-direction:column;gap:14px;">
         <img src="case-study/sn-stark-unselected.png" alt="Stark audit: unselected sub-item at 3.45:1" style="display:block;width:100%;height:auto;border-radius:6px;">
         <figcaption style="font-size:16px;line-height:1.5;"><span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;color:#FF6A5E;">3.45:1 · </span>Unselected sub-item on the group tint. Fails AA.</figcaption>
@@ -145,10 +145,10 @@ a:hover{color:#F9261C;}
   </section>
 
   <!-- 02 APPROACH -->
-  <section data-screen-label="Approach" style="padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:clamp(40px,5vw,72px);">
+  <section data-screen-label="Approach" style="padding:clamp(80px,min(9vw,129.6px),140px) clamp(20px,min(4.5vw,64.8px),72px);display:flex;flex-direction:column;gap:clamp(40px,min(5vw,72px),72px);">
     <div style="display:flex;flex-direction:column;gap:40px;">
       <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">02 / APPROACH</span>
-      <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Fix the atoms, and <em style="color:#F9261C;">everything passes.</em></h2>
+      <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,min(6vw,86.4px),104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Fix the atoms, and <em style="color:#F9261C;">everything passes.</em></h2>
       <p style="margin:0;max-width:60ch;font-size:19px;line-height:1.5;text-wrap:pretty;">I rebuilt the nav with atomic design. Once the smallest pieces passed contrast, everything built from them passed too, with no screen-by-screen re-checks.</p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:24px;">
@@ -159,7 +159,7 @@ a:hover{color:#F9261C;}
         </div>
       </sc-for>
     </div>
-    <div data-screen-label="States" style="display:flex;flex-direction:column;gap:20px;background:#FBEAE7;border-radius:6px;padding:clamp(24px,4vw,56px);">
+    <div data-screen-label="States" style="display:flex;flex-direction:column;gap:20px;background:#FBEAE7;border-radius:6px;padding:clamp(24px,min(4vw,57.6px),56px);">
       <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">Menu item · 5 states</span>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:16px;">
         <sc-for list="{{ states }}" as="s" hint-placeholder-count="5">
@@ -177,17 +177,17 @@ a:hover{color:#F9261C;}
   </section>
 
   <!-- 03 DECISIONS -->
-  <section data-screen-label="Decisions" style="background:#FBEAE7;padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:clamp(40px,5vw,72px);">
+  <section data-screen-label="Decisions" style="background:#FBEAE7;padding:clamp(80px,min(9vw,129.6px),140px) clamp(20px,min(4.5vw,64.8px),72px);display:flex;flex-direction:column;gap:clamp(40px,min(5vw,72px),72px);">
     <div style="display:flex;flex-direction:column;gap:40px;">
       <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">03 / KEY DECISIONS</span>
-      <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Fewer colors, <em style="color:#F9261C;">clearer signals.</em></h2>
+      <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,min(6vw,86.4px),104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Fewer colors, <em style="color:#F9261C;">clearer signals.</em></h2>
     </div>
     <div style="display:flex;flex-direction:column;gap:0;">
       <sc-for list="{{ decisions }}" as="d" hint-placeholder-count="4">
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(16px,4vw,64px);border-top:1.5px solid #2A0D09;padding:24px 0 clamp(32px,4vw,56px);">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(16px,min(4vw,57.6px),64px);border-top:1.5px solid #2A0D09;padding:24px 0 clamp(32px,min(4vw,57.6px),56px);">
           <div style="display:flex;gap:14px;align-items:baseline;">
             <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;color:#F9261C;">{{ d.n }}</span>
-            <span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.8vw,40px);line-height:1.05;">{{ d.t }}</span>
+            <span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,min(2.8vw,40.32px),40px);line-height:1.05;">{{ d.t }}</span>
           </div>
           <span style="font-size:17px;line-height:1.55;max-width:56ch;text-wrap:pretty;">{{ d.v }}</span>
         </div>
@@ -197,7 +197,7 @@ a:hover{color:#F9261C;}
       <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">Contrast, before → after (AA)</span>
       <div style="display:flex;flex-direction:column;background:#FFFDFC;border-radius:6px;overflow:hidden;">
         <sc-for list="{{ ratios }}" as="r" hint-placeholder-count="4">
-          <div style="display:grid;grid-template-columns:minmax(0,2.2fr) repeat(3,minmax(0,1fr));gap:12px;padding:16px clamp(16px,2vw,24px);border-bottom:1px solid #EFD6D2;font-size:16px;align-items:baseline;">
+          <div style="display:grid;grid-template-columns:minmax(0,2.2fr) repeat(3,minmax(0,1fr));gap:12px;padding:16px clamp(16px,min(2vw,28.8px),24px);border-bottom:1px solid #EFD6D2;font-size:16px;align-items:baseline;">
             <span>{{ r.el }}</span>
             <span style="font-family:'Instrument Sans',system-ui,sans-serif;color:#8A4F48;">{{ r.b }}</span>
             <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-weight:700;color:#107003;">{{ r.a }}</span>
@@ -209,10 +209,10 @@ a:hover{color:#F9261C;}
   </section>
 
   <!-- 04 MODES -->
-  <section data-screen-label="Modes" style="padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px) 0;display:flex;flex-direction:column;gap:clamp(40px,5vw,64px);">
+  <section data-screen-label="Modes" style="padding:clamp(80px,min(9vw,129.6px),140px) clamp(20px,min(4.5vw,64.8px),72px) 0;display:flex;flex-direction:column;gap:clamp(40px,min(5vw,72px),64px);">
     <div style="display:flex;flex-direction:column;gap:40px;">
       <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">04 / THREE MODES</span>
-      <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Static, collapsed, <em style="color: rgb(249, 38, 28);">overlay.</em></h2>
+      <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,min(6vw,86.4px),104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Static, collapsed, <em style="color: rgb(249, 38, 28);">overlay.</em></h2>
     </div>
     <div style="display:flex;flex-direction:column;gap:20px;">
       <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;">
@@ -227,30 +227,30 @@ a:hover{color:#F9261C;}
           </sc-for>
         </div>
       </div>
-      <div style="display:flex;flex-wrap:wrap;gap:clamp(24px,4vw,56px);align-items:center;">
+      <div style="display:flex;flex-wrap:wrap;gap:clamp(24px,min(4vw,57.6px),56px);align-items:center;">
         <div role="img" aria-label="{{ modeAlt }}" style="flex:3 1 480px;min-width:0;aspect-ratio:1504/1096;background-image:{{ modeImg }};background-size:contain;background-repeat:no-repeat;background-position:center;"></div>
         <div style="flex:1 1 260px;display:flex;flex-direction:column;gap:12px;max-width:40ch;">
-          <span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.6vw,40px);line-height:1.05;">{{ modeTitle }}</span>
+          <span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,min(2.6vw,37.44px),40px);line-height:1.05;">{{ modeTitle }}</span>
           <span style="font-size:17px;line-height:1.55;text-wrap:pretty;">{{ modeDesc }}</span>
           <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A4F48;">{{ stateDesc }}</span>
         </div>
       </div>
     </div>
-    <figure data-screen-label="Hit zones" style="margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(24px,4vw,56px);align-items:center;">
+    <figure data-screen-label="Hit zones" style="margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(24px,min(4vw,57.6px),56px);align-items:center;">
       <div style="display:flex;justify-content:center;"><img src="case-study/sn-spec-zones.png" alt="Collapsed rail hit zones spec" style="display:block;width:100%;max-width:420px;height:auto;"></div>
       <figcaption style="display:flex;flex-direction:column;gap:12px;max-width:40ch;">
         <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F9261C;">Spec · collapsed rail</span>
-        <span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.6vw,40px);line-height:1.05;">Two hit zones</span>
+        <span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,min(2.6vw,37.44px),40px);line-height:1.05;">Two hit zones</span>
         <span style="font-size:17px;line-height:1.55;text-wrap:pretty;">The toggle gets a 48×48px zone around its 20px icon, 12px below the header. Clicking it pins the nav open. The rest of the rail is a hover zone that opens the overlay.</span>
       </figcaption>
     </figure>
   </section>
 
   <!-- 05 TRY IT -->
-  <section data-screen-label="Try it" style="padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:32px;">
+  <section data-screen-label="Try it" style="padding:clamp(80px,min(9vw,129.6px),140px) clamp(20px,min(4.5vw,64.8px),72px);display:flex;flex-direction:column;gap:32px;">
     <div style="display:flex;flex-direction:column;gap:24px;">
       <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">05 / TRY IT</span>
-      <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Collapse, peek, <em style="color:#F9261C;">switch.</em></h2>
+      <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,min(6vw,86.4px),104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">Collapse, peek, <em style="color:#F9261C;">switch.</em></h2>
       <div style="display:flex;flex-direction:column;gap:6px;font-size:17px;line-height:1.5;">
         <span><strong>1.</strong> Open and close a group.</span>
         <span><strong>2.</strong> Collapse the nav with the toggle or ⌘B / Ctrl+B.</span>
@@ -331,25 +331,25 @@ a:hover{color:#F9261C;}
   </section>
 
   <!-- 06 IMPACT -->
-  <section data-screen-label="Impact" style="background:#FBEAE7;padding:clamp(80px,9vw,140px) clamp(20px,4.5vw,72px);display:flex;flex-direction:column;gap:36px;">
+  <section data-screen-label="Impact" style="background:#FBEAE7;padding:clamp(80px,min(9vw,129.6px),140px) clamp(20px,min(4.5vw,64.8px),72px);display:flex;flex-direction:column;gap:36px;">
     <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;color:#F9261C;">06 / IMPACT</span>
-    <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,6vw,104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">One component, <em style="color:#F9261C;">every persona.</em></h2>
+    <h2 style="margin:0;max-width:18ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,min(6vw,86.4px),104px);line-height:.94;letter-spacing:-0.025em;text-wrap:balance;">One component, <em style="color:#F9261C;">every persona.</em></h2>
     <p style="margin:0;max-width:62ch;font-size:19px;line-height:1.55;text-wrap:pretty;">The accessibility fix ended up simplifying the whole system. Instead of patching each module's selected state on its own, one component now covers all 15, reused across all four personas without a single exception. The constraint made the system better, not just compliant.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:24px;">
       <sc-for list="{{ outcomes }}" as="o" hint-placeholder-count="3">
         <div style="display:flex;flex-direction:column;gap:10px;border-top:1.5px solid #2A0D09;padding-top:16px;">
-          <span style="font-family:'Instrument Serif',serif;font-size:clamp(40px,3.4vw,56px);line-height:.9;color:#F9261C;">{{ o.v }}</span>
+          <span style="font-family:'Instrument Serif',serif;font-size:clamp(40px,min(3.4vw,48.96px),56px);line-height:.9;color:#F9261C;">{{ o.v }}</span>
           <span style="font-size:14px;line-height:1.35;text-wrap:pretty;">{{ o.l }}</span>
         </div>
       </sc-for>
     </div>
   </section>
 
-  <a href="Org Structures.dc.html" data-screen-label="Next" style="display:flex;flex-direction:column;gap:20px;padding:clamp(56px,7vw,112px) clamp(20px,4.5vw,72px);background:#43160F;color:#F8DEDB;transition:background .4s ease;" style-hover="background:#F9261C;color:#fff;">
+  <a href="Org Structures.dc.html" data-screen-label="Next" style="display:flex;flex-direction:column;gap:20px;padding:clamp(56px,min(7vw,100.8px),112px) clamp(20px,min(4.5vw,64.8px),72px);background:#43160F;color:#F8DEDB;transition:background .4s ease;" style-hover="background:#F9261C;color:#fff;">
     <span style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.12em;text-transform:uppercase;">Next project · 03</span>
-    <span style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;font-family:'Instrument Serif',serif;font-size:clamp(56px,8vw,140px);line-height:.9;letter-spacing:-0.03em;"><span>Org structures</span><span>→</span></span>
+    <span style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;font-family:'Instrument Serif',serif;font-size:clamp(56px,min(8vw,115.2px),140px);line-height:.9;letter-spacing:-0.03em;"><span>Org structures</span><span>→</span></span>
   </a>
-  <button onClick="{{ jump }}" aria-label="{{ jumpAria }}" style="position:fixed;right:clamp(16px,3vw,40px);bottom:clamp(16px,3vw,40px);z-index:40;display:flex;align-items:center;gap:10px;height:52px;padding:0 20px 0 16px;border:none;border-radius:999px;background:#2A0D09;color:#FFFDFC;font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;box-shadow:0 8px 24px rgba(42,13,9,.18);transition:background-color .3s ease;" style-hover="background:#F9261C;">
+  <button onClick="{{ jump }}" aria-label="{{ jumpAria }}" style="position:fixed;right:clamp(16px,min(3vw,43.2px),40px);bottom:clamp(16px,min(3vw,43.2px),40px);z-index:40;display:flex;align-items:center;gap:10px;height:52px;padding:0 20px 0 16px;border:none;border-radius:999px;background:#2A0D09;color:#FFFDFC;font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;box-shadow:0 8px 24px rgba(42,13,9,.18);transition:background-color .3s ease;" style-hover="background:#F9261C;">
     <span style="display:inline-flex;font-size:18px;line-height:1;transition:transform .45s cubic-bezier(.22,1,.36,1);transform:{{ jumpRot }};">↓</span>
     <span>{{ jumpLabel }}</span>
   </button>
