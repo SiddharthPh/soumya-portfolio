@@ -433,7 +433,7 @@ class Component extends DCLogic {
       { name: 'SGX3', file: 'sgx3', h: 34 },
     ];
     const companies = COMPANY_LOGOS.concat(COMPANY_LOGOS).map(c => ({ name: c.name, src: `case-study/logos/${c.file}.png`, style: `height:${c.h}px;` }));
-    const industriesLine = 'Across enterprise SaaS, food safety, healthcare, retail, hiring, K-12 education, and science research.';
+    const industriesLine = ['Enterprise SaaS', 'Food Safety', 'Healthcare', 'Retail', 'Hiring', 'K-12 Education', 'Science Research'].map(t => t.replace(/ /g, '\u00a0')).join('\u00a0\u00a0\u00b7\u00a0 ');
     const gridStyle = { opacity: mode === 'design' ? 0.1 : 0.08 };
 
     // Push each shape's centre SPREAD× further from the hero centre, kept inside the hero.
