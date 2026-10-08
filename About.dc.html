@@ -37,28 +37,6 @@ a:hover{color:var(--t-accent);}
 .about-main{grid-template-columns:1fr;grid-template-areas:"headline" "portrait" "contact";}
 .about-portrait-col{max-width:100%!important;}
 }
-.nod-icons{display:grid;justify-self:end;grid-column:2;grid-row:1;align-self:start;}
-.nod-copy{grid-column:1;grid-row:1;align-self:end;}
-.nod-set{grid-area:1/1;display:flex;gap:clamp(14px,2.2vw,28px);justify-content:flex-end;align-items:flex-start;opacity:0;animation:nod-cycle 18s ease-in-out infinite;}
-.nod-a{opacity:1;}
-.nod-b{animation-delay:9s;}
-.nod-item{display:flex;}
-.nod-art{position:relative;width:clamp(72px,9vw,128px);aspect-ratio:360/420;}
-.nod-img{display:block;width:100%;height:auto;filter:none!important;}
-.nod-ov{position:absolute;display:block;height:auto;filter:none!important;pointer-events:none;}
-.nod-spin{transform-origin:50% 50%;animation:nod-spin 40s linear infinite;}
-.nod-steam{transform-origin:50% 100%;opacity:0;animation:nod-steam 6s ease-in-out infinite;}
-.nod-steam1{animation-delay:1.6s;}
-.nod-steam2{animation-delay:3.2s;}
-.nod-flag{transform-origin:0% 55%;animation:nod-flag 3.4s ease-in-out infinite alternate;animation-delay:9s;}
-.nod-sprite{position:absolute;inset:0;background:url(case-study/about-misal-sheet.webp) 0 0/800% 100% no-repeat;animation:nod-eat 18s step-end infinite;animation-delay:9s;}
-@keyframes nod-cycle{0%{opacity:0;}7%{opacity:1;}43%{opacity:1;}50%{opacity:0;}100%{opacity:0;}}
-@keyframes nod-spin{to{transform:rotate(360deg);}}
-@keyframes nod-steam{0%{opacity:0;transform:translate(0,8%) scaleY(.9);}25%{opacity:.95;}60%{opacity:.8;transform:translate(1.5%,-6%) scaleY(1.03);}100%{opacity:0;transform:translate(-1%,-16%) scaleY(1.1);}}
-@keyframes nod-flag{0%{transform:skewY(-4deg) scaleX(1.02) rotate(-1deg);}50%{transform:skewY(3deg) scaleX(.95) rotate(1.5deg);}100%{transform:skewY(-2deg) scaleX(1.03) rotate(-.5deg);}}
-@keyframes nod-eat{0%{background-position:0 0;}8.9%{background-position:14.2857% 0;}15%{background-position:28.5714% 0;}21.1%{background-position:42.8571% 0;}26.1%{background-position:57.1429% 0;}31.1%{background-position:71.4286% 0;}35.6%{background-position:85.7143% 0;}39.4%{background-position:100% 0;}100%{background-position:100% 0;}}
-@media (prefers-reduced-motion:reduce){.nod-set,.nod-spin,.nod-steam,.nod-flag,.nod-sprite{animation:none;}.nod-steam{opacity:.9;}.nod-b{display:none;}}
-@media (max-width:767px){.nod-sec{grid-template-columns:minmax(0,1fr)!important;}.nod-icons{grid-column:1;grid-row:1;justify-self:start;}.nod-copy{grid-column:1;grid-row:2;}.nod-set{justify-content:flex-start;}.nod-art{width:76px;}}
 </style>
 </helmet>
 <div style="font-family:'Instrument Sans',system-ui,sans-serif;color:var(--t-ink);background:var(--t-bg);min-height:100vh;max-width:1440px;margin:0 auto;display:flex;flex-direction:column;">
@@ -101,15 +79,6 @@ a:hover{color:var(--t-accent);}
       </div>
     </div>
   </main>
-  <section data-screen-label="Where I am from" class="nod-sec" style="background:var(--t-deep);color:var(--t-ondeep);padding:clamp(36px,min(4.5vw,64px),72px) clamp(20px,min(4.5vw,64.8px),72px);display:grid;gap:clamp(24px,min(3vw,40px),40px) clamp(24px,4vw,64px);grid-template-columns:minmax(0,1fr) auto;align-items:end;">
-    <div class="nod-icons">
-      <div class="nod-set nod-a"><div class="nod-item"><div class="nod-art"><img class="nod-img" src="case-study/about-kolam.webp" alt="A kolam, the rice flour floor pattern drawn at Tamil doorsteps"><img class="nod-ov nod-spin" src="case-study/about-kolam-disc.webp" alt="" aria-hidden="true" style="left:11.10%;top:15.64%;width:77.80%;height:66.67%"></div></div><div class="nod-item"><div class="nod-art"><img class="nod-img" src="case-study/about-davara.webp" alt="A steel tumbler of filter coffee in its davara bowl"><img class="nod-ov nod-steam nod-steam0" src="case-study/about-davara-steam0.webp" alt="" aria-hidden="true" style="left:38.54%;top:15.95%;width:7.40%;height:20.55%"><img class="nod-ov nod-steam nod-steam1" src="case-study/about-davara-steam1.webp" alt="" aria-hidden="true" style="left:46.30%;top:13.50%;width:7.40%;height:20.65%"><img class="nod-ov nod-steam nod-steam2" src="case-study/about-davara-steam2.webp" alt="" aria-hidden="true" style="left:54.06%;top:15.95%;width:7.40%;height:20.55%"></div></div></div>
-      <div class="nod-set nod-b"><div class="nod-item"><div class="nod-art"><img class="nod-img" src="case-study/about-wada.webp" alt="The gateway and bastions of Shaniwar Wada in Pune"><img class="nod-ov nod-flag" src="case-study/about-wada-flag.webp" alt="" aria-hidden="true" style="left:50.60%;top:15.95%;width:14.20%;height:12.88%"></div></div><div class="nod-item"><div class="nod-art"><div class="nod-sprite" role="img" aria-label="A plate of misal pav being eaten bit by bit"></div></div></div></div>
-    </div>
-    <div class="nod-copy" style="display:flex;flex-direction:column;gap:16px;">
-      <p style="margin:0;max-width:24ch;font-family:'Instrument Serif',serif;font-size:clamp(30px,min(3.9vw,56px),58px);line-height:1.08;letter-spacing:-0.02em;text-wrap:balance;">Born and raised in Pune, Tamilian to the core. I grew up between two languages, in a blend of two identities, with one very strong opinion about filter coffee.</p>
-    </div>
-  </section>
   <section data-screen-label="Working with me" style="background:var(--t-tint);padding:clamp(80px,min(9vw,129.6px),140px) clamp(20px,min(4.5vw,64.8px),72px);display:flex;flex-direction:column;gap:clamp(48px,min(5vw,72px),80px);">
     <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(52px,min(6.5vw,93.6px),112px);line-height:.92;letter-spacing:-0.03em;color:var(--t-accent);">What <em>working with me</em> is like</h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));column-gap:clamp(40px,min(6vw,86.4px),112px);row-gap:clamp(56px,min(6vw,86.4px),96px);">
