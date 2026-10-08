@@ -30,7 +30,6 @@
   +'.theme-toggle-mobile{display:none;margin-left:auto;}'
   +'@media (max-width:767px){.theme-toggle-mobile{display:inline-flex;}}'
   +':root[data-theme="dark"] .worked-track .wi-gray{filter:invert(1) brightness(.9);}'
-  +':root[data-theme="dark"] .wi-tip{background:#ECE8E4!important;color:#1A1A1B!important;}'
   +':root[data-theme="dark"] img{filter:brightness(.94);}'
   +':root[data-theme="dark"] .worked-track img{filter:none;}'
   +'html.theme-vt *{transition:none!important;}'

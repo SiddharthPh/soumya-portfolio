@@ -34,15 +34,10 @@ main > article:first-of-type{border-top:0!important;}
 .worked-label{padding:0 clamp(20px,min(4.5vw,64.8px),72px);font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted,var(--t-muted));}
 .worked-marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);}
 .worked-track{display:flex;width:max-content;gap:clamp(40px,min(5vw,72px),72px);padding-right:clamp(40px,min(5vw,72px),72px);animation:worked-scroll 38s linear infinite;}
-.worked-marquee:hover .worked-track{animation-play-state:paused;}
 .worked-track{align-items:center;}
 .worked-item{position:relative;display:block;flex:none;}
-.wi-gray{display:block;width:auto;max-width:none;opacity:1;transition:opacity .3s ease;}
-.wi-color{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .3s ease;}
-.wi-tip{position:absolute;left:50%;top:calc(100% + 12px);translate:-50% 0;padding:5px 10px;border-radius:6px;background:var(--t-ink);color:#fff;font-size:12px;letter-spacing:.02em;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .25s ease;}
-.worked-item:hover .wi-gray{opacity:0;}
-.worked-item:hover .wi-color,.worked-item:hover .wi-tip{opacity:1;}
-.worked-marquee{padding-bottom:44px;margin-bottom:-24px;}
+.wi-gray{display:block;width:auto;max-width:none;opacity:1;}
+.worked-item:hover .wi-color,.worked-item:hover .worked-marquee{padding-bottom:44px;margin-bottom:-24px;}
 .worked-line{margin:0;padding:0 clamp(20px,min(4.5vw,64.8px),72px);font-size:16px;line-height:1.55;color:var(--muted,var(--t-muted));}
 @keyframes worked-scroll{to{transform:translateX(-50%);}}
 @media (prefers-reduced-motion:reduce){.worked-track{animation:none;flex-wrap:wrap;width:auto;padding:0 clamp(20px,min(4.5vw,64.8px),72px);}.worked-item:nth-child(n+8){display:none;}}
@@ -153,7 +148,7 @@ main > article:first-of-type{border-top:0!important;}
       <div class="worked-marquee">
         <div class="worked-track">
           <sc-for list="{{ companies }}" as="c" hint-placeholder-count="14">
-            <span class="worked-item"><img class="wi-gray" src="{{ c.src }}" alt="{{ c.name }}" style="{{ c.style }}"><img class="wi-color" src="{{ c.colorSrc }}" alt=""><span class="wi-tip">{{ c.name }}</span></span>
+            <span class="worked-item"><img class="wi-gray" src="{{ c.src }}" alt="{{ c.name }}" style="{{ c.style }}"></span>
           </sc-for>
         </div>
       </div>
@@ -450,13 +445,13 @@ class Component extends DCLogic {
     const guideStyle = { position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none', display: mode === 'design' ? 'block' : 'none' };
     const workedStyle = { display: mode === 'design' ? 'flex' : 'none' };
     const COMPANY_LOGOS = [
-      { name: 'Ecolab', file: 'ecolab', h: 34 },
-      { name: 'Zebra Technologies', file: 'zebra', h: 44 },
-      { name: 'World Wide Technology', file: 'wwt', h: 38 },
-      { name: 'Wonderland Education', file: 'wonderland', h: 62 },
-      { name: 'fastjobs.io', file: 'fastjobs', h: 72 },
-      { name: 'DVC Lab, Purdue', file: 'dvc', h: 48 },
-      { name: 'SGX3', file: 'sgx3', h: 34 },
+      { name: 'Ecolab', file: 'ecolab', h: 26 },
+      { name: 'World Wide Technology', file: 'wwt', h: 28 },
+      { name: 'Zebra Technologies', file: 'zebra', h: 32 },
+      { name: 'DVC Lab, Purdue', file: 'dvc', h: 36 },
+      { name: 'Wonderland Education', file: 'wonderland', h: 46 },
+      { name: 'fastjobs.io', file: 'fastjobs', h: 54 },
+      { name: 'SGX3', file: 'sgx3', h: 26 },
     ];
     const companies = COMPANY_LOGOS.concat(COMPANY_LOGOS).map(c => ({ name: c.name, src: `case-study/logos/${c.file}.png`, colorSrc: `case-study/logos/${c.file}-color.png`, style: `height:${c.h}px;` }));
     const industriesLine = ['Enterprise SaaS', 'Food Safety', 'Healthcare', 'Retail', 'Hiring', 'K-12 Education', 'Science Research'].map(t => t.replace(/ /g, '\u00a0')).join('\u00a0\u00a0\u00b7\u00a0 ');
