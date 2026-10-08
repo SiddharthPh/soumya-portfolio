@@ -11,6 +11,14 @@
   var css=''
   +':root{--t-bg:#FFFDFC;--t-ink:#2A0D09;--t-accent:#F9261C;--t-fill:#F9261C;--t-fill-hover:#E01810;--t-muted:#8A4F48;--t-line:#EFD6D2;--t-tint:#FBEAE7;--t-deep:#43160F;--t-ondeep:#F8DEDB;--t-chip:#43160F;--t-chip-ink:#F8DEDB;--t-body:#4A1E18;--t-box:#F4EDEC;--t-accent2:#C9372C;--t-slate:rgb(98,111,134);--t-good:#107003;}'
   +':root[data-theme="dark"]{--t-bg:#1A1A1B;--t-ink:#ECE8E4;--t-accent:#FF8378;--t-fill:#D63A30;--t-fill-hover:#E5483D;--t-muted:#ABA5A0;--t-line:#3B3938;--t-tint:#252324;--t-deep:#2F2C2D;--t-ondeep:#ECE8E4;--t-chip:#38302F;--t-chip-ink:#EFE9E6;--t-body:#D9D3CE;--t-box:#38302F;--t-accent2:#FF8378;--t-slate:#A4AEBF;--t-good:#7FD873;}'
+  +'.name-cycle{display:inline-grid;vertical-align:baseline;}'
+  +'.name-cycle .nm{grid-area:1/1;white-space:nowrap;opacity:0;animation:name-cycle 12s infinite;}'
+  +'.name-cycle .nm-en{opacity:1;animation-delay:0s;}'
+  +'.name-cycle .nm-ta{animation-delay:4s;font-family:"Noto Serif Tamil","Tiro Tamil",serif;font-stretch:62.5%;font-size:.88em;letter-spacing:0;line-height:1.3;}'
+  +'.name-cycle .nm-mr{animation-delay:8s;font-family:"Tiro Devanagari Marathi","Noto Serif Devanagari",serif;font-size:.95em;letter-spacing:0;}'
+  +''
+  +'@keyframes name-cycle{0%{opacity:0;transform:translateY(6px);}4%,30%{opacity:1;transform:none;}34%,100%{opacity:0;transform:translateY(-6px);}}'
+  +'@media (prefers-reduced-motion:reduce){.name-cycle .nm{animation:none;}.name-cycle .nm-ta,.name-cycle .nm-mr{display:none;}}'
   +'html{background:var(--t-bg);}'
   +'.theme-toggle{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--t-line);color:var(--t-ink);transition:color .25s ease,border-color .25s ease,transform .35s cubic-bezier(.22,1,.36,1);}'
   +'.theme-toggle:hover{color:var(--t-accent);border-color:var(--t-accent);transform:rotate(18deg);}'
@@ -33,6 +41,7 @@
   +'html.theme-anim,html.theme-anim *{transition:background-color .35s ease,color .35s ease,border-color .35s ease!important;}';
   var st=document.createElement('style'); st.id='theme-vars'; st.textContent=css;
   (document.head||root).appendChild(st);
+  var fl=document.createElement('link'); fl.rel='stylesheet'; fl.href='https://fonts.googleapis.com/css2?family=Noto+Serif+Tamil:wdth,wght@62.5..100,400&family=Tiro+Devanagari+Marathi&display=swap'; (document.head||root).appendChild(fl);
   var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
   function commit(t){
     apply(t);
