@@ -48,6 +48,18 @@ main > article:first-of-type{border-top:0!important;}
 .hero-guide-label-bottom{transform:translate(8px,calc(-100% - 8px));}
 .hero-guide-label-left{transform:translate(8px,-50%);}
 .hero-guide-label-right{transform:translate(calc(-100% - 8px),-50%);}
+.hero-squiggle{width:100%;height:100%;display:block;}
+.hsq-tip-box{position:absolute;left:0;top:0;display:flex;flex-direction:column;gap:4px;max-width:230px;padding:10px 14px 11px;border-radius:8px;background:var(--bg,var(--t-bg));border:1px solid var(--line,var(--t-line));box-shadow:0 10px 28px rgba(0,0,0,.08);opacity:0;transition:opacity .22s ease;pointer-events:none;will-change:transform;}
+.hsq-tip-t{font-family:'Instrument Serif',serif;font-size:21px;line-height:1.05;letter-spacing:-.01em;color:var(--head,var(--t-accent));}
+.hsq-tip-s{font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;line-height:1.4;color:var(--muted,var(--t-muted));}
+@media (max-width:767px){.hsq-tip{display:none!important;}}
+.hero-track.is-flying [data-screen-label="Hero"]{overflow:visible!important;}
+.hero-track.is-flying .hero-squiggle{bottom:auto!important;height:calc(100% + var(--bleed,0px))!important;}
+.hsq-chap-in{position:absolute;left:0;right:0;bottom:7%;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;padding:0 24px;opacity:0;transition:opacity .35s ease;}
+.hsq-chap-t{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px clamp(12px,1.6vw,20px);font-family:'Instrument Sans',system-ui,sans-serif;font-size:11px;font-weight:500;line-height:1.3;letter-spacing:.2em;text-transform:uppercase;color:#8f8a87;}
+.hsq-chap-t i{display:inline-block;width:3px;height:3px;border-radius:50%;background:#8f8a87;opacity:.8;}
+:root[data-theme="dark"] .hsq-chap-t{color:#a9a4a0;}
+:root[data-theme="dark"] .hsq-chap-t i{background:#a9a4a0;}
 .hero-dotgrid-bg{position:absolute;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(circle, var(--muted) 1px, transparent 1px);background-size:30px 30px;}
 .headline-highlight{background-image:linear-gradient(120deg,rgba(255,235,59,.55),rgba(255,235,59,.55));background-repeat:no-repeat;background-position:0 88%;background-size:0% 38%;transition:background-size 1s cubic-bezier(.2,.7,.2,1);box-decoration-break:clone;-webkit-box-decoration-break:clone;}
 .headline-highlight.is-on{background-size:100% 38%;}
@@ -55,14 +67,14 @@ main > article:first-of-type{border-top:0!important;}
 .kw-circle::after{content:"";position:absolute;left:-7%;right:-7%;top:-14%;bottom:-10%;border:2px solid #FF3B2E;border-radius:52% 48% 50% 50% / 56% 52% 48% 44%;opacity:.65;pointer-events:none;rotate:-1.5deg;}
 .kw-arrow{position:relative;display:inline-block;}
 .kw-arrow-icon{position:absolute;left:100%;top:50%;translate:6px -50%;width:26px;height:18px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 34' fill='none'%3E%3Cpath d='M46 17 C34 15, 20 17, 8 17' stroke='%23FF3B2E' stroke-width='2.5' stroke-linecap='round'/%3E%3Cpath d='M8 17 L17 10 M8 17 L17 24' stroke='%23FF3B2E' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-size:contain;opacity:.7;pointer-events:none;}
-.is-research .theme-toggle{color:var(--fg);border-color:var(--muted);}
-.is-research .theme-toggle:hover{color:var(--accent);border-color:var(--accent);}
+.is-research .theme-toggle{color:var(--fg);}
+.is-research .theme-toggle:hover{color:var(--accent);}
 :root[data-theme="dark"] .is-design .status-shipped{color:#8EE07F!important;background-color:#16301A!important;border-color:#2F7A33!important;}
 :root[data-theme="dark"] .is-design .status-dev{color:#F0C777!important;background:#33290F!important;border-color:#8A6A1E!important;}
 :root[data-theme="dark"] .is-design .hero-dotgrid-bg{opacity:.14!important;}
 @media (max-width:767px){
   .hero-shape{display:none!important;}
-  [data-screen-label="Hero"]{height:48vh!important;min-height:340px!important;max-height:420px!important;}
+  [data-screen-label="Hero"]{height:58vh!important;min-height:420px!important;max-height:500px!important;}
   .desktop-nav{display:none!important;}
   .hamburger-btn{display:flex!important;align-items:center;justify-content:center;}
   .project-card{grid-template-columns:1fr;grid-template-rows:auto auto auto;grid-template-areas:"header" "thumb" "metrics";row-gap:32px;}
@@ -94,7 +106,6 @@ main > article:first-of-type{border-top:0!important;}
 
         <a href="About.dc.html" style="color:var(--fg,var(--t-ink));transition:color .7s ease;">About</a>
         <button type="button" class="theme-toggle" aria-label="Switch between light and dark mode" title="Light or dark"><svg class="ic-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="ic-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
-        <a href="https://www.linkedin.com/in/soumya-krishnaraj/" target="_blank" rel="noopener" style="background:var(--t-fill);color:#fff;padding:18px 34px;border-radius:999px;transition:transform .25s ease,background .25s ease;" style-hover="transform:translateY(-2px) rotate(-2deg);background:var(--t-fill-hover);color:#fff;">Get in touch</a>
       </nav>
       <button type="button" class="theme-toggle theme-toggle-mobile" aria-label="Switch between light and dark mode" title="Light or dark"><svg class="ic-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="ic-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
       <button class="hamburger-btn" onClick="{{ toggleMobileNav }}" aria-label="{{ mobileNavAria }}" style="all:unset;display:none;cursor:pointer;color:var(--fg,var(--t-ink));">{{ mobileNavIcon }}</button>
@@ -106,11 +117,11 @@ main > article:first-of-type{border-top:0!important;}
           <span>{{ toggleLabel }}</span>
         </button>
         <a href="About.dc.html" style="padding:16px 0;font-size:20px;color:var(--fg,var(--t-ink));border-bottom:1px solid var(--line,var(--t-line));">About</a>
-        <a href="https://www.linkedin.com/in/soumya-krishnaraj/" target="_blank" rel="noopener" style="margin-top:16px;text-align:center;background:var(--t-fill);color:#fff;padding:18px 34px;border-radius:999px;">Get in touch</a>
       </div>
     </sc-if>
 
     <!-- HERO -->
+    <div class="hero-track">
     <section data-screen-label="Hero" onMouseMove="{{ onHeroMove }}" onTouchMove="{{ onHeroTouchMove }}" style="position:relative;height:calc(100vh - 112px);min-height:620px;max-height:980px;overflow:hidden;">
       <div class="hero-dotgrid-bg" style="{{ gridStyle }}"></div>
 
@@ -126,7 +137,7 @@ main > article:first-of-type{border-top:0!important;}
         </div>
       </sc-for>
 
-      <div class="hero-guides" style="{{ guideStyle }}">
+      <div class="hero-guides" style="{{ guideOffStyle }}">
         <div class="hero-guide-line-v"></div>
         <div class="hero-guide-line-h"></div>
         <div class="hero-guide-label hero-guide-label-top"></div>
@@ -135,12 +146,17 @@ main > article:first-of-type{border-top:0!important;}
         <div class="hero-guide-label hero-guide-label-right"></div>
       </div>
 
-      <div class="hero-centertext" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;padding:0 24px;pointer-events:none;z-index:2;">
+      <canvas class="hero-squiggle" aria-hidden="true" style="{{ guideStyle }}"></canvas>
+      <div class="hsq-tip" aria-hidden="true" style="{{ guideStyle }}"><div class="hsq-tip-box"><span class="hsq-tip-t"></span><span class="hsq-tip-s"></span></div></div>
+      <div class="hsq-chap" aria-hidden="true" style="{{ guideStyle }}"><div class="hsq-chap-in"><span class="hsq-chap-t"><span>People-first</span><i></i><span>Systems-thinker</span><i></i><span>Context-aware</span></span></div></div>
+
+      <div class="hero-centertext" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;padding:{{ centerPad }};pointer-events:none;z-index:2;">
         <div style="font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted,var(--t-muted));transition:color .7s ease;">{{ eyebrow }}</div>
         <h1 style="{{ headStyle }}">{{ headlineNode }}</h1>
       </div>
 
     </section>
+    </div>
 
     <!-- WORKED WITH -->
     <section class="worked-with" style="{{ workedStyle }}">
@@ -241,6 +257,7 @@ main > article:first-of-type{border-top:0!important;}
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.114 20.452H3.558V9h3.556v11.452z"/></svg>
             <span>LinkedIn</span>
           </a>
+          <div style="padding-top:10px;"><a href="https://www.linkedin.com/in/soumya-krishnaraj/" target="_blank" rel="noopener" style="display:inline-block;background:var(--t-fill);color:#fff;padding:12px 24px;border-radius:999px;font-size:15px;letter-spacing:0;text-transform:none;transition:transform .25s ease,background .25s ease;" style-hover="transform:translateY(-2px) rotate(-2deg);background:var(--t-fill-hover);color:#fff;">Get in touch</a></div>
         </div>
       </div>
       <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font-family:'Instrument Sans',system-ui,sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted,var(--t-muted));border-top:1px solid var(--line,var(--t-line));padding-top:24px;transition:color .7s ease,border-color .7s ease;">
@@ -297,8 +314,8 @@ const SLOTS_DARK = [
 const SLOTS = {
   design: [
     { l: '53%', t: '6%', w: 'min(21vw,302.4px)', h: 'min(13vw,187.2px)', shape: 'circle', rot: -18, c: '#F9261C', tc: '#FFFFFF', label: 'Systems thinker', on: 1 },
-    { l: '16%', t: '48%', w: 'min(15vw,216px)', h: 'min(15vw,216px)', shape: 'clover', rot: 0, c: '#F8DEDB', tc: '#F9261C', label: 'Detail obsessive', on: 1 },
-    { l: '59%', t: '69%', w: 'min(19vw,273.6px)', h: 'min(11vw,158.4px)', shape: 'para', rot: 0, c: '#43160F', tc: '#FFFFFF', label: 'Context-aware', on: 1 },
+    { l: '17%', t: '14%', w: 'min(15vw,216px)', h: 'min(15vw,216px)', shape: 'clover', rot: 0, c: '#F8DEDB', tc: '#F9261C', label: 'Detail obsessive', on: 1 },
+    { l: '74%', t: '34%', w: 'min(19vw,273.6px)', h: 'min(11vw,158.4px)', shape: 'para', rot: 0, c: '#43160F', tc: '#FFFFFF', label: 'Context-aware', on: 1 },
     { l: '16%', t: '9%', w: 'min(10vw,144px)', h: 'min(12vw,172.8px)', shape: 'arch', rot: 0, c: '#F9261C', tc: '#FFFFFF', label: '', on: 0 },
   ],
   research: [
@@ -310,7 +327,7 @@ const SLOTS = {
 };
 
 const COPY = {
-  design: { head: 'I design for how people actually work.', eyebrow: 'Product designer', toggle: 'Research', footer: "Let's build it right." },
+  design: { head: 'I design for how people perceive, interpret, and interact with complex systems.', eyebrow: 'Product designer', toggle: 'Research', footer: "Let's build it right." },
   research: { head: 'I listen for what people actually ', headHighlight: 'mean.', eyebrow: 'Design researcher', toggle: 'Design', footer: "Let's go find out." },
 };
 
@@ -352,6 +369,8 @@ class Component extends DCLogic {
     this.onTheme = (e) => this.setState({ dark: !!e.detail && e.detail === 'dark' });
     window.addEventListener('themechange', this.onTheme);
     this.guideInteracted = false;
+    this.initSquiggle();
+    this.initSprinkles();
     this.placeDefaultGuides();
     this.onGuideResize = () => { if (!this.guideInteracted) this.placeDefaultGuides(); };
     window.addEventListener('resize', this.onGuideResize);
@@ -361,8 +380,353 @@ class Component extends DCLogic {
     clearTimeout(this.t1); clearTimeout(this.t2); clearTimeout(this.t3); clearTimeout(this.t4);
     this.onGuideResize && window.removeEventListener('resize', this.onGuideResize);
     this.onTheme && window.removeEventListener('themechange', this.onTheme);
+    this.sqCleanup && this.sqCleanup();
+    this.spCleanup && this.spCleanup();
   }
 
+  initSquiggle() {
+    const hero = document.querySelector('[data-screen-label="Hero"]');
+    const cv = hero && hero.querySelector('.hero-squiggle');
+    if (!cv) return;
+    const ctx = cv.getContext('2d');
+    const reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let seed = 11; const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+    const N = 2400;
+    const comps = [
+      { f: 47, a: 1.0, px: rnd() * 6.28, py: rnd() * 6.28, w: 0.9 },
+      { f: 33, a: 0.85, px: rnd() * 6.28, py: rnd() * 6.28, w: -0.7 },
+      { f: 19, a: 0.7, px: rnd() * 6.28, py: rnd() * 6.28, w: 0.5 },
+      { f: 8, a: 0.55, px: rnd() * 6.28, py: rnd() * 6.28, w: -0.35 },
+      { f: 71, a: 0.5, px: rnd() * 6.28, py: rnd() * 6.28, w: 1.1 },
+      { f: 58, a: 0.42, px: rnd() * 6.28, py: rnd() * 6.28, w: -1.0 },
+    ];
+    const ts = new Float32Array(N), env = new Float32Array(N), env2 = new Float32Array(N), grad = new Float32Array(N), relax = new Float32Array(N);
+    const px = new Float32Array(N), py = new Float32Array(N), sArr = new Float32Array(N);
+    const ux = new Float32Array(N), uy = new Float32Array(N), uz = new Float32Array(N), psc = new Float32Array(N), zv = new Float32Array(N), zr = new Float32Array(N);
+    const jx = new Float32Array(N), jy = new Float32Array(N), rad = new Float32Array(N), keep = new Float32Array(N), tone = new Uint8Array(N);
+    for (let i = 0; i < N; i++) {
+      const a = rnd() * 6.2832, rr = Math.pow(rnd(), 0.6);
+      jx[i] = Math.cos(a) * rr; jy[i] = Math.sin(a) * rr;
+      zr[i] = rnd() * 2 - 1;
+      rad[i] = 0.9 + rnd() * 1.4; keep[i] = rnd();
+      const q = rnd(); tone[i] = q < 0.55 ? 0 : (q < 0.9 ? 1 : 2);
+    }
+    const sm = (a, b, x) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
+    for (let i = 0; i < N; i++) {
+      const t = i / (N - 1); ts[i] = t;
+      env[i] = Math.pow(1 - sm(0.0, 0.34, t), 1.2);
+      env2[i] = Math.pow(1 - sm(0.12, 0.84, t), 1.5);
+      grad[i] = sm(0.62, 0.84, t);
+    }
+    const hex = (c, d) => { c = (c || '').trim(); if (/^#[0-9a-f]{6}$/i.test(c)) return [parseInt(c.slice(1, 3), 16), parseInt(c.slice(3, 5), 16), parseInt(c.slice(5, 7), 16)]; return d; };
+    let ink = [42, 13, 9], acc = [249, 38, 28], W = 0, H = 0, dpr = 1, bleed = 0;
+    const readColors = () => { const cs = getComputedStyle(hero.parentElement || hero); ink = hex(cs.getPropertyValue('--fg'), ink); acc = hex(cs.getPropertyValue('--accent'), acc); };
+    const track = hero.parentElement; const hdr = document.querySelector('header');
+    let flyDist = 0, flyOn = false, fpS = 0, stageNow = -1;
+    const chap = hero.querySelector('.hsq-chap-in');
+    let resizeFn = null;
+    const setFly = (on) => {
+      if (on === flyOn) return;
+      flyOn = on; if (!track) return;
+      track.classList.toggle('is-flying', on);
+      if (resizeFn) resizeFn();
+    };
+    let box = null;
+    let yaw = -0.2, pitch = 0, focus = 0;
+    const zoneMix = [0, 0, 0]; let zoneNow = -1; let tipZone = -2;
+    const tip = hero.querySelector('.hsq-tip-box'), tipT = hero.querySelector('.hsq-tip-t'), tipS = hero.querySelector('.hsq-tip-s');
+    const ZONES = [
+      { t: 'People and context first', s: 'Understanding who they are and where they work, before anything is solved.' },
+      { t: 'Frame the problem', s: 'Naming the real problem and weighing what we trade off.' },
+      { t: 'Clarity', s: 'A clear direction that people and systems can trust.' },
+    ];
+    const readBox = () => {
+      const ct = hero.querySelector('.hero-centertext'); if (!ct) { box = null; return; }
+      const hr = hero.getBoundingClientRect(); let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
+      ct.querySelectorAll('div, h1').forEach((el) => { if (!el.textContent.trim()) return; const r = el.getBoundingClientRect(); if (!r.width) return; x0 = Math.min(x0, r.left - hr.left); y0 = Math.min(y0, r.top - hr.top); x1 = Math.max(x1, r.right - hr.left); y1 = Math.max(y1, r.bottom - hr.top); });
+      const h1 = ct.querySelector('h1'); if (h1) { const r = h1.getBoundingClientRect(); x0 = Math.min(x0, r.left - hr.left); x1 = Math.max(x1, r.right - hr.left); y0 = Math.min(y0, r.top - hr.top); y1 = Math.max(y1, r.bottom - hr.top); }
+      box = x0 < x1 ? { x0: x0 - 22, y0: y0 - 18, x1: x1 + 22, y1: y1 + 18 } : null;
+    };
+    const resize = () => {
+      const r = hero.getBoundingClientRect(); W = r.width; H = r.height; dpr = Math.min(2, window.devicePixelRatio || 1);
+      bleed = flyOn ? Math.round(window.innerHeight * 0.45) : 0;
+      if (track) track.style.setProperty('--bleed', bleed + 'px');
+      cv.width = Math.round(W * dpr); cv.height = Math.round((H + bleed) * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      flyDist = 0; if (track) track.style.height = '';
+    };
+    resizeFn = resize;
+    let cur = null, last = performance.now(), running = false, raf = 0, frame = 0;
+    const INTRO = 2000; let introStart = performance.now() + 150;
+    const ease = (p) => p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
+    const onMove = (e) => { const r = hero.getBoundingClientRect(); const p = e.touches ? e.touches[0] : e; cur = { x: p.clientX - r.left, y: p.clientY - r.top }; };
+    const onLeave = () => { cur = null; };
+    const draw = (now, still) => {
+      const dt = Math.min(0.05, (now - last) / 1000); last = now;
+      if (cv.offsetWidth === 0) { if (flyOn) setFly(false); return; }
+      if (!flyOn && !reduce) setFly(true);
+      if (!W || Math.abs(cv.offsetWidth - W) > 1 || Math.abs(cv.offsetHeight - (H + bleed)) > 1) resize();
+      if (frame++ % 30 === 0) { readColors(); readBox(); }
+      const time = still ? 0 : now / 1000;
+      const small = W < 768;
+      const x0 = W * 0.07, x1 = W * 1.14, yl = H * 0.72;
+      const ax = Math.min(W * (small ? 0.17 : 0.12), 210), ay = Math.min(H * (small ? 0.13 : 0.19), 190), bias = 0;
+      const R = small ? 90 : 135;
+      const zAmp = Math.min(W * (small ? 0.3 : 0.38), 520);
+      const sp = 0;
+      let fp = 0;
+      if (flyOn && flyDist > 0 && track) { const tt0 = track.getBoundingClientRect().top + window.scrollY - (hdr ? hdr.offsetHeight : 0); fp = Math.min(1, Math.max(0, (window.scrollY - tt0) / flyDist)); }
+      fpS += (fp - fpS) * (still ? 1 : 0.14);
+      const fpE = still ? 0 : fpS;
+      const frontP = 0.62 - 0.74 * Math.min(1, fpE / 0.85);
+      const sweepF = (t) => { const a = frontP - 0.12, b = frontP + 0.06, u = Math.min(1, Math.max(0, (t - a) / (b - a))); return u * u * (3 - 2 * u); };
+      for (let i = 0; i < N; i++) {
+        const t = ts[i];
+        let ox = 0, oy = 0;
+        for (let k = 0; k < comps.length; k++) {
+          const c = comps[k], ph = 6.2831853 * c.f * t, dr = time * c.w * 0.55;
+          ox += c.a * Math.sin(ph + c.px + dr);
+          oy += c.a * Math.cos(ph * 0.97 + c.py - dr);
+        }
+        const e = env[i];
+        const spk = Math.pow(Math.abs(Math.sin(6.2831853 * 21 * t + 1.3 + time * 0.07)), 3) * Math.sin(6.2831853 * 4.7 * t + 0.6);
+        const sx = Math.max(6, x0 + t * (x1 - x0) + e * ax * ox * 0.5);
+        const wv = env2[i] * ay * 0.9 * (0.55 * Math.sin(6.2831853 * 6.5 * t + 0.8 + time * 0.3) + 0.38 * Math.sin(6.2831853 * 13 * t + 2.1 - time * 0.25) + 0.3 * spk);
+        const sy = yl - e * bias + e * ay * (oy * 0.42 + spk * 0.9) + wv;
+        const lx = x0 + t * (x1 - x0), ly = yl;
+        const base = Math.max(grad[i], sweepF(t));
+        // cursor combing
+        let r = relax[i];
+        if (cur && !still) {
+          const cx = px[i] || sx, cy = py[i] || sy;
+          const d = Math.hypot(cx - cur.x, cy - cur.y);
+          const inf = 1 - sm(R * 0.35, R, d);
+          if (inf > r) r += (inf - r) * 0.22;
+        }
+        r = Math.max(0, r - dt / 3.2);
+        relax[i] = r;
+        const s = 1 - (1 - base) * (1 - r);
+        sArr[i] = still ? base : s;
+        const sv = still ? base : s;
+        ux[i] = lx + (sx - lx) * (1 - sv);
+        uy[i] = ly + (sy - ly) * (1 - sv);
+        uz[i] = zAmp * (zr[i] * 0.8 + 0.45 * Math.sin(6.2831853 * 4.3 * t + 1.1)) * Math.max(e, env2[i] * 0.55) * (1 - sv);
+      }
+      // 3D camera
+      const ip = still ? 1 : Math.min(1, Math.max(0, (now - introStart) / INTRO));
+      let focusZ = 0;
+      {
+        let tYaw = 0, tPitch = 0, tFocus = 0;
+        const cf = 1 - 0.3 * fpE;
+        if (cur && !still) { tYaw = (cur.x / W - 0.5) * 0.9 * cf; tPitch = (cur.y / H - 0.5) * -0.34 * cf; tFocus = -(cur.y / H - 0.5) * 2 * zAmp * 0.75 * cf; }
+        if (!still) { tYaw += Math.sin(time * 0.38) * 0.15 * cf; tPitch += Math.sin(time * 0.29) * 0.055 * cf; }
+        const ie = still ? 1 : ease(ip);
+        tYaw += -0.2 * (1 - ie) + fpE * 0.2;
+        tPitch += -0.04 * fpE;
+        yaw += (tYaw - yaw) * 0.06; pitch += (tPitch - pitch) * 0.06; focus += (tFocus - focus) * 0.05;
+        focusZ = focus;
+        const cyw = Math.cos(yaw), syw = Math.sin(yaw), cpt = Math.cos(pitch), spt = Math.sin(pitch);
+        const Cx = W * 0.4, D = 1250, Zs = (0.92 + 0.08 * ie) * (1 + 0.1 * fpE);
+        const lineW = 0;
+        for (let i = 0; i < N; i++) {
+          const dx = ux[i] - Cx, dy = uy[i] - yl, dz = uz[i] + zr[i] * lineW;
+          const x1 = dx * cyw + dz * syw, z1 = -dx * syw + dz * cyw;
+          const y1 = dy * cpt - z1 * spt, z2 = dy * spt + z1 * cpt;
+          const den = D - z2;
+          if (den < 160) { psc[i] = 0; continue; }
+          const sc = D / den;
+          psc[i] = sc; zv[i] = z2;
+          px[i] = Cx + x1 * sc * Zs;
+          py[i] = yl + y1 * sc * Zs;
+        }
+      }
+      const vis = N;
+      const tFront = ip >= 1 ? 2 : (1 - Math.pow(1 - ip, 3)) * 1.16;
+      ctx.clearRect(0, 0, W, H + bleed);
+      ctx.lineJoin = 'round'; ctx.lineCap = 'round'; ctx.lineWidth = small ? 1.1 : 1.3;
+      const F = small ? 18 : 30;
+      const bucket = [0, 1, 2, 3].map(() => [0, 1, 2, 3, 4, 5, 6, 7, 8].map(() => []));
+      for (let i = 0; i < vis; i++) {
+        if (psc[i] <= 0) continue;
+        if (tFront < 1.5) { const fd = (tFront - ts[i]) / 0.16; if (fd <= 0 || keep[(i * 5 + 3) % N] > fd) continue; }
+        const sr = sArr[i];
+        const dT = 0.5 + 0.5 * Math.pow(1 - sm(0, 0.62, ts[i]), 1.2);
+        const dens = dT * (1 - 0.5 * sr) + 0.3 * sr;
+        if (keep[i] > dens) continue;
+        const sc = (0.25 + 0.75 * Math.max(env[i], env2[i] * 0.5)) * (1 - sr) * F;
+        const dx = px[i] + jx[i] * sc * psc[i], dy = py[i] + jy[i] * sc * psc[i];
+        const zi = ts[i] < 0.28 ? 0 : (ts[i] < 0.6 ? 1 : 2), coc = Math.min(1, Math.abs(zv[i] - focusZ) / (zAmp * 0.85)), lay = coc < 0.22 ? 0 : (coc < 0.55 ? 1 : 2);
+        if (box) {
+          const ox = Math.max(box.x0 - dx, 0, dx - box.x1), oy = Math.max(box.y0 - dy, 0, dy - box.y1);
+          const dd = Math.hypot(ox, oy);
+          if (small) { if (dd === 0) { if (keep[(i * 7) % N] > 0.6) continue; bucket[3][zi * 3 + lay].push(i, dx, dy); continue; } }
+          else if (dd === 0 || keep[(i * 7) % N] > dd / 46) continue;
+        }
+        bucket[tone[i]][zi * 3 + lay].push(i, dx, dy);
+      }
+      const bgc = hex(getComputedStyle(hero.parentElement || hero).getPropertyValue('--bg'), [255, 253, 252]);
+      const cols = [acc, [acc[0] * 0.55 + bgc[0] * 0.45, acc[1] * 0.55 + bgc[1] * 0.45, acc[2] * 0.55 + bgc[2] * 0.45], ink, acc];
+      const alphas = [0.6, 0.62, 0.28, 0.2];
+      // hover zones
+      let hz = -1;
+      if (cur && !still && !small && fpE < 0.03) {
+        const tt = (cur.x - x0) / (x1 - x0);
+        if (tt >= -0.04 && tt <= 1.03 && Math.abs(cur.y - yl) <= ay * 1.35 + 36) hz = tt < 0.28 ? 0 : (tt < 0.6 ? 1 : 2);
+      }
+      zoneNow = hz;
+      for (let z = 0; z < 3; z++) zoneMix[z] += ((hz === z ? 1 : 0) - zoneMix[z]) * 0.14;
+      const anyHover = Math.max(zoneMix[0], zoneMix[1], zoneMix[2]);
+      for (let tn = 0; tn < 4; tn++) {
+        const c = cols[tn];
+        ctx.fillStyle = 'rgba(' + Math.round(c[0]) + ',' + Math.round(c[1]) + ',' + Math.round(c[2]) + ',' + alphas[tn] + ')';
+        for (let z = 0; z < 3; z++) {
+          for (let l = 0; l < 3; l++) {
+            const arr = bucket[tn][z * 3 + l]; if (!arr.length) continue;
+            ctx.globalAlpha = Math.min(1, (0.8 + 0.2 * zoneMix[z] - 0.32 * anyHover * (1 - zoneMix[z])) * [1, 0.62, 0.34][l]);
+            const rs = 1 + 0.22 * zoneMix[z];
+            ctx.beginPath();
+            for (let k = 0; k < arr.length; k += 3) {
+              const rr = rad[arr[k]] * psc[arr[k]] * (small ? 0.8 : 1) * rs * [1, 1.4, 2.05][l];
+              ctx.moveTo(arr[k + 1] + rr, arr[k + 2]);
+              ctx.arc(arr[k + 1], arr[k + 2], rr, 0, 6.2832);
+            }
+            ctx.fill();
+          }
+        }
+      }
+      ctx.globalAlpha = 1;
+      if (tip) {
+        if (hz >= 0) {
+          if (tipZone !== hz) { tipT.textContent = ZONES[hz].t; tipS.textContent = ZONES[hz].s; tipZone = hz; }
+          const bw = tip.offsetWidth || 220, bh = tip.offsetHeight || 70;
+          let tx = Math.min(Math.max(8, cur.x + 18), W - bw - 8), ty = cur.y + 24;
+          if (ty + bh > H - 8) ty = cur.y - bh - 16;
+          tip.style.transform = 'translate(' + tx.toFixed(0) + 'px,' + ty.toFixed(0) + 'px)'; tip.style.opacity = '1';
+        } else { tip.style.opacity = '0'; tipZone = -2; }
+      }
+      if (chap) chap.style.opacity = ip >= 0.7 ? '1' : '0';
+    };
+    const loop = (now) => { if (!running) return; draw(now, false); raf = requestAnimationFrame(loop); };
+    const start = () => { if (running || reduce) return; running = true; last = performance.now(); raf = requestAnimationFrame(loop); };
+    const stop = () => { running = false; cancelAnimationFrame(raf); };
+    this.sqIO = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) start(); else stop(); }), { threshold: 0 });
+    this.sqIO.observe(hero);
+    hero.addEventListener('mousemove', onMove, { passive: true });
+    hero.addEventListener('touchmove', onMove, { passive: true });
+    hero.addEventListener('mouseleave', onLeave);
+    hero.addEventListener('touchend', onLeave);
+    this.onSqResize = () => { resize(); if (reduce) draw(performance.now(), true); };
+    window.addEventListener('resize', this.onSqResize);
+    readColors(); resize(); readBox();
+    if (reduce) draw(performance.now(), true);
+    this.sqCleanup = () => { stop(); this.sqIO && this.sqIO.disconnect(); hero.removeEventListener('mousemove', onMove); hero.removeEventListener('touchmove', onMove); hero.removeEventListener('mouseleave', onLeave); hero.removeEventListener('touchend', onLeave); window.removeEventListener('resize', this.onSqResize); };
+  }
+  initSprinkles() {
+    if (this.spCleanup) return;
+    const cv = document.createElement('canvas');
+    cv.setAttribute('aria-hidden', 'true');
+    cv.style.cssText = 'position:fixed;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:0;';
+    document.body.appendChild(cv);
+    const ctx = cv.getContext('2d');
+    const reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let vw = 0, vh = 0, dpr = 1, dots = [], mouse = null, raf = 0, lastH = 0;
+    let acc = [249, 38, 28], ink = [42, 13, 9], bgc = [255, 253, 252];
+    const hex = (c, d) => { c = (c || '').trim(); return /^#[0-9a-f]{6}$/i.test(c) ? [parseInt(c.slice(1, 3), 16), parseInt(c.slice(3, 5), 16), parseInt(c.slice(5, 7), 16)] : d; };
+    const readColors = () => { const el = document.querySelector('.is-design, .is-research'); if (!el) return; const cs = getComputedStyle(el); acc = hex(cs.getPropertyValue('--accent'), acc); ink = hex(cs.getPropertyValue('--fg'), ink); bgc = hex(cs.getPropertyValue('--bg'), bgc); };
+    const resize = () => { vw = window.innerWidth; vh = window.innerHeight; dpr = Math.min(2, window.devicePixelRatio || 1); cv.width = Math.round(vw * dpr); cv.height = Math.round(vh * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0); };
+    const build = () => {
+      let seed = 29; const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+      const small = window.innerWidth < 768, k = small ? 0.55 : 1;
+      dots = [];
+      const sy = window.scrollY;
+      const track = document.querySelector('.hero-track');
+      const heroBottom = track ? track.getBoundingClientRect().bottom + sy - window.innerHeight * 0.1 : 0;
+      const excl = []; document.querySelectorAll('article.project-card h2, article.project-card p, article.project-card a, .project-card-metrics, .project-card-thumb, footer h2, footer a, footer span, .worked-line, .work-label, .worked-label, .worked-marquee').forEach((el) => { const r = el.getBoundingClientRect(); if (r.width) excl.push([r.left - 12, r.top + sy - 12, r.right + 12, r.bottom + sy + 12]); });
+      const inExcl = (x, y) => { for (let q = 0; q < excl.length; q++) { const e = excl[q]; if (x > e[0] && x < e[2] && y > e[1] && y < e[3]) return true; } return false; };
+      const add = (cx, cy, n, spread, ang, elong) => {
+        n = Math.round(n * k);
+        for (let i = 0; i < n; i++) {
+          const u = Math.max(0.0001, rnd()), rr = spread * Math.sqrt(-2 * Math.log(u)) * 0.5, a = rnd() * 6.2832;
+          let dx = Math.cos(a) * rr, dy = Math.sin(a) * rr;
+          if (elong) { const ca = Math.cos(ang), sa = Math.sin(ang), along = dx * elong, perp = dy * 0.35; dx = along * ca - perp * sa; dy = along * sa + perp * ca; }
+          const y = cy + dy; if (y < heroBottom) continue;
+          if (inExcl(cx + dx, y)) continue;
+          const q = rnd();
+          dots.push({ x: cx + dx, y, r: 0.9 + rnd() * 1.5, a: 0.36 + rnd() * 0.34, tone: q < 0.62 ? 0 : (q < 0.88 ? 1 : 2), ph: rnd() * 6.28, k: (rnd() - 0.5) * 0.16 });
+        }
+      };
+      const abs = (el) => { const r = el.getBoundingClientRect(); return { l: r.left, t: r.top + sy, r: r.right, b: r.bottom + sy, w: r.width, h: r.height }; };
+      document.querySelectorAll('.project-card-thumb').forEach((el, i) => {
+        const r = abs(el); if (!r.w) return;
+        add(r.r + 8 + rnd() * 30, r.t + r.h * (0.12 + rnd() * 0.2), 34, 70, -0.5, 1.8);
+        add(r.l - 26, r.b - r.h * (0.05 + rnd() * 0.2), 30, 62, 2.5, 1.7);
+        if (i % 2 === 0) add(r.l + r.w * (0.3 + rnd() * 0.4), r.b + 28, 18, 54, 0, 2.2);
+      });
+      document.querySelectorAll('article.project-card').forEach((el) => {
+        const r = abs(el); if (!r.w) return;
+        add(r.l + r.w * (0.35 + rnd() * 0.5), r.t - 22, 20, 60, 0, 2.6);
+      });
+      document.querySelectorAll('.work-label, .worked-label').forEach((el) => {
+        const r = abs(el); if (!r.w) return;
+        add(r.l + Math.min(r.w, 360) + 40 + rnd() * 120, r.t + r.h / 2, 22, 70, 0, 2.6);
+      });
+      const ft = document.querySelector('footer[data-screen-label="Contact"]');
+      if (ft) {
+        const r = abs(ft);
+        add(r.l + r.w * 0.22, r.t + 60, 40, 90, 0.3, 2.2);
+        add(r.l + r.w * 0.7, r.t + 110, 44, 100, -0.2, 2.4);
+        add(r.l + r.w * 0.5, r.t + Math.min(r.h * 0.5, 190), 36, 120, 0, 2.8);
+      }
+      // a few free-floating specks along the margins
+      const H2 = document.documentElement.scrollHeight;
+      for (let i = 0; i < Math.round(26 * k); i++) add(rnd() < 0.5 ? 14 + rnd() * 50 : window.innerWidth - 14 - rnd() * 50, heroBottom + rnd() * (H2 - heroBottom), 3, 30, 0, 0);
+      lastH = H2;
+    };
+    const frame = (now, force) => {
+      if (!force) raf = requestAnimationFrame(frame);
+      if (document.hidden && !force) return;
+      const t = reduce ? 0 : now / 1000, sy = window.scrollY;
+      ctx.clearRect(0, 0, vw, vh);
+      const cols = [acc, [acc[0] * 0.55 + bgc[0] * 0.45, acc[1] * 0.55 + bgc[1] * 0.45, acc[2] * 0.55 + bgc[2] * 0.45], ink];
+      const base = [1, 0.95, 0.4];
+      const bk = [[], [], []];
+      for (let i = 0; i < dots.length; i++) {
+        const d = dots[i];
+        let y = d.y - sy; if (y < -60 || y > vh + 60) continue;
+        y += (y - vh / 2) * d.k;
+        let x = d.x + Math.sin(t * 0.3 + d.ph) * 3, yy = y + Math.cos(t * 0.25 + d.ph * 1.3) * 3;
+        let al = d.a;
+        if (mouse && !reduce) { const dx = x - mouse.x, dy = yy - mouse.y, dd = Math.hypot(dx, dy); if (dd < 110) { const f = Math.pow(1 - dd / 110, 2); x += (dx / (dd || 1)) * f * 16; yy += (dy / (dd || 1)) * f * 16; al += f * 0.22; } }
+        const edge = Math.min(yy + 20, vh + 20 - yy) / 90; al *= Math.max(0, Math.min(1, edge));
+        if (al <= 0.01) continue;
+        bk[d.tone].push(x, yy, d.r, Math.min(0.85, al) * base[d.tone]);
+      }
+      for (let tn = 0; tn < 3; tn++) {
+        const arr = bk[tn]; if (!arr.length) continue;
+        const c = cols[tn];
+        // group by alpha buckets for fewer state changes
+        for (let b = 0; b < 4; b++) {
+          const lo = b * 0.2, hi = lo + 0.2;
+          ctx.fillStyle = 'rgba(' + Math.round(c[0]) + ',' + Math.round(c[1]) + ',' + Math.round(c[2]) + ',' + (lo + 0.1).toFixed(2) + ')';
+          ctx.beginPath(); let any = false;
+          for (let k2 = 0; k2 < arr.length; k2 += 4) { const a2 = arr[k2 + 3]; if (a2 >= lo && (a2 < hi || b === 3)) { ctx.moveTo(arr[k2] + arr[k2 + 2], arr[k2 + 1]); ctx.arc(arr[k2], arr[k2 + 1], arr[k2 + 2], 0, 6.2832); any = true; } }
+          if (any) ctx.fill();
+        }
+      }
+      if (frameN++ % 40 === 0) { readColors(); const H2 = document.documentElement.scrollHeight; if (Math.abs(H2 - lastH) > 40) build(); }
+    };
+    let frameN = 0;
+    const onMove = (e) => { mouse = { x: e.clientX, y: e.clientY }; };
+    const onLeave = () => { mouse = null; };
+    let rt = 0; const onResize = () => { clearTimeout(rt); rt = setTimeout(() => { resize(); build(); }, 160); };
+    window.addEventListener('mousemove', onMove, { passive: true });
+    document.addEventListener('mouseleave', onLeave);
+    window.addEventListener('resize', onResize);
+    readColors(); resize();
+    const start = () => { build(); raf = requestAnimationFrame(frame); };
+    if (document.readyState === 'complete') setTimeout(start, 400); else window.addEventListener('load', () => setTimeout(start, 400), { once: true });
+    this.spCleanup = () => { cancelAnimationFrame(raf); window.removeEventListener('mousemove', onMove); document.removeEventListener('mouseleave', onLeave); window.removeEventListener('resize', onResize); cv.remove(); this.spCleanup = null; };
+  }
   placeDefaultGuides() {
     const heroEl = document.querySelector('[data-screen-label="Hero"]');
     const textEl = heroEl && heroEl.querySelector('.hero-centertext');
@@ -442,6 +806,8 @@ class Component extends DCLogic {
       transition: wipe.anim ? 'clip-path .95s cubic-bezier(.65,0,.25,1)' : 'none',
     } : { display: 'none' };
 
+    const centerPad = mode === 'design' ? '0 24px 30% 24px' : '0 24px';
+    const guideOffStyle = { display: 'none' };
     const guideStyle = { position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none', display: mode === 'design' ? 'block' : 'none' };
     const workedStyle = { display: mode === 'design' ? 'flex' : 'none' };
     const COMPANY_LOGOS = [
@@ -461,7 +827,7 @@ class Component extends DCLogic {
     // Verifying commit authorship shows soumyakrishnaraj.
     const SPREAD = 1.3;
     const spread = (pos, size) => `clamp(0px, calc(50% + (${pos} + ${size} / 2 - 50%) * ${SPREAD} - ${size} / 2), calc(100% - ${size}))`;
-    const slots = SLOTS[mode].map((s, i) => {
+    const slots = (mode === 'design' ? [] : SLOTS[mode]).map((s, i) => {
       const d = (i * 0.07).toFixed(2) + 's';
       if (mode === 'research') {
         const on = notesRevealed;
@@ -499,8 +865,8 @@ class Component extends DCLogic {
     });
 
     const headStyle = {
-      margin: 0, fontFamily: "'Instrument Serif',serif", fontWeight: 400, fontSize: 'clamp(48px,min(6.8vw,97.92px),124px)', lineHeight: 0.92,
-      letterSpacing: '-0.025em', textAlign: 'center', maxWidth: '11.5ch', textWrap: 'balance', color: 'var(--head,#F9261C)',
+      margin: 0, fontFamily: "'Instrument Serif',serif", fontWeight: 400, fontSize: mode === 'design' ? 'clamp(32px,min(4.2vw,60px),64px)' : 'clamp(48px,min(6.8vw,97.92px),124px)', lineHeight: mode === 'design' ? 1.04 : 0.92,
+      letterSpacing: '-0.025em', textAlign: 'center', maxWidth: mode === 'design' ? '21ch' : '11.5ch', textWrap: 'balance', color: 'var(--head,#F9261C)',
       opacity: headOut ? 0 : 1, translate: headOut ? '0 18px' : '0 0', filter: headOut ? 'blur(6px)' : 'blur(0)',
       transition: 'opacity .45s ease, translate .6s cubic-bezier(.2,.7,.2,1), filter .45s ease, color .7s ease',
     };
@@ -547,7 +913,7 @@ class Component extends DCLogic {
       : headCopy.head;
 
     return {
-      rootStyle, wipeStyle, slots, headStyle, projects, guideStyle, gridStyle, headlineNode, workedStyle, companies, industriesLine,
+      rootStyle, wipeStyle, slots, headStyle, projects, guideStyle, guideOffStyle, centerPad, gridStyle, headlineNode, workedStyle, companies, industriesLine,
       eyebrow: COPY[headMode].eyebrow,
       rootClass: mode === 'research' ? 'is-research' : 'is-design', toggleLabel: COPY[mode].toggle, footerLine: COPY[mode].footer,
       toggle: this.toggle, onHeroMove: this.onHeroMove, onHeroTouchMove: this.onHeroTouchMove, isResearch: mode === 'research', workCount: String(PROJECTS[mode].length).padStart(2, '0'),
