@@ -49,6 +49,9 @@ main > article:first-of-type{border-top:0!important;}
 .hero-guide-label-left{transform:translate(8px,-50%);}
 .hero-guide-label-right{transform:translate(calc(-100% - 8px),-50%);}
 .hero-squiggle{width:100%;height:100%;display:block;}
+.hero-em-r{font-style:italic;}
+.hero-em{font-style:italic;color:#C9231A;color:color-mix(in srgb,var(--head,#F9261C) 80%,#2A0D09);transition:color .7s ease;}
+:root[data-theme="dark"] .hero-em{color:var(--head,#FF8378);}
 .hsq-tip-box{position:absolute;left:0;top:0;display:flex;padding:8px 13px 9px;border-radius:8px;background:var(--bg,var(--t-bg));border:1px solid var(--line,var(--t-line));box-shadow:0 8px 22px rgba(0,0,0,.06);opacity:0;transition:opacity .22s ease;pointer-events:none;will-change:transform;white-space:nowrap;}
 .hsq-tip-t{font-family:'Instrument Serif',serif;font-size:16px;line-height:1.1;letter-spacing:0;color:#8f8a87;}
 :root[data-theme="dark"] .hsq-tip-t{color:#a9a4a0;}
@@ -629,19 +632,20 @@ class Component extends DCLogic {
     document.body.appendChild(cv);
     const ctx = cv.getContext('2d');
     const reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let vw = 0, vh = 0, dpr = 1, dots = [], mouse = null, raf = 0, lastH = 0;
+    let vw = 0, vh = 0, dpr = 1, dots = [], mouse = null, raf = 0, lastH = 0, lastMode = 0;
     let acc = [249, 38, 28], ink = [42, 13, 9], bgc = [255, 253, 252];
     const hex = (c, d) => { c = (c || '').trim(); return /^#[0-9a-f]{6}$/i.test(c) ? [parseInt(c.slice(1, 3), 16), parseInt(c.slice(3, 5), 16), parseInt(c.slice(5, 7), 16)] : d; };
     const readColors = () => { const el = document.querySelector('.is-design, .is-research'); if (!el) return; const cs = getComputedStyle(el); acc = hex(cs.getPropertyValue('--accent'), acc); ink = hex(cs.getPropertyValue('--fg'), ink); bgc = hex(cs.getPropertyValue('--bg'), bgc); };
     const resize = () => { vw = window.innerWidth; vh = window.innerHeight; dpr = Math.min(2, window.devicePixelRatio || 1); cv.width = Math.round(vw * dpr); cv.height = Math.round(vh * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0); };
     const build = () => {
       let seed = 29; const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
-      const small = window.innerWidth < 768, k = small ? 0.55 : 1;
+      const small = window.innerWidth < 768, k = small ? 0.3 : 0.5;
       dots = [];
       const sy = window.scrollY;
       const track = document.querySelector('.hero-track');
-      const heroBottom = track ? track.getBoundingClientRect().bottom + sy - window.innerHeight * 0.1 : 0;
-      const excl = []; document.querySelectorAll('article.project-card h2, article.project-card p, article.project-card a, .project-card-metrics, .project-card-thumb, footer h2, footer a, footer span, .worked-line, .work-label, .worked-label, .worked-marquee').forEach((el) => { const r = el.getBoundingClientRect(); if (r.width) excl.push([r.left - 12, r.top + sy - 12, r.right + 12, r.bottom + sy + 12]); });
+      const research = !!document.querySelector('.is-research'); lastMode = research ? 1 : 0;
+      const heroBottom = research ? 0 : (track ? track.getBoundingClientRect().bottom + sy - window.innerHeight * 0.1 : 0);
+      const excl = []; document.querySelectorAll('article.project-card h2, article.project-card p, article.project-card a, .project-card-metrics, .project-card-thumb, footer h2, footer a, footer span, .worked-line, .work-label, .worked-label, .worked-marquee, .hero-centertext div, .hero-centertext h1, .hero-scribble').forEach((el) => { const r = el.getBoundingClientRect(); if (r.width) excl.push([r.left - 12, r.top + sy - 12, r.right + 12, r.bottom + sy + 12]); });
       const inExcl = (x, y) => { for (let q = 0; q < excl.length; q++) { const e = excl[q]; if (x > e[0] && x < e[2] && y > e[1] && y < e[3]) return true; } return false; };
       const add = (cx, cy, n, spread, ang, elong) => {
         n = Math.round(n * k);
@@ -656,6 +660,18 @@ class Component extends DCLogic {
         }
       };
       const abs = (el) => { const r = el.getBoundingClientRect(); return { l: r.left, t: r.top + sy, r: r.right, b: r.bottom + sy, w: r.width, h: r.height }; };
+      if (research) {
+        const hero = document.querySelector('[data-screen-label="Hero"]');
+        if (hero) {
+          const hr = abs(hero);
+          add(hr.l + hr.w * 0.08, hr.t + hr.h * 0.3, 40, 110, 0.4, 2.0);
+          add(hr.l + hr.w * 0.9, hr.t + hr.h * 0.26, 36, 100, -0.5, 2.0);
+          add(hr.l + hr.w * 0.14, hr.t + hr.h * 0.8, 34, 100, -0.3, 2.2);
+          add(hr.l + hr.w * 0.84, hr.t + hr.h * 0.78, 38, 110, 0.3, 2.2);
+          add(hr.l + hr.w * 0.5, hr.t + hr.h * 0.92, 24, 140, 0, 3.0);
+          add(hr.l + hr.w * 0.5, hr.t + hr.h * 0.06, 18, 130, 0, 3.0);
+        }
+      }
       document.querySelectorAll('.project-card-thumb').forEach((el, i) => {
         const r = abs(el); if (!r.w) return;
         add(r.r + 8 + rnd() * 30, r.t + r.h * (0.12 + rnd() * 0.2), 34, 70, -0.5, 1.8);
@@ -713,7 +729,7 @@ class Component extends DCLogic {
           if (any) ctx.fill();
         }
       }
-      if (frameN++ % 40 === 0) { readColors(); const H2 = document.documentElement.scrollHeight; if (Math.abs(H2 - lastH) > 40) build(); }
+      if (frameN++ % 40 === 0) { readColors(); const H2 = document.documentElement.scrollHeight; const md = document.querySelector('.is-research') ? 1 : 0; if (Math.abs(H2 - lastH) > 40 || md !== lastMode) build(); }
     };
     let frameN = 0;
     const onMove = (e) => { mouse = { x: e.clientX, y: e.clientY }; };
@@ -806,7 +822,7 @@ class Component extends DCLogic {
       transition: wipe.anim ? 'clip-path .95s cubic-bezier(.65,0,.25,1)' : 'none',
     } : { display: 'none' };
 
-    const centerPad = mode === 'design' ? '0 24px 30% 24px' : '0 24px';
+    const centerPad = mode === 'design' ? '0 24px 23% 24px' : '0 24px';
     const guideOffStyle = { display: 'none' };
     const guideStyle = { position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none', display: mode === 'design' ? 'block' : 'none' };
     const workedStyle = { display: mode === 'design' ? 'flex' : 'none' };
@@ -865,8 +881,8 @@ class Component extends DCLogic {
     });
 
     const headStyle = {
-      margin: 0, fontFamily: "'Instrument Serif',serif", fontWeight: 400, fontSize: mode === 'design' ? 'clamp(32px,min(4.2vw,60px),64px)' : 'clamp(48px,min(6.8vw,97.92px),124px)', lineHeight: mode === 'design' ? 1.04 : 0.92,
-      letterSpacing: '-0.025em', textAlign: 'center', maxWidth: mode === 'design' ? '21ch' : '11.5ch', textWrap: 'balance', color: 'var(--head,#F9261C)',
+      margin: 0, fontFamily: "'Instrument Serif',serif", fontWeight: 400, fontSize: 'clamp(48px,min(6.8vw,97.92px),124px)', lineHeight: 0.92,
+      letterSpacing: '-0.025em', textAlign: 'center', maxWidth: mode === 'design' ? '25ch' : '11.5ch', textWrap: 'balance', color: 'var(--head,#F9261C)',
       opacity: headOut ? 0 : 1, translate: headOut ? '0 18px' : '0 0', filter: headOut ? 'blur(6px)' : 'blur(0)',
       transition: 'opacity .45s ease, translate .6s cubic-bezier(.2,.7,.2,1), filter .45s ease, color .7s ease',
     };
@@ -909,8 +925,10 @@ class Component extends DCLogic {
 
     const headCopy = COPY[headMode];
     const headlineNode = headCopy.headHighlight
-      ? React.createElement(React.Fragment, null, headCopy.head, React.createElement('span', { className: 'headline-highlight' + (highlightOn ? ' is-on' : '') }, headCopy.headHighlight))
-      : headCopy.head;
+      ? React.createElement(React.Fragment, null, headCopy.head.replace(/actually\s*$/, ''), React.createElement('em', { className: 'hero-em-r' }, 'actually '), React.createElement('span', { className: 'headline-highlight' + (highlightOn ? ' is-on' : ''), style: { fontStyle: 'italic' } }, headCopy.headHighlight))
+      : (headMode === 'design'
+        ? React.createElement(React.Fragment, null, ...headCopy.head.split(/(perceive|interpret|interact)/).map((part, pi) => /^(perceive|interpret|interact)$/.test(part) ? React.createElement('em', { key: pi, className: 'hero-em' }, part) : part))
+        : headCopy.head);
 
     return {
       rootStyle, wipeStyle, slots, headStyle, projects, guideStyle, guideOffStyle, centerPad, gridStyle, headlineNode, workedStyle, companies, industriesLine,
