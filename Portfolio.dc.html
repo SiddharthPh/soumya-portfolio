@@ -49,9 +49,9 @@ main > article:first-of-type{border-top:0!important;}
 .hero-guide-label-left{transform:translate(8px,-50%);}
 .hero-guide-label-right{transform:translate(calc(-100% - 8px),-50%);}
 .hero-squiggle{width:100%;height:100%;display:block;}
-.hsq-tip-box{position:absolute;left:0;top:0;display:flex;flex-direction:column;gap:4px;max-width:230px;padding:10px 14px 11px;border-radius:8px;background:var(--bg,var(--t-bg));border:1px solid var(--line,var(--t-line));box-shadow:0 10px 28px rgba(0,0,0,.08);opacity:0;transition:opacity .22s ease;pointer-events:none;will-change:transform;}
-.hsq-tip-t{font-family:'Instrument Serif',serif;font-size:21px;line-height:1.05;letter-spacing:-.01em;color:var(--head,var(--t-accent));}
-.hsq-tip-s{font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;line-height:1.4;color:var(--muted,var(--t-muted));}
+.hsq-tip-box{position:absolute;left:0;top:0;display:flex;padding:8px 13px 9px;border-radius:8px;background:var(--bg,var(--t-bg));border:1px solid var(--line,var(--t-line));box-shadow:0 8px 22px rgba(0,0,0,.06);opacity:0;transition:opacity .22s ease;pointer-events:none;will-change:transform;white-space:nowrap;}
+.hsq-tip-t{font-family:'Instrument Serif',serif;font-size:16px;line-height:1.1;letter-spacing:0;color:#8f8a87;}
+:root[data-theme="dark"] .hsq-tip-t{color:#a9a4a0;}
 @media (max-width:767px){.hsq-tip{display:none!important;}}
 .hero-track.is-flying [data-screen-label="Hero"]{overflow:visible!important;}
 .hero-track.is-flying .hero-squiggle{bottom:auto!important;height:calc(100% + var(--bleed,0px))!important;}
@@ -147,7 +147,7 @@ main > article:first-of-type{border-top:0!important;}
       </div>
 
       <canvas class="hero-squiggle" aria-hidden="true" style="{{ guideStyle }}"></canvas>
-      <div class="hsq-tip" aria-hidden="true" style="{{ guideStyle }}"><div class="hsq-tip-box"><span class="hsq-tip-t"></span><span class="hsq-tip-s"></span></div></div>
+      <div class="hsq-tip" aria-hidden="true" style="{{ guideStyle }}"><div class="hsq-tip-box"><span class="hsq-tip-t"></span></div></div>
       <div class="hsq-chap" aria-hidden="true" style="{{ guideStyle }}"><div class="hsq-chap-in"><span class="hsq-chap-t"><span>People-first</span><i></i><span>Systems-thinker</span><i></i><span>Context-aware</span></span></div></div>
 
       <div class="hero-centertext" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;padding:{{ centerPad }};pointer-events:none;z-index:2;">
@@ -434,11 +434,11 @@ class Component extends DCLogic {
     let box = null;
     let yaw = -0.2, pitch = 0, focus = 0;
     const zoneMix = [0, 0, 0]; let zoneNow = -1; let tipZone = -2;
-    const tip = hero.querySelector('.hsq-tip-box'), tipT = hero.querySelector('.hsq-tip-t'), tipS = hero.querySelector('.hsq-tip-s');
+    const tip = hero.querySelector('.hsq-tip-box'), tipT = hero.querySelector('.hsq-tip-t');
     const ZONES = [
-      { t: 'People and context first', s: 'Understanding who they are and where they work, before anything is solved.' },
-      { t: 'Frame the problem', s: 'Naming the real problem and weighing what we trade off.' },
-      { t: 'Clarity', s: 'A clear direction that people and systems can trust.' },
+      { t: 'Listen' },
+      { t: 'Frame' },
+      { t: 'Clarify' },
     ];
     const readBox = () => {
       const ct = hero.querySelector('.hero-centertext'); if (!ct) { box = null; return; }
@@ -597,7 +597,7 @@ class Component extends DCLogic {
       ctx.globalAlpha = 1;
       if (tip) {
         if (hz >= 0) {
-          if (tipZone !== hz) { tipT.textContent = ZONES[hz].t; tipS.textContent = ZONES[hz].s; tipZone = hz; }
+          if (tipZone !== hz) { tipT.textContent = ZONES[hz].t; tipZone = hz; }
           const bw = tip.offsetWidth || 220, bh = tip.offsetHeight || 70;
           let tx = Math.min(Math.max(8, cur.x + 18), W - bw - 8), ty = cur.y + 24;
           if (ty + bh > H - 8) ty = cur.y - bh - 16;
