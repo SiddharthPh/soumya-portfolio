@@ -49,7 +49,14 @@ main > article:first-of-type{border-top:0!important;}
 .hero-guide-label-left{transform:translate(8px,-50%);}
 .hero-guide-label-right{transform:translate(calc(-100% - 8px),-50%);}
 .hero-squiggle{width:100%;height:100%;display:block;}
-.hero-em-r{font-style:italic;}
+.hero-em-r{font-style:italic;color:#FF9E8D;}
+.hero-em-r{position:relative;white-space:nowrap;}
+.hs{position:absolute;pointer-events:none;overflow:visible;fill:none;stroke:#FF9E8D;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;opacity:.8;}
+.hs-loop{left:-9%;width:118%;top:-14%;height:128%;}
+.hs-dbl{left:-2%;width:104%;top:72%;height:44%;}
+.hs path{stroke-dasharray:1200;stroke-dashoffset:1200;animation:hsdraw 1.2s cubic-bezier(.4,.1,.2,1) forwards;animation-delay:var(--d,1s);}
+@keyframes hsdraw{to{stroke-dashoffset:0;}}
+@media (prefers-reduced-motion:reduce){.hs path{animation:none;stroke-dashoffset:0;}}
 .hero-em{font-style:italic;color:#C9231A;color:color-mix(in srgb,var(--head,#F9261C) 80%,#2A0D09);transition:color .7s ease;}
 :root[data-theme="dark"] .hero-em{color:var(--head,#FF8378);}
 .hsq-tip-box{position:absolute;left:0;top:0;display:flex;padding:8px 13px 9px;border-radius:8px;background:var(--bg,var(--t-bg));border:1px solid var(--line,var(--t-line));box-shadow:0 8px 22px rgba(0,0,0,.06);opacity:0;transition:opacity .22s ease;pointer-events:none;will-change:transform;white-space:nowrap;}
@@ -63,6 +70,8 @@ main > article:first-of-type{border-top:0!important;}
 .hsq-chap-t i{display:inline-block;width:3px;height:3px;border-radius:50%;background:#8f8a87;opacity:.8;}
 :root[data-theme="dark"] .hsq-chap-t{color:#a9a4a0;}
 :root[data-theme="dark"] .hsq-chap-t i{background:#a9a4a0;}
+.hero-themes{width:100%;height:100%;display:block;}
+.hth-chap{opacity:1;}
 .hero-dotgrid-bg{position:absolute;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(circle, var(--muted) 1px, transparent 1px);background-size:30px 30px;}
 .headline-highlight{background-image:linear-gradient(120deg,rgba(255,235,59,.55),rgba(255,235,59,.55));background-repeat:no-repeat;background-position:0 88%;background-size:0% 38%;transition:background-size 1s cubic-bezier(.2,.7,.2,1);box-decoration-break:clone;-webkit-box-decoration-break:clone;}
 .headline-highlight.is-on{background-size:100% 38%;}
@@ -149,6 +158,8 @@ main > article:first-of-type{border-top:0!important;}
         <div class="hero-guide-label hero-guide-label-right"></div>
       </div>
 
+      <canvas class="hero-themes" aria-hidden="true" style="{{ researchStyle }}"></canvas>
+      <div class="hth-trait" aria-hidden="true" style="{{ researchStyle }}"><div class="hsq-chap-in hth-chap"><span class="hsq-chap-t"><span>Signal from noise</span><i></i><span>Pattern finder</span><i></i><span>Meaning maker</span><i></i><span>Synthesis nerd</span></span></div></div>
       <canvas class="hero-squiggle" aria-hidden="true" style="{{ guideStyle }}"></canvas>
       <div class="hsq-tip" aria-hidden="true" style="{{ guideStyle }}"><div class="hsq-tip-box"><span class="hsq-tip-t"></span></div></div>
       <div class="hsq-chap" aria-hidden="true" style="{{ guideStyle }}"><div class="hsq-chap-in"><span class="hsq-chap-t"><span>People-first</span><i></i><span>Systems-thinker</span><i></i><span>Context-aware</span></span></div></div>
@@ -323,15 +334,15 @@ const SLOTS = {
   ],
   research: [
     { l: '56%', t: '14%', w: 'min(19vw,273.6px)', h: 'min(13vw,187.2px)', rot: -3, c: '#FFEE58', labelImg: 'label-pattern-finder.png', label: 'Pattern-finder', on: 1 },
-    { l: '24%', t: '20%', w: 'min(18vw,259.2px)', h: 'min(14vw,201.6px)', rot: 4, c: '#FF4FA3', labelImg: 'label-meaning-maker.png', label: 'Meaning maker', on: 1 },
-    { l: '17%', t: '54%', w: 'min(19vw,273.6px)', h: 'min(14vw,201.6px)', rot: -4, c: '#4FC3F7', labelImg: 'label-signal-noise.png', label: 'Signal from noise', on: 1 },
-    { l: '61%', t: '48%', w: 'min(18vw,259.2px)', h: 'min(14vw,201.6px)', rot: 5, c: '#B2FF59', labelImg: 'label-synthesis-nerd.png', label: 'Synthesis nerd', on: 1 },
+    { l: '20%', t: '8%', w: 'min(18vw,259.2px)', h: 'min(14vw,201.6px)', rot: 4, c: '#FF4FA3', labelImg: 'label-meaning-maker.png', label: 'Meaning maker', on: 1 },
+    { l: '12%', t: '72%', w: 'min(19vw,273.6px)', h: 'min(14vw,201.6px)', rot: -4, c: '#4FC3F7', labelImg: 'label-signal-noise.png', label: 'Signal from noise', on: 1 },
+    { l: '66%', t: '72%', w: 'min(18vw,259.2px)', h: 'min(14vw,201.6px)', rot: 5, c: '#B2FF59', labelImg: 'label-synthesis-nerd.png', label: 'Synthesis nerd', on: 1 },
   ],
 };
 
 const COPY = {
   design: { head: 'I design for how people perceive, interpret, and interact with complex systems.', eyebrow: 'Product designer', toggle: 'Research', footer: "Let's build it right." },
-  research: { head: 'I listen for what people actually ', headHighlight: 'mean.', eyebrow: 'Design researcher', toggle: 'Design', footer: "Let's go find out." },
+  research: { head: 'I uncover patterns in how people think, behave, and make sense of the world.', headHighlight: '', eyebrow: 'Design researcher', toggle: 'Design', footer: "Let's go find out." },
 };
 
 const PROJECTS = {
@@ -348,7 +359,7 @@ const PROJECTS = {
       metrics: [{ v: '100%', l: 'of participants correctly explained the algorithm concept' }, { v: '50–75', l: 'minutes per family discussion' }, { v: '>2×', l: 'task completion after the visual redesign' }] },
     { name: 'Being watched while you work', tag: 'TECH 697 · Purdue', statement: 'A qualitative study on what Figma’s real-time Observe mode does to the people being watched.', href: 'Being watched while you work.dc.html', status: 'coursework',
       thumb: 'case-study/obs-mark-scattered.png', thumbHover: 'case-study/obs-mark-scattered.png', thumbFit: 'contain',
-      metrics: [{ v: '5', l: 'design team members interviewed across two cohorts, US and India' }, { v: '5', l: 'design recommendations delivered from the findings' }] }
+      metrics: [{ v: '5', l: 'design team members interviewed across two cohorts, US and India' }, { v: '5', l: 'design recommendations delivered from the findings' }] },
   ],
 };
 
@@ -374,6 +385,7 @@ class Component extends DCLogic {
     this.guideInteracted = false;
     this.initSquiggle();
     this.initSprinkles();
+    this.initThemes();
     this.placeDefaultGuides();
     this.onGuideResize = () => { if (!this.guideInteracted) this.placeDefaultGuides(); };
     window.addEventListener('resize', this.onGuideResize);
@@ -385,6 +397,7 @@ class Component extends DCLogic {
     this.onTheme && window.removeEventListener('themechange', this.onTheme);
     this.sqCleanup && this.sqCleanup();
     this.spCleanup && this.spCleanup();
+    this.thCleanup && this.thCleanup();
   }
 
   initSquiggle() {
@@ -660,18 +673,6 @@ class Component extends DCLogic {
         }
       };
       const abs = (el) => { const r = el.getBoundingClientRect(); return { l: r.left, t: r.top + sy, r: r.right, b: r.bottom + sy, w: r.width, h: r.height }; };
-      if (research) {
-        const hero = document.querySelector('[data-screen-label="Hero"]');
-        if (hero) {
-          const hr = abs(hero);
-          add(hr.l + hr.w * 0.08, hr.t + hr.h * 0.3, 40, 110, 0.4, 2.0);
-          add(hr.l + hr.w * 0.9, hr.t + hr.h * 0.26, 36, 100, -0.5, 2.0);
-          add(hr.l + hr.w * 0.14, hr.t + hr.h * 0.8, 34, 100, -0.3, 2.2);
-          add(hr.l + hr.w * 0.84, hr.t + hr.h * 0.78, 38, 110, 0.3, 2.2);
-          add(hr.l + hr.w * 0.5, hr.t + hr.h * 0.92, 24, 140, 0, 3.0);
-          add(hr.l + hr.w * 0.5, hr.t + hr.h * 0.06, 18, 130, 0, 3.0);
-        }
-      }
       document.querySelectorAll('.project-card-thumb').forEach((el, i) => {
         const r = abs(el); if (!r.w) return;
         add(r.r + 8 + rnd() * 30, r.t + r.h * (0.12 + rnd() * 0.2), 34, 70, -0.5, 1.8);
@@ -742,6 +743,49 @@ class Component extends DCLogic {
     const start = () => { build(); raf = requestAnimationFrame(frame); };
     if (document.readyState === 'complete') setTimeout(start, 400); else window.addEventListener('load', () => setTimeout(start, 400), { once: true });
     this.spCleanup = () => { cancelAnimationFrame(raf); window.removeEventListener('mousemove', onMove); document.removeEventListener('mouseleave', onLeave); window.removeEventListener('resize', onResize); cv.remove(); this.spCleanup = null; };
+  }
+  initThemes() {
+    const hero = document.querySelector('[data-screen-label="Hero"]');
+    const cv = hero && hero.querySelector('.hero-themes');
+    if (!cv) return;
+    const ctx = cv.getContext('2d');
+    const reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let seed = 77; const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+    const gauss = () => { const u = Math.max(1e-4, rnd()), v = rnd(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(6.2832 * v); };
+    const sm = (a, b, x) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
+    const mk = (n, f) => Array.from({ length: n }, (_, i) => f(i));
+    const ORB = [{ a: 1.28, b: 2.1, tilt: -0.3, sp: 0.16, ph: 0.6, par: 1.0, dash: 0, n: 1 }, { a: 1.75, b: 1.55, tilt: 0.2, sp: -0.12, ph: 2.2, par: 0.7, dash: 1, n: 1 }, { a: 1.15, b: 3.4, tilt: 0.62, sp: 0.1, ph: 4.0, par: 1.3, dash: 1, n: 1 }, { a: 2.35, b: 1.3, tilt: -0.07, sp: 0.07, ph: 5.1, par: 0.5, dash: 0, n: 2 }];
+    const NR = 2000;
+    const R = mk(NR, (i) => ({ phi: rnd(), gx: gauss(), gy: gauss(), m: i % 260, a: rnd() * 6.2832, cl: i % 3, rr: gauss(), ph: rnd() * 6.28, sz: 0.8 + rnd() * 1.2 }));
+    const STOPS = [[0, 110, 198, 255], [0.3, 255, 226, 150], [0.62, 255, 150, 196], [1, 164, 232, 150]];
+    const cream = [248, 222, 219];
+    const colAt = (u) => { for (let q = 0; q < STOPS.length - 1; q++) { const a = STOPS[q], b = STOPS[q + 1]; if (u <= b[0]) { const k = (u - a[0]) / (b[0] - a[0]); return [a[1] + (b[1] - a[1]) * k, a[2] + (b[2] - a[2]) * k, a[3] + (b[3] - a[3]) * k]; } } return [164, 232, 150]; };
+    const BINS = 24, BIN_COL = mk(BINS, (b) => { const c = colAt((b + 0.5) / BINS); return [Math.round(c[0] * 0.72 + cream[0] * 0.28), Math.round(c[1] * 0.72 + cream[1] * 0.28), Math.round(c[2] * 0.72 + cream[2] * 0.28)]; });
+    const COL = { meaning: [255, 122, 184], pattern: [255, 228, 92], signal: [110, 198, 255], synth: [[155, 229, 100], [90, 220, 190], [226, 255, 160]] };
+    let W = 0, H = 0, dpr = 1, last = performance.now(), activeSince = 0, wasOn = false, mouse = null, raf = 0, frameT = 0, tbox = null, hCenter = null, evs = [], nextEv = 0, trail = [], pmx = 0, pmy = 0;
+    const geom = () => { const small = W < 768; const s = small ? Math.min(W * 0.23, 100) : Math.min(W * 0.2, 250); return { s, yl: H * (small ? 0.84 : 0.8), cx: [0.125, 0.375, 0.625, 0.875].map((u) => u * W), small }; };
+    const resize = () => { const r = hero.getBoundingClientRect(); W = r.width; H = r.height; dpr = Math.min(2, window.devicePixelRatio || 1); cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0); };
+    const onMove = (e) => { const r = hero.getBoundingClientRect(); const p = e.touches ? e.touches[0] : e; mouse = { x: p.clientX - r.left, y: p.clientY - r.top }; if (!reduce) { const lt = trail[trail.length - 1]; if (!lt || Math.hypot(lt.x - mouse.x, lt.y - mouse.y) > 14) { trail.push({ x: mouse.x, y: mouse.y, t: performance.now() / 1000 }); if (trail.length > 30) trail.shift(); } } };
+    const onLeave = () => { mouse = null; };
+    const onClick = (e) => { if (reduce || cv.offsetWidth <= 0) return; const r = hero.getBoundingClientRect(); const p = e.touches ? e.touches[0] : e; evs.push({ kind: 'ring', x: p.clientX - r.left, y: p.clientY - r.top, t0: performance.now() / 1000, life: 4.6, speed: 150, w: 34, ang: 0, len: 0, amp: 1 }); if (evs.length > 6) evs.shift(); };
+    const dot = (x, y, r, rgb, a) => { ctx.fillStyle = 'rgba(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ',' + a.toFixed(3) + ')'; ctx.beginPath(); ctx.arc(x, y, r, 0, 6.2832); ctx.fill(); };
+    const draw = (now, force) => {
+      if (!force) raf = requestAnimationFrame(draw);
+      if (document.hidden && !force) return;
+      if (cv.offsetWidth <= 0) { wasOn = false; return; }
+      if (!wasOn) { wasOn = true; activeSince = now; resize(); }
+      if (Math.abs(cv.offsetWidth - W) > 1 || Math.abs(cv.offsetHeight - H) > 1) resize();
+      const t = reduce ? 3 : now / 1000, dt = Math.max(0, Math.min(0.05, (now - last) / 1000)); last = now;
+      const A = reduce ? 1 : Math.max(0, Math.min(1, (now - activeSince) / 1400));
+      ctx.clearRect(0, 0, W, H);
+      const G = geom(), s = G.s;
+    };
+    window.addEventListener('resize', this.onThResize = () => { resize(); });
+    hero.addEventListener('mousemove', onMove, { passive: true }); hero.addEventListener('touchmove', onMove, { passive: true });
+    hero.addEventListener('mouseleave', onLeave); hero.addEventListener('touchend', onLeave);
+    hero.addEventListener('click', onClick); hero.addEventListener('touchstart', onClick, { passive: true });
+    raf = requestAnimationFrame(draw);
+    this.thCleanup = () => { cancelAnimationFrame(raf); window.removeEventListener('resize', this.onThResize); hero.removeEventListener('mousemove', onMove); hero.removeEventListener('touchmove', onMove); hero.removeEventListener('mouseleave', onLeave); hero.removeEventListener('touchend', onLeave); hero.removeEventListener('click', onClick); hero.removeEventListener('touchstart', onClick); };
   }
   placeDefaultGuides() {
     const heroEl = document.querySelector('[data-screen-label="Hero"]');
@@ -822,8 +866,9 @@ class Component extends DCLogic {
       transition: wipe.anim ? 'clip-path .95s cubic-bezier(.65,0,.25,1)' : 'none',
     } : { display: 'none' };
 
-    const centerPad = mode === 'design' ? '0 24px 23% 24px' : '0 24px';
+    const centerPad = '0 24px 23% 24px';
     const guideOffStyle = { display: 'none' };
+    const researchStyle = { position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none', display: mode === 'research' ? 'block' : 'none' };
     const guideStyle = { position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none', display: mode === 'design' ? 'block' : 'none' };
     const workedStyle = { display: mode === 'design' ? 'flex' : 'none' };
     const COMPANY_LOGOS = [
@@ -843,7 +888,7 @@ class Component extends DCLogic {
     // Verifying commit authorship shows soumyakrishnaraj.
     const SPREAD = 1.3;
     const spread = (pos, size) => `clamp(0px, calc(50% + (${pos} + ${size} / 2 - 50%) * ${SPREAD} - ${size} / 2), calc(100% - ${size}))`;
-    const slots = (mode === 'design' ? [] : SLOTS[mode]).map((s, i) => {
+    const slots = (mode === 'design' || mode === 'research' ? [] : SLOTS[mode]).map((s, i) => {
       const d = (i * 0.07).toFixed(2) + 's';
       if (mode === 'research') {
         const on = notesRevealed;
@@ -882,7 +927,7 @@ class Component extends DCLogic {
 
     const headStyle = {
       margin: 0, fontFamily: "'Instrument Serif',serif", fontWeight: 400, fontSize: 'clamp(48px,min(6.8vw,97.92px),124px)', lineHeight: 0.92,
-      letterSpacing: '-0.025em', textAlign: 'center', maxWidth: mode === 'design' ? '25ch' : '11.5ch', textWrap: 'balance', color: 'var(--head,#F9261C)',
+      letterSpacing: '-0.025em', textAlign: 'center', maxWidth: '25ch', textWrap: 'balance', color: 'var(--head,#F9261C)',
       opacity: headOut ? 0 : 1, translate: headOut ? '0 18px' : '0 0', filter: headOut ? 'blur(6px)' : 'blur(0)',
       transition: 'opacity .45s ease, translate .6s cubic-bezier(.2,.7,.2,1), filter .45s ease, color .7s ease',
     };
@@ -924,14 +969,19 @@ class Component extends DCLogic {
     }));
 
     const headCopy = COPY[headMode];
-    const headlineNode = headCopy.headHighlight
-      ? React.createElement(React.Fragment, null, headCopy.head.replace(/actually\s*$/, ''), React.createElement('em', { className: 'hero-em-r' }, 'actually '), React.createElement('span', { className: 'headline-highlight' + (highlightOn ? ' is-on' : ''), style: { fontStyle: 'italic' } }, headCopy.headHighlight))
-      : (headMode === 'design'
-        ? React.createElement(React.Fragment, null, ...headCopy.head.split(/(perceive|interpret|interact)/).map((part, pi) => /^(perceive|interpret|interact)$/.test(part) ? React.createElement('em', { key: pi, className: 'hero-em' }, part) : part))
-        : headCopy.head);
+    const sketch = (word) => {
+      const P = (d, delay) => React.createElement('path', { d, vectorEffect: 'non-scaling-stroke', style: { '--d': delay } });
+      const S = (cls, ...kids) => React.createElement('svg', { className: 'hs ' + cls, viewBox: '0 0 100 40', preserveAspectRatio: 'none', 'aria-hidden': true }, ...kids);
+      if (word === 'patterns') return S('hs-loop', P('M10 24 C 6 9, 38 2, 70 4 C 96 6, 100 27, 78 35 C 52 42, 13 38, 5 25 C 2 16, 14 8, 34 5', '1.2s'));
+      if (word === 'make sense') return S('hs-dbl', P('M2 13 C 30 7, 70 18, 98 9', '2.4s'), P('M8 31 C 34 25, 66 35, 94 27', '2.8s'));
+      return null;
+    };
+    const headlineNode = headMode === 'research'
+      ? React.createElement(React.Fragment, null, ...headCopy.head.split(/(patterns|think|behave|make sense)/).map((part, pi) => (/^(patterns|think|behave|make sense)$/.test(part) ? React.createElement('em', { key: pi, className: 'hero-em-r' }, part, sketch(part)) : part)))
+      : React.createElement(React.Fragment, null, ...headCopy.head.split(/(perceive|interpret|interact)/).map((part, pi) => /^(perceive|interpret|interact)$/.test(part) ? React.createElement('em', { key: pi, className: 'hero-em' }, part) : part));
 
     return {
-      rootStyle, wipeStyle, slots, headStyle, projects, guideStyle, guideOffStyle, centerPad, gridStyle, headlineNode, workedStyle, companies, industriesLine,
+      rootStyle, wipeStyle, slots, headStyle, projects, guideStyle, guideOffStyle, researchStyle, centerPad, gridStyle, headlineNode, workedStyle, companies, industriesLine,
       eyebrow: COPY[headMode].eyebrow,
       rootClass: mode === 'research' ? 'is-research' : 'is-design', toggleLabel: COPY[mode].toggle, footerLine: COPY[mode].footer,
       toggle: this.toggle, onHeroMove: this.onHeroMove, onHeroTouchMove: this.onHeroTouchMove, isResearch: mode === 'research', workCount: String(PROJECTS[mode].length).padStart(2, '0'),
