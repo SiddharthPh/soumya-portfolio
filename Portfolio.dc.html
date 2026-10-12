@@ -24,6 +24,7 @@ a{color:inherit;text-decoration:none;}
 a:hover{color:var(--t-accent);}
 ::selection{background:var(--t-fill);color:#fff;}
 .project-card{display:grid;grid-template-columns:5fr 7fr;grid-template-rows:1fr auto;grid-template-areas:"header thumb" "metrics thumb";column-gap:clamp(32px,min(4.5vw,64.8px),80px);row-gap:48px;align-items:stretch;}
+@media (min-width:900px){.work-main .project-card{position:sticky!important;top:calc(64px + var(--si,0) * 14px);background:var(--bg,var(--t-bg,#fff));padding-bottom:44px;border-radius:0 0 4px 4px;transform-origin:50% 0;will-change:transform;}}
 .project-card-header{grid-area:header;min-width:0;display:flex;flex-direction:column;gap:28px;}
 .project-card-metrics{grid-area:metrics;min-width:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-self:end;}
 .project-card-thumb{grid-area:thumb;min-width:0;display:flex;align-items:center;}
@@ -188,7 +189,7 @@ main > article:first-of-type{border-top:0!important;}
     <div id="work" class="work-label">Selected work ({{ workCount }})</div>
 
     <!-- WORK -->
-    <main style="padding:clamp(28px,min(3vw,43.2px),40px) clamp(20px,min(4.5vw,64.8px),72px) 0;display:flex;flex-direction:column;gap:clamp(80px,min(10vw,144px),160px);">
+    <main class="work-main" style="padding:clamp(28px,min(3vw,43.2px),40px) clamp(20px,min(4.5vw,64.8px),72px) 0;display:flex;flex-direction:column;gap:clamp(80px,min(10vw,144px),160px);">
       <sc-for list="{{ projects }}" as="p" hint-placeholder-count="3">
         <article class="project-card" data-reveal="1" data-screen-label="{{ p.screen }}" style="border-top: 1px solid var(--line,var(--t-line)); padding-top: 32px; transition: border-color .7s ease; position: relative">
             <div class="project-card-header">
@@ -386,6 +387,7 @@ class Component extends DCLogic {
     this.initSquiggle();
     this.initSprinkles();
     this.initThemes();
+    this.initStack();
     this.placeDefaultGuides();
     this.onGuideResize = () => { if (!this.guideInteracted) this.placeDefaultGuides(); };
     window.addEventListener('resize', this.onGuideResize);
@@ -394,12 +396,36 @@ class Component extends DCLogic {
     this.io && this.io.disconnect();
     clearTimeout(this.t1); clearTimeout(this.t2); clearTimeout(this.t3); clearTimeout(this.t4);
     this.onGuideResize && window.removeEventListener('resize', this.onGuideResize);
+    if (this.stackTick) { window.removeEventListener('scroll', this.stackTick); window.removeEventListener('resize', this.stackTick); }
     this.onTheme && window.removeEventListener('themechange', this.onTheme);
     this.sqCleanup && this.sqCleanup();
     this.spCleanup && this.spCleanup();
     this.thCleanup && this.thCleanup();
   }
 
+  initStack() {
+    // case study cards pin as you scroll and the next one slides over the last
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let ticking = false;
+    const run = () => {
+      ticking = false;
+      const cards = Array.from(document.querySelectorAll('article.project-card'));
+      const on = window.innerWidth >= 900;
+      cards.forEach((c, i) => {
+        c.style.setProperty('--si', i);
+        const nx = cards[i + 1];
+        if (!on || reduce || !nx) { c.style.transform = ''; c.style.filter = ''; return; }
+        const stuck = 64 + i * 14, d = nx.getBoundingClientRect().top - stuck;
+        const p = Math.max(0, Math.min(1, 1 - d / (window.innerHeight * 0.75)));
+        c.style.transform = 'scale(' + (1 - 0.045 * p).toFixed(4) + ')';
+        c.style.filter = p > 0.001 ? 'brightness(' + (1 - 0.06 * p).toFixed(3) + ')' : '';
+      });
+    };
+    this.stackTick = () => { if (!ticking) { ticking = true; requestAnimationFrame(run); } };
+    window.addEventListener('scroll', this.stackTick, { passive: true });
+    window.addEventListener('resize', this.stackTick);
+    this.stackTick();
+  }
   initSquiggle() {
     const hero = document.querySelector('[data-screen-label="Hero"]');
     const cv = hero && hero.querySelector('.hero-squiggle');
