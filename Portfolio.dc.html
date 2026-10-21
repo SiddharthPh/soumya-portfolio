@@ -164,8 +164,8 @@ main > article:first-of-type{border-top:0!important;}
       <div class="hsq-tip" aria-hidden="true" style="{{ guideStyle }}"><div class="hsq-tip-box"><span class="hsq-tip-t"></span></div></div>
       <div class="hsq-chap" aria-hidden="true" style="{{ guideStyle }}"><div class="hsq-chap-in"><span class="hsq-chap-t"><span>People-first</span><i></i><span>Systems-thinker</span><i></i><span>Context-aware</span></span></div></div>
 
-      <div class="hero-centertext" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;padding:{{ centerPad }};pointer-events:none;z-index:2;">
-        <div style="position:relative;top:10px;font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted,var(--t-muted));transition:color .7s ease;">{{ eyebrow }}</div>
+      <div class="hero-centertext" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:28px;padding:{{ centerPad }};pointer-events:none;z-index:2;">
+        <div style="margin-top:auto;font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted,var(--t-muted));transition:color .7s ease;">{{ eyebrow }}</div>
         <h1 style="{{ headStyle }}">{{ headlineNode }}</h1>
       </div>
 
@@ -866,7 +866,7 @@ class Component extends DCLogic {
       transition: wipe.anim ? 'clip-path .95s cubic-bezier(.65,0,.25,1)' : 'none',
     } : { display: 'none' };
 
-    const centerPad = '0 24px 23% 24px';
+    const centerPad = '24px 24px 23% 24px';
     const guideOffStyle = { display: 'none' };
     const researchStyle = { position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none', display: mode === 'research' ? 'block' : 'none' };
     const guideStyle = { position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none', display: mode === 'design' ? 'block' : 'none' };
@@ -926,7 +926,7 @@ class Component extends DCLogic {
     });
 
     const headStyle = {
-      margin: 0, fontFamily: "'Instrument Serif',serif", fontWeight: 400, fontSize: 'clamp(48px,min(6.8vw,97.92px),124px)', lineHeight: 0.92,
+      margin: '0 0 auto', fontFamily: "'Instrument Serif',serif", fontWeight: 400, fontSize: 'clamp(48px,min(6.8vw,97.92px),124px)', lineHeight: 0.92,
       letterSpacing: '-0.025em', textAlign: 'center', maxWidth: '25ch', textWrap: 'balance', color: 'var(--head,#F9261C)',
       opacity: headOut ? 0 : 1, translate: headOut ? '0 18px' : '0 0', filter: headOut ? 'blur(6px)' : 'blur(0)',
       transition: 'opacity .45s ease, translate .6s cubic-bezier(.2,.7,.2,1), filter .45s ease, color .7s ease',
