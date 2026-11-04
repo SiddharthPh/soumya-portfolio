@@ -41,9 +41,10 @@ a:hover{color:#F9261C;}
   <header style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px clamp(20px,min(4.5vw,64.8px),72px);flex-wrap:wrap;">
     <a href="Portfolio.dc.html" style="font-family:'Instrument Serif',serif;font-size:32px;letter-spacing:-0.02em;color:#F9261C;">Soumya Krishnaraj</a>
     <nav class="desktop-nav" style="display:flex;align-items:center;gap:clamp(16px,min(2.4vw,34.56px),36px);font-size:19px;">
-      <a href="Portfolio.dc.html#research" style="display:flex;align-items:center;gap:10px;"><span style="width:10px;height:10px;border-radius:50%;background:#F9261C;"></span><span>Research</span></a>
+      <a href="Portfolio.dc.html" style="color:var(--t-accent);" aria-current="page">Design</a>
+      <a href="Portfolio.dc.html#research">Research</a>
+      <a href="Sandbox.dc.html"><span style="position:relative;top:-.07em;">&lt;</span>Sandbox<span style="position:relative;top:-.07em;">&gt;</span></a>
       <a href="About.dc.html">About</a>
-      <a href="https://www.linkedin.com/in/soumya-krishnaraj/" target="_blank" rel="noopener" style="background:#F9261C;color:#fff;padding:18px 34px;border-radius:999px;transition:transform .25s ease;" style-hover="transform:translateY(-2px) rotate(-2deg);color:#fff;">Get in touch</a>
     </nav>
       <label for="mobile-nav-toggle" class="hamburger-btn" aria-label="Menu">
       <svg class="hamburger-icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -51,9 +52,10 @@ a:hover{color:#F9261C;}
     </label>
 </header>
   <div class="mobile-nav-panel">
-    <a href="Portfolio.dc.html#research"><span style="width:10px;height:10px;border-radius:50%;background:#F9261C;"></span><span>Research</span></a>
+    <a href="Portfolio.dc.html" style="color:var(--t-accent);" aria-current="page">Design</a>
+    <a href="Portfolio.dc.html#research">Research</a>
+    <a href="Sandbox.dc.html"><span style="position:relative;top:-.07em;">&lt;</span>Sandbox<span style="position:relative;top:-.07em;">&gt;</span></a>
     <a href="About.dc.html">About</a>
-    <a href="https://www.linkedin.com/in/soumya-krishnaraj/" target="_blank" rel="noopener" class="mobile-nav-cta">Get in touch</a>
   </div>
 
   <!-- HERO -->
@@ -226,9 +228,15 @@ a:hover{color:#F9261C;}
     <span style="font-size:15px;letter-spacing:.12em;font-family:'Instrument Sans',system-ui,sans-serif;text-transform:uppercase;">Next project · 02</span>
     <span style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;font-family:'Instrument Serif',serif;font-size:clamp(56px,min(8vw,115.2px),140px);line-height:.9;letter-spacing:-0.03em;"><span>Org structures</span><span>→</span></span>
   </a>
-  <footer style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding:24px clamp(20px,min(4.5vw,64.8px),72px) 40px;font-size:14px;letter-spacing:.1em;font-family:'Instrument Sans',system-ui,sans-serif;text-transform:uppercase;color:#8A4F48;">
-    <span>© 2026 Soumya Krishnaraj</span>
-    <a href="mailto:soumya.krishnaraj@gmail.com">soumya.krishnaraj@gmail.com</a>
+  <footer data-screen-label="Contact" style="padding:clamp(96px,min(11vw,158.4px),180px) clamp(20px,min(4.5vw,64.8px),72px) 40px;display:flex;flex-direction:column;gap:64px;">
+    <div class="labf-grid">
+      <div class="labf-left">
+        <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(45px,min(7vw,100.8px),118px);line-height:.88;letter-spacing:-0.03em;color:var(--head,var(--t-accent));max-width:9ch;">Let&#39;s build it right.</h2>
+        <div id="labf-keys"></div>
+      </div>
+      <div id="labf-printer"></div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font-family:'Instrument Sans',system-ui,sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted,var(--t-muted));border-top:1px solid var(--line,var(--t-line));padding-top:24px;"><span>© 2026 Soumya Krishnaraj</span><span id="labf-version"></span></div>
   </footer>
 </div>
 </x-dc>

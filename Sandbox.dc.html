@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sandbox · Soumya Krishnaraj</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Tamil:wdth,wght@62.5..100,400&family=Tiro+Devanagari+Marathi&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+<style>
+/* The Sandbox page, a hover wall with one tile per passion project. */
+:root{--bg:#fffdfc;--ink:#2a0d09;--ink2:#4a1e18;--accent:#f9261c;--soft:#f3eeea;--soft2:#e9e3de;--muted:#8a4f48;--night:#141313;--ease:cubic-bezier(.22,1,.36,1);--t-bg:#fffdfc;--t-ink:#2a0d09;--t-accent:#f9261c;--t-muted:#8a4f48;--t-line:#efd6d2;--grid-minor:rgba(42,13,9,.035);--grid-major:rgba(42,13,9,.07);}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 18px/1.6 "Instrument Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased;
+  /* engineering paper, small squares with a darker line every fifth, held still while the page scrolls */
+}
+body,.bar{background-color:var(--bg);background-image:linear-gradient(var(--grid-major) 1px,transparent 1px),linear-gradient(90deg,var(--grid-major) 1px,transparent 1px),linear-gradient(var(--grid-minor) 1px,transparent 1px),linear-gradient(90deg,var(--grid-minor) 1px,transparent 1px);
+  background-size:80px 80px,80px 80px,16px 16px,16px 16px;background-attachment:fixed;}
+h1,h3,h4{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:-.02em;text-wrap:balance;margin:0;}
+a{color:inherit;}
+pre,code{font-family:ui-monospace,"SF Mono",Menlo,monospace;}
+.wrap{padding-inline:32px;max-width:1440px;margin:0 auto;}
+
+.bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px clamp(20px,min(4.5vw,64.8px),72px);margin-inline:-32px;flex-wrap:wrap;}
+.nm-link{font-family:"Instrument Serif",serif;font-size:32px;letter-spacing:-.02em;color:var(--accent);text-decoration:none;}
+.name-cycle{display:inline-grid;vertical-align:baseline;}
+.name-cycle .nm{grid-area:1/1;white-space:nowrap;opacity:0;animation:name-cycle 6s infinite;}
+.name-cycle .nm-en{opacity:1;animation-delay:0s;}
+.name-cycle .nm-ta{animation-delay:2s;font-family:"Noto Serif Tamil","Tiro Tamil",serif;font-stretch:62.5%;font-size:.88em;letter-spacing:0;line-height:1.3;}
+.name-cycle .nm-mr{animation-delay:4s;font-family:"Tiro Devanagari Marathi","Noto Serif Devanagari",serif;font-size:.95em;letter-spacing:0;}
+@keyframes name-cycle{0%{opacity:0;transform:translateY(6px);}4%,30%{opacity:1;transform:none;}34%,100%{opacity:0;transform:translateY(-6px);}}
+.mobile-nav-checkbox{display:none;}
+.hamburger-btn{display:none;cursor:pointer;color:var(--ink);}
+.hamburger-icon-close{display:none;}
+.mobile-nav-panel{display:none;flex-direction:column;padding:8px 0 28px;gap:4px;border-top:1px solid var(--t-line);background:var(--bg);position:sticky;top:76px;z-index:49;}
+.mobile-nav-panel a{padding:16px 0;font-size:20px;border-bottom:1px solid var(--t-line);text-decoration:none;color:var(--ink);}
+.mobile-nav-panel .here{color:var(--accent);} .mobile-nav-panel .br{position:relative;top:-.07em;}
+.mobile-nav-checkbox:checked ~ .mobile-nav-panel{display:flex;}
+.mobile-nav-checkbox:checked ~ header .hamburger-icon-open{display:none;}
+.mobile-nav-checkbox:checked ~ header .hamburger-icon-close{display:flex;}
+.bar nav{display:flex;align-items:center;gap:clamp(16px,min(2.4vw,34.56px),36px);font-size:19px;}
+.bar nav a{color:var(--ink);text-decoration:none;transition:color .25s;}
+.bar nav a:hover{color:var(--accent);}
+.bar nav .here{color:var(--accent);}
+.bar nav .br{display:inline-block;position:relative;top:-.07em;transition:transform .35s var(--ease);}
+.bar nav .here:hover .br:first-child{transform:translateX(-3px);} .bar nav .here:hover .br:last-child{transform:translateX(3px);}
+
+.head{padding-block:64px 72px;}
+.head h1{font-size:clamp(56px,7.2vw,112px);line-height:.95;max-width:16ch;}
+.head h1 .w{display:inline-block;white-space:nowrap;}
+.head h1 .l{display:inline-block;transition:transform .5s var(--ease),color .3s;}
+.lede{margin:32px 0 0;font-size:22px;line-height:1.45;max-width:40ch;color:var(--ink2);}
+.caret{display:inline-block;width:.03em;height:.74em;margin-left:.1em;vertical-align:-.02em;background:#cfc8c3;animation:caret 1.06s steps(1) infinite;}
+@keyframes caret{50%{opacity:0;}}
+.tag-build{font-family:inherit;font-size:1em;color:var(--accent);}
+
+/* grain on every picture, an SVG noise tile that jumps a few pixels each frame */
+.grain{position:relative;overflow:hidden;}
+.grain::after{content:"";position:absolute;inset:-80px;pointer-events:none;z-index:4;opacity:.42;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='1.6 0 0 0 -.3 1.6 0 0 0 -.3 1.6 0 0 0 -.3 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain .7s steps(5) infinite;}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-30px,18px)}40%{transform:translate(22px,-34px)}60%{transform:translate(-14px,40px)}80%{transform:translate(36px,8px)}100%{transform:translate(0,0)}}
+
+/* the wall */
+.wall{padding-bottom:0!important;display:flex;flex-direction:column;gap:16px;}
+.row{display:flex;gap:16px;align-items:flex-start;}
+.row>.proj{flex:var(--n) 1 0;min-width:0;aspect-ratio:var(--ar);}
+.tile{position:relative;border-radius:4px;overflow:hidden;outline:none;transform:perspective(1200px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .5s var(--ease);}
+.tile:focus-visible{box-shadow:0 0 0 3px var(--accent);}
+.rise{opacity:0;translate:0 28px;transition:opacity .8s var(--ease),translate .8s var(--ease),transform .5s var(--ease);}
+.rise.in{opacity:1;translate:0 0;}
+
+/* the museum piece keeps the clip's own 16:9 frame so the Arduino on the table stays in view, trimmed 10% from the left */
+.proj{background:var(--night);cursor:pointer;--ar:16/10;}
+/* placement, wide clips take two columns, the phone clip stands tall in one */
+.t-museum{--ar:1280/800;--n:1.6;} .t-boiler{--ar:592/740;--n:.8;}
+.t-msg{--ar:1120/700;--n:1.6;} .t-wywh{--ar:400/866;--n:.4619;background:#100c09;}
+.proj video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:opacity .5s var(--ease),scale .8s var(--ease);}
+.blurb{position:absolute;inset:0;z-index:2;background:var(--soft);display:flex;flex-direction:column;justify-content:flex-start;gap:12px;overflow:hidden;padding:clamp(20px,2.4vw,36px);opacity:0;transition:opacity .45s var(--ease);}
+.blurb h3{font-size:clamp(30px,3vw,48px);line-height:.95;translate:0 12px;transition:translate .6s var(--ease);}
+.blurb p{margin:0;font-size:18px;line-height:1.6;color:var(--ink2);max-width:48ch;translate:0 12px;transition:translate .6s var(--ease) .05s;}
+.proj:hover .blurb,.proj:focus-visible .blurb,.proj.open .blurb{opacity:1;}
+.proj:hover .blurb>*,.proj:focus-visible .blurb>*,.proj.open .blurb>*{translate:0 0;}
+.proj:hover video,.proj:focus-visible video,.proj.open video{opacity:0;scale:1.04;}
+
+/* tech stack stickers, stuck on the corner of each clip */
+.stack{position:absolute;top:12px;left:12px;right:12px;z-index:3;display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none;pointer-events:none;}
+.stk{display:inline-flex;align-items:center;gap:6px;padding:5px 11px 5px 7px;background:#fff;border-radius:999px;font:600 13px/1.1 "Instrument Sans",system-ui,sans-serif;color:var(--ink);box-shadow:0 0 0 1px rgba(42,13,9,.07),0 2px 6px rgba(20,10,8,.28);rotate:-3deg;transition:rotate .4s var(--ease);}
+.stk:nth-child(2){rotate:2.5deg;}
+.stk svg{width:15px;height:15px;flex:none;}
+.proj:hover .stk,.proj:focus-visible .stk{rotate:0deg;}
+.blurb{padding-top:64px!important;} .blurb h3{margin-top:auto;}
+
+
+.foot{padding-block:40px;color:var(--muted);font-size:14px;}
+
+@media (max-width:899px){
+  .wrap{padding-inline:16px;}
+  .bar{margin-inline:-16px;padding:20px 16px;}
+  .head{padding-block:32px 40px;}
+  .head h1{font-size:clamp(36px,10.5vw,64px);max-width:none;}
+  .lede{margin-top:20px;font-size:18px;}
+}
+/* below 1100 the wall stacks, and every blurb sits under its clip so nothing hides behind a hover */
+@media (max-width:1099px){
+  .wall{gap:20px;}
+  .row{display:contents;}
+  .row>.proj{flex:none;aspect-ratio:auto;}
+  .proj{height:auto;width:auto;aspect-ratio:auto;justify-self:stretch;background:var(--soft);cursor:default;}
+  .proj video{position:relative;aspect-ratio:var(--ar);height:auto;opacity:1!important;scale:1!important;}
+  .t-boiler{--vw:min(100%,460px);} .t-wywh{--vw:min(78%,360px);}
+  .t-boiler video,.t-wywh video{width:var(--vw);margin:16px auto 0;border-radius:3px;}
+  .t-wywh video{background:#100c09;}
+  .t-boiler .stack,.t-wywh .stack{top:28px;left:calc((100% - var(--vw)) / 2 + 12px);}
+  .blurb{position:relative;inset:auto;opacity:1;padding:24px!important;}
+  .blurb>*{translate:none!important;}
+  .blurb h3{font-size:clamp(28px,5vw,40px);}
+  .blurb p{font-size:17px;}
+}
+@media (max-width:767px){
+  .desktop-nav{display:none!important;}
+  .hamburger-btn{display:flex;align-items:center;justify-content:center;}
+}
+@media (prefers-reduced-motion:reduce){
+  .grain::after,.name-cycle .nm,.caret{animation:none;} .name-cycle .nm-ta,.name-cycle .nm-mr{display:none;} .rise{opacity:1;translate:none;transition:none;}
+  .tile{transform:none!important;} .proj video{transition:none;}
+}
+</style>
+<script src="./sticky-header.js"></script>
+<script src="./visit-log.js"></script>
+<script src="./footer-lab.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <input type="checkbox" id="mobile-nav-toggle" class="mobile-nav-checkbox">
+  <header class="bar">
+    <a class="nm-link" href="Portfolio.dc.html" aria-label="Soumya Krishnaraj"><span class="name-cycle"><span class="nm nm-en">Soumya</span><span class="nm nm-ta" aria-hidden="true" lang="ta">சௌம்யா</span><span class="nm nm-mr" aria-hidden="true" lang="mr">सौम्या</span></span></a>
+    <nav class="desktop-nav">
+      <a href="Portfolio.dc.html">Design</a>
+      <a href="Portfolio.dc.html#research">Research</a>
+      <a href="#" aria-current="page" class="here"><span class="br" aria-hidden="true">&lt;</span>Sandbox<span class="br" aria-hidden="true">&gt;</span></a>
+      <a href="About.dc.html">About</a>
+    </nav>
+    <label for="mobile-nav-toggle" class="hamburger-btn" aria-label="Menu">
+      <svg class="hamburger-icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg class="hamburger-icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </label>
+  </header>
+  <div class="mobile-nav-panel">
+    <a href="Portfolio.dc.html">Design</a>
+    <a href="Portfolio.dc.html#research">Research</a>
+    <a href="Sandbox.dc.html" class="here" aria-current="page"><span class="br" aria-hidden="true">&lt;</span>Sandbox<span class="br" aria-hidden="true">&gt;</span></a>
+    <a href="About.dc.html">About</a>
+  </div>
+
+  <section class="head">
+    <h1 id="title">Where I'm learning to <code class="tag-build">&lt;build&gt;</code><span class="caret" aria-hidden="true"></span></h1>
+    <p class="lede">Side projects I tinker with, small experiments, and whatever I'm teaching myself this month.</p>
+  </section>
+
+  <section class="wall" aria-label="Sandbox projects">
+    <div class="row">
+    <article class="tile proj t-museum grain rise" tabindex="0" aria-label="A Monet that meets you halfway. Hover or tap to read about it.">
+      <video src="case-study/explorations/museum-proximity.mp4" poster="case-study/explorations/museum-proximity-poster.jpg" muted loop playsinline autoplay aria-hidden="true"></video>
+      <ul class="stack" aria-label="Built with"><li class="stk"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#00878F" d="M18.087 6.146c-.3 0-.607.017-.907.069-2.532.367-4.23 2.239-5.18 3.674-.95-1.435-2.648-3.307-5.18-3.674a6.49 6.49 0 0 0-.907-.069C2.648 6.146 0 8.77 0 12s2.656 5.854 5.913 5.854c.3 0 .607-.017.916-.069 2.531-.376 4.23-2.247 5.18-3.683.949 1.436 2.647 3.307 5.18 3.683.299.043.607.069.915.069C21.344 17.854 24 15.23 24 12s-2.656-5.854-5.913-5.854zM6.53 15.734a3.837 3.837 0 0 1-.625.043c-2.148 0-3.889-1.7-3.889-3.777 0-2.085 1.749-3.777 3.898-3.777.208 0 .416.017.624.043 2.39.35 3.847 2.768 4.347 3.734-.508.974-1.974 3.384-4.355 3.734zm11.558.043c-.208 0-.416-.017-.624-.043-2.39-.35-3.856-2.768-4.347-3.734.491-.966 1.957-3.384 4.347-3.734.208-.026.416-.043.624-.043 2.149 0 3.89 1.7 3.89 3.777 0 2.085-1.75 3.777-3.89 3.777zm1.65-4.404v1.134h-1.205v1.182h-1.156v-1.182H16.17v-1.134h1.206V10.19h1.156v1.183h1.206zM4.246 12.498H7.82v-1.125H4.245v1.125z"/></svg>Arduino</li><li class="stk"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#006699" d="M11.999 0a12 12 0 100 24A12 12 0 0012 0zm1.183 5.255h.048c3.273 0 5.247 1.48 5.247 4.103 0 2.727-1.974 4.536-5.295 4.669v-1.742c1.837-.11 2.801-1.061 2.801-2.744 0-1.498-.957-2.442-2.8-2.516zm-1.773.026l.005 11.896c.779.052 1.583.18 2.26.337l-.269 1.324H6.788v-1.324a14.96 14.96 0 012.26-.337V6.993a14.71 14.71 0 01-2.26-.337V5.33h2.26c.64 0 1.469-.028 2.361-.05z"/></svg>Processing</li></ul>
+      <div class="blurb">
+        <h3>A Monet that meets you halfway</h3>
+        <p>An interactive museum piece built with an Arduino Uno and Processing. An ultrasonic sensor tracks how close you stand to the painting. Lean in and the screen zooms into the brushwork, step back and it pulls out to the full canvas.</p>
+      </div>
+    </article>
+    <article class="tile proj t-boiler grain rise" tabindex="0" aria-label="AirDrum. Hover or tap to read about it.">
+      <video src="case-study/explorations/air-drums.mp4" poster="case-study/explorations/air-drums-poster.jpg" muted loop playsinline autoplay aria-hidden="true"></video>
+      <ul class="stack" aria-label="Built with"><li class="stk"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#8E75B2" d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81"/></svg>Google AI Studio</li></ul>
+      <div class="blurb">
+        <h3>AirDrum</h3>
+        <p>A drum kit you play in thin air, built with Google AI Studio. The webcam tracks my hands, and each pad I strike on screen lights up and plays its sound.</p>
+      </div>
+    </article>
+    </div>
+    <div class="row">
+    <article class="tile proj t-msg grain rise" tabindex="0" aria-label="The Garden in 3D. Hover or tap to read about it.">
+      <video src="case-study/explorations/msg-garden.mp4" poster="case-study/explorations/msg-garden-poster.jpg" muted loop playsinline autoplay aria-hidden="true"></video>
+      <ul class="stack" aria-label="Built with"><li class="stk"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#011A6A" d="M12.052 0C5.394-.007-.003 5.412 0 11.976.003 18.654 5.475 23.981 11.978 24c6.535.02 12.057-5.306 12.022-11.998-.009-1.665-.53-5.371-1.84-5.276-1.98.145-2.159 4.12-2.377 5.407-.417 2.46-1.346 5.08-2.953 6.99-1.88 2.359-4.697 3.634-7.662 3.158-3.55-.564-5.893-3.278-6.68-5.201-.753-1.723-1.035-4.162-.07-6.324 1.16-2.766 3.734-4.632 6.28-5.584 2.006-.827 4.103-1.151 5.357-1.375 2.516-.5 2.855-1.463 2.814-2.149-.015-.252-.256-.724-.785-.943C15.03.269 13.268.001 12.052 0zm5.098 1.342c.139.398.088.85-.148 1.256-.325.56-.972 1.05-1.897 1.29-1.636.428-2.976.554-4.34.96-1.312.39-3.397 1.018-5.316 2.552-.268.842-.341 1.892-.369 2.662.15 5.014 4.557 8.884 9.17 8.682.853-.037 1.921-.261 2.912-.68a13.56 13.56 0 0 0 1.387-2.683l.002-.002v-.002c.424-1.03.606-1.836.8-2.793.32-1.565.202-2.88 1.012-4.758.251-.582.71-1.113 1.258-1.346.25-.105.522-.133.79-.072-.89-2.471-3.115-4.326-5.26-5.066z"/></svg>Cinema 4D</li><li class="stk"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#111111" d="M.38 0a.268.268 0 0 0-.256.332l2.894 11.716a.268.268 0 0 0 .01.04l2.89 11.708a.268.268 0 0 0 .447.128L23.802 7.15a.268.268 0 0 0-.112-.45l-5.784-1.667a.268.268 0 0 0-.123-.035L6.38 1.715a.268.268 0 0 0-.144-.04L.456.01A.268.268 0 0 0 .38 0zm.374.654L5.71 2.08 1.99 5.664zM6.61 2.34l4.864 1.4-3.65 3.515zm-.522.12l1.217 4.926-4.877-1.4zm6.28 1.538l4.878 1.404-3.662 3.53zm-.52.13l1.208 4.9-4.853-1.392zm6.3 1.534l4.947 1.424-3.715 3.574zm-.524.12l1.215 4.926-4.876-1.398zm-15.432.696l4.964 1.424-3.726 3.586zM8.047 8.15l4.877 1.4-3.66 3.527zm-.518.137l1.236 5.017-4.963-1.432zm6.274 1.535l4.965 1.425-3.73 3.586zm-.52.127l1.235 5.012-4.958-1.43zm-9.63 2.438l4.873 1.406-3.656 3.523zm5.854 1.687l4.863 1.403-3.648 3.51zm-.54.04l1.214 4.927-4.875-1.4zm-3.896 4.02l5.037 1.442-3.782 3.638z"/></svg>Three.js</li></ul>
+      <div class="blurb">
+        <h3>The Garden, in 3D</h3>
+        <p>A fan site for Harry Styles' 30 night residency at Madison Square Garden, built around a 3D model of the arena I made in Cinema 4D. It flies you in from outside, then every section lights up and names itself as you hover, so fans can find exactly where they danced.</p>
+      </div>
+    </article>
+    <article class="tile proj t-wywh grain rise" tabindex="0" aria-label="Wish you were here. Hover or tap to read about it.">
+      <video src="case-study/explorations/wish-you-were-here.mp4" poster="case-study/explorations/wish-you-were-here-poster.jpg" muted loop playsinline autoplay aria-hidden="true"></video>
+      <ul class="stack" aria-label="Built with"><li class="stk"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#000020" d="M0 20.084c.043.53.23 1.063.718 1.778.58.849 1.576 1.315 2.303.567.49-.505 5.794-9.776 8.35-13.29a.761.761 0 011.248 0c2.556 3.514 7.86 12.785 8.35 13.29.727.748 1.723.282 2.303-.567.57-.835.728-1.42.728-2.046 0-.426-8.26-15.798-9.092-17.078-.8-1.23-1.044-1.498-2.397-1.542h-1.032c-1.353.044-1.597.311-2.398 1.542C8.267 3.991.33 18.758 0 19.77Z"/></svg>Expo</li><li class="stk"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#087EA4" d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.345-.034-.46 0-.915.01-1.36.034.44-.572.895-1.096 1.345-1.565zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466-.098 2.21-.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933-.2-.39-.41-.783-.64-1.174-.225-.392-.465-.774-.705-1.146zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493-.28-.958-.646-1.956-1.1-2.98.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98-.45 1.017-.812 2.01-1.086 2.964-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.356-.494zm11.678 4.28c.265.657.49 1.312.676 1.948-.64.157-1.316.29-2.016.39.24-.375.48-.762.705-1.158.225-.39.435-.788.636-1.18zm-9.945.02c.2.392.41.783.64 1.175.23.39.465.772.705 1.143-.695-.102-1.365-.23-2.006-.386.18-.63.406-1.282.66-1.933zM17.92 16.32c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714 3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.11-2.28.686-.72 1.37-1.536 2.02-2.44 1.107-.118 2.154-.3 3.113-.54zm-11.83.01c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295-.22-.005-.406-.05-.553-.132-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438zm4.56.64c.44.02.89.034 1.345.034.46 0 .915-.01 1.36-.034-.44.572-.895 1.095-1.345 1.565-.455-.47-.91-.993-1.36-1.565z"/></svg>React Native</li></ul>
+      <div class="blurb">
+        <h3>Wish you were here</h3>
+        <p>A low effort way to keep in touch with long distance friends. Hold the shutter to keep a few seconds of wherever you are, give it a film look and a caption, then turn it over, write a note and post it like a postcard. Built with Expo and React Native.</p>
+      </div>
+    </article>
+    </div>
+
+
+
+  </section>
+
+  <footer data-screen-label="Contact" style="padding:clamp(96px,min(11vw,158.4px),180px) 0 40px;display:flex;flex-direction:column;gap:64px;">
+    <div class="labf-grid">
+      <div class="labf-left">
+        <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(45px,min(7vw,100.8px),118px);line-height:.88;letter-spacing:-0.03em;color:var(--t-accent);max-width:9ch;">Let&#39;s build it right.</h2>
+        <div id="labf-keys"></div>
+      </div>
+      <div id="labf-printer" data-dc-tpl></div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font-family:'Instrument Sans',system-ui,sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--t-muted);border-top:1px solid var(--t-line);padding-top:24px;"><span>© 2026 Soumya Krishnaraj</span><span id="labf-version"></span></div>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  // title letters lean away from the cursor, a small nod to proximity
+  var h1 = document.getElementById('title');
+  var letters = [];
+  [].slice.call(h1.childNodes).forEach(function (n) {
+    if (n.nodeType === 1) { n.classList.add('l'); n.setAttribute('aria-hidden', 'true'); letters.push(n); return; }
+    var frag = document.createDocumentFragment();
+    n.textContent.split(/(\s+)/).forEach(function (w) {
+      if (!w) return; if (/^\s+$/.test(w)) { frag.appendChild(document.createTextNode(' ')); return; }
+      var ws = document.createElement('span'); ws.className = 'w'; ws.setAttribute('aria-hidden', 'true');
+      w.split('').forEach(function (c) { var l = document.createElement('span'); l.className = 'l'; l.textContent = c; ws.appendChild(l); letters.push(l); });
+      frag.appendChild(ws);
+    });
+    h1.replaceChild(frag, n);
+  });
+  h1.setAttribute('aria-label', "Where I'm learning to build");
+
+  // tiles rise in once, staggered
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (!e.isIntersecting) return; var i = [].indexOf.call(e.target.parentNode.children, e.target);
+      e.target.style.transitionDelay = (i % 4) * 80 + 'ms'; e.target.classList.add('in'); io.unobserve(e.target);
+      setTimeout(function () { e.target.style.transitionDelay = '0ms'; }, 1200); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.rise').forEach(function (el) { io.observe(el); });
+
+  // tap opens a tile on touch screens, Enter does the same from the keyboard
+  document.querySelectorAll('.proj').forEach(function (t) {
+    t.addEventListener('click', function () { if (!fine) t.classList.toggle('open'); });
+    t.addEventListener('keydown', function (e) { if (e.key === 'Enter') t.classList.toggle('open'); });
+  });
+
+  // a slight tilt toward the cursor on hover
+  if (fine && !reduce) document.querySelectorAll('.proj').forEach(function (t) {
+    t.addEventListener('pointermove', function (e) { var r = t.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+      t.style.setProperty('--ry', (x * 4).toFixed(2) + 'deg'); t.style.setProperty('--rx', (-y * 4).toFixed(2) + 'deg'); });
+    t.addEventListener('pointerleave', function () { t.style.setProperty('--ry', '0deg'); t.style.setProperty('--rx', '0deg'); });
+  });
+
+  // title letters lean away from the cursor
+  var mx = -1e4, my = -1e4;
+  function lean() {
+    if (reduce || !fine) return;
+    letters.forEach(function (s) {
+      var lr = s.getBoundingClientRect(), ddx = lr.left + lr.width / 2 - mx, ddy = lr.top + lr.height / 2 - my, dist = Math.hypot(ddx, ddy) || 1, f = Math.max(0, 1 - dist / 220);
+      s.style.transform = f ? 'translate(' + (ddx / dist * f * 14).toFixed(1) + 'px,' + (ddy / dist * f * 10).toFixed(1) + 'px)' : '';
+      s.style.color = f > .5 ? 'var(--accent)' : '';
+    });
+  }
+  addEventListener('pointermove', function (e) { if (e.pointerType !== 'mouse') return; mx = e.clientX; my = e.clientY; lean(); }, { passive: true });
+  addEventListener('scroll', lean, { passive: true });
+
+  // on the wall, shrink a blurb's type until the whole thing fits inside its tile
+  function fit() {
+    document.querySelectorAll('.blurb').forEach(function (b) {
+      var h = b.querySelector('h3'), p = b.querySelector('p');
+      h.style.fontSize = ''; p.style.fontSize = '';
+      if (getComputedStyle(b).position !== 'absolute') return;
+      var hs = parseFloat(getComputedStyle(h).fontSize), ps = parseFloat(getComputedStyle(p).fontSize);
+      while (b.scrollHeight > b.clientHeight + 1 && ps > 12) { ps -= .5; hs = Math.max(22, hs - 1); p.style.fontSize = ps + 'px'; h.style.fontSize = hs + 'px'; }
+    });
+  }
+  var ft; addEventListener('resize', function () { clearTimeout(ft); ft = setTimeout(fit, 80); });
+  fit(); if (document.fonts) document.fonts.ready.then(fit);
+})();
+</script>
+</body>
+</html>

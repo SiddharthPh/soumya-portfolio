@@ -1,6 +1,7 @@
 (function(){
   var KEY='theme', root=document.documentElement;
-  function get(){ try{ return localStorage.getItem(KEY)==='dark'?'dark':'light'; }catch(e){ return 'light'; } }
+  var DARK_OFF=true;   // dark mode is paused for now, the toggles are out of the headers, flip this to bring it back
+  function get(){ if(DARK_OFF) return 'light'; try{ return localStorage.getItem(KEY)==='dark'?'dark':'light'; }catch(e){ return 'light'; } }
   function apply(t){
     root.setAttribute('data-theme',t);
     root.style.colorScheme=t;
