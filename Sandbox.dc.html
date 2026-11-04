@@ -279,6 +279,18 @@ pre,code{font-family:ui-monospace,"SF Mono",Menlo,monospace;}
   }
   var ft; addEventListener('resize', function () { clearTimeout(ft); ft = setTimeout(fit, 80); });
   fit(); if (document.fonts) document.fonts.ready.then(fit);
+
+  // start every clip ourselves, some browsers skip the autoplay attribute, retry on the first touch, and rest clips that are off screen
+  var vids = [].slice.call(document.querySelectorAll('.proj video'));
+  function go(v) { v.muted = true; v.defaultMuted = true; v.playsInline = true; var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+  vids.forEach(function (v) { v.setAttribute('muted', ''); v.setAttribute('playsinline', ''); if (v.readyState < 2) v.addEventListener('canplay', function () { go(v); }, { once: true }); go(v); });
+  if ('IntersectionObserver' in window) {
+    var vo = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) go(e.target); else e.target.pause(); }); }, { threshold: .15 });
+    vids.forEach(function (v) { vo.observe(v); });
+  }
+  function kick() { vids.forEach(function (v) { if (v.paused && v.getBoundingClientRect().bottom > 0 && v.getBoundingClientRect().top < innerHeight) go(v); }); }
+  ['pointerdown', 'touchstart', 'keydown', 'scroll'].forEach(function (ev) { addEventListener(ev, kick, { passive: true }); });
+  document.addEventListener('visibilitychange', function () { if (!document.hidden) kick(); });
 })();
 </script>
 </body>
