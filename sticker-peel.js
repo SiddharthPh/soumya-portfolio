@@ -537,6 +537,12 @@ void main() {
       }
       hit.style.width = s.width + 'px';
       hit.style.height = h + 'px';
+      // an anchored sticker nobody has moved follows its anchor when the layout changes
+      if (sticker.ready && state.placed && !state.moved && typeof s.initialPosition === 'function') {
+        var again = s.initialPosition(bounds, { width: s.width, height: h });
+        state.x = again.x;
+        state.y = again.y;
+      }
       if (!state.placed && sticker.ready) {
         var start = s.initialPosition;
         if (typeof start === 'function') {
@@ -801,6 +807,7 @@ void main() {
         press.pointer = point;
         if (!press.moving && Math.hypot(point.x - press.origin.x, point.y - press.origin.y) > 3) {
           press.moving = s.draggable;
+          if (press.moving) state.moved = true;
           if (press.moving && s.onDragStart) s.onDragStart();
         }
         press.samples.push({ x: point.x, y: point.y, t: performance.now() });
