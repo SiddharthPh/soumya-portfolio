@@ -90,6 +90,17 @@ pre,code{font-family:ui-monospace,"SF Mono",Menlo,monospace;}
 .stk svg{width:15px;height:15px;flex:none;}
 .proj:hover .stk,.proj:focus-visible .stk{rotate:0deg;}
 .blurb{padding-top:64px!important;} .blurb h3{margin-top:auto;}
+/* when WebGL is there the pills become peelable die cut stickers, the list stays for screen readers */
+/* tiles stop clipping so a sticker can sit half off the edge of its clip, the clip, blurb and grain round their own corners */
+.tile.grain{overflow:visible;}
+.tile.grain::after{inset:0;border-radius:inherit;animation-name:grain-bg;}
+@keyframes grain-bg{0%{background-position:0 0}20%{background-position:-30px 18px}40%{background-position:22px -34px}60%{background-position:-14px 40px}80%{background-position:36px 8px}100%{background-position:0 0}}
+.tile>.clip,.tile>.blurb{border-radius:4px;}
+.proj:hover .clip,.proj:focus-visible .clip,.proj.open .clip{scale:1!important;}
+.peel{position:absolute;inset:-36px -14px;z-index:5;pointer-events:none;}
+.stk-name{position:absolute;left:50%;top:calc(50% + var(--sh) / 2 + 8px);translate:-50% 4px;padding:5px 10px;border-radius:999px;background:var(--ink);color:#fff;font:600 13px/1.1 "Instrument Sans",system-ui,sans-serif;white-space:nowrap;opacity:0;transition:opacity .2s var(--ease),translate .25s var(--ease);pointer-events:none;}
+.sticker-peel.hov .stk-name{opacity:1;translate:-50% 0;}
+.peeled .stack{position:absolute!important;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);}
 
 
 .foot{padding-block:40px;color:var(--muted);font-size:14px;}
@@ -129,6 +140,7 @@ pre,code{font-family:ui-monospace,"SF Mono",Menlo,monospace;}
 <script src="./sticky-header.js"></script>
 <script src="./visit-log.js"></script>
 <script src="./footer-lab.js"></script>
+<script src="./sticker-peel.js"></script>
 </head>
 <body>
 <div class="wrap">
@@ -240,6 +252,50 @@ pre,code{font-family:ui-monospace,"SF Mono",Menlo,monospace;}
       setTimeout(function () { e.target.style.transitionDelay = '0ms'; }, 1200); });
   }, { threshold: 0.12 });
   document.querySelectorAll('.rise').forEach(function (el) { io.observe(el); });
+
+  // logo pills become die cut stickers you can peel, pick up and throw around the tile
+  function dieCut(path, fill, done) {
+    var S = 480, B = 46, T = S + B * 2;
+    var img = new Image();
+    img.onload = function () {
+      var art = document.createElement('canvas'); art.width = art.height = T;
+      art.getContext('2d').drawImage(img, B, B, S, S);
+      var cut = document.createElement('canvas'); cut.width = cut.height = T;
+      var cx = cut.getContext('2d');
+      for (var r = B; r > 0; r -= B / 3) for (var a = 0; a < 48; a++) cx.drawImage(art, Math.cos(a / 48 * 6.2832) * r, Math.sin(a / 48 * 6.2832) * r);
+      cx.globalCompositeOperation = 'source-in'; cx.fillStyle = '#fff'; cx.fillRect(0, 0, T, T);
+      // fill any holes so the backing is one solid piece of vinyl
+      var id = cx.getImageData(0, 0, T, T), px = id.data, out = new Uint8Array(T * T), q = [];
+      function v(i) { if (out[i] || px[i * 4 + 3] > 120) return; out[i] = 1; q.push(i); }
+      for (var i = 0; i < T; i++) { v(i); v(T * (T - 1) + i); v(i * T); v(i * T + T - 1); }
+      while (q.length) { var k = q.pop(), x = k % T; if (x > 0) v(k - 1); if (x < T - 1) v(k + 1); if (k >= T) v(k - T); if (k < T * (T - 1)) v(k + T); }
+      for (i = 0; i < T * T; i++) if (!out[i] && px[i * 4 + 3] < 255) { px[i * 4] = px[i * 4 + 1] = px[i * 4 + 2] = 255; px[i * 4 + 3] = 255; }
+      cx.globalCompositeOperation = 'source-over'; cx.putImageData(id, 0, 0);
+      cx.drawImage(art, 0, 0);
+      done(cut.toDataURL('image/png'));
+    };
+    img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="' + S + '" height="' + S + '"><path fill="' + fill + '" d="' + path + '"/></svg>');
+  }
+  if (window.StickerPeel) document.querySelectorAll('.proj').forEach(function (t) {
+    var paths = [].slice.call(t.querySelectorAll('.stk path')), names = [].slice.call(t.querySelectorAll('.stk')).map(function (li) { return li.textContent.trim(); }); if (!paths.length) return;
+    var clip = t.querySelector('.clip'), layer = document.createElement('div'); layer.className = 'peel'; layer.setAttribute('aria-hidden', 'true'); t.appendChild(layer);
+    layer.addEventListener('click', function (e) { e.stopPropagation(); });
+    var made = 0;
+    paths.forEach(function (p, n) {
+      dieCut(p.getAttribute('d'), p.getAttribute('fill'), function (src) {
+        var w = innerWidth < 600 ? 50 : 60;
+        var sp = StickerPeel(layer, {
+          imageSrc: src, width: w, rotate: n ? 7 : -8, finish: 'gloss', backColor: '#ece6dc',
+          peelBackHoverPct: 28, peelBackActivePct: 42, curlRadius: 8, lightingIntensity: .45, shadowIntensity: .7,
+          initialPosition: function (b, size) { return { x: 14 + clip.offsetLeft + 22 + size.width / 2 + n * (size.width + 8), y: 36 + clip.offsetTop + 4 }; },
+          onHoverChange: function (on) { if (sp) sp.root.classList.toggle('hov', on); }
+        });
+        if (!sp) return;
+        var tag = document.createElement('span'); tag.className = 'stk-name'; tag.textContent = names[n]; tag.style.setProperty('--sh', w + 'px'); sp.root.appendChild(tag);
+        if (!made++) t.classList.add('peeled');
+      });
+    });
+  });
 
   // tap opens a tile on touch screens, Enter does the same from the keyboard
   document.querySelectorAll('.proj').forEach(function (t) {
